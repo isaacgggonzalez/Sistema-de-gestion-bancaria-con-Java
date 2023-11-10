@@ -41,25 +41,31 @@ public class BaseInterfaz extends javax.swing.JFrame {
         boton_consultarSaldo = new java.awt.Button();
         boton_acercaSistema = new java.awt.Button();
         boton_transferenciaCuenta = new java.awt.Button();
-        boton_salir1 = new java.awt.Button();
+        boton_salir = new java.awt.Button();
         separador = new javax.swing.JLayeredPane();
         label1 = new java.awt.Label();
-        jLayeredPane3 = new javax.swing.JLayeredPane();
-        panel1 = new java.awt.Panel();
-        boton_cancelarTransaccion = new java.awt.Button();
-        boton_confirmarTransaccion = new java.awt.Button();
-        cuentaDestino = new javax.swing.JTextField();
+        menu_interaccion = new javax.swing.JLayeredPane();
+        menu_consultarSaldo = new java.awt.Panel();
         label2 = new java.awt.Label();
-        cuentaDestino1 = new javax.swing.JTextField();
-        label3 = new java.awt.Label();
-        cuentaDestino2 = new javax.swing.JTextField();
-        label4 = new java.awt.Label();
-        cuentaDestino3 = new javax.swing.JTextField();
-        label5 = new java.awt.Label();
-        label6 = new java.awt.Label();
         cuentaDestino4 = new javax.swing.JTextField();
-        cuentaDestino5 = new javax.swing.JTextField();
         label7 = new java.awt.Label();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        menu_transferencia = new java.awt.Panel();
+        boton_cancelarTransaccion1 = new java.awt.Button();
+        boton_confirmarTransaccion1 = new java.awt.Button();
+        cuentaDestino6 = new javax.swing.JTextField();
+        label8 = new java.awt.Label();
+        cuentaDestino7 = new javax.swing.JTextField();
+        label9 = new java.awt.Label();
+        cuentaDestino8 = new javax.swing.JTextField();
+        label10 = new java.awt.Label();
+        cuentaDestino9 = new javax.swing.JTextField();
+        label11 = new java.awt.Label();
+        label12 = new java.awt.Label();
+        cuentaDestino10 = new javax.swing.JTextField();
+        cuentaDestino11 = new javax.swing.JTextField();
+        label13 = new java.awt.Label();
         fondo1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -70,18 +76,15 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
         jDesktopPane1.setMaximumSize(new java.awt.Dimension(1020, 660));
         jDesktopPane1.setMinimumSize(new java.awt.Dimension(1020, 660));
-        jDesktopPane1.setPreferredSize(new java.awt.Dimension(1020, 660));
         jDesktopPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         InterfazPrincipal.setEnabled(false);
         InterfazPrincipal.setMaximumSize(new java.awt.Dimension(1020, 640));
         InterfazPrincipal.setMinimumSize(new java.awt.Dimension(1020, 640));
-        InterfazPrincipal.setPreferredSize(new java.awt.Dimension(1020, 640));
 
         jLayeredPane1.setEnabled(false);
         jLayeredPane1.setMaximumSize(new java.awt.Dimension(1020, 640));
         jLayeredPane1.setMinimumSize(new java.awt.Dimension(1020, 640));
-        jLayeredPane1.setPreferredSize(new java.awt.Dimension(1020, 640));
 
         fecha.setFont(new java.awt.Font("Arial", 1, 28)); // NOI18N
         fecha.setForeground(new java.awt.Color(255, 255, 255));
@@ -93,14 +96,16 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/primer_final/Logo 350x350.png"))); // NOI18N
 
+        jPanel1.setEnabled(false);
         jPanel1.setPreferredSize(new java.awt.Dimension(1020, 500));
+
+        botonesMenu.setEnabled(false);
 
         boton_pagarTarjeta.setActionCommand("pagarTarjeta");
         boton_pagarTarjeta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         boton_pagarTarjeta.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         boton_pagarTarjeta.setLabel("Pagar Tarjeta");
         boton_pagarTarjeta.setMinimumSize(new java.awt.Dimension(245, 35));
-        boton_pagarTarjeta.setPreferredSize(new java.awt.Dimension(245, 35));
         boton_pagarTarjeta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_pagarTarjetaActionPerformed(evt);
@@ -112,7 +117,6 @@ public class BaseInterfaz extends javax.swing.JFrame {
         boton_deposito.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         boton_deposito.setLabel("Deposito");
         boton_deposito.setMinimumSize(new java.awt.Dimension(245, 35));
-        boton_deposito.setPreferredSize(new java.awt.Dimension(245, 35));
         boton_deposito.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_depositoActionPerformed(evt);
@@ -124,7 +128,6 @@ public class BaseInterfaz extends javax.swing.JFrame {
         boton_pagarServicio.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         boton_pagarServicio.setLabel("Pagar Servicio");
         boton_pagarServicio.setMinimumSize(new java.awt.Dimension(245, 35));
-        boton_pagarServicio.setPreferredSize(new java.awt.Dimension(245, 35));
         boton_pagarServicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_pagarServicioActionPerformed(evt);
@@ -136,7 +139,6 @@ public class BaseInterfaz extends javax.swing.JFrame {
         boton_consultarSaldo.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         boton_consultarSaldo.setLabel("Consultar Saldo");
         boton_consultarSaldo.setMinimumSize(new java.awt.Dimension(245, 35));
-        boton_consultarSaldo.setPreferredSize(new java.awt.Dimension(245, 35));
         boton_consultarSaldo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_consultarSaldoActionPerformed(evt);
@@ -148,7 +150,6 @@ public class BaseInterfaz extends javax.swing.JFrame {
         boton_acercaSistema.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         boton_acercaSistema.setLabel("Acerca del Sistema");
         boton_acercaSistema.setMinimumSize(new java.awt.Dimension(245, 35));
-        boton_acercaSistema.setPreferredSize(new java.awt.Dimension(245, 35));
         boton_acercaSistema.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_acercaSistemaActionPerformed(evt);
@@ -160,21 +161,20 @@ public class BaseInterfaz extends javax.swing.JFrame {
         boton_transferenciaCuenta.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         boton_transferenciaCuenta.setLabel("Transferencia entre Cuentas");
         boton_transferenciaCuenta.setMinimumSize(new java.awt.Dimension(245, 35));
-        boton_transferenciaCuenta.setPreferredSize(new java.awt.Dimension(245, 35));
         boton_transferenciaCuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_transferenciaCuentaActionPerformed(evt);
             }
         });
 
-        boton_salir1.setActionCommand("salir");
-        boton_salir1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        boton_salir1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        boton_salir1.setLabel("Salir");
-        boton_salir1.setMinimumSize(new java.awt.Dimension(245, 35));
-        boton_salir1.addActionListener(new java.awt.event.ActionListener() {
+        boton_salir.setActionCommand("salir");
+        boton_salir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        boton_salir.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        boton_salir.setLabel("Salir");
+        boton_salir.setMinimumSize(new java.awt.Dimension(245, 35));
+        boton_salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boton_salir1ActionPerformed(evt);
+                boton_salirActionPerformed(evt);
             }
         });
 
@@ -184,7 +184,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         botonesMenu.setLayer(boton_consultarSaldo, javax.swing.JLayeredPane.DEFAULT_LAYER);
         botonesMenu.setLayer(boton_acercaSistema, javax.swing.JLayeredPane.DEFAULT_LAYER);
         botonesMenu.setLayer(boton_transferenciaCuenta, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        botonesMenu.setLayer(boton_salir1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        botonesMenu.setLayer(boton_salir, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout botonesMenuLayout = new javax.swing.GroupLayout(botonesMenu);
         botonesMenu.setLayout(botonesMenuLayout);
@@ -199,7 +199,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                     .addComponent(boton_acercaSistema, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
                     .addComponent(boton_consultarSaldo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(boton_transferenciaCuenta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(boton_salir1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(boton_salir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         botonesMenuLayout.setVerticalGroup(
@@ -218,16 +218,17 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(boton_acercaSistema, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(21, 21, 21)
-                .addComponent(boton_salir1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(boton_salir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(26, 26, 26))
         );
 
+        separador.setEnabled(false);
         separador.setMinimumSize(new java.awt.Dimension(5, 425));
+        separador.setPreferredSize(new java.awt.Dimension(5, 425));
 
         label1.setAlignment(java.awt.Label.CENTER);
         label1.setBackground(new java.awt.Color(181, 181, 181));
         label1.setMinimumSize(new java.awt.Dimension(5, 425));
-        label1.setPreferredSize(new java.awt.Dimension(5, 425));
 
         separador.setLayer(label1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -235,104 +236,26 @@ public class BaseInterfaz extends javax.swing.JFrame {
         separador.setLayout(separadorLayout);
         separadorLayout.setHorizontalGroup(
             separadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(label1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(label1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 5, Short.MAX_VALUE)
         );
         separadorLayout.setVerticalGroup(
             separadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(separadorLayout.createSequentialGroup()
-                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 415, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        jLayeredPane3.setBackground(new java.awt.Color(153, 153, 153));
-        jLayeredPane3.setForeground(new java.awt.Color(153, 153, 153));
+        menu_interaccion.setBackground(new java.awt.Color(153, 153, 153));
+        menu_interaccion.setForeground(new java.awt.Color(153, 153, 153));
+        menu_interaccion.setEnabled(false);
 
-        panel1.setBackground(new java.awt.Color(153, 153, 153));
-        panel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-
-        boton_cancelarTransaccion.setActionCommand("cancelarTransaccion");
-        boton_cancelarTransaccion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        boton_cancelarTransaccion.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        boton_cancelarTransaccion.setForeground(new java.awt.Color(51, 51, 51));
-        boton_cancelarTransaccion.setLabel("Cancelar Transaccion");
-        boton_cancelarTransaccion.setMaximumSize(new java.awt.Dimension(190, 30));
-        boton_cancelarTransaccion.setMinimumSize(new java.awt.Dimension(190, 30));
-        boton_cancelarTransaccion.setPreferredSize(new java.awt.Dimension(190, 30));
-        boton_cancelarTransaccion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boton_cancelarTransaccionActionPerformed(evt);
-            }
-        });
-
-        boton_confirmarTransaccion.setActionCommand("confirmarTransaccion");
-        boton_confirmarTransaccion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        boton_confirmarTransaccion.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        boton_confirmarTransaccion.setForeground(new java.awt.Color(51, 51, 51));
-        boton_confirmarTransaccion.setLabel("Confirmar Transaccion");
-        boton_confirmarTransaccion.setMinimumSize(new java.awt.Dimension(190, 30));
-        boton_confirmarTransaccion.setPreferredSize(new java.awt.Dimension(190, 30));
-        boton_confirmarTransaccion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boton_confirmarTransaccionActionPerformed(evt);
-            }
-        });
-
-        cuentaDestino.setBackground(new java.awt.Color(255, 255, 255));
-        cuentaDestino.setForeground(new java.awt.Color(0, 0, 0));
-        cuentaDestino.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cuentaDestinoActionPerformed(evt);
-            }
-        });
+        menu_consultarSaldo.setBackground(new java.awt.Color(153, 153, 153));
+        menu_consultarSaldo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
         label2.setAlignment(java.awt.Label.CENTER);
         label2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         label2.setForeground(new java.awt.Color(0, 1, 0));
-        label2.setText("Cuenta de Destino");
-
-        cuentaDestino1.setBackground(new java.awt.Color(255, 255, 255));
-        cuentaDestino1.setForeground(new java.awt.Color(0, 0, 0));
-        cuentaDestino1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cuentaDestino1ActionPerformed(evt);
-            }
-        });
-
-        label3.setAlignment(java.awt.Label.CENTER);
-        label3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        label3.setForeground(new java.awt.Color(0, 1, 0));
-        label3.setText("Nombre de Destinatario");
-
-        cuentaDestino2.setBackground(new java.awt.Color(255, 255, 255));
-        cuentaDestino2.setForeground(new java.awt.Color(0, 0, 0));
-        cuentaDestino2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cuentaDestino2ActionPerformed(evt);
-            }
-        });
-
-        label4.setAlignment(java.awt.Label.CENTER);
-        label4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        label4.setForeground(new java.awt.Color(0, 1, 0));
-        label4.setText("Nombre de Destinatario");
-
-        cuentaDestino3.setBackground(new java.awt.Color(255, 255, 255));
-        cuentaDestino3.setForeground(new java.awt.Color(0, 0, 0));
-        cuentaDestino3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cuentaDestino3ActionPerformed(evt);
-            }
-        });
-
-        label5.setAlignment(java.awt.Label.CENTER);
-        label5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        label5.setForeground(new java.awt.Color(0, 1, 0));
-        label5.setText("Monto");
-
-        label6.setAlignment(java.awt.Label.CENTER);
-        label6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        label6.setForeground(new java.awt.Color(0, 1, 0));
-        label6.setText("Cuenta de Origen");
+        label2.setText("Movimiento de la Cuenta");
 
         cuentaDestino4.setBackground(new java.awt.Color(196, 196, 196));
         cuentaDestino4.setForeground(new java.awt.Color(0, 0, 0));
@@ -343,114 +266,305 @@ public class BaseInterfaz extends javax.swing.JFrame {
             }
         });
 
-        cuentaDestino5.setBackground(new java.awt.Color(196, 196, 196));
-        cuentaDestino5.setForeground(new java.awt.Color(0, 0, 0));
-        cuentaDestino5.setEnabled(false);
-        cuentaDestino5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cuentaDestino5ActionPerformed(evt);
-            }
-        });
-
         label7.setAlignment(java.awt.Label.CENTER);
         label7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         label7.setForeground(new java.awt.Color(0, 1, 0));
         label7.setText("Saldo");
 
-        javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
-        panel1.setLayout(panel1Layout);
-        panel1Layout.setHorizontalGroup(
-            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(cuentaDestino2)
-                    .addComponent(cuentaDestino)
-                    .addComponent(label3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(label2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cuentaDestino1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cuentaDestino3)
-                            .addComponent(label5, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(30, 30, 30))
-                    .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(cuentaDestino5)
-                        .addComponent(label6, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(52, 52, 52))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                .addContainerGap(85, Short.MAX_VALUE)
-                .addComponent(boton_cancelarTransaccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                .addComponent(boton_confirmarTransaccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(101, 101, 101))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(label7, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cuentaDestino4, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+        jScrollPane1.setEnabled(false);
+        jScrollPane1.setRequestFocusEnabled(false);
+
+        jTable1.setBackground(new java.awt.Color(255, 255, 255));
+        jTable1.setForeground(new java.awt.Color(204, 204, 204));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Fecha", "ID", "Tipo de Servicio", "Monto"
+            }
+        ));
+        jTable1.setEnabled(false);
+        jTable1.setGridColor(new java.awt.Color(204, 204, 204));
+        jTable1.setRequestFocusEnabled(false);
+        jTable1.setSelectionBackground(new java.awt.Color(204, 204, 204));
+        jTable1.setSelectionForeground(new java.awt.Color(204, 204, 204));
+        jTable1.setShowHorizontalLines(true);
+        jTable1.setShowVerticalLines(true);
+        jTable1.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(jTable1);
+        jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+
+        javax.swing.GroupLayout menu_consultarSaldoLayout = new javax.swing.GroupLayout(menu_consultarSaldo);
+        menu_consultarSaldo.setLayout(menu_consultarSaldoLayout);
+        menu_consultarSaldoLayout.setHorizontalGroup(
+            menu_consultarSaldoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu_consultarSaldoLayout.createSequentialGroup()
+                .addGroup(menu_consultarSaldoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, menu_consultarSaldoLayout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addGroup(menu_consultarSaldoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(menu_consultarSaldoLayout.createSequentialGroup()
+                                .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 572, Short.MAX_VALUE)))
+                    .addGroup(menu_consultarSaldoLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(label7, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cuentaDestino4, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(23, 23, 23))
         );
-        panel1Layout.setVerticalGroup(
-            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel1Layout.createSequentialGroup()
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel1Layout.createSequentialGroup()
+        menu_consultarSaldoLayout.setVerticalGroup(
+            menu_consultarSaldoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menu_consultarSaldoLayout.createSequentialGroup()
+                .addGroup(menu_consultarSaldoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(menu_consultarSaldoLayout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addComponent(cuentaDestino4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu_consultarSaldoLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(label7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(19, 19, 19)))
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addComponent(label6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        menu_transferencia.setBackground(new java.awt.Color(153, 153, 153));
+        menu_transferencia.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        menu_transferencia.setPreferredSize(new java.awt.Dimension(643, 367));
+
+        boton_cancelarTransaccion1.setActionCommand("cancelarTransaccion");
+        boton_cancelarTransaccion1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        boton_cancelarTransaccion1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        boton_cancelarTransaccion1.setForeground(new java.awt.Color(51, 51, 51));
+        boton_cancelarTransaccion1.setLabel("Cancelar Transaccion");
+        boton_cancelarTransaccion1.setMaximumSize(new java.awt.Dimension(190, 30));
+        boton_cancelarTransaccion1.setMinimumSize(new java.awt.Dimension(190, 30));
+        boton_cancelarTransaccion1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_cancelarTransaccion1ActionPerformed(evt);
+            }
+        });
+
+        boton_confirmarTransaccion1.setActionCommand("confirmarTransaccion");
+        boton_confirmarTransaccion1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        boton_confirmarTransaccion1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        boton_confirmarTransaccion1.setForeground(new java.awt.Color(51, 51, 51));
+        boton_confirmarTransaccion1.setLabel("Confirmar Transaccion");
+        boton_confirmarTransaccion1.setMinimumSize(new java.awt.Dimension(190, 30));
+        boton_confirmarTransaccion1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_confirmarTransaccion1ActionPerformed(evt);
+            }
+        });
+
+        cuentaDestino6.setBackground(new java.awt.Color(255, 255, 255));
+        cuentaDestino6.setForeground(new java.awt.Color(0, 0, 0));
+        cuentaDestino6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cuentaDestino6ActionPerformed(evt);
+            }
+        });
+
+        label8.setAlignment(java.awt.Label.CENTER);
+        label8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        label8.setForeground(new java.awt.Color(0, 1, 0));
+        label8.setText("Cuenta de Destino");
+
+        cuentaDestino7.setBackground(new java.awt.Color(255, 255, 255));
+        cuentaDestino7.setForeground(new java.awt.Color(0, 0, 0));
+        cuentaDestino7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cuentaDestino7ActionPerformed(evt);
+            }
+        });
+
+        label9.setAlignment(java.awt.Label.CENTER);
+        label9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        label9.setForeground(new java.awt.Color(0, 1, 0));
+        label9.setText("Nombre de Destinatario");
+
+        cuentaDestino8.setBackground(new java.awt.Color(255, 255, 255));
+        cuentaDestino8.setForeground(new java.awt.Color(0, 0, 0));
+        cuentaDestino8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cuentaDestino8ActionPerformed(evt);
+            }
+        });
+
+        label10.setAlignment(java.awt.Label.CENTER);
+        label10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        label10.setForeground(new java.awt.Color(0, 1, 0));
+        label10.setText("Nombre de Destinatario");
+
+        cuentaDestino9.setBackground(new java.awt.Color(255, 255, 255));
+        cuentaDestino9.setForeground(new java.awt.Color(0, 0, 0));
+        cuentaDestino9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cuentaDestino9ActionPerformed(evt);
+            }
+        });
+
+        label11.setAlignment(java.awt.Label.CENTER);
+        label11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        label11.setForeground(new java.awt.Color(0, 1, 0));
+        label11.setText("Monto");
+
+        label12.setAlignment(java.awt.Label.CENTER);
+        label12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        label12.setForeground(new java.awt.Color(0, 1, 0));
+        label12.setText("Cuenta de Origen");
+
+        cuentaDestino10.setBackground(new java.awt.Color(196, 196, 196));
+        cuentaDestino10.setForeground(new java.awt.Color(0, 0, 0));
+        cuentaDestino10.setEnabled(false);
+        cuentaDestino10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cuentaDestino10ActionPerformed(evt);
+            }
+        });
+
+        cuentaDestino11.setBackground(new java.awt.Color(196, 196, 196));
+        cuentaDestino11.setForeground(new java.awt.Color(0, 0, 0));
+        cuentaDestino11.setEnabled(false);
+        cuentaDestino11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cuentaDestino11ActionPerformed(evt);
+            }
+        });
+
+        label13.setAlignment(java.awt.Label.CENTER);
+        label13.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        label13.setForeground(new java.awt.Color(0, 1, 0));
+        label13.setText("Saldo");
+
+        javax.swing.GroupLayout menu_transferenciaLayout = new javax.swing.GroupLayout(menu_transferencia);
+        menu_transferencia.setLayout(menu_transferenciaLayout);
+        menu_transferenciaLayout.setHorizontalGroup(
+            menu_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu_transferenciaLayout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addGroup(menu_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cuentaDestino8)
+                    .addComponent(cuentaDestino6)
+                    .addComponent(label9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(label8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cuentaDestino7, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(label10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(menu_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu_transferenciaLayout.createSequentialGroup()
+                        .addGroup(menu_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cuentaDestino9)
+                            .addComponent(label11, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30))
+                    .addGroup(menu_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(cuentaDestino11)
+                        .addComponent(label12, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(52, 52, 52))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu_transferenciaLayout.createSequentialGroup()
+                .addContainerGap(79, Short.MAX_VALUE)
+                .addComponent(boton_cancelarTransaccion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addComponent(boton_confirmarTransaccion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(101, 101, 101))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu_transferenciaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(label13, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cuentaDestino10, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
+        );
+        menu_transferenciaLayout.setVerticalGroup(
+            menu_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menu_transferenciaLayout.createSequentialGroup()
+                .addGroup(menu_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(menu_transferenciaLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(cuentaDestino10, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu_transferenciaLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(label13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19)))
+                .addGroup(menu_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(menu_transferenciaLayout.createSequentialGroup()
+                        .addComponent(label12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cuentaDestino5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cuentaDestino11, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(label5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(label11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cuentaDestino3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cuentaDestino9, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(menu_transferenciaLayout.createSequentialGroup()
+                        .addComponent(label8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cuentaDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addComponent(cuentaDestino6, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(menu_transferenciaLayout.createSequentialGroup()
                         .addGap(79, 79, 79)
-                        .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(label9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(2, 2, 2)
-                        .addComponent(cuentaDestino2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cuentaDestino8, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(label10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cuentaDestino1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(boton_confirmarTransaccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(boton_cancelarTransaccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(cuentaDestino7, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addGroup(menu_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(boton_confirmarTransaccion1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(boton_cancelarTransaccion1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18))
         );
 
-        jLayeredPane3.setLayer(panel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        menu_interaccion.setLayer(menu_consultarSaldo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        menu_interaccion.setLayer(menu_transferencia, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        javax.swing.GroupLayout jLayeredPane3Layout = new javax.swing.GroupLayout(jLayeredPane3);
-        jLayeredPane3.setLayout(jLayeredPane3Layout);
-        jLayeredPane3Layout.setHorizontalGroup(
-            jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLayeredPane3Layout.createSequentialGroup()
+        javax.swing.GroupLayout menu_interaccionLayout = new javax.swing.GroupLayout(menu_interaccion);
+        menu_interaccion.setLayout(menu_interaccionLayout);
+        menu_interaccionLayout.setHorizontalGroup(
+            menu_interaccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menu_interaccionLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(menu_consultarSaldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(24, 24, 24))
+            .addGroup(menu_interaccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(menu_interaccionLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(menu_transferencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap(26, Short.MAX_VALUE)))
         );
-        jLayeredPane3Layout.setVerticalGroup(
-            jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLayeredPane3Layout.createSequentialGroup()
-                .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        menu_interaccionLayout.setVerticalGroup(
+            menu_interaccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menu_interaccionLayout.createSequentialGroup()
+                .addComponent(menu_consultarSaldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(menu_interaccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu_interaccionLayout.createSequentialGroup()
+                    .addComponent(menu_transferencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -462,7 +576,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(separador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLayeredPane3))
+                .addComponent(menu_interaccion))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -474,7 +588,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                     .addComponent(separador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jLayeredPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(menu_interaccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -509,7 +623,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                         .addComponent(bienvenido, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 449, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -565,9 +679,12 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
         // Actualizar la referencia al botón actualmente presionado
         botonPresionadoActualmente = boton_consultarSaldo;
+        menu_transferencia.setVisible(false);
+        menu_consultarSaldo.setVisible(true);
     }//GEN-LAST:event_boton_consultarSaldoActionPerformed
 
     private void boton_transferenciaCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_transferenciaCuentaActionPerformed
+        
         // Cambiar la apariencia del botón cuando se presiona
         // Restaurar el color original del botón anteriormente presionado
         if (botonPresionadoActualmente != null) {
@@ -579,28 +696,11 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
         // Actualizar la referencia al botón actualmente presionado
         botonPresionadoActualmente = boton_transferenciaCuenta;
+        //Si esta activo el boton de Transferencia solo que este activo el de menu_transferencia
+        menu_transferencia.setVisible(true);
+        menu_consultarSaldo.setVisible(false);
         
     }//GEN-LAST:event_boton_transferenciaCuentaActionPerformed
-
-    private void cuentaDestino2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuentaDestino2ActionPerformed
-        
-    }//GEN-LAST:event_cuentaDestino2ActionPerformed
-
-    private void cuentaDestino1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuentaDestino1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cuentaDestino1ActionPerformed
-
-    private void cuentaDestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuentaDestinoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cuentaDestinoActionPerformed
-
-    private void boton_confirmarTransaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_confirmarTransaccionActionPerformed
-        
-    }//GEN-LAST:event_boton_confirmarTransaccionActionPerformed
-
-    private void boton_cancelarTransaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_cancelarTransaccionActionPerformed
-        
-    }//GEN-LAST:event_boton_cancelarTransaccionActionPerformed
 
     private void boton_pagarServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_pagarServicioActionPerformed
         // Cambiar la apariencia del botón cuando se presiona
@@ -654,32 +754,56 @@ public class BaseInterfaz extends javax.swing.JFrame {
         botonPresionadoActualmente = boton_acercaSistema;
     }//GEN-LAST:event_boton_acercaSistemaActionPerformed
 
-    private void boton_salir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_salir1ActionPerformed
+    private void boton_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_salirActionPerformed
         // Cambiar la apariencia del botón cuando se presiona
         if (botonPresionadoActualmente != null) {
             botonPresionadoActualmente.setBackground(new java.awt.Color(240, 240, 240));  // Color original del fondo
         }
 
         // Establecer el color oscuro para el botón actual
-        boton_acercaSistema.setBackground(new java.awt.Color(102, 102, 102));
+        boton_salir.setBackground(new java.awt.Color(102, 102, 102));
 
         // Actualizar la referencia al botón actualmente presionado
-        botonPresionadoActualmente = boton_acercaSistema;
+        botonPresionadoActualmente = boton_salir;
         
         System.exit(0);
-    }//GEN-LAST:event_boton_salir1ActionPerformed
-
-    private void cuentaDestino3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuentaDestino3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cuentaDestino3ActionPerformed
+    }//GEN-LAST:event_boton_salirActionPerformed
 
     private void cuentaDestino4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuentaDestino4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cuentaDestino4ActionPerformed
 
-    private void cuentaDestino5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuentaDestino5ActionPerformed
+    private void boton_cancelarTransaccion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_cancelarTransaccion1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cuentaDestino5ActionPerformed
+    }//GEN-LAST:event_boton_cancelarTransaccion1ActionPerformed
+
+    private void boton_confirmarTransaccion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_confirmarTransaccion1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boton_confirmarTransaccion1ActionPerformed
+
+    private void cuentaDestino6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuentaDestino6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cuentaDestino6ActionPerformed
+
+    private void cuentaDestino7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuentaDestino7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cuentaDestino7ActionPerformed
+
+    private void cuentaDestino8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuentaDestino8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cuentaDestino8ActionPerformed
+
+    private void cuentaDestino9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuentaDestino9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cuentaDestino9ActionPerformed
+
+    private void cuentaDestino10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuentaDestino10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cuentaDestino10ActionPerformed
+
+    private void cuentaDestino11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuentaDestino11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cuentaDestino11ActionPerformed
 
     
     /**
@@ -721,37 +845,43 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private javax.swing.JLayeredPane InterfazPrincipal;
     private javax.swing.JLabel bienvenido;
     private java.awt.Button boton_acercaSistema;
-    private java.awt.Button boton_cancelarTransaccion;
-    private java.awt.Button boton_confirmarTransaccion;
+    private java.awt.Button boton_cancelarTransaccion1;
+    private java.awt.Button boton_confirmarTransaccion1;
     private java.awt.Button boton_consultarSaldo;
     private java.awt.Button boton_deposito;
     private java.awt.Button boton_pagarServicio;
     private java.awt.Button boton_pagarTarjeta;
-    private java.awt.Button boton_salir1;
+    private java.awt.Button boton_salir;
     private java.awt.Button boton_transferenciaCuenta;
     private javax.swing.JLayeredPane botonesMenu;
-    private javax.swing.JTextField cuentaDestino;
-    private javax.swing.JTextField cuentaDestino1;
-    private javax.swing.JTextField cuentaDestino2;
-    private javax.swing.JTextField cuentaDestino3;
+    private javax.swing.JTextField cuentaDestino10;
+    private javax.swing.JTextField cuentaDestino11;
     private javax.swing.JTextField cuentaDestino4;
-    private javax.swing.JTextField cuentaDestino5;
+    private javax.swing.JTextField cuentaDestino6;
+    private javax.swing.JTextField cuentaDestino7;
+    private javax.swing.JTextField cuentaDestino8;
+    private javax.swing.JTextField cuentaDestino9;
     private javax.swing.JLabel fecha;
     private javax.swing.JLabel fondo1;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JLayeredPane jLayeredPane3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
     private java.awt.Label label1;
+    private java.awt.Label label10;
+    private java.awt.Label label11;
+    private java.awt.Label label12;
+    private java.awt.Label label13;
     private java.awt.Label label2;
-    private java.awt.Label label3;
-    private java.awt.Label label4;
-    private java.awt.Label label5;
-    private java.awt.Label label6;
     private java.awt.Label label7;
+    private java.awt.Label label8;
+    private java.awt.Label label9;
     private javax.swing.JLabel logo;
-    private java.awt.Panel panel1;
+    private java.awt.Panel menu_consultarSaldo;
+    private javax.swing.JLayeredPane menu_interaccion;
+    private java.awt.Panel menu_transferencia;
     private javax.swing.JLayeredPane separador;
     // End of variables declaration//GEN-END:variables
 }
