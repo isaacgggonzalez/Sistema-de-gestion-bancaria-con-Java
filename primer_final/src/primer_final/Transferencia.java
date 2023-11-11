@@ -1,8 +1,6 @@
-
 package primer_final;
 
 public class Transferencia extends Transaccion {
-    // Atributos adicionales para la clase Transferencia
     private double Monto_transferencia;
     private Cuenta origen_transferencia;
     private Cuenta destino_transferencia;
