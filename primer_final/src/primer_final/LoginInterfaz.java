@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package primer_final;
 import java.awt.Image;
 import javax.swing.Icon;
@@ -9,7 +6,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 /**
  *
- * @author AMD
+ * @author alanalcaraz
  */
 public class LoginInterfaz extends javax.swing.JFrame {
 
@@ -62,7 +59,6 @@ public class LoginInterfaz extends javax.swing.JFrame {
 
         jDesktopPane1.setMaximumSize(new java.awt.Dimension(825, 466));
         jDesktopPane1.setMinimumSize(new java.awt.Dimension(825, 466));
-        jDesktopPane1.setPreferredSize(new java.awt.Dimension(825, 466));
         jDesktopPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));

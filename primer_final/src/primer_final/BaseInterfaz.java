@@ -41,8 +41,8 @@ public class BaseInterfaz extends javax.swing.JFrame {
     public BaseInterfaz() {
         initComponents();
         this.setLocationRelativeTo(this); //Ubicar la interfaz en el centro
-    }
-
+        
+    }   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -315,7 +315,6 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
         menu_interaccion.setBackground(new Color(153, 153, 153));
         menu_interaccion.setForeground(new Color(153, 153, 153));
-        menu_interaccion.setEnabled(false);
 
         menu_transferencia.setBackground(new Color(153, 153, 153));
         menu_transferencia.setFont(new Font("Arial", 0, 14)); // NOI18N
@@ -1633,7 +1632,9 @@ public class BaseInterfaz extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BaseInterfaz().setVisible(true);
+                BaseInterfaz loginInterfaz = new BaseInterfaz();
+                loginInterfaz.boton_transferenciaCuentaActionPerformed(null);
+                loginInterfaz.setVisible(true);
             }
         });
     }
