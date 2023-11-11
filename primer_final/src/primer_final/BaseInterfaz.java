@@ -40,6 +40,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
      */
     public BaseInterfaz() {
         initComponents();
+        this.setLocationRelativeTo(this); //Ubicar la interfaz en el centro
     }
 
     /**
@@ -166,7 +167,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         bienvenido.setForeground(new Color(255, 255, 255));
         bienvenido.setText("Bienvenido, usuario!");
 
-        logo.setIcon(new ImageIcon(getClass().getResource("/primer_final/Logo 350x350.png"))); // NOI18N
+        logo.setIcon(new ImageIcon(getClass().getResource("/imagenes/Logo 350x350.png"))); // NOI18N
 
         jPanel1.setEnabled(false);
         jPanel1.setPreferredSize(new Dimension(1020, 500));
@@ -450,9 +451,9 @@ public class BaseInterfaz extends javax.swing.JFrame {
                         .addComponent(label12, GroupLayout.PREFERRED_SIZE, 175, GroupLayout.PREFERRED_SIZE)))
                 .addGap(52, 52, 52))
             .addGroup(GroupLayout.Alignment.TRAILING, menu_transferenciaLayout.createSequentialGroup()
-                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(81, Short.MAX_VALUE)
                 .addComponent(boton_cancelarTransaccion1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addComponent(boton_confirmarTransaccion1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addGap(101, 101, 101))
             .addGroup(GroupLayout.Alignment.TRAILING, menu_transferenciaLayout.createSequentialGroup()
@@ -1194,8 +1195,8 @@ public class BaseInterfaz extends javax.swing.JFrame {
             .addGroup(menu_interaccionLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(menu_interaccionLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(menu_transferencia, GroupLayout.PREFERRED_SIZE, 634, GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(38, Short.MAX_VALUE)))
+                    .addComponent(menu_transferencia, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(23, Short.MAX_VALUE)))
             .addGroup(menu_interaccionLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(menu_interaccionLayout.createSequentialGroup()
                     .addContainerGap()
@@ -1205,17 +1206,17 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 .addGroup(menu_interaccionLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(menu_acercaSistema, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(29, Short.MAX_VALUE)))
+                    .addContainerGap(23, Short.MAX_VALUE)))
             .addGroup(menu_interaccionLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(menu_interaccionLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(menu_pagarTarjeta, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(663, Short.MAX_VALUE)))
+                    .addContainerGap(23, Short.MAX_VALUE)))
             .addGroup(menu_interaccionLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(menu_interaccionLayout.createSequentialGroup()
-                    .addGap(16, 16, 16)
+                    .addContainerGap()
                     .addComponent(menu_pagarServicio, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(17, Short.MAX_VALUE)))
+                    .addContainerGap(23, Short.MAX_VALUE)))
         );
         menu_interaccionLayout.setVerticalGroup(menu_interaccionLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(menu_interaccionLayout.createSequentialGroup()
@@ -1226,7 +1227,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 .addGroup(menu_interaccionLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(menu_transferencia, GroupLayout.PREFERRED_SIZE, 365, GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(610, Short.MAX_VALUE)))
+                    .addContainerGap(12, Short.MAX_VALUE)))
             .addGroup(menu_interaccionLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(GroupLayout.Alignment.TRAILING, menu_interaccionLayout.createSequentialGroup()
                     .addContainerGap()
@@ -1320,7 +1321,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
         jDesktopPane1.add(InterfazPrincipal, new AbsoluteConstraints(0, 0, -1, -1));
 
-        fondo1.setIcon(new ImageIcon(getClass().getResource("/primer_final/Fondo1020x641.png"))); // NOI18N
+        fondo1.setIcon(new ImageIcon(getClass().getResource("/imagenes/Fondo1020x641.png"))); // NOI18N
         fondo1.setToolTipText("");
         fondo1.setMaximumSize(new Dimension(2147483647, 2147483647));
         fondo1.setMinimumSize(new Dimension(1020, 640));
@@ -1643,16 +1644,10 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private Button boton_acercaSistema;
     private Button boton_cancelarTransaccion1;
     private Button boton_cancelarTransaccion2;
-    private Button boton_cancelarTransaccion3;
-    private Button boton_cancelarTransaccion4;
-    private Button boton_cancelarTransaccion5;
     private Button boton_cancelarTransaccion6;
     private Button boton_cancelarTransaccion7;
     private Button boton_confirmarTransaccion1;
     private Button boton_confirmarTransaccion2;
-    private Button boton_confirmarTransaccion3;
-    private Button boton_confirmarTransaccion4;
-    private Button boton_confirmarTransaccion5;
     private Button boton_confirmarTransaccion6;
     private Button boton_confirmarTransaccion7;
     private Button boton_consultarSaldo;
@@ -1665,26 +1660,8 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private Button button3;
     private JTextField cuentaDestino10;
     private JTextField cuentaDestino11;
-    private JTextField cuentaDestino12;
-    private JTextField cuentaDestino13;
-    private JTextField cuentaDestino14;
     private JTextField cuentaDestino15;
     private JTextField cuentaDestino16;
-    private JTextField cuentaDestino17;
-    private JTextField cuentaDestino18;
-    private JTextField cuentaDestino19;
-    private JTextField cuentaDestino20;
-    private JTextField cuentaDestino21;
-    private JTextField cuentaDestino22;
-    private JTextField cuentaDestino23;
-    private JTextField cuentaDestino24;
-    private JTextField cuentaDestino25;
-    private JTextField cuentaDestino26;
-    private JTextField cuentaDestino27;
-    private JTextField cuentaDestino28;
-    private JTextField cuentaDestino29;
-    private JTextField cuentaDestino30;
-    private JTextField cuentaDestino31;
     private JTextField cuentaDestino33;
     private JTextField cuentaDestino35;
     private JTextField cuentaDestino36;
@@ -1716,27 +1693,9 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private Label label11;
     private Label label12;
     private Label label13;
-    private Label label14;
-    private Label label15;
-    private Label label16;
     private Label label17;
-    private Label label18;
     private Label label19;
     private Label label2;
-    private Label label20;
-    private Label label21;
-    private Label label22;
-    private Label label23;
-    private Label label24;
-    private Label label25;
-    private Label label26;
-    private Label label27;
-    private Label label28;
-    private Label label29;
-    private Label label30;
-    private Label label31;
-    private Label label32;
-    private Label label33;
     private Label label34;
     private Label label35;
     private Label label36;
@@ -1767,9 +1726,6 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private Panel menu_pagarServicio;
     private Panel menu_pagarTarjeta;
     private Panel menu_transferencia;
-    private Panel menu_transferencia1;
-    private Panel menu_transferencia2;
-    private Panel menu_transferencia3;
     private JLayeredPane separador;
     // End of variables declaration//GEN-END:variables
 }
