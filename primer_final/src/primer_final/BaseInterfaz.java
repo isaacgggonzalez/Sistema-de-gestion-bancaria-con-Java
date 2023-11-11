@@ -5,8 +5,33 @@ package primer_final;
  * @author alanalcaraz
  */
 import java.awt.Button;
+import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Label;
+import java.awt.List;
+import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.GroupLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
+import javax.swing.JDesktopPane;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.LayoutStyle;
+import javax.swing.ListSelectionModel;
+import javax.swing.WindowConstants;
+import javax.swing.table.DefaultTableModel;
+import org.netbeans.lib.awtextra.AbsoluteConstraints;
+import org.netbeans.lib.awtextra.AbsoluteLayout;
 
 public class BaseInterfaz extends javax.swing.JFrame {
 
@@ -26,257 +51,486 @@ public class BaseInterfaz extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDesktopPane1 = new javax.swing.JDesktopPane();
-        InterfazPrincipal = new javax.swing.JLayeredPane();
-        jLayeredPane1 = new javax.swing.JLayeredPane();
-        fecha = new javax.swing.JLabel();
-        bienvenido = new javax.swing.JLabel();
-        logo = new javax.swing.JLabel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        botonesMenu = new javax.swing.JLayeredPane();
-        boton_pagarTarjeta = new java.awt.Button();
-        boton_deposito = new java.awt.Button();
-        boton_pagarServicio = new java.awt.Button();
-        boton_consultarSaldo = new java.awt.Button();
-        boton_acercaSistema = new java.awt.Button();
-        boton_transferenciaCuenta = new java.awt.Button();
-        boton_salir = new java.awt.Button();
-        separador = new javax.swing.JLayeredPane();
-        label1 = new java.awt.Label();
-        menu_interaccion = new javax.swing.JLayeredPane();
-        menu_consultarSaldo = new java.awt.Panel();
-        label2 = new java.awt.Label();
-        cuentaDestino4 = new javax.swing.JTextField();
-        label7 = new java.awt.Label();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        menu_transferencia = new java.awt.Panel();
-        boton_cancelarTransaccion1 = new java.awt.Button();
-        boton_confirmarTransaccion1 = new java.awt.Button();
-        cuentaDestino6 = new javax.swing.JTextField();
-        label8 = new java.awt.Label();
-        cuentaDestino7 = new javax.swing.JTextField();
-        label9 = new java.awt.Label();
-        cuentaDestino8 = new javax.swing.JTextField();
-        label10 = new java.awt.Label();
-        cuentaDestino9 = new javax.swing.JTextField();
-        label11 = new java.awt.Label();
-        label12 = new java.awt.Label();
-        cuentaDestino10 = new javax.swing.JTextField();
-        cuentaDestino11 = new javax.swing.JTextField();
-        label13 = new java.awt.Label();
-        fondo1 = new javax.swing.JLabel();
+        jDesktopPane1 = new JDesktopPane();
+        InterfazPrincipal = new JLayeredPane();
+        jLayeredPane1 = new JLayeredPane();
+        fecha = new JLabel();
+        bienvenido = new JLabel();
+        logo = new JLabel();
+        jTabbedPane1 = new JTabbedPane();
+        jPanel1 = new JPanel();
+        botonesMenu = new JLayeredPane();
+        boton_pagarTarjeta = new Button();
+        boton_deposito = new Button();
+        boton_pagarServicio = new Button();
+        boton_consultarSaldo = new Button();
+        boton_acercaSistema = new Button();
+        boton_transferenciaCuenta = new Button();
+        boton_salir = new Button();
+        separador = new JLayeredPane();
+        label1 = new Label();
+        menu_interaccion = new JLayeredPane();
+        menu_transferencia = new Panel();
+        boton_cancelarTransaccion1 = new Button();
+        boton_confirmarTransaccion1 = new Button();
+        cuentaDestino6 = new JTextField();
+        label8 = new Label();
+        cuentaDestino7 = new JTextField();
+        label9 = new Label();
+        cuentaDestino8 = new JTextField();
+        label10 = new Label();
+        cuentaDestino9 = new JTextField();
+        label11 = new Label();
+        label12 = new Label();
+        cuentaDestino10 = new JTextField();
+        cuentaDestino11 = new JTextField();
+        label13 = new Label();
+        menu_consultarSaldo = new Panel();
+        label2 = new Label();
+        cuentaDestino4 = new JTextField();
+        label7 = new Label();
+        jScrollPane1 = new JScrollPane();
+        jTable1 = new JTable();
+        menu_deposito = new Panel();
+        boton_cancelarTransaccion2 = new Button();
+        boton_confirmarTransaccion2 = new Button();
+        cuentaDestino15 = new JTextField();
+        label17 = new Label();
+        cuentaDestino16 = new JTextField();
+        label19 = new Label();
+        menu_pagarTarjeta = new Panel();
+        boton_cancelarTransaccion6 = new Button();
+        boton_confirmarTransaccion6 = new Button();
+        label34 = new Label();
+        cuentaDestino35 = new JTextField();
+        label37 = new Label();
+        label38 = new Label();
+        cuentaDestino36 = new JTextField();
+        cuentaDestino37 = new JTextField();
+        label39 = new Label();
+        cuentaDestino38 = new JTextField();
+        label40 = new Label();
+        label41 = new Label();
+        cuentaDestino39 = new JTextField();
+        list1 = new List();
+        jComboBox1 = new JComboBox<>();
+        menu_acercaSistema = new Panel();
+        label48 = new Label();
+        label53 = new Label();
+        label54 = new Label();
+        label55 = new Label();
+        label56 = new Label();
+        button3 = new Button();
+        menu_pagarServicio = new Panel();
+        boton_cancelarTransaccion7 = new Button();
+        boton_confirmarTransaccion7 = new Button();
+        label35 = new Label();
+        cuentaDestino33 = new JTextField();
+        label42 = new Label();
+        cuentaDestino40 = new JTextField();
+        label43 = new Label();
+        label44 = new Label();
+        cuentaDestino41 = new JTextField();
+        cuentaDestino42 = new JTextField();
+        label45 = new Label();
+        jComboBox2 = new JComboBox<>();
+        jComboBox3 = new JComboBox<>();
+        label36 = new Label();
+        cuentaDestino43 = new JTextField();
+        label46 = new Label();
+        fondo1 = new JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1020, 660));
-        setMinimumSize(new java.awt.Dimension(1020, 660));
-        setPreferredSize(new java.awt.Dimension(1020, 660));
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new Dimension(1020, 660));
+        setMinimumSize(new Dimension(1020, 660));
+        setPreferredSize(new Dimension(1020, 660));
         setResizable(false);
 
-        jDesktopPane1.setMaximumSize(new java.awt.Dimension(1020, 660));
-        jDesktopPane1.setMinimumSize(new java.awt.Dimension(1020, 660));
-        jDesktopPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jDesktopPane1.setMaximumSize(new Dimension(1020, 660));
+        jDesktopPane1.setMinimumSize(new Dimension(1020, 660));
+        jDesktopPane1.setLayout(new AbsoluteLayout());
 
         InterfazPrincipal.setEnabled(false);
-        InterfazPrincipal.setMaximumSize(new java.awt.Dimension(1020, 640));
-        InterfazPrincipal.setMinimumSize(new java.awt.Dimension(1020, 640));
+        InterfazPrincipal.setMaximumSize(new Dimension(1020, 640));
+        InterfazPrincipal.setMinimumSize(new Dimension(1020, 640));
 
         jLayeredPane1.setEnabled(false);
-        jLayeredPane1.setMaximumSize(new java.awt.Dimension(1020, 640));
-        jLayeredPane1.setMinimumSize(new java.awt.Dimension(1020, 640));
+        jLayeredPane1.setMaximumSize(new Dimension(1020, 640));
+        jLayeredPane1.setMinimumSize(new Dimension(1020, 640));
 
-        fecha.setFont(new java.awt.Font("Arial", 1, 28)); // NOI18N
-        fecha.setForeground(new java.awt.Color(255, 255, 255));
+        fecha.setFont(new Font("Arial", 1, 28)); // NOI18N
+        fecha.setForeground(new Color(255, 255, 255));
         fecha.setText("Fecha: dd/mm/aaaa");
 
-        bienvenido.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
-        bienvenido.setForeground(new java.awt.Color(255, 255, 255));
+        bienvenido.setFont(new Font("Arial", 1, 48)); // NOI18N
+        bienvenido.setForeground(new Color(255, 255, 255));
         bienvenido.setText("Bienvenido, usuario!");
 
-        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/primer_final/Logo 350x350.png"))); // NOI18N
+        logo.setIcon(new ImageIcon(getClass().getResource("/primer_final/Logo 350x350.png"))); // NOI18N
 
         jPanel1.setEnabled(false);
-        jPanel1.setPreferredSize(new java.awt.Dimension(1020, 500));
+        jPanel1.setPreferredSize(new Dimension(1020, 500));
 
         botonesMenu.setEnabled(false);
 
         boton_pagarTarjeta.setActionCommand("pagarTarjeta");
-        boton_pagarTarjeta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        boton_pagarTarjeta.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        boton_pagarTarjeta.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        boton_pagarTarjeta.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_pagarTarjeta.setLabel("Pagar Tarjeta");
-        boton_pagarTarjeta.setMinimumSize(new java.awt.Dimension(245, 35));
-        boton_pagarTarjeta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        boton_pagarTarjeta.setMinimumSize(new Dimension(245, 35));
+        boton_pagarTarjeta.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 boton_pagarTarjetaActionPerformed(evt);
             }
         });
 
         boton_deposito.setActionCommand("deposito");
-        boton_deposito.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        boton_deposito.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        boton_deposito.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        boton_deposito.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_deposito.setLabel("Deposito");
-        boton_deposito.setMinimumSize(new java.awt.Dimension(245, 35));
-        boton_deposito.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        boton_deposito.setMinimumSize(new Dimension(245, 35));
+        boton_deposito.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 boton_depositoActionPerformed(evt);
             }
         });
 
         boton_pagarServicio.setActionCommand("pagarServicio");
-        boton_pagarServicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        boton_pagarServicio.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        boton_pagarServicio.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        boton_pagarServicio.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_pagarServicio.setLabel("Pagar Servicio");
-        boton_pagarServicio.setMinimumSize(new java.awt.Dimension(245, 35));
-        boton_pagarServicio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        boton_pagarServicio.setMinimumSize(new Dimension(245, 35));
+        boton_pagarServicio.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 boton_pagarServicioActionPerformed(evt);
             }
         });
 
         boton_consultarSaldo.setActionCommand("consultarSaldo");
-        boton_consultarSaldo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        boton_consultarSaldo.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        boton_consultarSaldo.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        boton_consultarSaldo.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_consultarSaldo.setLabel("Consultar Saldo");
-        boton_consultarSaldo.setMinimumSize(new java.awt.Dimension(245, 35));
-        boton_consultarSaldo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        boton_consultarSaldo.setMinimumSize(new Dimension(245, 35));
+        boton_consultarSaldo.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 boton_consultarSaldoActionPerformed(evt);
             }
         });
 
         boton_acercaSistema.setActionCommand("acercaSistema");
-        boton_acercaSistema.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        boton_acercaSistema.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        boton_acercaSistema.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        boton_acercaSistema.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_acercaSistema.setLabel("Acerca del Sistema");
-        boton_acercaSistema.setMinimumSize(new java.awt.Dimension(245, 35));
-        boton_acercaSistema.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        boton_acercaSistema.setMinimumSize(new Dimension(245, 35));
+        boton_acercaSistema.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 boton_acercaSistemaActionPerformed(evt);
             }
         });
 
         boton_transferenciaCuenta.setActionCommand("transferenciaCuentas");
-        boton_transferenciaCuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        boton_transferenciaCuenta.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        boton_transferenciaCuenta.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        boton_transferenciaCuenta.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_transferenciaCuenta.setLabel("Transferencia entre Cuentas");
-        boton_transferenciaCuenta.setMinimumSize(new java.awt.Dimension(245, 35));
-        boton_transferenciaCuenta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        boton_transferenciaCuenta.setMinimumSize(new Dimension(245, 35));
+        boton_transferenciaCuenta.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 boton_transferenciaCuentaActionPerformed(evt);
             }
         });
 
         boton_salir.setActionCommand("salir");
-        boton_salir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        boton_salir.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        boton_salir.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        boton_salir.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_salir.setLabel("Salir");
-        boton_salir.setMinimumSize(new java.awt.Dimension(245, 35));
-        boton_salir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        boton_salir.setMinimumSize(new Dimension(245, 35));
+        boton_salir.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 boton_salirActionPerformed(evt);
             }
         });
 
-        botonesMenu.setLayer(boton_pagarTarjeta, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        botonesMenu.setLayer(boton_deposito, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        botonesMenu.setLayer(boton_pagarServicio, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        botonesMenu.setLayer(boton_consultarSaldo, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        botonesMenu.setLayer(boton_acercaSistema, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        botonesMenu.setLayer(boton_transferenciaCuenta, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        botonesMenu.setLayer(boton_salir, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        botonesMenu.setLayer(boton_pagarTarjeta, JLayeredPane.DEFAULT_LAYER);
+        botonesMenu.setLayer(boton_deposito, JLayeredPane.DEFAULT_LAYER);
+        botonesMenu.setLayer(boton_pagarServicio, JLayeredPane.DEFAULT_LAYER);
+        botonesMenu.setLayer(boton_consultarSaldo, JLayeredPane.DEFAULT_LAYER);
+        botonesMenu.setLayer(boton_acercaSistema, JLayeredPane.DEFAULT_LAYER);
+        botonesMenu.setLayer(boton_transferenciaCuenta, JLayeredPane.DEFAULT_LAYER);
+        botonesMenu.setLayer(boton_salir, JLayeredPane.DEFAULT_LAYER);
 
-        javax.swing.GroupLayout botonesMenuLayout = new javax.swing.GroupLayout(botonesMenu);
+        GroupLayout botonesMenuLayout = new GroupLayout(botonesMenu);
         botonesMenu.setLayout(botonesMenuLayout);
-        botonesMenuLayout.setHorizontalGroup(
-            botonesMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        botonesMenuLayout.setHorizontalGroup(botonesMenuLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(botonesMenuLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addGroup(botonesMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(boton_pagarServicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(boton_deposito, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(boton_pagarTarjeta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(boton_acercaSistema, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
-                    .addComponent(boton_consultarSaldo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(boton_transferenciaCuenta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(boton_salir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(botonesMenuLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(boton_pagarServicio, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(boton_deposito, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(boton_pagarTarjeta, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(boton_acercaSistema, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+                    .addComponent(boton_consultarSaldo, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(boton_transferenciaCuenta, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(boton_salir, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
-        botonesMenuLayout.setVerticalGroup(
-            botonesMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, botonesMenuLayout.createSequentialGroup()
+        botonesMenuLayout.setVerticalGroup(botonesMenuLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(GroupLayout.Alignment.TRAILING, botonesMenuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(boton_transferenciaCuenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(boton_transferenciaCuenta, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(20, 20, 20)
-                .addComponent(boton_consultarSaldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(boton_consultarSaldo, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(19, 19, 19)
-                .addComponent(boton_deposito, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(boton_deposito, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(23, 23, 23)
-                .addComponent(boton_pagarTarjeta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(boton_pagarTarjeta, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(19, 19, 19)
-                .addComponent(boton_pagarServicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(boton_pagarServicio, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(26, 26, 26)
-                .addComponent(boton_acercaSistema, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(boton_acercaSistema, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(21, 21, 21)
-                .addComponent(boton_salir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(boton_salir, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(26, 26, 26))
         );
 
         separador.setEnabled(false);
-        separador.setMinimumSize(new java.awt.Dimension(5, 425));
-        separador.setPreferredSize(new java.awt.Dimension(5, 425));
+        separador.setMinimumSize(new Dimension(5, 425));
 
-        label1.setAlignment(java.awt.Label.CENTER);
-        label1.setBackground(new java.awt.Color(181, 181, 181));
-        label1.setMinimumSize(new java.awt.Dimension(5, 425));
+        label1.setAlignment(Label.CENTER);
+        label1.setBackground(new Color(181, 181, 181));
+        label1.setMinimumSize(new Dimension(5, 425));
 
-        separador.setLayer(label1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        separador.setLayer(label1, JLayeredPane.DEFAULT_LAYER);
 
-        javax.swing.GroupLayout separadorLayout = new javax.swing.GroupLayout(separador);
+        GroupLayout separadorLayout = new GroupLayout(separador);
         separador.setLayout(separadorLayout);
-        separadorLayout.setHorizontalGroup(
-            separadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(label1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 5, Short.MAX_VALUE)
+        separadorLayout.setHorizontalGroup(separadorLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addComponent(label1, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 5, Short.MAX_VALUE)
         );
-        separadorLayout.setVerticalGroup(
-            separadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        separadorLayout.setVerticalGroup(separadorLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(separadorLayout.createSequentialGroup()
-                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 415, Short.MAX_VALUE)
+                .addComponent(label1, GroupLayout.PREFERRED_SIZE, 415, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        menu_interaccion.setBackground(new java.awt.Color(153, 153, 153));
-        menu_interaccion.setForeground(new java.awt.Color(153, 153, 153));
+        menu_interaccion.setBackground(new Color(153, 153, 153));
+        menu_interaccion.setForeground(new Color(153, 153, 153));
         menu_interaccion.setEnabled(false);
 
-        menu_consultarSaldo.setBackground(new java.awt.Color(153, 153, 153));
-        menu_consultarSaldo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        menu_transferencia.setBackground(new Color(153, 153, 153));
+        menu_transferencia.setFont(new Font("Arial", 0, 14)); // NOI18N
+        menu_transferencia.setMinimumSize(new Dimension(643, 367));
+        menu_transferencia.setPreferredSize(new Dimension(643, 367));
 
-        label2.setAlignment(java.awt.Label.CENTER);
-        label2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        label2.setForeground(new java.awt.Color(0, 1, 0));
+        boton_cancelarTransaccion1.setActionCommand("cancelarTransaccion");
+        boton_cancelarTransaccion1.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        boton_cancelarTransaccion1.setFont(new Font("Arial", 0, 18)); // NOI18N
+        boton_cancelarTransaccion1.setForeground(new Color(51, 51, 51));
+        boton_cancelarTransaccion1.setLabel("Cancelar Transaccion");
+        boton_cancelarTransaccion1.setMaximumSize(new Dimension(190, 30));
+        boton_cancelarTransaccion1.setMinimumSize(new Dimension(190, 30));
+        boton_cancelarTransaccion1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                boton_cancelarTransaccion1ActionPerformed(evt);
+            }
+        });
+
+        boton_confirmarTransaccion1.setActionCommand("confirmarTransaccion");
+        boton_confirmarTransaccion1.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        boton_confirmarTransaccion1.setFont(new Font("Arial", 0, 18)); // NOI18N
+        boton_confirmarTransaccion1.setForeground(new Color(51, 51, 51));
+        boton_confirmarTransaccion1.setLabel("Confirmar Transaccion");
+        boton_confirmarTransaccion1.setMinimumSize(new Dimension(190, 30));
+        boton_confirmarTransaccion1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                boton_confirmarTransaccion1ActionPerformed(evt);
+            }
+        });
+
+        cuentaDestino6.setBackground(new Color(255, 255, 255));
+        cuentaDestino6.setForeground(new Color(0, 0, 0));
+        cuentaDestino6.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                cuentaDestino6ActionPerformed(evt);
+            }
+        });
+
+        label8.setAlignment(Label.CENTER);
+        label8.setFont(new Font("Arial", 1, 14)); // NOI18N
+        label8.setForeground(new Color(0, 1, 0));
+        label8.setText("Cuenta de Destino");
+
+        cuentaDestino7.setBackground(new Color(255, 255, 255));
+        cuentaDestino7.setForeground(new Color(0, 0, 0));
+        cuentaDestino7.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                cuentaDestino7ActionPerformed(evt);
+            }
+        });
+
+        label9.setAlignment(Label.CENTER);
+        label9.setFont(new Font("Arial", 1, 14)); // NOI18N
+        label9.setForeground(new Color(0, 1, 0));
+        label9.setText("Nombre de Destinatario");
+
+        cuentaDestino8.setBackground(new Color(255, 255, 255));
+        cuentaDestino8.setForeground(new Color(0, 0, 0));
+        cuentaDestino8.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                cuentaDestino8ActionPerformed(evt);
+            }
+        });
+
+        label10.setAlignment(Label.CENTER);
+        label10.setFont(new Font("Arial", 1, 14)); // NOI18N
+        label10.setForeground(new Color(0, 1, 0));
+        label10.setText("Nombre de Destinatario");
+
+        cuentaDestino9.setBackground(new Color(255, 255, 255));
+        cuentaDestino9.setForeground(new Color(0, 0, 0));
+        cuentaDestino9.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                cuentaDestino9ActionPerformed(evt);
+            }
+        });
+
+        label11.setAlignment(Label.CENTER);
+        label11.setFont(new Font("Arial", 1, 14)); // NOI18N
+        label11.setForeground(new Color(0, 1, 0));
+        label11.setText("Monto");
+
+        label12.setAlignment(Label.CENTER);
+        label12.setFont(new Font("Arial", 1, 14)); // NOI18N
+        label12.setForeground(new Color(0, 1, 0));
+        label12.setText("Cuenta de Origen");
+
+        cuentaDestino10.setBackground(new Color(196, 196, 196));
+        cuentaDestino10.setForeground(new Color(0, 0, 0));
+        cuentaDestino10.setEnabled(false);
+        cuentaDestino10.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                cuentaDestino10ActionPerformed(evt);
+            }
+        });
+
+        cuentaDestino11.setBackground(new Color(196, 196, 196));
+        cuentaDestino11.setForeground(new Color(0, 0, 0));
+        cuentaDestino11.setEnabled(false);
+        cuentaDestino11.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                cuentaDestino11ActionPerformed(evt);
+            }
+        });
+
+        label13.setAlignment(Label.CENTER);
+        label13.setFont(new Font("Arial", 1, 14)); // NOI18N
+        label13.setForeground(new Color(0, 1, 0));
+        label13.setText("Saldo");
+
+        GroupLayout menu_transferenciaLayout = new GroupLayout(menu_transferencia);
+        menu_transferencia.setLayout(menu_transferenciaLayout);
+        menu_transferenciaLayout.setHorizontalGroup(menu_transferenciaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(GroupLayout.Alignment.TRAILING, menu_transferenciaLayout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addGroup(menu_transferenciaLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cuentaDestino8)
+                    .addComponent(cuentaDestino6)
+                    .addComponent(label9, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(label8, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cuentaDestino7, GroupLayout.Alignment.TRAILING)
+                    .addComponent(label10, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(menu_transferenciaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addGroup(GroupLayout.Alignment.TRAILING, menu_transferenciaLayout.createSequentialGroup()
+                        .addGroup(menu_transferenciaLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cuentaDestino9)
+                            .addComponent(label11, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30))
+                    .addGroup(menu_transferenciaLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                        .addComponent(cuentaDestino11)
+                        .addComponent(label12, GroupLayout.PREFERRED_SIZE, 175, GroupLayout.PREFERRED_SIZE)))
+                .addGap(52, 52, 52))
+            .addGroup(GroupLayout.Alignment.TRAILING, menu_transferenciaLayout.createSequentialGroup()
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(boton_cancelarTransaccion1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(boton_confirmarTransaccion1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addGap(101, 101, 101))
+            .addGroup(GroupLayout.Alignment.TRAILING, menu_transferenciaLayout.createSequentialGroup()
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(label13, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cuentaDestino10, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
+        );
+        menu_transferenciaLayout.setVerticalGroup(menu_transferenciaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(menu_transferenciaLayout.createSequentialGroup()
+                .addGroup(menu_transferenciaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addGroup(menu_transferenciaLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(cuentaDestino10, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(GroupLayout.Alignment.TRAILING, menu_transferenciaLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(label13, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19)))
+                .addGroup(menu_transferenciaLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                    .addGroup(menu_transferenciaLayout.createSequentialGroup()
+                        .addComponent(label12, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cuentaDestino11, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(label11, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cuentaDestino9, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE))
+                    .addGroup(menu_transferenciaLayout.createSequentialGroup()
+                        .addComponent(label8, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cuentaDestino6, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE))
+                    .addGroup(menu_transferenciaLayout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addComponent(label9, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2)
+                        .addComponent(cuentaDestino8, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(label10, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cuentaDestino7, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(menu_transferenciaLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                    .addComponent(boton_confirmarTransaccion1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(boton_cancelarTransaccion1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18))
+        );
+
+        menu_consultarSaldo.setBackground(new Color(153, 153, 153));
+        menu_consultarSaldo.setFont(new Font("Arial", 0, 14)); // NOI18N
+        menu_consultarSaldo.setPreferredSize(new Dimension(643, 367));
+
+        label2.setAlignment(Label.CENTER);
+        label2.setFont(new Font("Arial", 1, 14)); // NOI18N
+        label2.setForeground(new Color(0, 1, 0));
         label2.setText("Movimiento de la Cuenta");
 
-        cuentaDestino4.setBackground(new java.awt.Color(196, 196, 196));
-        cuentaDestino4.setForeground(new java.awt.Color(0, 0, 0));
+        cuentaDestino4.setBackground(new Color(196, 196, 196));
+        cuentaDestino4.setForeground(new Color(0, 0, 0));
         cuentaDestino4.setEnabled(false);
-        cuentaDestino4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        cuentaDestino4.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 cuentaDestino4ActionPerformed(evt);
             }
         });
 
-        label7.setAlignment(java.awt.Label.CENTER);
-        label7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        label7.setForeground(new java.awt.Color(0, 1, 0));
+        label7.setAlignment(Label.CENTER);
+        label7.setFont(new Font("Arial", 1, 14)); // NOI18N
+        label7.setForeground(new Color(0, 1, 0));
         label7.setText("Saldo");
 
         jScrollPane1.setEnabled(false);
         jScrollPane1.setRequestFocusEnabled(false);
 
-        jTable1.setBackground(new java.awt.Color(255, 255, 255));
-        jTable1.setForeground(new java.awt.Color(204, 204, 204));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setBackground(new Color(255, 255, 255));
+        jTable1.setForeground(new Color(204, 204, 204));
+        jTable1.setModel(new DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -304,363 +558,783 @@ public class BaseInterfaz extends javax.swing.JFrame {
             }
         ));
         jTable1.setEnabled(false);
-        jTable1.setGridColor(new java.awt.Color(204, 204, 204));
+        jTable1.setGridColor(new Color(204, 204, 204));
         jTable1.setRequestFocusEnabled(false);
-        jTable1.setSelectionBackground(new java.awt.Color(204, 204, 204));
-        jTable1.setSelectionForeground(new java.awt.Color(204, 204, 204));
+        jTable1.setSelectionBackground(new Color(204, 204, 204));
+        jTable1.setSelectionForeground(new Color(204, 204, 204));
         jTable1.setShowHorizontalLines(true);
         jTable1.setShowVerticalLines(true);
         jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
-        jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+        jTable1.getColumnModel().getSelectionModel().setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
-        javax.swing.GroupLayout menu_consultarSaldoLayout = new javax.swing.GroupLayout(menu_consultarSaldo);
+        GroupLayout menu_consultarSaldoLayout = new GroupLayout(menu_consultarSaldo);
         menu_consultarSaldo.setLayout(menu_consultarSaldoLayout);
-        menu_consultarSaldoLayout.setHorizontalGroup(
-            menu_consultarSaldoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu_consultarSaldoLayout.createSequentialGroup()
-                .addGroup(menu_consultarSaldoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, menu_consultarSaldoLayout.createSequentialGroup()
+        menu_consultarSaldoLayout.setHorizontalGroup(menu_consultarSaldoLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(GroupLayout.Alignment.TRAILING, menu_consultarSaldoLayout.createSequentialGroup()
+                .addGroup(menu_consultarSaldoLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                    .addGroup(GroupLayout.Alignment.LEADING, menu_consultarSaldoLayout.createSequentialGroup()
                         .addGap(47, 47, 47)
-                        .addGroup(menu_consultarSaldoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(menu_consultarSaldoLayout.createSequentialGroup()
-                                .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 572, Short.MAX_VALUE)))
+                        .addGroup(menu_consultarSaldoLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                            .addComponent(label2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, GroupLayout.DEFAULT_SIZE, 573, Short.MAX_VALUE)))
                     .addGroup(menu_consultarSaldoLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(label7, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cuentaDestino4, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(label7, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cuentaDestino4, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)))
                 .addGap(23, 23, 23))
         );
-        menu_consultarSaldoLayout.setVerticalGroup(
-            menu_consultarSaldoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        menu_consultarSaldoLayout.setVerticalGroup(menu_consultarSaldoLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(menu_consultarSaldoLayout.createSequentialGroup()
-                .addGroup(menu_consultarSaldoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(menu_consultarSaldoLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addGroup(menu_consultarSaldoLayout.createSequentialGroup()
                         .addGap(15, 15, 15)
-                        .addComponent(cuentaDestino4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu_consultarSaldoLayout.createSequentialGroup()
+                        .addComponent(cuentaDestino4, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(GroupLayout.Alignment.TRAILING, menu_consultarSaldoLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(label7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(label7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addGap(19, 19, 19)))
-                .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(label2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 253, GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        menu_transferencia.setBackground(new java.awt.Color(153, 153, 153));
-        menu_transferencia.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        menu_transferencia.setPreferredSize(new java.awt.Dimension(643, 367));
+        menu_deposito.setBackground(new Color(153, 153, 153));
+        menu_deposito.setFont(new Font("Arial", 0, 14)); // NOI18N
+        menu_deposito.setMaximumSize(new Dimension(643, 367));
+        menu_deposito.setMinimumSize(new Dimension(643, 367));
+        menu_deposito.setPreferredSize(new Dimension(643, 367));
 
-        boton_cancelarTransaccion1.setActionCommand("cancelarTransaccion");
-        boton_cancelarTransaccion1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        boton_cancelarTransaccion1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        boton_cancelarTransaccion1.setForeground(new java.awt.Color(51, 51, 51));
-        boton_cancelarTransaccion1.setLabel("Cancelar Transaccion");
-        boton_cancelarTransaccion1.setMaximumSize(new java.awt.Dimension(190, 30));
-        boton_cancelarTransaccion1.setMinimumSize(new java.awt.Dimension(190, 30));
-        boton_cancelarTransaccion1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boton_cancelarTransaccion1ActionPerformed(evt);
+        boton_cancelarTransaccion2.setActionCommand("cancelarTransaccion");
+        boton_cancelarTransaccion2.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        boton_cancelarTransaccion2.setFont(new Font("Arial", 0, 18)); // NOI18N
+        boton_cancelarTransaccion2.setForeground(new Color(51, 51, 51));
+        boton_cancelarTransaccion2.setLabel("Cancelar Transaccion");
+        boton_cancelarTransaccion2.setMaximumSize(new Dimension(190, 30));
+        boton_cancelarTransaccion2.setMinimumSize(new Dimension(190, 30));
+        boton_cancelarTransaccion2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                boton_cancelarTransaccion2ActionPerformed(evt);
             }
         });
 
-        boton_confirmarTransaccion1.setActionCommand("confirmarTransaccion");
-        boton_confirmarTransaccion1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        boton_confirmarTransaccion1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        boton_confirmarTransaccion1.setForeground(new java.awt.Color(51, 51, 51));
-        boton_confirmarTransaccion1.setLabel("Confirmar Transaccion");
-        boton_confirmarTransaccion1.setMinimumSize(new java.awt.Dimension(190, 30));
-        boton_confirmarTransaccion1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boton_confirmarTransaccion1ActionPerformed(evt);
+        boton_confirmarTransaccion2.setActionCommand("confirmarTransaccion");
+        boton_confirmarTransaccion2.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        boton_confirmarTransaccion2.setFont(new Font("Arial", 0, 18)); // NOI18N
+        boton_confirmarTransaccion2.setForeground(new Color(51, 51, 51));
+        boton_confirmarTransaccion2.setLabel("Confirmar Transaccion");
+        boton_confirmarTransaccion2.setMinimumSize(new Dimension(190, 30));
+        boton_confirmarTransaccion2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                boton_confirmarTransaccion2ActionPerformed(evt);
             }
         });
 
-        cuentaDestino6.setBackground(new java.awt.Color(255, 255, 255));
-        cuentaDestino6.setForeground(new java.awt.Color(0, 0, 0));
-        cuentaDestino6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cuentaDestino6ActionPerformed(evt);
+        cuentaDestino15.setBackground(new Color(255, 255, 255));
+        cuentaDestino15.setForeground(new Color(0, 0, 0));
+        cuentaDestino15.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                cuentaDestino15ActionPerformed(evt);
             }
         });
 
-        label8.setAlignment(java.awt.Label.CENTER);
-        label8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        label8.setForeground(new java.awt.Color(0, 1, 0));
-        label8.setText("Cuenta de Destino");
+        label17.setAlignment(Label.CENTER);
+        label17.setFont(new Font("Arial", 1, 14)); // NOI18N
+        label17.setForeground(new Color(0, 1, 0));
+        label17.setText("Monto");
 
-        cuentaDestino7.setBackground(new java.awt.Color(255, 255, 255));
-        cuentaDestino7.setForeground(new java.awt.Color(0, 0, 0));
-        cuentaDestino7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cuentaDestino7ActionPerformed(evt);
+        cuentaDestino16.setBackground(new Color(196, 196, 196));
+        cuentaDestino16.setForeground(new Color(0, 0, 0));
+        cuentaDestino16.setEnabled(false);
+        cuentaDestino16.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                cuentaDestino16ActionPerformed(evt);
             }
         });
 
-        label9.setAlignment(java.awt.Label.CENTER);
-        label9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        label9.setForeground(new java.awt.Color(0, 1, 0));
-        label9.setText("Nombre de Destinatario");
+        label19.setAlignment(Label.CENTER);
+        label19.setFont(new Font("Arial", 1, 14)); // NOI18N
+        label19.setForeground(new Color(0, 1, 0));
+        label19.setText("Saldo");
 
-        cuentaDestino8.setBackground(new java.awt.Color(255, 255, 255));
-        cuentaDestino8.setForeground(new java.awt.Color(0, 0, 0));
-        cuentaDestino8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cuentaDestino8ActionPerformed(evt);
-            }
-        });
-
-        label10.setAlignment(java.awt.Label.CENTER);
-        label10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        label10.setForeground(new java.awt.Color(0, 1, 0));
-        label10.setText("Nombre de Destinatario");
-
-        cuentaDestino9.setBackground(new java.awt.Color(255, 255, 255));
-        cuentaDestino9.setForeground(new java.awt.Color(0, 0, 0));
-        cuentaDestino9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cuentaDestino9ActionPerformed(evt);
-            }
-        });
-
-        label11.setAlignment(java.awt.Label.CENTER);
-        label11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        label11.setForeground(new java.awt.Color(0, 1, 0));
-        label11.setText("Monto");
-
-        label12.setAlignment(java.awt.Label.CENTER);
-        label12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        label12.setForeground(new java.awt.Color(0, 1, 0));
-        label12.setText("Cuenta de Origen");
-
-        cuentaDestino10.setBackground(new java.awt.Color(196, 196, 196));
-        cuentaDestino10.setForeground(new java.awt.Color(0, 0, 0));
-        cuentaDestino10.setEnabled(false);
-        cuentaDestino10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cuentaDestino10ActionPerformed(evt);
-            }
-        });
-
-        cuentaDestino11.setBackground(new java.awt.Color(196, 196, 196));
-        cuentaDestino11.setForeground(new java.awt.Color(0, 0, 0));
-        cuentaDestino11.setEnabled(false);
-        cuentaDestino11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cuentaDestino11ActionPerformed(evt);
-            }
-        });
-
-        label13.setAlignment(java.awt.Label.CENTER);
-        label13.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        label13.setForeground(new java.awt.Color(0, 1, 0));
-        label13.setText("Saldo");
-
-        javax.swing.GroupLayout menu_transferenciaLayout = new javax.swing.GroupLayout(menu_transferencia);
-        menu_transferencia.setLayout(menu_transferenciaLayout);
-        menu_transferenciaLayout.setHorizontalGroup(
-            menu_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu_transferenciaLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addGroup(menu_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(cuentaDestino8)
-                    .addComponent(cuentaDestino6)
-                    .addComponent(label9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(label8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cuentaDestino7, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(label10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(menu_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu_transferenciaLayout.createSequentialGroup()
-                        .addGroup(menu_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cuentaDestino9)
-                            .addComponent(label11, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(30, 30, 30))
-                    .addGroup(menu_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(cuentaDestino11)
-                        .addComponent(label12, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(52, 52, 52))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu_transferenciaLayout.createSequentialGroup()
-                .addContainerGap(79, Short.MAX_VALUE)
-                .addComponent(boton_cancelarTransaccion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                .addComponent(boton_confirmarTransaccion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        GroupLayout menu_depositoLayout = new GroupLayout(menu_deposito);
+        menu_deposito.setLayout(menu_depositoLayout);
+        menu_depositoLayout.setHorizontalGroup(menu_depositoLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(GroupLayout.Alignment.TRAILING, menu_depositoLayout.createSequentialGroup()
+                .addContainerGap(81, Short.MAX_VALUE)
+                .addComponent(boton_cancelarTransaccion2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addComponent(boton_confirmarTransaccion2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addGap(101, 101, 101))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu_transferenciaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(label13, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cuentaDestino10, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(GroupLayout.Alignment.TRAILING, menu_depositoLayout.createSequentialGroup()
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(label19, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cuentaDestino16, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
+            .addGroup(menu_depositoLayout.createSequentialGroup()
+                .addGap(222, 222, 222)
+                .addGroup(menu_depositoLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cuentaDestino15)
+                    .addComponent(label17, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        menu_transferenciaLayout.setVerticalGroup(
-            menu_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menu_transferenciaLayout.createSequentialGroup()
-                .addGroup(menu_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(menu_transferenciaLayout.createSequentialGroup()
+        menu_depositoLayout.setVerticalGroup(menu_depositoLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(menu_depositoLayout.createSequentialGroup()
+                .addGroup(menu_depositoLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addGroup(menu_depositoLayout.createSequentialGroup()
                         .addGap(15, 15, 15)
-                        .addComponent(cuentaDestino10, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu_transferenciaLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(label13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19)))
-                .addGroup(menu_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(menu_transferenciaLayout.createSequentialGroup()
-                        .addComponent(label12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cuentaDestino11, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(label11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cuentaDestino9, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(menu_transferenciaLayout.createSequentialGroup()
-                        .addComponent(label8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cuentaDestino6, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(menu_transferenciaLayout.createSequentialGroup()
+                        .addComponent(cuentaDestino16, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE))
+                    .addGroup(menu_depositoLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(label19, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addGap(79, 79, 79)
-                        .addComponent(label9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(2, 2, 2)
-                        .addComponent(cuentaDestino8, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(label10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cuentaDestino7, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addGroup(menu_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(boton_confirmarTransaccion1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(boton_cancelarTransaccion1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(label17, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cuentaDestino15, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 725, Short.MAX_VALUE)
+                .addGroup(menu_depositoLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                    .addComponent(boton_confirmarTransaccion2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(boton_cancelarTransaccion2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18))
         );
 
-        menu_interaccion.setLayer(menu_consultarSaldo, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        menu_interaccion.setLayer(menu_transferencia, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        menu_pagarTarjeta.setBackground(new Color(153, 153, 153));
+        menu_pagarTarjeta.setFont(new Font("Arial", 0, 14)); // NOI18N
+        menu_pagarTarjeta.setMinimumSize(new Dimension(643, 367));
 
-        javax.swing.GroupLayout menu_interaccionLayout = new javax.swing.GroupLayout(menu_interaccion);
+        boton_cancelarTransaccion6.setActionCommand("cancelarTransaccion");
+        boton_cancelarTransaccion6.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        boton_cancelarTransaccion6.setFont(new Font("Arial", 0, 18)); // NOI18N
+        boton_cancelarTransaccion6.setForeground(new Color(51, 51, 51));
+        boton_cancelarTransaccion6.setLabel("Cancelar Transaccion");
+        boton_cancelarTransaccion6.setMaximumSize(new Dimension(190, 30));
+        boton_cancelarTransaccion6.setMinimumSize(new Dimension(190, 30));
+        boton_cancelarTransaccion6.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                boton_cancelarTransaccion6ActionPerformed(evt);
+            }
+        });
+
+        boton_confirmarTransaccion6.setActionCommand("confirmarTransaccion");
+        boton_confirmarTransaccion6.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        boton_confirmarTransaccion6.setFont(new Font("Arial", 0, 18)); // NOI18N
+        boton_confirmarTransaccion6.setForeground(new Color(51, 51, 51));
+        boton_confirmarTransaccion6.setLabel("Confirmar Transaccion");
+        boton_confirmarTransaccion6.setMinimumSize(new Dimension(190, 30));
+        boton_confirmarTransaccion6.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                boton_confirmarTransaccion6ActionPerformed(evt);
+            }
+        });
+
+        label34.setAlignment(Label.CENTER);
+        label34.setFont(new Font("Arial", 1, 14)); // NOI18N
+        label34.setForeground(new Color(0, 1, 0));
+        label34.setText("Seleccionar Tarjeta");
+
+        cuentaDestino35.setBackground(new Color(255, 255, 255));
+        cuentaDestino35.setForeground(new Color(0, 0, 0));
+        cuentaDestino35.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                cuentaDestino35ActionPerformed(evt);
+            }
+        });
+
+        label37.setAlignment(Label.CENTER);
+        label37.setFont(new Font("Arial", 1, 14)); // NOI18N
+        label37.setForeground(new Color(0, 1, 0));
+        label37.setText("Monto");
+
+        label38.setAlignment(Label.CENTER);
+        label38.setFont(new Font("Arial", 1, 14)); // NOI18N
+        label38.setForeground(new Color(0, 1, 0));
+        label38.setText("Numero de Tarjeta");
+
+        cuentaDestino36.setBackground(new Color(196, 196, 196));
+        cuentaDestino36.setForeground(new Color(0, 0, 0));
+        cuentaDestino36.setEnabled(false);
+        cuentaDestino36.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                cuentaDestino36ActionPerformed(evt);
+            }
+        });
+
+        cuentaDestino37.setBackground(new Color(255, 255, 255));
+        cuentaDestino37.setForeground(new Color(0, 0, 0));
+        cuentaDestino37.setEnabled(false);
+        cuentaDestino37.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                cuentaDestino37ActionPerformed(evt);
+            }
+        });
+
+        label39.setAlignment(Label.CENTER);
+        label39.setFont(new Font("Arial", 1, 14)); // NOI18N
+        label39.setForeground(new Color(0, 1, 0));
+        label39.setText("Saldo");
+
+        cuentaDestino38.setBackground(new Color(255, 255, 255));
+        cuentaDestino38.setForeground(new Color(0, 0, 0));
+        cuentaDestino38.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                cuentaDestino38ActionPerformed(evt);
+            }
+        });
+
+        label40.setAlignment(Label.CENTER);
+        label40.setFont(new Font("Arial", 1, 14)); // NOI18N
+        label40.setForeground(new Color(0, 1, 0));
+        label40.setText("Deuda Total");
+
+        label41.setAlignment(Label.CENTER);
+        label41.setFont(new Font("Arial", 1, 14)); // NOI18N
+        label41.setForeground(new Color(0, 1, 0));
+        label41.setText("Deuda Limite");
+
+        cuentaDestino39.setBackground(new Color(255, 255, 255));
+        cuentaDestino39.setForeground(new Color(0, 0, 0));
+        cuentaDestino39.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                cuentaDestino39ActionPerformed(evt);
+            }
+        });
+
+        jComboBox1.setBackground(new Color(255, 255, 255));
+        jComboBox1.setModel(new DefaultComboBoxModel<>(new String[] { "Tu tarjeta", "Otras Tarjetas" }));
+        jComboBox1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
+        GroupLayout menu_pagarTarjetaLayout = new GroupLayout(menu_pagarTarjeta);
+        menu_pagarTarjeta.setLayout(menu_pagarTarjetaLayout);
+        menu_pagarTarjetaLayout.setHorizontalGroup(menu_pagarTarjetaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(GroupLayout.Alignment.TRAILING, menu_pagarTarjetaLayout.createSequentialGroup()
+                .addContainerGap(81, Short.MAX_VALUE)
+                .addComponent(boton_cancelarTransaccion6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addComponent(boton_confirmarTransaccion6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addGap(101, 101, 101))
+            .addGroup(GroupLayout.Alignment.TRAILING, menu_pagarTarjetaLayout.createSequentialGroup()
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(label39, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cuentaDestino36, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
+            .addGroup(GroupLayout.Alignment.TRAILING, menu_pagarTarjetaLayout.createSequentialGroup()
+                .addGroup(menu_pagarTarjetaLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                    .addGroup(GroupLayout.Alignment.LEADING, menu_pagarTarjetaLayout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addGroup(menu_pagarTarjetaLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                            .addComponent(label34, GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                            .addComponent(jComboBox1, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(menu_pagarTarjetaLayout.createSequentialGroup()
+                        .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(menu_pagarTarjetaLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cuentaDestino39)
+                            .addComponent(label41, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(menu_pagarTarjetaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addGroup(menu_pagarTarjetaLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                        .addComponent(cuentaDestino38)
+                        .addComponent(label40, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE))
+                    .addGroup(menu_pagarTarjetaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(GroupLayout.Alignment.TRAILING, menu_pagarTarjetaLayout.createSequentialGroup()
+                            .addGroup(menu_pagarTarjetaLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                                .addComponent(cuentaDestino35)
+                                .addComponent(label37, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE))
+                            .addGap(30, 30, 30))
+                        .addGroup(menu_pagarTarjetaLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cuentaDestino37)
+                            .addComponent(label38, GroupLayout.PREFERRED_SIZE, 175, GroupLayout.PREFERRED_SIZE))))
+                .addGap(52, 52, 52))
+        );
+        menu_pagarTarjetaLayout.setVerticalGroup(menu_pagarTarjetaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(menu_pagarTarjetaLayout.createSequentialGroup()
+                .addGroup(menu_pagarTarjetaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addGroup(menu_pagarTarjetaLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(cuentaDestino36, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(GroupLayout.Alignment.TRAILING, menu_pagarTarjetaLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(label39, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19)))
+                .addGroup(menu_pagarTarjetaLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                    .addGroup(menu_pagarTarjetaLayout.createSequentialGroup()
+                        .addComponent(label38, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cuentaDestino37, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(label40, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cuentaDestino38, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE))
+                    .addGroup(menu_pagarTarjetaLayout.createSequentialGroup()
+                        .addComponent(label34, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox1, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(label41, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cuentaDestino39, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)))
+                .addGap(6, 6, 6)
+                .addComponent(label37, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cuentaDestino35, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addGroup(menu_pagarTarjetaLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                    .addComponent(boton_confirmarTransaccion6, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(boton_cancelarTransaccion6, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18))
+        );
+
+        menu_acercaSistema.setBackground(new Color(153, 153, 153));
+        menu_acercaSistema.setFont(new Font("Arial", 0, 14)); // NOI18N
+        menu_acercaSistema.setMinimumSize(new Dimension(643, 367));
+        menu_acercaSistema.setPreferredSize(new Dimension(643, 367));
+
+        label48.setAlignment(Label.CENTER);
+        label48.setFont(new Font("Arial", 1, 18)); // NOI18N
+        label48.setForeground(new Color(0, 1, 0));
+        label48.setText("Facultad Politécnica");
+
+        label53.setAlignment(Label.CENTER);
+        label53.setFont(new Font("Arial", 1, 18)); // NOI18N
+        label53.setForeground(new Color(0, 1, 0));
+        label53.setText("Grupo N° XX");
+
+        label54.setAlignment(Label.CENTER);
+        label54.setFont(new Font("Arial", 1, 56)); // NOI18N
+        label54.setForeground(new Color(204, 0, 0));
+        label54.setText("Examen Final - 2023");
+
+        label55.setAlignment(Label.CENTER);
+        label55.setFont(new Font("Arial", 1, 18)); // NOI18N
+        label55.setForeground(new Color(0, 1, 0));
+        label55.setText("Lista de Integrantes");
+
+        label56.setAlignment(Label.CENTER);
+        label56.setFont(new Font("Arial", 1, 18)); // NOI18N
+        label56.setForeground(new Color(0, 1, 0));
+        label56.setText("Lenguajes de Programación 2");
+
+        button3.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        button3.setFont(new Font("Arial", 1, 14)); // NOI18N
+        button3.setForeground(new Color(0, 1, 0));
+        button3.setLabel("Ver Documentación");
+        button3.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                button3ActionPerformed(evt);
+            }
+        });
+
+        GroupLayout menu_acercaSistemaLayout = new GroupLayout(menu_acercaSistema);
+        menu_acercaSistema.setLayout(menu_acercaSistemaLayout);
+        menu_acercaSistemaLayout.setHorizontalGroup(menu_acercaSistemaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(menu_acercaSistemaLayout.createSequentialGroup()
+                .addGroup(menu_acercaSistemaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addGroup(menu_acercaSistemaLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(menu_acercaSistemaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                            .addComponent(label56, GroupLayout.PREFERRED_SIZE, 279, GroupLayout.PREFERRED_SIZE)
+                            .addGroup(menu_acercaSistemaLayout.createSequentialGroup()
+                                .addComponent(label48, GroupLayout.PREFERRED_SIZE, 198, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 240, Short.MAX_VALUE)
+                                .addComponent(button3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(menu_acercaSistemaLayout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addGroup(menu_acercaSistemaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                            .addComponent(label54, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label55, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label53, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
+                .addGap(34, 34, 34))
+        );
+        menu_acercaSistemaLayout.setVerticalGroup(menu_acercaSistemaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(menu_acercaSistemaLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(menu_acercaSistemaLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                    .addComponent(label48, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(25, 25, 25)
+                .addComponent(label56, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(label54, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addComponent(label53, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(label55, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addGap(377, 377, 377))
+        );
+
+        menu_pagarServicio.setBackground(new Color(153, 153, 153));
+        menu_pagarServicio.setFont(new Font("Arial", 0, 14)); // NOI18N
+        menu_pagarServicio.setMinimumSize(new Dimension(643, 367));
+        menu_pagarServicio.setPreferredSize(new Dimension(643, 367));
+
+        boton_cancelarTransaccion7.setActionCommand("cancelarTransaccion");
+        boton_cancelarTransaccion7.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        boton_cancelarTransaccion7.setFont(new Font("Arial", 0, 18)); // NOI18N
+        boton_cancelarTransaccion7.setForeground(new Color(51, 51, 51));
+        boton_cancelarTransaccion7.setLabel("Cancelar Transaccion");
+        boton_cancelarTransaccion7.setMaximumSize(new Dimension(190, 30));
+        boton_cancelarTransaccion7.setMinimumSize(new Dimension(190, 30));
+        boton_cancelarTransaccion7.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                boton_cancelarTransaccion7ActionPerformed(evt);
+            }
+        });
+
+        boton_confirmarTransaccion7.setActionCommand("confirmarTransaccion");
+        boton_confirmarTransaccion7.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        boton_confirmarTransaccion7.setFont(new Font("Arial", 0, 18)); // NOI18N
+        boton_confirmarTransaccion7.setForeground(new Color(51, 51, 51));
+        boton_confirmarTransaccion7.setLabel("Confirmar Transaccion");
+        boton_confirmarTransaccion7.setMinimumSize(new Dimension(190, 30));
+        boton_confirmarTransaccion7.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                boton_confirmarTransaccion7ActionPerformed(evt);
+            }
+        });
+
+        label35.setAlignment(Label.CENTER);
+        label35.setFont(new Font("Arial", 1, 14)); // NOI18N
+        label35.setForeground(new Color(0, 1, 0));
+        label35.setText("Seleccionar Servicios");
+
+        cuentaDestino33.setBackground(new Color(255, 255, 255));
+        cuentaDestino33.setForeground(new Color(0, 0, 0));
+        cuentaDestino33.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                cuentaDestino33ActionPerformed(evt);
+            }
+        });
+
+        label42.setAlignment(Label.CENTER);
+        label42.setFont(new Font("Arial", 1, 14)); // NOI18N
+        label42.setForeground(new Color(0, 1, 0));
+        label42.setText("Numero de Servicio");
+
+        cuentaDestino40.setBackground(new Color(255, 255, 255));
+        cuentaDestino40.setForeground(new Color(0, 0, 0));
+        cuentaDestino40.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                cuentaDestino40ActionPerformed(evt);
+            }
+        });
+
+        label43.setAlignment(Label.CENTER);
+        label43.setFont(new Font("Arial", 1, 14)); // NOI18N
+        label43.setForeground(new Color(0, 1, 0));
+        label43.setText("Monto");
+
+        label44.setAlignment(Label.CENTER);
+        label44.setFont(new Font("Arial", 1, 14)); // NOI18N
+        label44.setForeground(new Color(0, 1, 0));
+        label44.setText("Cuenta de Origen");
+
+        cuentaDestino41.setBackground(new Color(196, 196, 196));
+        cuentaDestino41.setForeground(new Color(0, 0, 0));
+        cuentaDestino41.setEnabled(false);
+        cuentaDestino41.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                cuentaDestino41ActionPerformed(evt);
+            }
+        });
+
+        cuentaDestino42.setBackground(new Color(196, 196, 196));
+        cuentaDestino42.setForeground(new Color(0, 0, 0));
+        cuentaDestino42.setEnabled(false);
+        cuentaDestino42.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                cuentaDestino42ActionPerformed(evt);
+            }
+        });
+
+        label45.setAlignment(Label.CENTER);
+        label45.setFont(new Font("Arial", 1, 14)); // NOI18N
+        label45.setForeground(new Color(0, 1, 0));
+        label45.setText("Saldo");
+
+        jComboBox2.setBackground(new Color(255, 255, 255));
+        jComboBox2.setModel(new DefaultComboBoxModel<>(new String[] { "Tigo", "Ande", "Universidad", "Seguro de Vehiculo", "Internet", "Agua" }));
+        jComboBox2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
+
+        jComboBox3.setBackground(new Color(255, 255, 255));
+        jComboBox3.setModel(new DefaultComboBoxModel<>(new String[] { "Tarjeta", "Cuenta" }));
+
+        label36.setAlignment(Label.CENTER);
+        label36.setFont(new Font("Arial", 1, 14)); // NOI18N
+        label36.setForeground(new Color(0, 1, 0));
+        label36.setText("Metodo de Pago");
+
+        cuentaDestino43.setBackground(new Color(196, 196, 196));
+        cuentaDestino43.setForeground(new Color(0, 0, 0));
+        cuentaDestino43.setEnabled(false);
+        cuentaDestino43.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                cuentaDestino43ActionPerformed(evt);
+            }
+        });
+
+        label46.setAlignment(Label.CENTER);
+        label46.setFont(new Font("Arial", 1, 14)); // NOI18N
+        label46.setForeground(new Color(0, 1, 0));
+        label46.setText("Monto del Servicio");
+
+        GroupLayout menu_pagarServicioLayout = new GroupLayout(menu_pagarServicio);
+        menu_pagarServicio.setLayout(menu_pagarServicioLayout);
+        menu_pagarServicioLayout.setHorizontalGroup(menu_pagarServicioLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(GroupLayout.Alignment.TRAILING, menu_pagarServicioLayout.createSequentialGroup()
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(boton_cancelarTransaccion7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(boton_confirmarTransaccion7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addGap(101, 101, 101))
+            .addGroup(GroupLayout.Alignment.TRAILING, menu_pagarServicioLayout.createSequentialGroup()
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(label45, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cuentaDestino41, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
+            .addGroup(GroupLayout.Alignment.TRAILING, menu_pagarServicioLayout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addGroup(menu_pagarServicioLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(label35, GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                    .addComponent(jComboBox2, GroupLayout.Alignment.LEADING, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cuentaDestino33, GroupLayout.Alignment.LEADING)
+                    .addComponent(label42, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(menu_pagarServicioLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jComboBox3, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(label36, GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(menu_pagarServicioLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addComponent(cuentaDestino43, GroupLayout.PREFERRED_SIZE, 175, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label46, GroupLayout.PREFERRED_SIZE, 175, GroupLayout.PREFERRED_SIZE)
+                    .addGroup(menu_pagarServicioLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(GroupLayout.Alignment.TRAILING, menu_pagarServicioLayout.createSequentialGroup()
+                            .addGroup(menu_pagarServicioLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                                .addComponent(cuentaDestino40)
+                                .addComponent(label43, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE))
+                            .addGap(82, 82, 82))
+                        .addGroup(menu_pagarServicioLayout.createSequentialGroup()
+                            .addGroup(menu_pagarServicioLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                .addComponent(cuentaDestino42, GroupLayout.PREFERRED_SIZE, 175, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(label44, GroupLayout.PREFERRED_SIZE, 175, GroupLayout.PREFERRED_SIZE))
+                            .addContainerGap()))))
+        );
+        menu_pagarServicioLayout.setVerticalGroup(menu_pagarServicioLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(menu_pagarServicioLayout.createSequentialGroup()
+                .addGroup(menu_pagarServicioLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addGroup(menu_pagarServicioLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(cuentaDestino41, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(GroupLayout.Alignment.TRAILING, menu_pagarServicioLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(label45, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19)))
+                .addGroup(menu_pagarServicioLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addGroup(menu_pagarServicioLayout.createSequentialGroup()
+                        .addComponent(label44, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cuentaDestino42, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(label46, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cuentaDestino43, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(label43, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cuentaDestino40, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE))
+                    .addGroup(menu_pagarServicioLayout.createSequentialGroup()
+                        .addGroup(menu_pagarServicioLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                            .addGroup(menu_pagarServicioLayout.createSequentialGroup()
+                                .addComponent(label35, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(menu_pagarServicioLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jComboBox2, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboBox3, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(label36, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                        .addGap(81, 81, 81)
+                        .addComponent(label42, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cuentaDestino33, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addGroup(menu_pagarServicioLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                    .addComponent(boton_confirmarTransaccion7, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(boton_cancelarTransaccion7, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18))
+        );
+
+        menu_interaccion.setLayer(menu_transferencia, JLayeredPane.DEFAULT_LAYER);
+        menu_interaccion.setLayer(menu_consultarSaldo, JLayeredPane.DEFAULT_LAYER);
+        menu_interaccion.setLayer(menu_deposito, JLayeredPane.DEFAULT_LAYER);
+        menu_interaccion.setLayer(menu_pagarTarjeta, JLayeredPane.DEFAULT_LAYER);
+        menu_interaccion.setLayer(menu_acercaSistema, JLayeredPane.DEFAULT_LAYER);
+        menu_interaccion.setLayer(menu_pagarServicio, JLayeredPane.DEFAULT_LAYER);
+
+        GroupLayout menu_interaccionLayout = new GroupLayout(menu_interaccion);
         menu_interaccion.setLayout(menu_interaccionLayout);
-        menu_interaccionLayout.setHorizontalGroup(
-            menu_interaccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        menu_interaccionLayout.setHorizontalGroup(menu_interaccionLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(menu_interaccionLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(menu_consultarSaldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(24, 24, 24))
-            .addGroup(menu_interaccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(menu_consultarSaldo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
+            .addGroup(menu_interaccionLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(menu_interaccionLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(menu_transferencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap(26, Short.MAX_VALUE)))
+                    .addComponent(menu_transferencia, GroupLayout.PREFERRED_SIZE, 634, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(38, Short.MAX_VALUE)))
+            .addGroup(menu_interaccionLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(menu_interaccionLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(menu_deposito, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(29, Short.MAX_VALUE)))
+            .addGroup(menu_interaccionLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(menu_interaccionLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(menu_acercaSistema, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(29, Short.MAX_VALUE)))
+            .addGroup(menu_interaccionLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(menu_interaccionLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(menu_pagarTarjeta, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(663, Short.MAX_VALUE)))
+            .addGroup(menu_interaccionLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(menu_interaccionLayout.createSequentialGroup()
+                    .addGap(16, 16, 16)
+                    .addComponent(menu_pagarServicio, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(17, Short.MAX_VALUE)))
         );
-        menu_interaccionLayout.setVerticalGroup(
-            menu_interaccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        menu_interaccionLayout.setVerticalGroup(menu_interaccionLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(menu_interaccionLayout.createSequentialGroup()
-                .addComponent(menu_consultarSaldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(menu_interaccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu_interaccionLayout.createSequentialGroup()
-                    .addComponent(menu_transferencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(menu_consultarSaldo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(menu_interaccionLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(menu_interaccionLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(menu_transferencia, GroupLayout.PREFERRED_SIZE, 365, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(610, Short.MAX_VALUE)))
+            .addGroup(menu_interaccionLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(GroupLayout.Alignment.TRAILING, menu_interaccionLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(menu_deposito, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
+            .addGroup(menu_interaccionLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(menu_interaccionLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(menu_acercaSistema, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(menu_interaccionLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(menu_interaccionLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(menu_pagarTarjeta, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(menu_interaccionLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(menu_interaccionLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(menu_pagarServicio, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanel1Layout.setHorizontalGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(botonesMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(separador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botonesMenu, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(separador, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(menu_interaccion))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(botonesMenu))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(separador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addComponent(separador, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(menu_interaccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(menu_interaccion, GroupLayout.PREFERRED_SIZE, 374, GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Menu Principal", jPanel1);
 
-        jLayeredPane1.setLayer(fecha, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(bienvenido, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(logo, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jTabbedPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(fecha, JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(bienvenido, JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(logo, JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jTabbedPane1, JLayeredPane.DEFAULT_LAYER);
 
-        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
+        GroupLayout jLayeredPane1Layout = new GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
-        jLayeredPane1Layout.setHorizontalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jLayeredPane1Layout.setHorizontalGroup(jLayeredPane1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bienvenido, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jLayeredPane1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addComponent(bienvenido, GroupLayout.PREFERRED_SIZE, 480, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fecha, GroupLayout.PREFERRED_SIZE, 480, GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(logo, GroupLayout.PREFERRED_SIZE, 307, GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
             .addComponent(jTabbedPane1)
         );
-        jLayeredPane1Layout.setVerticalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jLayeredPane1Layout.setVerticalGroup(jLayeredPane1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jLayeredPane1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addComponent(fecha, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
                         .addGap(80, 80, 80)
-                        .addComponent(bienvenido, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)
+                        .addComponent(bienvenido, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE))
+                    .addComponent(logo, GroupLayout.PREFERRED_SIZE, 179, GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTabbedPane1, GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        InterfazPrincipal.setLayer(jLayeredPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        InterfazPrincipal.setLayer(jLayeredPane1, JLayeredPane.DEFAULT_LAYER);
 
-        javax.swing.GroupLayout InterfazPrincipalLayout = new javax.swing.GroupLayout(InterfazPrincipal);
+        GroupLayout InterfazPrincipalLayout = new GroupLayout(InterfazPrincipal);
         InterfazPrincipal.setLayout(InterfazPrincipalLayout);
-        InterfazPrincipalLayout.setHorizontalGroup(
-            InterfazPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        InterfazPrincipalLayout.setHorizontalGroup(InterfazPrincipalLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addComponent(jLayeredPane1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        InterfazPrincipalLayout.setVerticalGroup(
-            InterfazPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        InterfazPrincipalLayout.setVerticalGroup(InterfazPrincipalLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(InterfazPrincipalLayout.createSequentialGroup()
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLayeredPane1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jDesktopPane1.add(InterfazPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jDesktopPane1.add(InterfazPrincipal, new AbsoluteConstraints(0, 0, -1, -1));
 
-        fondo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/primer_final/Fondo1020x641.png"))); // NOI18N
+        fondo1.setIcon(new ImageIcon(getClass().getResource("/primer_final/Fondo1020x641.png"))); // NOI18N
         fondo1.setToolTipText("");
-        fondo1.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
-        fondo1.setMinimumSize(new java.awt.Dimension(1020, 640));
+        fondo1.setMaximumSize(new Dimension(2147483647, 2147483647));
+        fondo1.setMinimumSize(new Dimension(1020, 640));
         fondo1.setOpaque(true);
-        fondo1.setPreferredSize(new java.awt.Dimension(1020, 640));
-        jDesktopPane1.add(fondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        fondo1.setPreferredSize(new Dimension(1020, 640));
+        jDesktopPane1.add(fondo1, new AbsoluteConstraints(0, 0, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        layout.setHorizontalGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addComponent(jDesktopPane1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 627, javax.swing.GroupLayout.PREFERRED_SIZE)
+        layout.setVerticalGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addComponent(jDesktopPane1, GroupLayout.PREFERRED_SIZE, 627, GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -668,7 +1342,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
     private Button botonPresionadoActualmente = null;
 
-    private void boton_consultarSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_consultarSaldoActionPerformed
+    private void boton_consultarSaldoActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_consultarSaldoActionPerformed
         // Cambiar la apariencia del botón cuando se presiona
         if (botonPresionadoActualmente != null) {
             botonPresionadoActualmente.setBackground(new java.awt.Color(240, 240, 240));  // Color original del fondo
@@ -681,9 +1355,14 @@ public class BaseInterfaz extends javax.swing.JFrame {
         botonPresionadoActualmente = boton_consultarSaldo;
         menu_transferencia.setVisible(false);
         menu_consultarSaldo.setVisible(true);
+        menu_pagarTarjeta.setVisible(false);
+        menu_deposito.setVisible(false);
+        menu_pagarServicio.setVisible(false);
+        menu_pagarTarjeta.setVisible(false);
+        menu_acercaSistema.setVisible(false);
     }//GEN-LAST:event_boton_consultarSaldoActionPerformed
 
-    private void boton_transferenciaCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_transferenciaCuentaActionPerformed
+    private void boton_transferenciaCuentaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_transferenciaCuentaActionPerformed
         
         // Cambiar la apariencia del botón cuando se presiona
         // Restaurar el color original del botón anteriormente presionado
@@ -699,10 +1378,14 @@ public class BaseInterfaz extends javax.swing.JFrame {
         //Si esta activo el boton de Transferencia solo que este activo el de menu_transferencia
         menu_transferencia.setVisible(true);
         menu_consultarSaldo.setVisible(false);
-        
+        menu_deposito.setVisible(false);
+        menu_pagarTarjeta.setVisible(false);
+        menu_pagarServicio.setVisible(false);
+        menu_pagarTarjeta.setVisible(false);
+        menu_acercaSistema.setVisible(false);
     }//GEN-LAST:event_boton_transferenciaCuentaActionPerformed
 
-    private void boton_pagarServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_pagarServicioActionPerformed
+    private void boton_pagarServicioActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_pagarServicioActionPerformed
         // Cambiar la apariencia del botón cuando se presiona
         if (botonPresionadoActualmente != null) {
             botonPresionadoActualmente.setBackground(new java.awt.Color(240, 240, 240));  // Color original del fondo
@@ -713,9 +1396,16 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
         // Actualizar la referencia al botón actualmente presionado
         botonPresionadoActualmente = boton_pagarServicio;
+        menu_transferencia.setVisible(false);
+        menu_consultarSaldo.setVisible(false);
+        menu_deposito.setVisible(false);
+        menu_pagarTarjeta.setVisible(false);
+        menu_pagarServicio.setVisible(true);
+        menu_pagarTarjeta.setVisible(false);
+        menu_acercaSistema.setVisible(false);
     }//GEN-LAST:event_boton_pagarServicioActionPerformed
 
-    private void boton_pagarTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_pagarTarjetaActionPerformed
+    private void boton_pagarTarjetaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_pagarTarjetaActionPerformed
         // Cambiar la apariencia del botón cuando se presiona
         if (botonPresionadoActualmente != null) {
             botonPresionadoActualmente.setBackground(new java.awt.Color(240, 240, 240));  // Color original del fondo
@@ -726,9 +1416,15 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
         // Actualizar la referencia al botón actualmente presionado
         botonPresionadoActualmente = boton_pagarTarjeta;
+        menu_transferencia.setVisible(false);
+        menu_consultarSaldo.setVisible(false);
+        menu_deposito.setVisible(false);
+        menu_pagarTarjeta.setVisible(true);
+        menu_pagarServicio.setVisible(false);
+        menu_acercaSistema.setVisible(false);
     }//GEN-LAST:event_boton_pagarTarjetaActionPerformed
 
-    private void boton_depositoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_depositoActionPerformed
+    private void boton_depositoActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_depositoActionPerformed
         // Cambiar la apariencia del botón cuando se presiona
         if (botonPresionadoActualmente != null) {
             botonPresionadoActualmente.setBackground(new java.awt.Color(240, 240, 240));  // Color original del fondo
@@ -739,9 +1435,17 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
         // Actualizar la referencia al botón actualmente presionado
         botonPresionadoActualmente = boton_deposito;
+        
+        //Si esta activo el boton de Transferencia solo que este activo el de menu_transferencia
+        menu_deposito.setVisible(true);
+        menu_transferencia.setVisible(false);
+        menu_consultarSaldo.setVisible(false);
+        menu_pagarTarjeta.setVisible(false);
+        menu_pagarServicio.setVisible(false);
+        menu_acercaSistema.setVisible(false);
     }//GEN-LAST:event_boton_depositoActionPerformed
 
-    private void boton_acercaSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_acercaSistemaActionPerformed
+    private void boton_acercaSistemaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_acercaSistemaActionPerformed
         // Cambiar la apariencia del botón cuando se presiona
         if (botonPresionadoActualmente != null) {
             botonPresionadoActualmente.setBackground(new java.awt.Color(240, 240, 240));  // Color original del fondo
@@ -752,9 +1456,17 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
         // Actualizar la referencia al botón actualmente presionado
         botonPresionadoActualmente = boton_acercaSistema;
+        
+        //Si esta activo el boton de Transferencia solo que este activo el de menu_transferencia
+        menu_deposito.setVisible(false);
+        menu_transferencia.setVisible(false);
+        menu_consultarSaldo.setVisible(false);
+        menu_pagarTarjeta.setVisible(false);
+        menu_pagarServicio.setVisible(false);
+        menu_acercaSistema.setVisible(true);
     }//GEN-LAST:event_boton_acercaSistemaActionPerformed
 
-    private void boton_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_salirActionPerformed
+    private void boton_salirActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_salirActionPerformed
         // Cambiar la apariencia del botón cuando se presiona
         if (botonPresionadoActualmente != null) {
             botonPresionadoActualmente.setBackground(new java.awt.Color(240, 240, 240));  // Color original del fondo
@@ -769,41 +1481,125 @@ public class BaseInterfaz extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_boton_salirActionPerformed
 
-    private void cuentaDestino4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuentaDestino4ActionPerformed
+    private void cuentaDestino4ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuentaDestino4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cuentaDestino4ActionPerformed
 
-    private void boton_cancelarTransaccion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_cancelarTransaccion1ActionPerformed
+    private void boton_cancelarTransaccion1ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_cancelarTransaccion1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_boton_cancelarTransaccion1ActionPerformed
 
-    private void boton_confirmarTransaccion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_confirmarTransaccion1ActionPerformed
+    private void boton_confirmarTransaccion1ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_confirmarTransaccion1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_boton_confirmarTransaccion1ActionPerformed
 
-    private void cuentaDestino6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuentaDestino6ActionPerformed
+    private void cuentaDestino6ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuentaDestino6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cuentaDestino6ActionPerformed
 
-    private void cuentaDestino7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuentaDestino7ActionPerformed
+    private void cuentaDestino7ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuentaDestino7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cuentaDestino7ActionPerformed
 
-    private void cuentaDestino8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuentaDestino8ActionPerformed
+    private void cuentaDestino8ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuentaDestino8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cuentaDestino8ActionPerformed
 
-    private void cuentaDestino9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuentaDestino9ActionPerformed
+    private void cuentaDestino9ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuentaDestino9ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cuentaDestino9ActionPerformed
 
-    private void cuentaDestino10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuentaDestino10ActionPerformed
+    private void cuentaDestino10ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuentaDestino10ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cuentaDestino10ActionPerformed
 
-    private void cuentaDestino11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuentaDestino11ActionPerformed
+    private void cuentaDestino11ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuentaDestino11ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cuentaDestino11ActionPerformed
+
+    private void boton_cancelarTransaccion2ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_cancelarTransaccion2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boton_cancelarTransaccion2ActionPerformed
+
+    private void boton_confirmarTransaccion2ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_confirmarTransaccion2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boton_confirmarTransaccion2ActionPerformed
+
+    private void cuentaDestino15ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuentaDestino15ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cuentaDestino15ActionPerformed
+
+    private void cuentaDestino16ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuentaDestino16ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cuentaDestino16ActionPerformed
+
+    private void cuentaDestino39ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuentaDestino39ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cuentaDestino39ActionPerformed
+
+    private void cuentaDestino38ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuentaDestino38ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cuentaDestino38ActionPerformed
+
+    private void cuentaDestino37ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuentaDestino37ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cuentaDestino37ActionPerformed
+
+    private void cuentaDestino36ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuentaDestino36ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cuentaDestino36ActionPerformed
+
+    private void cuentaDestino35ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuentaDestino35ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cuentaDestino35ActionPerformed
+
+    private void boton_confirmarTransaccion6ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_confirmarTransaccion6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boton_confirmarTransaccion6ActionPerformed
+
+    private void boton_cancelarTransaccion6ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_cancelarTransaccion6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boton_cancelarTransaccion6ActionPerformed
+
+    private void jComboBox1ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void cuentaDestino42ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuentaDestino42ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cuentaDestino42ActionPerformed
+
+    private void cuentaDestino41ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuentaDestino41ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cuentaDestino41ActionPerformed
+
+    private void cuentaDestino40ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuentaDestino40ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cuentaDestino40ActionPerformed
+
+    private void cuentaDestino33ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuentaDestino33ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cuentaDestino33ActionPerformed
+
+    private void boton_confirmarTransaccion7ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_confirmarTransaccion7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boton_confirmarTransaccion7ActionPerformed
+
+    private void boton_cancelarTransaccion7ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_cancelarTransaccion7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boton_cancelarTransaccion7ActionPerformed
+
+    private void jComboBox2ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void cuentaDestino43ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuentaDestino43ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cuentaDestino43ActionPerformed
+
+    private void button3ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_button3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button3ActionPerformed
 
     
     /**
@@ -842,46 +1638,138 @@ public class BaseInterfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLayeredPane InterfazPrincipal;
-    private javax.swing.JLabel bienvenido;
-    private java.awt.Button boton_acercaSistema;
-    private java.awt.Button boton_cancelarTransaccion1;
-    private java.awt.Button boton_confirmarTransaccion1;
-    private java.awt.Button boton_consultarSaldo;
-    private java.awt.Button boton_deposito;
-    private java.awt.Button boton_pagarServicio;
-    private java.awt.Button boton_pagarTarjeta;
-    private java.awt.Button boton_salir;
-    private java.awt.Button boton_transferenciaCuenta;
-    private javax.swing.JLayeredPane botonesMenu;
-    private javax.swing.JTextField cuentaDestino10;
-    private javax.swing.JTextField cuentaDestino11;
-    private javax.swing.JTextField cuentaDestino4;
-    private javax.swing.JTextField cuentaDestino6;
-    private javax.swing.JTextField cuentaDestino7;
-    private javax.swing.JTextField cuentaDestino8;
-    private javax.swing.JTextField cuentaDestino9;
-    private javax.swing.JLabel fecha;
-    private javax.swing.JLabel fondo1;
-    private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
-    private java.awt.Label label1;
-    private java.awt.Label label10;
-    private java.awt.Label label11;
-    private java.awt.Label label12;
-    private java.awt.Label label13;
-    private java.awt.Label label2;
-    private java.awt.Label label7;
-    private java.awt.Label label8;
-    private java.awt.Label label9;
-    private javax.swing.JLabel logo;
-    private java.awt.Panel menu_consultarSaldo;
-    private javax.swing.JLayeredPane menu_interaccion;
-    private java.awt.Panel menu_transferencia;
-    private javax.swing.JLayeredPane separador;
+    private JLayeredPane InterfazPrincipal;
+    private JLabel bienvenido;
+    private Button boton_acercaSistema;
+    private Button boton_cancelarTransaccion1;
+    private Button boton_cancelarTransaccion2;
+    private Button boton_cancelarTransaccion3;
+    private Button boton_cancelarTransaccion4;
+    private Button boton_cancelarTransaccion5;
+    private Button boton_cancelarTransaccion6;
+    private Button boton_cancelarTransaccion7;
+    private Button boton_confirmarTransaccion1;
+    private Button boton_confirmarTransaccion2;
+    private Button boton_confirmarTransaccion3;
+    private Button boton_confirmarTransaccion4;
+    private Button boton_confirmarTransaccion5;
+    private Button boton_confirmarTransaccion6;
+    private Button boton_confirmarTransaccion7;
+    private Button boton_consultarSaldo;
+    private Button boton_deposito;
+    private Button boton_pagarServicio;
+    private Button boton_pagarTarjeta;
+    private Button boton_salir;
+    private Button boton_transferenciaCuenta;
+    private JLayeredPane botonesMenu;
+    private Button button3;
+    private JTextField cuentaDestino10;
+    private JTextField cuentaDestino11;
+    private JTextField cuentaDestino12;
+    private JTextField cuentaDestino13;
+    private JTextField cuentaDestino14;
+    private JTextField cuentaDestino15;
+    private JTextField cuentaDestino16;
+    private JTextField cuentaDestino17;
+    private JTextField cuentaDestino18;
+    private JTextField cuentaDestino19;
+    private JTextField cuentaDestino20;
+    private JTextField cuentaDestino21;
+    private JTextField cuentaDestino22;
+    private JTextField cuentaDestino23;
+    private JTextField cuentaDestino24;
+    private JTextField cuentaDestino25;
+    private JTextField cuentaDestino26;
+    private JTextField cuentaDestino27;
+    private JTextField cuentaDestino28;
+    private JTextField cuentaDestino29;
+    private JTextField cuentaDestino30;
+    private JTextField cuentaDestino31;
+    private JTextField cuentaDestino33;
+    private JTextField cuentaDestino35;
+    private JTextField cuentaDestino36;
+    private JTextField cuentaDestino37;
+    private JTextField cuentaDestino38;
+    private JTextField cuentaDestino39;
+    private JTextField cuentaDestino4;
+    private JTextField cuentaDestino40;
+    private JTextField cuentaDestino41;
+    private JTextField cuentaDestino42;
+    private JTextField cuentaDestino43;
+    private JTextField cuentaDestino6;
+    private JTextField cuentaDestino7;
+    private JTextField cuentaDestino8;
+    private JTextField cuentaDestino9;
+    private JLabel fecha;
+    private JLabel fondo1;
+    private JComboBox<String> jComboBox1;
+    private JComboBox<String> jComboBox2;
+    private JComboBox<String> jComboBox3;
+    private JDesktopPane jDesktopPane1;
+    private JLayeredPane jLayeredPane1;
+    private JPanel jPanel1;
+    private JScrollPane jScrollPane1;
+    private JTabbedPane jTabbedPane1;
+    private JTable jTable1;
+    private Label label1;
+    private Label label10;
+    private Label label11;
+    private Label label12;
+    private Label label13;
+    private Label label14;
+    private Label label15;
+    private Label label16;
+    private Label label17;
+    private Label label18;
+    private Label label19;
+    private Label label2;
+    private Label label20;
+    private Label label21;
+    private Label label22;
+    private Label label23;
+    private Label label24;
+    private Label label25;
+    private Label label26;
+    private Label label27;
+    private Label label28;
+    private Label label29;
+    private Label label30;
+    private Label label31;
+    private Label label32;
+    private Label label33;
+    private Label label34;
+    private Label label35;
+    private Label label36;
+    private Label label37;
+    private Label label38;
+    private Label label39;
+    private Label label40;
+    private Label label41;
+    private Label label42;
+    private Label label43;
+    private Label label44;
+    private Label label45;
+    private Label label46;
+    private Label label48;
+    private Label label53;
+    private Label label54;
+    private Label label55;
+    private Label label56;
+    private Label label7;
+    private Label label8;
+    private Label label9;
+    private List list1;
+    private JLabel logo;
+    private Panel menu_acercaSistema;
+    private Panel menu_consultarSaldo;
+    private Panel menu_deposito;
+    private JLayeredPane menu_interaccion;
+    private Panel menu_pagarServicio;
+    private Panel menu_pagarTarjeta;
+    private Panel menu_transferencia;
+    private Panel menu_transferencia1;
+    private Panel menu_transferencia2;
+    private Panel menu_transferencia3;
+    private JLayeredPane separador;
     // End of variables declaration//GEN-END:variables
 }
