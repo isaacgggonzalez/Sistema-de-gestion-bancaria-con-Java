@@ -104,7 +104,7 @@
                       <Component id="boton_iniciarSesion" min="-2" pref="168" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="label5" alignment="1" max="32767" attributes="0"/>
+                  <Component id="textoIncorrecto" alignment="1" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -145,7 +145,7 @@
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                      <Component id="label5" min="-2" max="-2" attributes="0"/>
+                      <Component id="textoIncorrecto" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="23" max="32767" attributes="0"/>
                       <Component id="boton_iniciarSesion" min="-2" pref="37" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
@@ -224,6 +224,9 @@
                 </Property>
                 <Property name="label" type="java.lang.String" value="Iniciar Sesion"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boton_iniciarSesionActionPerformed"/>
+              </Events>
             </Component>
             <Component class="java.awt.Label" name="label1">
               <Properties>
@@ -267,8 +270,8 @@
                       <Image iconType="3" name="/imagenes/icono_cerrarOjo.png"/>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                        <LineBorder/>
+                      <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                        <EtchetBorder/>
                       </Border>
                     </Property>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -289,7 +292,7 @@
                   </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="200" y="7" width="26" height="37"/>
+                      <AbsoluteConstraints x="196" y="7" width="30" height="37"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -314,7 +317,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="java.awt.Label" name="label5">
+            <Component class="java.awt.Label" name="textoIncorrecto">
               <Properties>
                 <Property name="alignment" type="int" value="1"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -325,6 +328,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Ingresaste mal algo"/>
               </Properties>
+              <Events>
+                <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="textoIncorrectoPropertyChange"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

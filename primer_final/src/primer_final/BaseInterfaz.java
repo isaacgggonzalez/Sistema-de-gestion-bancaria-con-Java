@@ -14,6 +14,7 @@ import java.awt.List;
 import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.DebugGraphics;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
@@ -41,8 +42,9 @@ public class BaseInterfaz extends javax.swing.JFrame {
     public BaseInterfaz() {
         initComponents();
         this.setLocationRelativeTo(this); //Ubicar la interfaz en el centro
-        
-    }   
+
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -67,7 +69,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         boton_consultarSaldo = new Button();
         boton_acercaSistema = new Button();
         boton_transferenciaCuenta = new Button();
-        boton_salir = new Button();
+        boton_cerrarSesion = new Button();
         separador = new JLayeredPane();
         label1 = new Label();
         menu_interaccion = new JLayeredPane();
@@ -169,6 +171,15 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
         logo.setIcon(new ImageIcon(getClass().getResource("/imagenes/Logo 350x350.png"))); // NOI18N
 
+        jTabbedPane1.setForeground(new Color(255, 255, 255));
+        jTabbedPane1.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        jTabbedPane1.setDebugGraphicsOptions(DebugGraphics.NONE_OPTION);
+        jTabbedPane1.setFocusable(false);
+        jTabbedPane1.setFont(new Font("Arial", 1, 12)); // NOI18N
+        jTabbedPane1.setVerifyInputWhenFocusTarget(false);
+
+        jPanel1.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        jPanel1.setDoubleBuffered(false);
         jPanel1.setEnabled(false);
         jPanel1.setPreferredSize(new Dimension(1020, 500));
 
@@ -240,14 +251,14 @@ public class BaseInterfaz extends javax.swing.JFrame {
             }
         });
 
-        boton_salir.setActionCommand("salir");
-        boton_salir.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        boton_salir.setFont(new Font("Arial", 0, 18)); // NOI18N
-        boton_salir.setLabel("Salir");
-        boton_salir.setMinimumSize(new Dimension(245, 35));
-        boton_salir.addActionListener(new ActionListener() {
+        boton_cerrarSesion.setActionCommand("Cerrar Sesion");
+        boton_cerrarSesion.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        boton_cerrarSesion.setFont(new Font("Arial", 0, 18)); // NOI18N
+        boton_cerrarSesion.setLabel("Cerrar Sesion");
+        boton_cerrarSesion.setMinimumSize(new Dimension(245, 35));
+        boton_cerrarSesion.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                boton_salirActionPerformed(evt);
+                boton_cerrarSesionActionPerformed(evt);
             }
         });
 
@@ -257,7 +268,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         botonesMenu.setLayer(boton_consultarSaldo, JLayeredPane.DEFAULT_LAYER);
         botonesMenu.setLayer(boton_acercaSistema, JLayeredPane.DEFAULT_LAYER);
         botonesMenu.setLayer(boton_transferenciaCuenta, JLayeredPane.DEFAULT_LAYER);
-        botonesMenu.setLayer(boton_salir, JLayeredPane.DEFAULT_LAYER);
+        botonesMenu.setLayer(boton_cerrarSesion, JLayeredPane.DEFAULT_LAYER);
 
         GroupLayout botonesMenuLayout = new GroupLayout(botonesMenu);
         botonesMenu.setLayout(botonesMenuLayout);
@@ -271,7 +282,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                     .addComponent(boton_acercaSistema, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
                     .addComponent(boton_consultarSaldo, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(boton_transferenciaCuenta, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(boton_salir, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(boton_cerrarSesion, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         botonesMenuLayout.setVerticalGroup(botonesMenuLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -286,11 +297,11 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 .addComponent(boton_pagarTarjeta, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(19, 19, 19)
                 .addComponent(boton_pagarServicio, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(26, 26, 26)
-                .addComponent(boton_acercaSistema, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(21, 21, 21)
-                .addComponent(boton_salir, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(26, 26, 26))
+                .addGap(22, 22, 22)
+                .addComponent(boton_acercaSistema, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(boton_cerrarSesion, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
         );
 
         separador.setEnabled(false);
@@ -1290,7 +1301,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(logo, GroupLayout.PREFERRED_SIZE, 307, GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
-            .addComponent(jTabbedPane1)
+            .addComponent(jTabbedPane1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
         );
         jLayeredPane1Layout.setVerticalGroup(jLayeredPane1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
@@ -1301,7 +1312,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                         .addComponent(bienvenido, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE))
                     .addComponent(logo, GroupLayout.PREFERRED_SIZE, 179, GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1, GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, GroupLayout.PREFERRED_SIZE, 456, GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -1363,7 +1374,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_boton_consultarSaldoActionPerformed
 
     private void boton_transferenciaCuentaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_transferenciaCuentaActionPerformed
-        
+
         // Cambiar la apariencia del botón cuando se presiona
         // Restaurar el color original del botón anteriormente presionado
         if (botonPresionadoActualmente != null) {
@@ -1435,7 +1446,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
         // Actualizar la referencia al botón actualmente presionado
         botonPresionadoActualmente = boton_deposito;
-        
+
         //Si esta activo el boton de Transferencia solo que este activo el de menu_transferencia
         menu_deposito.setVisible(true);
         menu_transferencia.setVisible(false);
@@ -1456,7 +1467,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
         // Actualizar la referencia al botón actualmente presionado
         botonPresionadoActualmente = boton_acercaSistema;
-        
+
         //Si esta activo el boton de Transferencia solo que este activo el de menu_transferencia
         menu_deposito.setVisible(false);
         menu_transferencia.setVisible(false);
@@ -1466,20 +1477,23 @@ public class BaseInterfaz extends javax.swing.JFrame {
         menu_acercaSistema.setVisible(true);
     }//GEN-LAST:event_boton_acercaSistemaActionPerformed
 
-    private void boton_salirActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_salirActionPerformed
+    private void boton_cerrarSesionActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_cerrarSesionActionPerformed
         // Cambiar la apariencia del botón cuando se presiona
         if (botonPresionadoActualmente != null) {
             botonPresionadoActualmente.setBackground(new java.awt.Color(240, 240, 240));  // Color original del fondo
         }
 
         // Establecer el color oscuro para el botón actual
-        boton_salir.setBackground(new java.awt.Color(102, 102, 102));
+        boton_cerrarSesion.setBackground(new java.awt.Color(102, 102, 102));
 
         // Actualizar la referencia al botón actualmente presionado
-        botonPresionadoActualmente = boton_salir;
-        
-        System.exit(0);
-    }//GEN-LAST:event_boton_salirActionPerformed
+        botonPresionadoActualmente = boton_cerrarSesion;
+
+        // Conecto la interfaz cuando inicie sesion,para  que se abra la interfaz de menu principal
+        LoginInterfaz ventanaLogin = new LoginInterfaz();
+        ventanaLogin.setVisible(true);
+        this.dispose();//Cierra esta ventana
+    }//GEN-LAST:event_boton_cerrarSesionActionPerformed
 
     private void cuentaDestino4ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuentaDestino4ActionPerformed
         // TODO add your handling code here:
@@ -1601,7 +1615,10 @@ public class BaseInterfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_button3ActionPerformed
 
-    
+    public void activarMenuTransferencia() {
+        boton_transferenciaCuentaActionPerformed(null);
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -1647,6 +1664,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private Button boton_cancelarTransaccion2;
     private Button boton_cancelarTransaccion6;
     private Button boton_cancelarTransaccion7;
+    private Button boton_cerrarSesion;
     private Button boton_confirmarTransaccion1;
     private Button boton_confirmarTransaccion2;
     private Button boton_confirmarTransaccion6;
@@ -1655,8 +1673,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private Button boton_deposito;
     private Button boton_pagarServicio;
     private Button boton_pagarTarjeta;
-    private Button boton_salir;
-    private Button boton_transferenciaCuenta;
+    public Button boton_transferenciaCuenta;
     private JLayeredPane botonesMenu;
     private Button button3;
     private JTextField cuentaDestino10;

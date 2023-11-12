@@ -47,7 +47,7 @@ public class LoginInterfaz extends javax.swing.JFrame {
         jLayeredPane1 = new javax.swing.JLayeredPane();
         ojo_clave = new javax.swing.JLabel();
         box_clave = new javax.swing.JPasswordField();
-        label5 = new java.awt.Label();
+        textoIncorrecto = new java.awt.Label();
         logo1 = new javax.swing.JLabel();
         fondo1 = new javax.swing.JLabel();
 
@@ -82,6 +82,11 @@ public class LoginInterfaz extends javax.swing.JFrame {
         boton_iniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         boton_iniciarSesion.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         boton_iniciarSesion.setLabel("Iniciar Sesion");
+        boton_iniciarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_iniciarSesionActionPerformed(evt);
+            }
+        });
 
         label1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         label1.setText("Cédula");
@@ -97,7 +102,7 @@ public class LoginInterfaz extends javax.swing.JFrame {
         ojo_clave.setBackground(new java.awt.Color(255, 255, 255));
         ojo_clave.setForeground(new java.awt.Color(255, 255, 255));
         ojo_clave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono_cerrarOjo.png"))); // NOI18N
-        ojo_clave.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        ojo_clave.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         ojo_clave.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ojo_clave.setMaximumSize(new java.awt.Dimension(22, 22));
         ojo_clave.setMinimumSize(new java.awt.Dimension(22, 22));
@@ -107,7 +112,7 @@ public class LoginInterfaz extends javax.swing.JFrame {
                 ojo_claveMouseClicked(evt);
             }
         });
-        jLayeredPane1.add(ojo_clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 7, 26, 37));
+        jLayeredPane1.add(ojo_clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 7, 30, 37));
 
         box_clave.setBackground(new java.awt.Color(255, 255, 255));
         box_clave.setForeground(new java.awt.Color(0, 0, 0));
@@ -123,10 +128,15 @@ public class LoginInterfaz extends javax.swing.JFrame {
         });
         jLayeredPane1.add(box_clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 220, 39));
 
-        label5.setAlignment(java.awt.Label.CENTER);
-        label5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        label5.setForeground(new java.awt.Color(204, 0, 0));
-        label5.setText("Ingresaste mal algo");
+        textoIncorrecto.setAlignment(java.awt.Label.CENTER);
+        textoIncorrecto.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        textoIncorrecto.setForeground(new java.awt.Color(204, 0, 0));
+        textoIncorrecto.setText("Ingresaste mal algo");
+        textoIncorrecto.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                textoIncorrectoPropertyChange(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -154,7 +164,7 @@ public class LoginInterfaz extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(boton_iniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(151, 151, 151))
-            .addComponent(label5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(textoIncorrecto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,7 +195,7 @@ public class LoginInterfaz extends javax.swing.JFrame {
                         .addGap(11, 11, 11)
                         .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(19, 19, 19)
-                .addComponent(label5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textoIncorrecto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addComponent(boton_iniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34))
@@ -227,6 +237,7 @@ public class LoginInterfaz extends javax.swing.JFrame {
         // Que se visualize la contraseña
         char echoChar = claveVisible ? '\u0000' : '*';
         box_clave.setEchoChar(echoChar);
+        
     }//GEN-LAST:event_box_claveActionPerformed
 
     private void box_claveKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_box_claveKeyTyped
@@ -247,6 +258,19 @@ public class LoginInterfaz extends javax.swing.JFrame {
 
         claveVisible = !claveVisible; // Invertir el estado
     }//GEN-LAST:event_ojo_claveMouseClicked
+
+    private void boton_iniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_iniciarSesionActionPerformed
+        // Conecto la interfaz cuando inicie sesion,para  que se abra la interfaz de menu principal
+        BaseInterfaz ventanaSecundaria = new BaseInterfaz();
+        ventanaSecundaria.setVisible(true);
+        this.dispose();//Cierra la Primera Interfaz cuando la Segunda se abre
+        ventanaSecundaria.activarMenuTransferencia(); //Para que se mmuestre despues de ingresar el menu de transferencia
+    }//GEN-LAST:event_boton_iniciarSesionActionPerformed
+
+    private void textoIncorrectoPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_textoIncorrectoPropertyChange
+        // TODO add your handling code here:
+        //textoIncorrecto.setVisible(false);
+    }//GEN-LAST:event_textoIncorrectoPropertyChange
     
        
     
@@ -320,9 +344,9 @@ public class LoginInterfaz extends javax.swing.JFrame {
     private java.awt.Label label2;
     private java.awt.Label label3;
     private java.awt.Label label4;
-    private java.awt.Label label5;
     private javax.swing.JLabel logo;
     private javax.swing.JLabel logo1;
     private javax.swing.JLabel ojo_clave;
+    private java.awt.Label textoIncorrecto;
     // End of variables declaration//GEN-END:variables
 }
