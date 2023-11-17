@@ -267,23 +267,36 @@ public class LoginInterfaz extends javax.swing.JFrame {
     private void boton_iniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_iniciarSesionActionPerformed
         // Obtener las credenciales desde la interfaz (por ejemplo, cedula, numeroCuenta, clave)
         
-        long cedula = Long.parseLong(box_cedula.getText()); // Ajusta esto según tu cuadro de texto
-        long numeroCuenta = Long.parseLong(box_cuenta.getText()); // Ajusta esto según tu cuadro de texto
-        
-        int clave = Integer.parseInt(box_clave.getText()); // Ajusta esto según tu cuadro de texto        
-        // Realizar la autenticación
-        AutenticacionLogin autenticacion = new AutenticacionLogin();
-    
+        String cedulaTexto = box_cedula.getText().trim();
+        String numeroCuentaTexto = box_cuenta.getText().trim();
+        String claveTexto = box_clave.getText().trim();
 
-        if (autenticacion.verificarPinCuenta(cedula, numeroCuenta, clave)) {
-            // Autenticación exitosa, abrir la segunda ventana
-            BaseInterfaz ventanaSecundaria = new BaseInterfaz();
-            ventanaSecundaria.setVisible(true);
-            this.dispose(); // Cierra la Primera Interfaz cuando la Segunda se abre
-            ventanaSecundaria.activarMenuTransferencia(); // Para que se muestre después de ingresar el menú de transferencia
-            
-        }else {
-            textoIncorrecto.setText("Error en la autenticación. Verifica tus credenciales.");
+        // Validar que los campos no estén vacíos
+        if (cedulaTexto.isEmpty() || numeroCuentaTexto.isEmpty() || claveTexto.isEmpty()) {
+            textoIncorrecto.setText("Todos los campos deben ser completados.");
+            return; // Salir del método si hay campos vacíos
+        }
+
+        try {
+            // Intentar convertir los valores a números
+            long cedula = Long.parseLong(cedulaTexto);
+            long numeroCuenta = Long.parseLong(numeroCuentaTexto);
+            int clave = Integer.parseInt(claveTexto);
+
+            // Realizar la autenticación
+            AutenticacionLogin autenticacion = new AutenticacionLogin();
+
+            if (autenticacion.verificarPinCuenta(cedula, numeroCuenta, clave)) {
+                // Autenticación exitosa, abrir la segunda ventana
+                BaseInterfaz ventanaSecundaria = new BaseInterfaz();
+                ventanaSecundaria.setVisible(true);
+                this.dispose(); // Cierra la Primera Interfaz cuando la Segunda se abre
+                ventanaSecundaria.activarMenuTransferencia(); // Para que se muestre después de ingresar el menú de transferencia
+            } else {
+                textoIncorrecto.setText("Error en la autenticación. Verifica tus credenciales.");
+            }
+        } catch (NumberFormatException e) {
+            textoIncorrecto.setText("Ingresa valores numéricos válidos en los campos correspondientes.");
         }
     }//GEN-LAST:event_boton_iniciarSesionActionPerformed
 
