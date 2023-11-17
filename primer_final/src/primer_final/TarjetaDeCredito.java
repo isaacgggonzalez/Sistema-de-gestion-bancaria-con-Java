@@ -8,7 +8,8 @@ public class TarjetaDeCredito {
     private Cliente cliente_asociado;  
 
     // Constructor
-    public TarjetaDeCredito(double deuda_tarjeta, double limite_tarjeta, String vencimiento_tarjeta, String nro_tarjeta, Cliente cliente_asociado) {
+    public TarjetaDeCredito(double deuda_tarjeta, double limite_tarjeta, 
+            String vencimiento_tarjeta, String nro_tarjeta, Cliente cliente_asociado) {
         this.deuda_tarjeta = deuda_tarjeta;
         this.limite_tarjeta = limite_tarjeta;
         this.vencimiento_tarjeta = vencimiento_tarjeta;

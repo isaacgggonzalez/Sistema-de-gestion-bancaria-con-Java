@@ -6,8 +6,9 @@ public class Transferencia extends Transaccion {
     private Cuenta destino_transferencia;
 
     // Constructor
-    public Transferencia(int Id_transaccion, int Pin_transaccion, String Tipo_transaccion, String Fecha_transaccion,
-                         double Monto_transferencia, Cuenta origen_transferencia, Cuenta destino_transferencia) {
+    public Transferencia(int Id_transaccion, int Pin_transaccion, String Tipo_transaccion, 
+            String Fecha_transaccion,double Monto_transferencia, 
+            Cuenta origen_transferencia, Cuenta destino_transferencia) {
         // Llamada al constructor de la clase base (Transaccion)
         super(Id_transaccion, Pin_transaccion, Tipo_transaccion, Fecha_transaccion);
 

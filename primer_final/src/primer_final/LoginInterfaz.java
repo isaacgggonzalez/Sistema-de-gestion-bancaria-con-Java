@@ -4,6 +4,8 @@ import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import pruebadepg.AutenticacionLogin;
+
 /**
  *
  * @author alanalcaraz
@@ -22,7 +24,11 @@ public class LoginInterfaz extends javax.swing.JFrame {
         //this.tamano_imagen(this.usuario, "/imagenes/usuario.png");
         
     }
-
+    
+    public String getBox_cedula() {
+        return box_cedula.getText();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -52,9 +58,7 @@ public class LoginInterfaz extends javax.swing.JFrame {
         fondo1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(825, 550));
         setMinimumSize(new java.awt.Dimension(825, 550));
-        setPreferredSize(new java.awt.Dimension(825, 550));
         setResizable(false);
 
         jDesktopPane1.setMaximumSize(new java.awt.Dimension(825, 466));
@@ -79,7 +83,7 @@ public class LoginInterfaz extends javax.swing.JFrame {
         box_cedula.setForeground(new java.awt.Color(0, 0, 0));
         jScrollPane3.setViewportView(box_cedula);
 
-        boton_iniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        boton_iniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         boton_iniciarSesion.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         boton_iniciarSesion.setLabel("Iniciar Sesion");
         boton_iniciarSesion.addActionListener(new java.awt.event.ActionListener() {
@@ -103,7 +107,7 @@ public class LoginInterfaz extends javax.swing.JFrame {
         ojo_clave.setForeground(new java.awt.Color(255, 255, 255));
         ojo_clave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono_cerrarOjo.png"))); // NOI18N
         ojo_clave.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        ojo_clave.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ojo_clave.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         ojo_clave.setMaximumSize(new java.awt.Dimension(22, 22));
         ojo_clave.setMinimumSize(new java.awt.Dimension(22, 22));
         ojo_clave.setPreferredSize(new java.awt.Dimension(22, 22));
@@ -115,6 +119,7 @@ public class LoginInterfaz extends javax.swing.JFrame {
         jLayeredPane1.add(ojo_clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, -1, 30, 40));
 
         box_clave.setBackground(new java.awt.Color(255, 255, 255));
+        box_clave.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         box_clave.setForeground(new java.awt.Color(0, 0, 0));
         box_clave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,7 +136,7 @@ public class LoginInterfaz extends javax.swing.JFrame {
         textoIncorrecto.setAlignment(java.awt.Label.CENTER);
         textoIncorrecto.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         textoIncorrecto.setForeground(new java.awt.Color(204, 0, 0));
-        textoIncorrecto.setText("Ingresaste mal algo");
+        textoIncorrecto.setText(" ");
         textoIncorrecto.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 textoIncorrectoPropertyChange(evt);
@@ -260,11 +265,26 @@ public class LoginInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_ojo_claveMouseClicked
 
     private void boton_iniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_iniciarSesionActionPerformed
-        // Conecto la interfaz cuando inicie sesion,para  que se abra la interfaz de menu principal
-        BaseInterfaz ventanaSecundaria = new BaseInterfaz();
-        ventanaSecundaria.setVisible(true);
-        this.dispose();//Cierra la Primera Interfaz cuando la Segunda se abre
-        ventanaSecundaria.activarMenuTransferencia(); //Para que se mmuestre despues de ingresar el menu de transferencia
+        // Obtener las credenciales desde la interfaz (por ejemplo, cedula, numeroCuenta, clave)
+        
+        long cedula = Long.parseLong(box_cedula.getText()); // Ajusta esto según tu cuadro de texto
+        long numeroCuenta = Long.parseLong(box_cuenta.getText()); // Ajusta esto según tu cuadro de texto
+        
+        int clave = Integer.parseInt(box_clave.getText()); // Ajusta esto según tu cuadro de texto        
+        // Realizar la autenticación
+        AutenticacionLogin autenticacion = new AutenticacionLogin();
+    
+
+        if (autenticacion.verificarPinCuenta(cedula, numeroCuenta, clave)) {
+            // Autenticación exitosa, abrir la segunda ventana
+            BaseInterfaz ventanaSecundaria = new BaseInterfaz();
+            ventanaSecundaria.setVisible(true);
+            this.dispose(); // Cierra la Primera Interfaz cuando la Segunda se abre
+            ventanaSecundaria.activarMenuTransferencia(); // Para que se muestre después de ingresar el menú de transferencia
+            
+        }else {
+            textoIncorrecto.setText("Error en la autenticación. Verifica tus credenciales.");
+        }
     }//GEN-LAST:event_boton_iniciarSesionActionPerformed
 
     private void textoIncorrectoPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_textoIncorrectoPropertyChange

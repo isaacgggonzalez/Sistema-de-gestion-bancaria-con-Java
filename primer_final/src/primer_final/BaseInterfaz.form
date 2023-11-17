@@ -170,7 +170,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                      <Color id="Cursor de Mano"/>
+                      <Color id="Default Cursor"/>
                     </Property>
                     <Property name="debugGraphicsOptions" type="int" value="-1"/>
                     <Property name="focusable" type="boolean" value="false"/>
@@ -185,7 +185,7 @@
                     <Container class="javax.swing.JPanel" name="jPanel1">
                       <Properties>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Cursor de Mano"/>
+                          <Color id="Default Cursor"/>
                         </Property>
                         <Property name="doubleBuffered" type="boolean" value="false"/>
                         <Property name="enabled" type="boolean" value="false"/>
@@ -283,7 +283,7 @@
                               <Properties>
                                 <Property name="actionCommand" type="java.lang.String" value="pagarTarjeta"/>
                                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                  <Color id="Cursor de Mano"/>
+                                  <Color id="Default Cursor"/>
                                 </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Arial" size="18" style="0"/>
@@ -301,7 +301,7 @@
                               <Properties>
                                 <Property name="actionCommand" type="java.lang.String" value="deposito"/>
                                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                  <Color id="Cursor de Mano"/>
+                                  <Color id="Default Cursor"/>
                                 </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Arial" size="18" style="0"/>
@@ -319,7 +319,7 @@
                               <Properties>
                                 <Property name="actionCommand" type="java.lang.String" value="pagarServicio"/>
                                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                  <Color id="Cursor de Mano"/>
+                                  <Color id="Default Cursor"/>
                                 </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Arial" size="18" style="0"/>
@@ -337,7 +337,7 @@
                               <Properties>
                                 <Property name="actionCommand" type="java.lang.String" value="consultarSaldo"/>
                                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                  <Color id="Cursor de Mano"/>
+                                  <Color id="Default Cursor"/>
                                 </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Arial" size="18" style="0"/>
@@ -355,7 +355,7 @@
                               <Properties>
                                 <Property name="actionCommand" type="java.lang.String" value="acercaSistema"/>
                                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                  <Color id="Cursor de Mano"/>
+                                  <Color id="Default Cursor"/>
                                 </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Arial" size="18" style="0"/>
@@ -373,7 +373,7 @@
                               <Properties>
                                 <Property name="actionCommand" type="java.lang.String" value="transferenciaCuentas"/>
                                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                  <Color id="Cursor de Mano"/>
+                                  <Color id="Default Cursor"/>
                                 </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Arial" size="18" style="0"/>
@@ -395,7 +395,7 @@
                               <Properties>
                                 <Property name="actionCommand" type="java.lang.String" value="Cerrar Sesion"/>
                                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                  <Color id="Cursor de Mano"/>
+                                  <Color id="Default Cursor"/>
                                 </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Arial" size="18" style="0"/>
@@ -666,7 +666,7 @@
                                   <Properties>
                                     <Property name="actionCommand" type="java.lang.String" value="cancelarTransaccion"/>
                                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                      <Color id="Cursor de Mano"/>
+                                      <Color id="Default Cursor"/>
                                     </Property>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                       <Font name="Arial" size="18" style="0"/>
@@ -690,7 +690,7 @@
                                   <Properties>
                                     <Property name="actionCommand" type="java.lang.String" value="confirmarTransaccion"/>
                                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                      <Color id="Cursor de Mano"/>
+                                      <Color id="Default Cursor"/>
                                     </Property>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                       <Font name="Arial" size="18" style="0"/>
@@ -1110,7 +1110,7 @@
                                   <Properties>
                                     <Property name="actionCommand" type="java.lang.String" value="cancelarTransaccion"/>
                                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                      <Color id="Cursor de Mano"/>
+                                      <Color id="Default Cursor"/>
                                     </Property>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                       <Font name="Arial" size="18" style="0"/>
@@ -1134,7 +1134,7 @@
                                   <Properties>
                                     <Property name="actionCommand" type="java.lang.String" value="confirmarTransaccion"/>
                                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                      <Color id="Cursor de Mano"/>
+                                      <Color id="Default Cursor"/>
                                     </Property>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                       <Font name="Arial" size="18" style="0"/>
@@ -1330,7 +1330,7 @@
                                   <Properties>
                                     <Property name="actionCommand" type="java.lang.String" value="cancelarTransaccion"/>
                                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                      <Color id="Cursor de Mano"/>
+                                      <Color id="Default Cursor"/>
                                     </Property>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                       <Font name="Arial" size="18" style="0"/>
@@ -1354,7 +1354,7 @@
                                   <Properties>
                                     <Property name="actionCommand" type="java.lang.String" value="confirmarTransaccion"/>
                                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                      <Color id="Cursor de Mano"/>
+                                      <Color id="Default Cursor"/>
                                     </Property>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                       <Font name="Arial" size="18" style="0"/>
@@ -1663,7 +1663,7 @@
                                 <Component class="java.awt.Button" name="button3">
                                   <Properties>
                                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                      <Color id="Cursor de Mano"/>
+                                      <Color id="Default Cursor"/>
                                     </Property>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                       <Font name="Arial" size="14" style="1"/>
@@ -1811,7 +1811,7 @@
                                   <Properties>
                                     <Property name="actionCommand" type="java.lang.String" value="cancelarTransaccion"/>
                                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                      <Color id="Cursor de Mano"/>
+                                      <Color id="Default Cursor"/>
                                     </Property>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                       <Font name="Arial" size="18" style="0"/>
@@ -1835,7 +1835,7 @@
                                   <Properties>
                                     <Property name="actionCommand" type="java.lang.String" value="confirmarTransaccion"/>
                                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                      <Color id="Cursor de Mano"/>
+                                      <Color id="Default Cursor"/>
                                     </Property>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                       <Font name="Arial" size="18" style="0"/>

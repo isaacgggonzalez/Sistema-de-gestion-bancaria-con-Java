@@ -5,11 +5,11 @@ public class Deposito extends Transaccion {
     private Cuenta cuenta_destino;
 
     // Constructor
-    public Deposito(int Id_transaccion, int Pin_transaccion, String Tipo_transaccion, String Fecha_transaccion,
-                    double monto_deposito, Cuenta cuenta_destino) {
+    public Deposito(int Id_transaccion, int Pin_transaccion, String Tipo_transaccion,
+            String Fecha_transaccion,double monto_deposito, Cuenta cuenta_destino) {
         // Llamada al constructor de la clase base (Transaccion)
         super(Id_transaccion, Pin_transaccion, Tipo_transaccion, Fecha_transaccion);
-
+        
         this.monto_deposito = monto_deposito;
         this.cuenta_destino = cuenta_destino;
     }

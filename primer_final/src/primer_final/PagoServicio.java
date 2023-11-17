@@ -8,8 +8,9 @@ public class PagoServicio extends Transaccion {
     private TarjetaDeCredito tarjeta_abonante; // Cambié el nombre de la variable
 
     // Constructor
-    public PagoServicio(int Id_pago, int Id_transaccion, int Pin_transaccion, String Tipo_transaccion, String Fecha_transaccion,
-                        double Monto_pago, Cuenta cuenta_abonante, TarjetaDeCredito tarjeta_abonante) {
+    public PagoServicio(int Id_pago, int Id_transaccion, int Pin_transaccion, 
+            String Tipo_transaccion, String Fecha_transaccion,
+            double Monto_pago, Cuenta cuenta_abonante, TarjetaDeCredito tarjeta_abonante) {
         // Llamada al constructor de la clase base (Transaccion)
         super(Id_transaccion, Pin_transaccion, Tipo_transaccion, Fecha_transaccion);
 

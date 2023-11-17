@@ -9,7 +9,9 @@ public class Cliente {
     private String nacimiento_cliente;
 
     // Constructor
-    public Cliente(int id_cliente, int ci_cliente, String nombre_cliente, String apellido_cliente, String nacimiento_cliente) {
+    public Cliente(int id_cliente, int ci_cliente, String nombre_cliente, 
+            String apellido_cliente, String nacimiento_cliente) {
+        
         this.id_cliente = id_cliente;
         this.ci_cliente = ci_cliente;
         this.nombre_cliente = nombre_cliente;

@@ -9,7 +9,8 @@ public class Transaccion {
     private String Fecha_transaccion;
 
     // Constructor
-    public Transaccion(int Id_transaccion, int Pin_transaccion, String Tipo_transaccion, String Fecha_transaccion) {
+    public Transaccion(int Id_transaccion, int Pin_transaccion, 
+            String Tipo_transaccion, String Fecha_transaccion) {
         this.Id_transaccion = Id_transaccion;
         this.Pin_transaccion = Pin_transaccion;
         this.Tipo_transaccion = Tipo_transaccion;
