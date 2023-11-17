@@ -5,7 +5,9 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import pruebadepg.AutenticacionLogin;
-
+import pruebadepg.InicializadorDB;
+import pruebadepg.GestorClientes;
+import primer_final.*;
 /**
  *
  * @author alanalcaraz
@@ -287,11 +289,15 @@ public class LoginInterfaz extends javax.swing.JFrame {
             AutenticacionLogin autenticacion = new AutenticacionLogin();
 
             if (autenticacion.verificarPinCuenta(cedula, numeroCuenta, clave)) {
+                Cliente cliente=GestorClientes.obtenerCliente(cedula);
+                Cuenta cuenta=GestorClientes.obtenerCuenta(numeroCuenta);
+                
                 // Autenticación exitosa, abrir la segunda ventana
-                BaseInterfaz ventanaSecundaria = new BaseInterfaz();
+                BaseInterfaz ventanaSecundaria = new BaseInterfaz(cliente,cuenta);
                 ventanaSecundaria.setVisible(true);
                 this.dispose(); // Cierra la Primera Interfaz cuando la Segunda se abre
                 ventanaSecundaria.activarMenuTransferencia(); // Para que se muestre después de ingresar el menú de transferencia
+                
             } else {
                 textoIncorrecto.setText("Error en la autenticación. Verifica tus credenciales.");
             }

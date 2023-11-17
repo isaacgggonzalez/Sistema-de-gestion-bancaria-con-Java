@@ -33,16 +33,20 @@ import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
-
+import primer_final.*;
+import pruebadepg.*;
 public class BaseInterfaz extends javax.swing.JFrame {
 
     /**
      * Creates new form BaseInterfaz
      */
-    public BaseInterfaz() {
+    Cliente cliente;
+    Cuenta cuenta;
+    public BaseInterfaz(Cliente cliente,Cuenta cuenta) {
         initComponents();
         this.setLocationRelativeTo(this); //Ubicar la interfaz en el centro
-
+        this.cliente=cliente;
+        this.cuenta=cuenta;
     }
 
     /**
@@ -58,7 +62,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         InterfazPrincipal = new JLayeredPane();
         jLayeredPane1 = new JLayeredPane();
         fecha = new JLabel();
-        bienvenido = new JLabel();
+        texto_usuario = new JLabel();
         logo = new JLabel();
         jTabbedPane1 = new JTabbedPane();
         jPanel1 = new JPanel();
@@ -165,9 +169,9 @@ public class BaseInterfaz extends javax.swing.JFrame {
         fecha.setForeground(new Color(255, 255, 255));
         fecha.setText("Fecha: dd/mm/aaaa");
 
-        bienvenido.setFont(new Font("Arial", 1, 48)); // NOI18N
-        bienvenido.setForeground(new Color(255, 255, 255));
-        bienvenido.setText("Bienvenido, usuario!");
+        texto_usuario.setFont(new Font("Arial", 1, 48)); // NOI18N
+        texto_usuario.setForeground(new Color(255, 255, 255));
+        texto_usuario.setText("Bienvenido, usuario!");
 
         logo.setIcon(new ImageIcon(getClass().getResource("/imagenes/Logo 350x350.png"))); // NOI18N
 
@@ -1286,7 +1290,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         jTabbedPane1.addTab("Menu Principal", jPanel1);
 
         jLayeredPane1.setLayer(fecha, JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(bienvenido, JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(texto_usuario, JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(logo, JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jTabbedPane1, JLayeredPane.DEFAULT_LAYER);
 
@@ -1296,7 +1300,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addGroup(jLayeredPane1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                    .addComponent(bienvenido, GroupLayout.PREFERRED_SIZE, 480, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(texto_usuario, GroupLayout.PREFERRED_SIZE, 480, GroupLayout.PREFERRED_SIZE)
                     .addComponent(fecha, GroupLayout.PREFERRED_SIZE, 480, GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(logo, GroupLayout.PREFERRED_SIZE, 307, GroupLayout.PREFERRED_SIZE)
@@ -1309,7 +1313,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                     .addComponent(fecha, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
                         .addGap(80, 80, 80)
-                        .addComponent(bienvenido, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE))
+                        .addComponent(texto_usuario, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE))
                     .addComponent(logo, GroupLayout.PREFERRED_SIZE, 179, GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTabbedPane1, GroupLayout.PREFERRED_SIZE, 456, GroupLayout.PREFERRED_SIZE)
@@ -1352,7 +1356,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private Button botonPresionadoActualmente = null;
-
+    
     private void boton_consultarSaldoActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_consultarSaldoActionPerformed
         // Cambiar la apariencia del botón cuando se presiona
         if (botonPresionadoActualmente != null) {
@@ -1372,9 +1376,12 @@ public class BaseInterfaz extends javax.swing.JFrame {
         menu_pagarTarjeta.setVisible(false);
         menu_acercaSistema.setVisible(false);
     }//GEN-LAST:event_boton_consultarSaldoActionPerformed
-
     private void boton_transferenciaCuentaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_transferenciaCuentaActionPerformed
-
+        
+        
+        //System.out.println(nombreCliente);
+        texto_usuario.setText(cliente.getNombre_cliente()+" "+cliente.getApellido_cliente());
+        
         // Cambiar la apariencia del botón cuando se presiona
         // Restaurar el color original del botón anteriormente presionado
         if (botonPresionadoActualmente != null) {
@@ -1397,7 +1404,10 @@ public class BaseInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_boton_transferenciaCuentaActionPerformed
 
     private void boton_pagarServicioActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_pagarServicioActionPerformed
-        // Cambiar la apariencia del botón cuando se presiona
+        
+
+        
+        // Cambiar la apariencia del botón cuando se presiona        
         if (botonPresionadoActualmente != null) {
             botonPresionadoActualmente.setBackground(new java.awt.Color(240, 240, 240));  // Color original del fondo
         }
@@ -1649,16 +1659,15 @@ public class BaseInterfaz extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                BaseInterfaz loginInterfaz = new BaseInterfaz();
-                loginInterfaz.boton_transferenciaCuentaActionPerformed(null);
-                loginInterfaz.setVisible(true);
+                //BaseInterfaz loginInterfaz = new BaseInterfaz();
+                //loginInterfaz.boton_transferenciaCuentaActionPerformed(null);
+                //loginInterfaz.setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private JLayeredPane InterfazPrincipal;
-    private JLabel bienvenido;
     private Button boton_acercaSistema;
     private Button boton_cancelarTransaccion1;
     private Button boton_cancelarTransaccion2;
@@ -1745,5 +1754,6 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private Panel menu_pagarTarjeta;
     private Panel menu_transferencia;
     private JLayeredPane separador;
+    private JLabel texto_usuario;
     // End of variables declaration//GEN-END:variables
 }
