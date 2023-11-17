@@ -112,7 +112,7 @@ public class LoginInterfaz extends javax.swing.JFrame {
                 ojo_claveMouseClicked(evt);
             }
         });
-        jLayeredPane1.add(ojo_clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 7, 30, 37));
+        jLayeredPane1.add(ojo_clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, -1, 30, 40));
 
         box_clave.setBackground(new java.awt.Color(255, 255, 255));
         box_clave.setForeground(new java.awt.Color(0, 0, 0));
@@ -126,7 +126,7 @@ public class LoginInterfaz extends javax.swing.JFrame {
                 box_claveKeyTyped(evt);
             }
         });
-        jLayeredPane1.add(box_clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 220, 39));
+        jLayeredPane1.add(box_clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 39));
 
         textoIncorrecto.setAlignment(java.awt.Label.CENTER);
         textoIncorrecto.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -157,8 +157,8 @@ public class LoginInterfaz extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane3)
-                            .addComponent(jLayeredPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1))))
+                            .addComponent(jScrollPane1)
+                            .addComponent(jLayeredPane1, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -196,7 +196,7 @@ public class LoginInterfaz extends javax.swing.JFrame {
                         .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(19, 19, 19)
                 .addComponent(textoIncorrecto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(boton_iniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34))
         );
@@ -272,13 +272,10 @@ public class LoginInterfaz extends javax.swing.JFrame {
         //textoIncorrecto.setVisible(false);
     }//GEN-LAST:event_textoIncorrectoPropertyChange
     
-       
-    
-
-
     
     
     /*
+    ajustar tamaño de una imagen
         private void tamano_imagen(JLabel lbl, String ruta) {
         java.net.URL url = getClass().getResource(ruta);
 
