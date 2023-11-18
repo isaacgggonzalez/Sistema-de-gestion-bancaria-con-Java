@@ -7,9 +7,28 @@
 <!-- the Compile on Save feature is turned off for the project. -->
 <!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
 <!-- in the project's Project Properties dialog box.-->
-<project name="primer_final" default="default" basedir=".">
+<project name="primer_final" default="compilar" basedir=".">
     <description>Builds, tests, and runs the project primer_final.</description>
     <import file="nbproject/build-impl.xml"/>
+    <path id="lib.path">
+        <fileset dir="lib">
+            <!-- Agrega aquí las bibliotecas JDBC necesarias -->
+            <include name="postgresql-42.6.0.jar"/>
+            <!-- Agrega otras bibliotecas si es necesario -->
+        </fileset>
+    </path>
+
+    <target name="limpiar">
+        <!-- Tarea para limpiar archivos y directorios generados anteriormente -->
+        <delete dir="build"/>
+    </target>
+
+    <target name="compilar" depends="limpiar">
+        <mkdir dir="build/classes"/>
+        <javac srcdir="src" destdir="build/classes">
+            <classpath refid="lib.path"/>
+        </javac>
+    </target>
     <!--
 
     There exist several targets which are by default empty and which can be 
