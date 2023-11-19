@@ -17,8 +17,6 @@ public class TarjetaDeCredito {
         this.cliente_asociado = cliente_asociado;
     }
 
-
-
     public double getDeuda_tarjeta() {
         return deuda_tarjeta;
     }

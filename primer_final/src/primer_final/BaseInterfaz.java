@@ -35,6 +35,7 @@ import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 import primer_final.*;
 import pruebadepg.*;
+import repository.TransaccionRepositorio;
 public class BaseInterfaz extends javax.swing.JFrame {
 
     /**
@@ -80,17 +81,17 @@ public class BaseInterfaz extends javax.swing.JFrame {
         menu_transferencia = new Panel();
         boton_cancelarTransaccion1 = new Button();
         boton_confirmarTransaccion1 = new Button();
-        cuentaDestino6 = new JTextField();
+        cuentaDestino = new JTextField();
         label8 = new Label();
-        cuentaDestino7 = new JTextField();
+        cedula = new JTextField();
         label9 = new Label();
-        cuentaDestino8 = new JTextField();
+        nombre_destinatario = new JTextField();
         label10 = new Label();
         cuentaDestino9 = new JTextField();
         label11 = new Label();
         label12 = new Label();
-        cuentaDestino10 = new JTextField();
-        cuentaDestino11 = new JTextField();
+        saldo = new JTextField();
+        numero_origen = new JTextField();
         label13 = new Label();
         menu_consultarSaldo = new Panel();
         label2 = new Label();
@@ -148,9 +149,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         fondo1 = new JLabel();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new Dimension(1020, 660));
         setMinimumSize(new Dimension(1020, 660));
-        setPreferredSize(new Dimension(1020, 660));
         setResizable(false);
 
         jDesktopPane1.setMaximumSize(new Dimension(1020, 660));
@@ -361,11 +360,11 @@ public class BaseInterfaz extends javax.swing.JFrame {
             }
         });
 
-        cuentaDestino6.setBackground(new Color(255, 255, 255));
-        cuentaDestino6.setForeground(new Color(0, 0, 0));
-        cuentaDestino6.addActionListener(new ActionListener() {
+        cuentaDestino.setBackground(new Color(255, 255, 255));
+        cuentaDestino.setForeground(new Color(0, 0, 0));
+        cuentaDestino.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                cuentaDestino6ActionPerformed(evt);
+                cuentaDestinoActionPerformed(evt);
             }
         });
 
@@ -374,11 +373,11 @@ public class BaseInterfaz extends javax.swing.JFrame {
         label8.setForeground(new Color(0, 1, 0));
         label8.setText("Cuenta de Destino");
 
-        cuentaDestino7.setBackground(new Color(255, 255, 255));
-        cuentaDestino7.setForeground(new Color(0, 0, 0));
-        cuentaDestino7.addActionListener(new ActionListener() {
+        cedula.setBackground(new Color(255, 255, 255));
+        cedula.setForeground(new Color(0, 0, 0));
+        cedula.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                cuentaDestino7ActionPerformed(evt);
+                cedulaActionPerformed(evt);
             }
         });
 
@@ -387,11 +386,11 @@ public class BaseInterfaz extends javax.swing.JFrame {
         label9.setForeground(new Color(0, 1, 0));
         label9.setText("Nombre de Destinatario");
 
-        cuentaDestino8.setBackground(new Color(255, 255, 255));
-        cuentaDestino8.setForeground(new Color(0, 0, 0));
-        cuentaDestino8.addActionListener(new ActionListener() {
+        nombre_destinatario.setBackground(new Color(255, 255, 255));
+        nombre_destinatario.setForeground(new Color(0, 0, 0));
+        nombre_destinatario.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                cuentaDestino8ActionPerformed(evt);
+                nombre_destinatarioActionPerformed(evt);
             }
         });
 
@@ -418,21 +417,21 @@ public class BaseInterfaz extends javax.swing.JFrame {
         label12.setForeground(new Color(0, 1, 0));
         label12.setText("Cuenta de Origen");
 
-        cuentaDestino10.setBackground(new Color(196, 196, 196));
-        cuentaDestino10.setForeground(new Color(0, 0, 0));
-        cuentaDestino10.setEnabled(false);
-        cuentaDestino10.addActionListener(new ActionListener() {
+        saldo.setBackground(new Color(196, 196, 196));
+        saldo.setForeground(new Color(0, 0, 0));
+        saldo.setEnabled(false);
+        saldo.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                cuentaDestino10ActionPerformed(evt);
+                saldoActionPerformed(evt);
             }
         });
 
-        cuentaDestino11.setBackground(new Color(196, 196, 196));
-        cuentaDestino11.setForeground(new Color(0, 0, 0));
-        cuentaDestino11.setEnabled(false);
-        cuentaDestino11.addActionListener(new ActionListener() {
+        numero_origen.setBackground(new Color(196, 196, 196));
+        numero_origen.setForeground(new Color(0, 0, 0));
+        numero_origen.setEnabled(false);
+        numero_origen.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                cuentaDestino11ActionPerformed(evt);
+                numero_origenActionPerformed(evt);
             }
         });
 
@@ -447,11 +446,11 @@ public class BaseInterfaz extends javax.swing.JFrame {
             .addGroup(GroupLayout.Alignment.TRAILING, menu_transferenciaLayout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addGroup(menu_transferenciaLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                    .addComponent(cuentaDestino8)
-                    .addComponent(cuentaDestino6)
+                    .addComponent(nombre_destinatario)
+                    .addComponent(cuentaDestino)
                     .addComponent(label9, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(label8, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cuentaDestino7, GroupLayout.Alignment.TRAILING)
+                    .addComponent(cedula, GroupLayout.Alignment.TRAILING)
                     .addComponent(label10, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(menu_transferenciaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -461,7 +460,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                             .addComponent(label11, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE))
                         .addGap(30, 30, 30))
                     .addGroup(menu_transferenciaLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                        .addComponent(cuentaDestino11)
+                        .addComponent(numero_origen)
                         .addComponent(label12, GroupLayout.PREFERRED_SIZE, 175, GroupLayout.PREFERRED_SIZE)))
                 .addGap(52, 52, 52))
             .addGroup(GroupLayout.Alignment.TRAILING, menu_transferenciaLayout.createSequentialGroup()
@@ -474,7 +473,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(label13, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cuentaDestino10, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)
+                .addComponent(saldo, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
         );
         menu_transferenciaLayout.setVerticalGroup(menu_transferenciaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -482,7 +481,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 .addGroup(menu_transferenciaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addGroup(menu_transferenciaLayout.createSequentialGroup()
                         .addGap(15, 15, 15)
-                        .addComponent(cuentaDestino10, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(saldo, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(GroupLayout.Alignment.TRAILING, menu_transferenciaLayout.createSequentialGroup()
                         .addContainerGap()
@@ -492,7 +491,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                     .addGroup(menu_transferenciaLayout.createSequentialGroup()
                         .addComponent(label12, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cuentaDestino11, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(numero_origen, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(label11, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
@@ -500,16 +499,16 @@ public class BaseInterfaz extends javax.swing.JFrame {
                     .addGroup(menu_transferenciaLayout.createSequentialGroup()
                         .addComponent(label8, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cuentaDestino6, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cuentaDestino, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE))
                     .addGroup(menu_transferenciaLayout.createSequentialGroup()
                         .addGap(79, 79, 79)
                         .addComponent(label9, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addGap(2, 2, 2)
-                        .addComponent(cuentaDestino8, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(nombre_destinatario, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(label10, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cuentaDestino7, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cedula, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(menu_transferenciaLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                     .addComponent(boton_confirmarTransaccion1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1379,6 +1378,10 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private void boton_transferenciaCuentaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_transferenciaCuentaActionPerformed
         
         
+        numero_origen.setText(cuenta.getId_cuenta() + "");
+        saldo.setText(cuenta.getSaldo_cuenta() + "");      
+        
+        
         //System.out.println(nombreCliente);
         texto_usuario.setText(cliente.getNombre_cliente()+" "+cliente.getApellido_cliente());
         
@@ -1514,33 +1517,42 @@ public class BaseInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_boton_cancelarTransaccion1ActionPerformed
 
     private void boton_confirmarTransaccion1ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_confirmarTransaccion1ActionPerformed
-        // TODO add your handling code here:
+        long cuenta_Destino = Long.parseLong(cuentaDestino.getText().trim());
+        String nombreDestinatario = nombre_destinatario.getText().trim();
+        long cedula_destinatario = Long.parseLong(cedula.getText().trim());
+        if(TransaccionRepositorio.confirmarDatos(cuenta_Destino,  cedula_destinatario, nombreDestinatario) == true){
+            System.out.println("se tiene que agregar en la base de datos");
+        }
     }//GEN-LAST:event_boton_confirmarTransaccion1ActionPerformed
 
-    private void cuentaDestino6ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuentaDestino6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cuentaDestino6ActionPerformed
+    private void cuentaDestinoActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuentaDestinoActionPerformed
+        // TODO add your handling code here: 
+    }//GEN-LAST:event_cuentaDestinoActionPerformed
 
-    private void cuentaDestino7ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuentaDestino7ActionPerformed
+    private void cedulaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cedulaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cuentaDestino7ActionPerformed
+    }//GEN-LAST:event_cedulaActionPerformed
 
-    private void cuentaDestino8ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuentaDestino8ActionPerformed
+    private void nombre_destinatarioActionPerformed(ActionEvent evt) {//GEN-FIRST:event_nombre_destinatarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cuentaDestino8ActionPerformed
+    }//GEN-LAST:event_nombre_destinatarioActionPerformed
 
     private void cuentaDestino9ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuentaDestino9ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cuentaDestino9ActionPerformed
 
-    private void cuentaDestino10ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuentaDestino10ActionPerformed
+    private void saldoActionPerformed(ActionEvent evt) {//GEN-FIRST:event_saldoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cuentaDestino10ActionPerformed
+    }//GEN-LAST:event_saldoActionPerformed
 
-    private void cuentaDestino11ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuentaDestino11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cuentaDestino11ActionPerformed
-
+    private void numero_origenActionPerformed(ActionEvent evt) {//GEN-FIRST:event_numero_origenActionPerformed
+        numero_origen.setText("afafafa");
+        numero_origen.setEnabled(true);
+        
+    }//GEN-LAST:event_numero_origenActionPerformed
+    
+    
+    
     private void boton_cancelarTransaccion2ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_cancelarTransaccion2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_boton_cancelarTransaccion2ActionPerformed
@@ -1685,8 +1697,8 @@ public class BaseInterfaz extends javax.swing.JFrame {
     public Button boton_transferenciaCuenta;
     private JLayeredPane botonesMenu;
     private Button button3;
-    private JTextField cuentaDestino10;
-    private JTextField cuentaDestino11;
+    private JTextField cedula;
+    private JTextField cuentaDestino;
     private JTextField cuentaDestino15;
     private JTextField cuentaDestino16;
     private JTextField cuentaDestino33;
@@ -1700,9 +1712,6 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private JTextField cuentaDestino41;
     private JTextField cuentaDestino42;
     private JTextField cuentaDestino43;
-    private JTextField cuentaDestino6;
-    private JTextField cuentaDestino7;
-    private JTextField cuentaDestino8;
     private JTextField cuentaDestino9;
     private JLabel fecha;
     private JLabel fondo1;
@@ -1753,6 +1762,9 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private Panel menu_pagarServicio;
     private Panel menu_pagarTarjeta;
     private Panel menu_transferencia;
+    private JTextField nombre_destinatario;
+    private JTextField numero_origen;
+    private JTextField saldo;
     private JLayeredPane separador;
     private JLabel texto_usuario;
     // End of variables declaration//GEN-END:variables

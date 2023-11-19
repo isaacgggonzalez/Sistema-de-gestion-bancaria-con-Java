@@ -27,35 +27,35 @@ public class AutenticacionLogin {
 
     // Función separada para realizar la verificación de credenciales en la base de datos
     private boolean verificarCredencialesEnBaseDeDatos(Connection conexion, long cedula, long numeroCuenta, int clave) throws SQLException {
-    boolean credencialesCorrectas = false;
+        boolean credencialesCorrectas = false;
 
-    // Consulta SQL para verificar las credenciales
-    String consulta = "SELECT * FROM cuenta cu "
-                     + "WHERE cu.id_cliente IN (SELECT c.id_cliente FROM cliente c WHERE c.cedula = ?) "
-                     + "AND cu.numero_cuenta = ? AND cu.pin_cuenta = ?";
+        // Consulta SQL para verificar las credenciales
+        String consulta = "SELECT * FROM cuenta cu "
+                         + "WHERE cu.id_cliente IN (SELECT c.id_cliente FROM cliente c WHERE c.cedula = ?) "
+                         + "AND cu.numero_cuenta = ? AND cu.pin_cuenta = ?";
 
-    System.out.println("Parámetros: cedula=" + cedula + ", numeroCuenta=" + numeroCuenta + ", pinCuenta=" + clave);
-    try (PreparedStatement statement = conexion.prepareStatement(consulta)) {
-        statement.setLong(1, cedula);
-        statement.setLong(2, numeroCuenta);
-        statement.setInt(3, clave);
+        System.out.println("Parámetros: cedula=" + cedula + ", numeroCuenta=" + numeroCuenta + ", pinCuenta=" + clave);
+        try (PreparedStatement statement = conexion.prepareStatement(consulta)) {
+            statement.setLong(1, cedula);
+            statement.setLong(2, numeroCuenta);
+            statement.setInt(3, clave);
 
-        try (ResultSet resultSet = statement.executeQuery()) {
-            // Si hay resultados, las credenciales son correctas
-            if (resultSet.next()) {
-                System.out.println("Credenciales encontradas en la base de datos.");
-                credencialesCorrectas = true;
-            } else {
-                System.out.println("No se encontraron credenciales en la base de datos.");
+            try (ResultSet resultSet = statement.executeQuery()) {
+                // Si hay resultados, las credenciales son correctas
+                if (resultSet.next()) {
+                    System.out.println("Credenciales encontradas en la base de datos.");
+                    credencialesCorrectas = true;
+                } else {
+                    System.out.println("No se encontraron credenciales en la base de datos.");
+                }
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Error al ejecutar la consulta SQL.");
         }
-    } catch (SQLException e) {
-        e.printStackTrace();
-        System.out.println("Error al ejecutar la consulta SQL.");
-    }
 
-    return credencialesCorrectas;
-}
+        return credencialesCorrectas;
+    }
 
     public static void main(String[] args) {
         AutenticacionLogin autenticacion = new AutenticacionLogin();

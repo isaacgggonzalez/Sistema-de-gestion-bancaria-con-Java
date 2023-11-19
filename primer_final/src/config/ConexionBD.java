@@ -1,6 +1,5 @@
 package config;
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -20,7 +19,6 @@ public class ConexionBD {
         }
         return conexion;
     }
-
 
     public static void cerrarConexion(Connection connection) {
         if (connection != null) {

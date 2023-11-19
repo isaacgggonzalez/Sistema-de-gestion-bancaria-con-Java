@@ -17,31 +17,39 @@ public class Transaccion {
         this.Fecha_transaccion = Fecha_transaccion;
     }
 
-    // Métodos getter y setter para Id_transaccion
-    public int get_Idtransaccion() {
+    public int getId_transaccion() {
         return Id_transaccion;
     }
 
-    public void set_Idtransaccion(int Id_transaccion) {
+    public void setId_transaccion(int Id_transaccion) {
         this.Id_transaccion = Id_transaccion;
     }
 
-    // Métodos getter y setter para Pin_transaccion
-    public int get_Pintransaccion() {
+    public int getPin_transaccion() {
         return Pin_transaccion;
     }
 
-    public void set_Pintransaccion(int Pin_transaccion) {
+    public void setPin_transaccion(int Pin_transaccion) {
         this.Pin_transaccion = Pin_transaccion;
     }
 
-    // Método getter para Tipo_transaccion
-    public String get_TipoTransaccion() {
+    public String getTipo_transaccion() {
         return Tipo_transaccion;
     }
 
-    // Método getter para Fecha_transaccion
-    public String get_FechaTransaccion() {
+    public void setTipo_transaccion(String Tipo_transaccion) {
+        this.Tipo_transaccion = Tipo_transaccion;
+    }
+
+    public String getFecha_transaccion() {
         return Fecha_transaccion;
     }
+
+    public void setFecha_transaccion(String Fecha_transaccion) {
+        this.Fecha_transaccion = Fecha_transaccion;
+    }
+
+    
+    
+    
 }
