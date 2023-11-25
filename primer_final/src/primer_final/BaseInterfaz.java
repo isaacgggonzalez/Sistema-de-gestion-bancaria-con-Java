@@ -35,7 +35,10 @@ import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 import primer_final.*;
 import pruebadepg.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import repository.TransaccionRepositorio;
+import javax.swing.Timer;
 public class BaseInterfaz extends javax.swing.JFrame {
 
     /**
@@ -48,6 +51,18 @@ public class BaseInterfaz extends javax.swing.JFrame {
         this.setLocationRelativeTo(this); //Ubicar la interfaz en el centro
         this.cliente=cliente;
         this.cuenta=cuenta;
+        
+        // Crea un Timer que ejecutará la tarea cada segundo
+        Timer timer = new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Llama a la función para actualizar la hora
+                actualizarHora();
+            }
+        });
+
+        // Inicia el Timer
+        timer.start();
     }
 
     /**
@@ -62,7 +77,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         jDesktopPane1 = new JDesktopPane();
         InterfazPrincipal = new JLayeredPane();
         jLayeredPane1 = new JLayeredPane();
-        fecha = new JLabel();
+        texto_fecha = new JLabel();
         texto_usuario = new JLabel();
         logo = new JLabel();
         jTabbedPane1 = new JTabbedPane();
@@ -164,9 +179,12 @@ public class BaseInterfaz extends javax.swing.JFrame {
         jLayeredPane1.setMaximumSize(new Dimension(1020, 640));
         jLayeredPane1.setMinimumSize(new Dimension(1020, 640));
 
-        fecha.setFont(new Font("Arial", 1, 28)); // NOI18N
-        fecha.setForeground(new Color(255, 255, 255));
-        fecha.setText("Fecha: dd/mm/aaaa");
+        texto_fecha.setFont(new Font("Arial", 1, 28)); // NOI18N
+        texto_fecha.setForeground(new Color(255, 255, 255));
+        Date fechaActual = new Date();
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        String fechaFormateada = formatoFecha.format(fechaActual);
+        texto_fecha.setText(fechaFormateada);
 
         texto_usuario.setFont(new Font("Arial", 1, 48)); // NOI18N
         texto_usuario.setForeground(new Color(255, 255, 255));
@@ -397,7 +415,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         label10.setAlignment(Label.CENTER);
         label10.setFont(new Font("Arial", 1, 14)); // NOI18N
         label10.setForeground(new Color(0, 1, 0));
-        label10.setText("Nombre de Destinatario");
+        label10.setText("Cédula de Destinatario");
 
         cuentaDestino9.setBackground(new Color(255, 255, 255));
         cuentaDestino9.setForeground(new Color(0, 0, 0));
@@ -515,6 +533,8 @@ public class BaseInterfaz extends javax.swing.JFrame {
                     .addComponent(boton_cancelarTransaccion1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18))
         );
+
+        label10.getAccessibleContext().setAccessibleName("Cédula de Destinatario");
 
         menu_consultarSaldo.setBackground(new Color(153, 153, 153));
         menu_consultarSaldo.setFont(new Font("Arial", 0, 14)); // NOI18N
@@ -1288,7 +1308,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Menu Principal", jPanel1);
 
-        jLayeredPane1.setLayer(fecha, JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(texto_fecha, JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(texto_usuario, JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(logo, JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jTabbedPane1, JLayeredPane.DEFAULT_LAYER);
@@ -1300,7 +1320,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addGroup(jLayeredPane1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addComponent(texto_usuario, GroupLayout.PREFERRED_SIZE, 480, GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fecha, GroupLayout.PREFERRED_SIZE, 480, GroupLayout.PREFERRED_SIZE))
+                    .addComponent(texto_fecha, GroupLayout.PREFERRED_SIZE, 480, GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(logo, GroupLayout.PREFERRED_SIZE, 307, GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
@@ -1309,7 +1329,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         jLayeredPane1Layout.setVerticalGroup(jLayeredPane1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                 .addGroup(jLayeredPane1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                    .addComponent(fecha, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(texto_fecha, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
                         .addGap(80, 80, 80)
                         .addComponent(texto_usuario, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE))
@@ -1507,7 +1527,19 @@ public class BaseInterfaz extends javax.swing.JFrame {
         ventanaLogin.setVisible(true);
         this.dispose();//Cierra esta ventana
     }//GEN-LAST:event_boton_cerrarSesionActionPerformed
+    
+    private void actualizarHora() {
+            // Obtén la fecha y hora actual
+            Date fechaActual = new Date();
 
+            // Formatea la fecha en el formato deseado
+            SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            String fechaFormateada = formatoFecha.format(fechaActual);
+
+            // Actualiza el texto del label con la fecha formateada
+            texto_fecha.setText(fechaFormateada);
+    }
+    
     private void cuentaDestino4ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuentaDestino4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cuentaDestino4ActionPerformed
@@ -1671,6 +1703,8 @@ public class BaseInterfaz extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                
+                
                 //BaseInterfaz loginInterfaz = new BaseInterfaz();
                 //loginInterfaz.boton_transferenciaCuentaActionPerformed(null);
                 //loginInterfaz.setVisible(true);
@@ -1713,7 +1747,6 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private JTextField cuentaDestino42;
     private JTextField cuentaDestino43;
     private JTextField cuentaDestino9;
-    private JLabel fecha;
     private JLabel fondo1;
     private JComboBox<String> jComboBox1;
     private JComboBox<String> jComboBox2;
@@ -1766,6 +1799,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private JTextField numero_origen;
     private JTextField saldo;
     private JLayeredPane separador;
+    private JLabel texto_fecha;
     private JLabel texto_usuario;
     // End of variables declaration//GEN-END:variables
 }
