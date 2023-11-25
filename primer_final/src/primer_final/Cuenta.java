@@ -5,11 +5,11 @@ import java.math.BigDecimal;
 public class Cuenta{
     private long id_cuenta;
     private long pin_cuenta;
-    private BigDecimal saldo_cuenta;
+    private double saldo_cuenta;
     private long id_cliente;
 
     // Constructor
-    public Cuenta(long id_cuenta, long pin_cuenta, BigDecimal saldo_cuenta, long id_cliente) {
+    public Cuenta(long id_cuenta, long pin_cuenta, double saldo_cuenta, long id_cliente) {
         this.id_cuenta = id_cuenta;
         this.id_cliente = id_cliente;
         this.pin_cuenta = pin_cuenta;
@@ -34,11 +34,11 @@ public class Cuenta{
         this.pin_cuenta = pin_cuenta;
     }
 
-    public BigDecimal getSaldo_cuenta() {
+    public double getSaldo_cuenta() {
         return saldo_cuenta;
     }
 
-    public void setSaldo_cuenta(BigDecimal saldo_cuenta) {
+    public void setSaldo_cuenta(double saldo_cuenta) {
         this.saldo_cuenta = saldo_cuenta;
     }
 

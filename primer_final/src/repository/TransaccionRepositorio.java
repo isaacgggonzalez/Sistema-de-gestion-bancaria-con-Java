@@ -59,4 +59,47 @@ public class TransaccionRepositorio {
 
             return false;
         }
+        
+        public static void debitarCuenta(Connection conexion, long cuentaOrigen, double monto) throws SQLException {
+            String actualizarSaldo = "UPDATE cuenta SET saldo = saldo - ? WHERE numero_cuenta = ?";
+            try (PreparedStatement statement = conexion.prepareStatement(actualizarSaldo)) {
+                statement.setDouble(1, monto);
+                statement.setLong(2, cuentaOrigen);
+                statement.executeUpdate();
+            }
+        }
+
+        public static void acreditarCuenta(Connection conexion, long cuentaDestino, double monto) throws SQLException {
+            String actualizarSaldo = "UPDATE cuenta SET saldo = saldo + ? WHERE numero_cuenta = ?";
+            try (PreparedStatement statement = conexion.prepareStatement(actualizarSaldo)) {
+                statement.setDouble(1, monto);
+                statement.setLong(2, cuentaDestino);
+                statement.executeUpdate();
+            }
+        }
+        
+        public static boolean verificarSaldoSuficiente(Connection conexion, long cuentaOrigen, double monto) throws SQLException {
+            // Implementa la lógica para verificar si la cuenta de origen tiene saldo suficiente
+            String consultaSaldo = "SELECT saldo FROM cuenta WHERE numero_cuenta = ?";
+            try (PreparedStatement statement = conexion.prepareStatement(consultaSaldo)) {
+                statement.setLong(1, cuentaOrigen);
+
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    if (resultSet.next()) {
+                        double saldo = resultSet.getDouble("saldo");
+                        return (saldo >= monto && monto>0);
+                    }
+                }
+            }
+            return false;
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
 }

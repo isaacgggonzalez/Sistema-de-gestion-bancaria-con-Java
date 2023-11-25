@@ -56,7 +56,7 @@ public class GestorClientes {
                 if (resultSet.next()) {
                     long idCuenta = resultSet.getInt("id_cuenta");
                     long pinCuenta = resultSet.getLong("pin_cuenta");
-                    BigDecimal saldo = resultSet.getBigDecimal("saldo");
+                    double saldo = resultSet.getDouble("saldo");
                     long idCliente = resultSet.getLong("id_cliente");
                     long numeroCuentaResultado = resultSet.getLong("numero_cuenta");
                     
