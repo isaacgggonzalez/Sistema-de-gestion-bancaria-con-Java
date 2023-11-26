@@ -66,13 +66,13 @@ public class TransaccionRepositorio2 {
         }
     }
 
-    public Long insertTransferencia(Transferencia transferencia, Long idTransaccion){
+    public Long insertTransferencia(Long idTransaccion, Long idCuentaOrigen, Long idCuentaDestino){
         Connection connection = ConexionBD.conectar();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(INSERTAR_TRANSFERENCIA, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setLong(1, idTransaccion);
-            preparedStatement.setLong(2, transferencia.get_destinoTransferencia());
-            preparedStatement.setLong(3, transferencia.get_origenTransferencia());
+            preparedStatement.setLong(2, idCuentaDestino);
+            preparedStatement.setLong(3, idCuentaOrigen);
             preparedStatement.executeUpdate();
             ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
             System.out.println(generatedKeys.next());

@@ -31,7 +31,7 @@ public class ProcesosControlador {
         Long idCuentaDestino = transaccionRepositorio2.recuperarIdCuenta(transferencia.get_destinoTransferencia());
         Long idCuentaOrigen = transaccionRepositorio2.recuperarIdCuenta(transferencia.get_origenTransferencia());
         Long idTransaccion = transaccionRepositorio2.insertTransaccion(transferencia);
-        transaccionRepositorio2.insertTransferencia(transferencia, idTransaccion);
+        transaccionRepositorio2.insertTransferencia(idTransaccion, idCuentaOrigen, idCuentaDestino);
         transaccionRepositorio2.actualizarSaldoCuenta(idCuentaDestino, +transferencia.getMontoTransaccion());
         transaccionRepositorio2.actualizarSaldoCuenta(idCuentaOrigen, -transferencia.getMontoTransaccion());
         transaccionRepositorio2.insertMovimiento(idCuentaDestino, idTransaccion);
