@@ -58,6 +58,6 @@ public class GestionBaseDatos {
         GestionBaseDatos gestionBD = new GestionBaseDatos();
 
         // Ejemplo de inserción de datos
-        gestionBD.insertarDatosCliente("leo", "ferr", 5209767, "2003-07-16", 1234, 987654321);
+        gestionBD.insertarDatosCliente("alan", "gonz", 2034565, "2000-03-15", 1234, 123456789);
     }
 }

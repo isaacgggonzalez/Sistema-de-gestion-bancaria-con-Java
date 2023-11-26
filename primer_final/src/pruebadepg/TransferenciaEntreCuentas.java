@@ -4,8 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.ResultSet;
 
-public class Transferencia {
+public class TransferenciaEntreCuentas {
 
     private final String url = "jdbc:postgresql://localhost:5432/postgres";
     private final String user = "postgres";
@@ -14,31 +15,22 @@ public class Transferencia {
     public void realizarTransferencia(long cuentaOrigen, long cuentaDestino, String nombreDestinatario,
                                       long cedulaDestinatario, double monto) {
         try (Connection conexion = DriverManager.getConnection(url, user, password)) {
-            // Iniciar transacción
             conexion.setAutoCommit(false);
 
             try {
-                // Verificar saldo suficiente en la cuenta de origen
                 if (!verificarSaldoSuficiente(conexion, cuentaOrigen, monto)) {
                     System.out.println("Saldo insuficiente en la cuenta de origen. Transferencia cancelada.");
                     return;
                 }
 
-                // Realizar débito en la cuenta de origen
                 debitarCuenta(conexion, cuentaOrigen, monto);
-
-                // Realizar crédito en la cuenta de destino
                 acreditarCuenta(conexion, cuentaDestino, monto);
-
-                // Registrar la transferencia en la base de datos (puedes añadir más detalles según sea necesario)
                 registrarTransferencia(conexion, cuentaOrigen, cuentaDestino, nombreDestinatario, cedulaDestinatario, monto);
 
-                // Confirmar la transacción
                 conexion.commit();
                 System.out.println("Transferencia realizada con éxito.");
 
             } catch (SQLException e) {
-                // Si hay algún error, hacer rollback de la transacción
                 conexion.rollback();
                 e.printStackTrace();
             }
@@ -48,35 +40,54 @@ public class Transferencia {
     }
 
     private boolean verificarSaldoSuficiente(Connection conexion, long cuentaOrigen, double monto) throws SQLException {
-        // Implementa la lógica para verificar si la cuenta de origen tiene saldo suficiente
-        // Puedes hacer una consulta a la base de datos para obtener el saldo actual de la cuenta
-        // y compararlo con el monto a transferir.
-        // Devuelve true si el saldo es suficiente, false si no lo es.
-        // (Deberías ajustar esta lógica según la estructura de tu base de datos y tus necesidades específicas.)
-        return true; // Implementa la lógica real aquí
+        String consultaSaldo = "SELECT saldo FROM cuenta WHERE numero_cuenta = ?";
+        try (PreparedStatement statement = conexion.prepareStatement(consultaSaldo)) {
+            statement.setLong(1, cuentaOrigen);
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    double saldo = resultSet.getDouble("saldo");
+                    return saldo >= monto;
+                }
+            }
+        }
+        return false;
     }
 
     private void debitarCuenta(Connection conexion, long cuentaOrigen, double monto) throws SQLException {
-        // Implementa la lógica para debitar el monto de la cuenta de origen
-        // (puedes hacer una actualización en la base de datos para restar el monto al saldo de la cuenta)
-        // (Deberías ajustar esta lógica según la estructura de tu base de datos y tus necesidades específicas.)
+        String actualizarSaldo = "UPDATE cuenta SET saldo = saldo - ? WHERE numero_cuenta = ?";
+        try (PreparedStatement statement = conexion.prepareStatement(actualizarSaldo)) {
+            statement.setDouble(1, monto);
+            statement.setLong(2, cuentaOrigen);
+            statement.executeUpdate();
+        }
     }
 
     private void acreditarCuenta(Connection conexion, long cuentaDestino, double monto) throws SQLException {
-        // Implementa la lógica para acreditar el monto en la cuenta de destino
-        // (puedes hacer una actualización en la base de datos para sumar el monto al saldo de la cuenta)
-        // (Deberías ajustar esta lógica según la estructura de tu base de datos y tus necesidades específicas.)
+        String actualizarSaldo = "UPDATE cuenta SET saldo = saldo + ? WHERE numero_cuenta = ?";
+        try (PreparedStatement statement = conexion.prepareStatement(actualizarSaldo)) {
+            statement.setDouble(1, monto);
+            statement.setLong(2, cuentaDestino);
+            statement.executeUpdate();
+        }
     }
 
     private void registrarTransferencia(Connection conexion, long cuentaOrigen, long cuentaDestino,
                                        String nombreDestinatario, long cedulaDestinatario, double monto) throws SQLException {
-        // Implementa la lógica para registrar la transferencia en la base de datos
-        // Puedes insertar un nuevo registro en una tabla de transferencias con los detalles relevantes
-        // (Deberías ajustar esta lógica según la estructura de tu base de datos y tus necesidades específicas.)
+        String insertarTransferencia = "INSERT INTO transferencia (cuenta_origen, cuenta_destino, nombre_destinatario, cedula_destinatario, monto) " +
+                                      "VALUES (?, ?, ?, ?, ?)";
+        try (PreparedStatement statement = conexion.prepareStatement(insertarTransferencia)) {
+            statement.setLong(1, cuentaOrigen);
+            statement.setLong(2, cuentaDestino);
+            statement.setString(3, nombreDestinatario);
+            statement.setLong(4, cedulaDestinatario);
+            statement.setDouble(5, monto);
+            statement.executeUpdate();
+        }
     }
 
     public static void main(String[] args) {
-        Transferencia transferencia = new Transferencia();
+        TransferenciaEntreCuentas transferencia = new TransferenciaEntreCuentas();
 
         // Ejemplo de llamada al método para realizar una transferencia
         transferencia.realizarTransferencia(123456789, 987654321, "Destinatario", 987654321, 500.0);
