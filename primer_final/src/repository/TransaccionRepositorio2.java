@@ -29,7 +29,7 @@ public class TransaccionRepositorio2 {
            Connection connection = ConexionBD.conectar();
            try {
                PreparedStatement preparedStatement = connection.prepareStatement(INSERTAR_TRANSACCION, Statement.RETURN_GENERATED_KEYS);
-               preparedStatement.setInt(1, transaccion.getIdTransaccion());
+               preparedStatement.setString(1, transaccion.getTipoTransaccion());
                preparedStatement.setTimestamp(2, new Timestamp(System.currentTimeMillis()));
                preparedStatement.setDouble(3, transaccion.getMontoTransaccion());
                preparedStatement.executeUpdate();
@@ -69,7 +69,7 @@ public class TransaccionRepositorio2 {
     public Long insertTransferencia(Transferencia transferencia, Long idTransaccion){
         Connection connection = ConexionBD.conectar();
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(INSERTAR_TRANSACCION, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement preparedStatement = connection.prepareStatement(INSERTAR_TRANSFERENCIA, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setLong(1, idTransaccion);
             preparedStatement.setLong(2, transferencia.get_destinoTransferencia());
             preparedStatement.setLong(3, transferencia.get_origenTransferencia());
