@@ -1598,18 +1598,15 @@ public class BaseInterfaz extends javax.swing.JFrame {
            
             
             if (ProcesosControlador.confirmarDatosTransferencia(cuenta_Destino, cedula_destinatario, nombreDestinatario)){
-                PinTransaccionInterfaz ventanaPIN = new PinTransaccionInterfaz(cliente, cuenta);
-                ventanaPIN.setVisible(true);
-                if(ventanaPIN.validado){
+
+
                     Transferencia transferencia = new Transferencia
                             (new Date(System.currentTimeMillis()),cuenta.getNumeroCuenta(), cuenta_Destino, montoLong);
                     ProcesosControlador.realizarTransferencia(transferencia);
                     cuenta.setSaldoCuenta(cuenta.getSaldoCuenta() - montoLong);
                     saldo.setText(Double.toString(cuenta.getSaldoCuenta()));
-                }
-                else{
-                    System.out.println("error con pin transaccion no validado");
-                }
+
+                
             }
             }else{
                 mostrarMensajeError("Saldo insuficiente.");
@@ -1620,9 +1617,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 mostrarMensajeError("Error al ingresar los datos. Intente de nuevo.");
             } catch (SQLException ex) {
                 Logger.getLogger(BaseInterfaz.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+            }
 
     }//GEN-LAST:event_boton_confirmarTransaccion1ActionPerformed
     
