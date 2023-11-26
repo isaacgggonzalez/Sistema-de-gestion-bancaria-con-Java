@@ -34,7 +34,7 @@ public class TransaccionRepositorio2 {
                preparedStatement.setDouble(3, transaccion.getMontoTransaccion());
                preparedStatement.executeUpdate();
                ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
-               Long idGenerado = generatedKeys.getLong(1);
+               Long idGenerado = generatedKeys.getLong("id_transaccion");
                System.out.println("Transaccion insertada con id: " + idGenerado);
                ConexionBD.cerrarConexion(connection);
                return idGenerado;
@@ -53,7 +53,7 @@ public class TransaccionRepositorio2 {
             preparedStatement.setLong(2, idCuenta);
             preparedStatement.executeUpdate();
             ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
-            Long idGenerado = generatedKeys.getLong(1);
+            Long idGenerado = generatedKeys.getLong("id_movimiento");
             System.out.println("Movimiento insertado con id: " + idGenerado);
             ConexionBD.cerrarConexion(connection);
             return idGenerado;
@@ -73,7 +73,7 @@ public class TransaccionRepositorio2 {
             preparedStatement.setLong(3, transferencia.get_origenTransferencia());
             preparedStatement.executeUpdate();
             ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
-            Long idGenerado = generatedKeys.getLong(1);
+            Long idGenerado = generatedKeys.getLong("id_transferencia");
             System.out.println("Transferencia insertada con id: " + idGenerado);
             ConexionBD.cerrarConexion(connection);
             return idGenerado;
