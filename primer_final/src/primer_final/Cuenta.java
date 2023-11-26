@@ -1,73 +1,72 @@
 package primer_final;
-import java.math.BigDecimal;
 
 
 public class Cuenta{
-    private long id_cuenta;
-    private long pin_cuenta;
-    private double saldo_cuenta;
-    private long id_cliente;
-    private int Pin_transaccion;
-    private long numero_cuenta;
+    private long idCuenta;
+    private long pinCuenta;
+    private double saldoCuenta;
+    private long idCliente;
+    private int pinTransaccion;
+    private long numeroCuenta;
 
     // Constructor
-    public Cuenta(long id_cuenta,long numero_cuenta, long pin_cuenta, double saldo_cuenta, long id_cliente, int Pin_transaccion) {
-        this.id_cuenta = id_cuenta;
-        this.numero_cuenta = numero_cuenta;
-        this.id_cliente = id_cliente;
-        this.pin_cuenta = pin_cuenta;
-        this.saldo_cuenta = saldo_cuenta;
-        this.Pin_transaccion = Pin_transaccion;
+    public Cuenta(long idCuenta, long numeroCuenta, long pinCuenta, double saldoCuenta, long idCliente, int pinTransaccion) {
+        this.idCuenta = idCuenta;
+        this.numeroCuenta = numeroCuenta;
+        this.idCliente = idCliente;
+        this.pinCuenta = pinCuenta;
+        this.saldoCuenta = saldoCuenta;
+        this.pinTransaccion = pinTransaccion;
     }
 
     // Getter y Setter para cada atributo
 
-    public long getId_cuenta() {
-        return id_cuenta;
+    public long getIdCuenta() {
+        return idCuenta;
     }
 
-    public long getNumero_cuenta() {
-        return numero_cuenta;
+    public long getNumeroCuenta() {
+        return numeroCuenta;
     }
 
-    public void setNumero_cuenta(long numero_cuenta) {
-        this.numero_cuenta = numero_cuenta;
+    public void setNumeroCuenta(long numeroCuenta) {
+        this.numeroCuenta = numeroCuenta;
     }
 
-    public void setId_cuenta(long id_cuenta) {
-        this.id_cuenta = id_cuenta;
+    public void setIdCuenta(long idCuenta) {
+        this.idCuenta = idCuenta;
     }
 
-    public long getPin_cuenta() {
-        return pin_cuenta;
+    public long getPinCuenta() {
+        return pinCuenta;
     }
 
-    public void setPin_cuenta(long pin_cuenta) {
-        this.pin_cuenta = pin_cuenta;
+    public void setPinCuenta(long pinCuenta) {
+        this.pinCuenta = pinCuenta;
     }
 
-    public double getSaldo_cuenta() {
-        return saldo_cuenta;
+    public double getSaldoCuenta() {
+        return saldoCuenta;
     }
 
-    public void setSaldo_cuenta(double saldo_cuenta) {
-        this.saldo_cuenta = saldo_cuenta;
+    public void setSaldoCuenta(double saldoCuenta) {
+        this.saldoCuenta = saldoCuenta;
     }
 
-    public long getId_cliente() {
-        return id_cliente;
+    public long getIdCliente() {
+        return idCliente;
     }
 
-    public void setId_cliente(long id_cliente) {
-        this.id_cliente = id_cliente;
+    public void setIdCliente(long idCliente) {
+        this.idCliente = idCliente;
     }
     
-    public int getPin_transaccion() {
-        return Pin_transaccion;
+    public int getPinTransaccion() {
+        return pinTransaccion;
     }
 
-    public void setPin_transaccion(int Pin_transaccion) {
-        this.Pin_transaccion = Pin_transaccion;
+    public void setPinTransaccion(int Pin_transaccion) {
+        this.pinTransaccion = Pin_transaccion;
     }
     
 

@@ -5,45 +5,53 @@ import java.util.Date;
 //abstract
 public class Transaccion {
     // Atributos
-    private int Id_transaccion;
-    private double monto_transaccion;
-    private Date Fecha_transaccion;
-    private final String Tipo_transaccion;
+    private int idTransaccion;
+    private double montoTransaccion;
+    private Date fechaTransaccion;
+    private final String tipoTransaccion;
+
+    public Transaccion(Date fechaTransaccion, double montoTransaccion, String tipoTransaccion) {
+        this.tipoTransaccion = tipoTransaccion;
+        this.fechaTransaccion = fechaTransaccion;
+        this.montoTransaccion = montoTransaccion;
+    }
+
+    public Transaccion(int idTransaccion,
+                       Date fechaTransaccion, double montoTransaccion, String tipoTransaccion) {
+        this.tipoTransaccion = tipoTransaccion;
+        this.idTransaccion = idTransaccion;
+        this.fechaTransaccion = fechaTransaccion;
+        this.montoTransaccion = montoTransaccion;
+    }
+
+
     
-    public Transaccion(int Id_transaccion,
-            Date Fecha_transaccion, double monto_transaccion, String Tipo_transaccion) {
-        this.Tipo_transaccion = Tipo_transaccion;
-        this.Id_transaccion = Id_transaccion;
-        this.Fecha_transaccion = Fecha_transaccion;
-        this.monto_transaccion = monto_transaccion;
+    
+    public int getIdTransaccion() {
+        return idTransaccion;
     }
     
-    
-    public int getId_transaccion() {
-        return Id_transaccion;
+    public String getTipoTransaccion() {
+        return tipoTransaccion;
     }
     
-    public String getTipo_transaccion() {
-        return Tipo_transaccion;
-    }
-    
-    public void setId_transaccion(int Id_transaccion) {
-        this.Id_transaccion = Id_transaccion;
+    public void setIdTransaccion(int Id_transaccion) {
+        this.idTransaccion = Id_transaccion;
     }
 
     public void set_fecha_transaccion(Date fecha) {
-        this.Fecha_transaccion =  new Timestamp(System.currentTimeMillis());
+        this.fechaTransaccion =  new Timestamp(System.currentTimeMillis());
     }
     
     public Date get_fecha_transaccion() {
-        return Fecha_transaccion;
+        return fechaTransaccion;
     }
 
-    public double getMonto_transaccion() {
-        return monto_transaccion;
+    public double getMontoTransaccion() {
+        return montoTransaccion;
     }
 
-    public void setMonto_transaccion(double monto_transaccion) {
-        this.monto_transaccion = monto_transaccion;
+    public void setMontoTransaccion(double montoTransaccion) {
+        this.montoTransaccion = montoTransaccion;
     }  
 }

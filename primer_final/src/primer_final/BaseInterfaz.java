@@ -15,7 +15,6 @@ import java.awt.List;
 import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.SQLException;
 import javax.swing.DebugGraphics;
@@ -37,8 +36,7 @@ import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
-import primer_final.*;
-import pruebadepg.*;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
@@ -1400,18 +1398,18 @@ public class BaseInterfaz extends javax.swing.JFrame {
         menu_pagarTarjeta.setVisible(false);
         menu_acercaSistema.setVisible(false);
         
-        DefaultTableModel modelo = TransaccionRepositorio.obtenerTransaccionesPorCuenta(cuenta.getNumero_cuenta());
+        DefaultTableModel modelo = TransaccionRepositorio.obtenerTransaccionesPorCuenta(cuenta.getNumeroCuenta());
         TablaConsulta.setModel(modelo);        
     }//GEN-LAST:event_boton_consultarSaldoActionPerformed
     private void boton_transferenciaCuentaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_transferenciaCuentaActionPerformed
         
         
-        numero_origen.setText(cuenta.getNumero_cuenta()+ "");
-        saldo.setText(cuenta.getSaldo_cuenta() + "");      
+        numero_origen.setText(cuenta.getNumeroCuenta()+ "");
+        saldo.setText(cuenta.getSaldoCuenta() + "");
         
         
         //System.out.println(nombreCliente);
-        texto_usuario.setText(cliente.getNombre_cliente()+" "+cliente.getApellido_cliente());
+        texto_usuario.setText(cliente.getNombreCliente()+" "+cliente.getApellidoCliente());
         
         // Cambiar la apariencia del botón cuando se presiona
         // Restaurar el color original del botón anteriormente presionado
@@ -1585,23 +1583,23 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 return; // Salir del método si la validación no pasa
             }
             
-            if(cuenta.getNumero_cuenta() == cuenta_Destino){
+            if(cuenta.getNumeroCuenta() == cuenta_Destino){
                 mostrarMensajeError("No se puede transferir a su misma cuenta.");
                 return; // Salir del método si la validación no pasa
             
             }
             
-        if(TransaccionRepositorio.verificarSaldoSuficiente( connection, cuenta.getNumero_cuenta(), montoLong) != false){   
+        if(TransaccionRepositorio.verificarSaldoSuficiente( connection, cuenta.getNumeroCuenta(), montoLong) != false){
             // Confirmar los datos si todas las validaciones pasan
             
            
             
             if (TransaccionRepositorio.confirmarDatos(cuenta_Destino, cedula_destinatario, nombreDestinatario)){
-                TransaccionRepositorio.debitarCuenta(connection, cuenta.getNumero_cuenta(), montoLong);
+                TransaccionRepositorio.debitarCuenta(connection, cuenta.getNumeroCuenta(), montoLong);
                 TransaccionRepositorio.acreditarCuenta(connection, cuenta_Destino, montoLong);
-                cuenta.setSaldo_cuenta(cuenta.getSaldo_cuenta() - montoLong);
-                saldo.setText(Double.toString(cuenta.getSaldo_cuenta()));
-                TransaccionRepositorio.realizarTransaccion(connection, "Transferencia", montoLong, cuenta.getNumero_cuenta());
+                cuenta.setSaldoCuenta(cuenta.getSaldoCuenta() - montoLong);
+                saldo.setText(Double.toString(cuenta.getSaldoCuenta()));
+                TransaccionRepositorio.realizarTransaccion(connection, "Transferencia", montoLong, cuenta.getNumeroCuenta());
     
             }
             }else{

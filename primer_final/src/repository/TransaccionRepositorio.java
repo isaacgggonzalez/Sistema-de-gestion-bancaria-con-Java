@@ -1,7 +1,6 @@
 package repository;
 
 import config.ConexionBD;
-import java.awt.List;
 import primer_final.Transaccion;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -11,9 +10,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.lang.RuntimeException;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import primer_final.Transaccion;
-import java.util.Date;
 import javax.swing.table.DefaultTableModel;
 
 public class TransaccionRepositorio {
@@ -27,7 +23,7 @@ public class TransaccionRepositorio {
            try {
            
                PreparedStatement preparedStatement = connection.prepareStatement(INSERTAR_TRANSACCION);
-               preparedStatement.setInt(1, transaccion.getId_transaccion());
+               preparedStatement.setInt(1, transaccion.getIdTransaccion());
                preparedStatement.setDate(2, (java.sql.Date) transaccion.get_fecha_transaccion());
                preparedStatement.executeUpdate();
                ResultSet generatedKeys = preparedStatement.getGeneratedKeys();

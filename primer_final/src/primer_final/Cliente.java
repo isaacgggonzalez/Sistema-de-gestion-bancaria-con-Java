@@ -2,61 +2,61 @@ package primer_final;
 
 
 public class Cliente {
-    private int id_cliente;
-    private int ci_cliente;
-    private String nombre_cliente;
-    private String apellido_cliente;
-    private String nacimiento_cliente;
+    private int idCliente;
+    private int ciCliente;
+    private String nombreCliente;
+    private String apellidoCliente;
+    private String nacimientoCliente;
 
     // Constructor
-    public Cliente(int id_cliente, int ci_cliente, String nombre_cliente, 
-            String apellido_cliente, String nacimiento_cliente) {
+    public Cliente(int idCliente, int ciCliente, String nombreCliente,
+                   String apellidoCliente, String nacimientoCliente) {
         
-        this.id_cliente = id_cliente;
-        this.ci_cliente = ci_cliente;
-        this.nombre_cliente = nombre_cliente;
-        this.apellido_cliente = apellido_cliente;
-        this.nacimiento_cliente = nacimiento_cliente;
+        this.idCliente = idCliente;
+        this.ciCliente = ciCliente;
+        this.nombreCliente = nombreCliente;
+        this.apellidoCliente = apellidoCliente;
+        this.nacimientoCliente = nacimientoCliente;
     }
 
-    public int getId_cliente() {
-        return id_cliente;
+    public int getIdCliente() {
+        return idCliente;
     }
 
-    public void setId_cliente(int id_cliente) {
-        this.id_cliente = id_cliente;
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
     }
 
-    public int getCi_cliente() {
-        return ci_cliente;
+    public int getCiCliente() {
+        return ciCliente;
     }
 
-    public void setCi_cliente(int ci_cliente) {
-        this.ci_cliente = ci_cliente;
+    public void setCiCliente(int ciCliente) {
+        this.ciCliente = ciCliente;
     }
 
-    public String getNombre_cliente() {
-        return nombre_cliente;
+    public String getNombreCliente() {
+        return nombreCliente;
     }
 
-    public void setNombre_cliente(String nombre_cliente) {
-        this.nombre_cliente = nombre_cliente;
+    public void setNombreCliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
     }
 
-    public String getApellido_cliente() {
-        return apellido_cliente;
+    public String getApellidoCliente() {
+        return apellidoCliente;
     }
 
-    public void setApellido_cliente(String apellido_cliente) {
-        this.apellido_cliente = apellido_cliente;
+    public void setApellidoCliente(String apellidoCliente) {
+        this.apellidoCliente = apellidoCliente;
     }
 
-    public String getNacimiento_cliente() {
-        return nacimiento_cliente;
+    public String getNacimientoCliente() {
+        return nacimientoCliente;
     }
 
-    public void setNacimiento_cliente(String nacimiento_cliente) {
-        this.nacimiento_cliente = nacimiento_cliente;
+    public void setNacimientoCliente(String nacimientoCliente) {
+        this.nacimientoCliente = nacimientoCliente;
     }
 
   
