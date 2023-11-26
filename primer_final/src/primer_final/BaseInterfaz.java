@@ -1606,7 +1606,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                     cuenta.setSaldoCuenta(cuenta.getSaldoCuenta() - montoLong);
                     saldo.setText(Double.toString(cuenta.getSaldoCuenta()));
 
-                
+
             }
             }else{
                 mostrarMensajeError("Saldo insuficiente.");

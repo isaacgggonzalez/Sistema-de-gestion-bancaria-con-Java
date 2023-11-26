@@ -1,6 +1,7 @@
 package repository;
 
 import config.ConexionBD;
+import primer_final.Deposito;
 import primer_final.Transaccion;
 import primer_final.Transferencia;
 
@@ -18,12 +19,20 @@ public class TransaccionRepositorio2 {
 
         private static final String ACTUALIZAR_SALDO = "UPDATE cuenta SET saldo = saldo + ? WHERE id_cuenta = ?";
 
+        private static final String PAGAR_TARJETA = "UPDATE tarjeta_credito SET deuda = deuda-?  WHERE id_tarjeta_credito = ?";
         private static final String RECUPERAR_ID_CUENTA = "SELECT id_cuenta FROM cuenta WHERE numero_cuenta = ?";
 
         private static final String INSERTAR_TRANSFERENCIA = "INSERT INTO "
                 + "transferencia(id_transaccion, id_cuenta_destino, id_cuenta_origen) VALUES(?, ?, ?)";
 
         private static final String VALIDAR_PIN_TRANASCCION = "SELECT 1 FROM cuenta WHERE pin_transaccion = ?";
+
+        private static final String INSERTAR_DEPOSITO = "INSERT INTO deposito(id_transaccion, cajero) VALUES (?,?)";
+
+        private static final String INSERTAR_PAGO_TARJETA = "INSERT INTO pago_tarjeta(id_tarjeta_credito, id_transaccion) VALUES(?, ?)";
+
+        private static final String RECUPERAR_ID_TARJETA = "SELECT id_tarjeta_credito FROM tarjeta_credito WHERE nro_tarjeta = ?";
+
 
         public TransaccionRepositorio2(){}
        
@@ -89,6 +98,46 @@ public class TransaccionRepositorio2 {
         }
     }
 
+    public Long insertDeposito(Long idTransaccion, String cajero){
+        Connection connection = ConexionBD.conectar();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(INSERTAR_DEPOSITO, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setLong(1, idTransaccion);
+            preparedStatement.setString(2, cajero);
+            preparedStatement.executeUpdate();
+            ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
+            System.out.println(generatedKeys.next());
+            Long idGenerado = generatedKeys.getLong(1);
+            System.out.println("Deposito insertada con id: " + idGenerado);
+            ConexionBD.cerrarConexion(connection);
+            return idGenerado;
+        } catch (SQLException ex) {
+            Logger.getLogger(TransaccionRepositorio2.class.getName()).log(Level.SEVERE, null, ex);
+            ConexionBD.cerrarConexion(connection);
+            throw new RuntimeException("Error al intentar insertar deposito");
+        }
+    }
+
+    public Long insertPagoTarjeta(Long idTransaccion, Long idTarjetaCredito){
+        Connection connection = ConexionBD.conectar();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(INSERTAR_PAGO_TARJETA, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setLong(1, idTarjetaCredito);
+            preparedStatement.setLong(2, idTransaccion);
+            preparedStatement.executeUpdate();
+            ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
+            System.out.println(generatedKeys.next());
+            Long idGenerado = generatedKeys.getLong(1);
+            System.out.println("Pago Tarjeta insertada con id: " + idGenerado);
+            ConexionBD.cerrarConexion(connection);
+            return idGenerado;
+        } catch (SQLException ex) {
+            Logger.getLogger(TransaccionRepositorio2.class.getName()).log(Level.SEVERE, null, ex);
+            ConexionBD.cerrarConexion(connection);
+            throw new RuntimeException("Error al intentar insertar pago tarjeta");
+        }
+    }
+
        public Long recuperarIdCuenta(Long numeroCuenta){
            Connection connection = ConexionBD.conectar();
            try {
@@ -110,6 +159,27 @@ public class TransaccionRepositorio2 {
                throw new RuntimeException("Error al intentar recuperar id_cuenta");
            }
        }
+    public Long recuperarIdTarjeta(Long numeroTarjetaCredito){
+        Connection connection = ConexionBD.conectar();
+        try {
+            PreparedStatement statement = connection.prepareStatement(RECUPERAR_ID_TARJETA);
+            statement.setLong(1, numeroTarjetaCredito);
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if(resultSet.next()){
+                    ConexionBD.cerrarConexion(connection);
+                    return resultSet.getLong("id_tarjeta_credito");
+                }else{
+                    ConexionBD.cerrarConexion(connection);
+                    throw new RuntimeException("Numero tarjeta no valida");
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(TransaccionRepositorio2.class.getName()).log(Level.SEVERE, null, ex);
+            ConexionBD.cerrarConexion(connection);
+            throw new RuntimeException("Error al intentar recuperar id_cuenta");
+        }
+    }
 
     public Boolean validarPinTransaccion(Long pinTransaccion){
         Connection connection = ConexionBD.conectar();
@@ -186,6 +256,21 @@ public class TransaccionRepositorio2 {
                 }
             }
             return false;
+        }
+
+        public void pagarTarjetaCredito(Double monto, Long idTarjetaCredito){
+            Connection connection = ConexionBD.conectar();
+            try {
+                PreparedStatement statement = connection.prepareStatement(PAGAR_TARJETA);
+                statement.setDouble(1, monto);
+                statement.setLong(2, idTarjetaCredito);
+                statement.executeUpdate();
+
+            } catch (SQLException ex) {
+                Logger.getLogger(TransaccionRepositorio2.class.getName()).log(Level.SEVERE, null, ex);
+                ConexionBD.cerrarConexion(connection);
+                throw new RuntimeException("Error al intentar actualizar la tarjeta_credito");
+            }
         }
         
         public static DefaultTableModel obtenerTransaccionesPorCuenta(long idCuenta) {

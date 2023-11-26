@@ -4,12 +4,12 @@ public class TarjetaDeCredito {
     private double deuda_tarjeta;
     private double limite_tarjeta;
     private String vencimiento_tarjeta;
-    private String nro_tarjeta;
+    private Long nro_tarjeta;
     private Cliente cliente_asociado;  
 
     // Constructor
     public TarjetaDeCredito(double deuda_tarjeta, double limite_tarjeta, 
-            String vencimiento_tarjeta, String nro_tarjeta, Cliente cliente_asociado) {
+            String vencimiento_tarjeta, Long nro_tarjeta, Cliente cliente_asociado) {
         this.deuda_tarjeta = deuda_tarjeta;
         this.limite_tarjeta = limite_tarjeta;
         this.vencimiento_tarjeta = vencimiento_tarjeta;
@@ -41,11 +41,11 @@ public class TarjetaDeCredito {
         this.vencimiento_tarjeta = vencimiento_tarjeta;
     }
 
-    public String getNro_tarjeta() {
+    public Long getNro_tarjeta() {
         return nro_tarjeta;
     }
 
-    public void setNro_tarjeta(String nro_tarjeta) {
+    public void setNro_tarjeta(Long nro_tarjeta) {
         this.nro_tarjeta = nro_tarjeta;
     }
 

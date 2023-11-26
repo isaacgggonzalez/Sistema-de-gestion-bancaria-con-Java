@@ -70,7 +70,7 @@ CREATE TABLE tarjeta_credito(
     linea NUMERIC(18,0) NOT NULL,--limite
     deuda NUMERIC(18, 0) NOT NULL DEFAULT 0,
     fecha_vencimiento DATE NOT NULL,
-    nro_tarjeta NUMERIC(7,0) UNIQUE NOT NULL,
+    nro_tarjeta NUMERIC(16,0) UNIQUE NOT NULL,
     FOREIGN KEY(id_cliente) REFERENCES cliente(id_cliente)
 );
 
@@ -86,3 +86,14 @@ INSERT INTO cliente(cedula, nombre, apellido, fecha_nac) VALUES (123456789, 'Jua
 INSERT INTO cliente(cedula, nombre, apellido, fecha_nac) VALUES (987654321, 'Maria', 'Gomez', '1985-05-15');
 INSERT INTO cuenta(id_cliente, saldo, numero_cuenta, pin_cuenta, pin_transaccion) VALUES(1, 100000000, 1234567890, 1234, 4321);
 INSERT INTO cuenta(id_cliente, saldo, numero_cuenta, pin_cuenta, pin_transaccion) VALUES(2, 100000000, 9876543210, 5678, 8765);
+
+INSERT INTO servicio(nombre, monto) VALUES('AXEL S.A', 100000);
+INSERT INTO servicio(nombre, monto) VALUES('TIGO', 130000);
+INSERT INTO servicio(nombre, monto) VALUES('PERSONAL', 50000);
+INSERT INTO servicio(nombre, monto) VALUES('ANDE', 300000);
+INSERT INTO servicio(nombre, monto) VALUES('BRISTOL', 135000);
+INSERT INTO servicio(nombre, monto) VALUES('UNA', 50000);
+INSERT INTO servicio(nombre, monto) VALUES('CCPA', 100000);
+INSERT INTO servicio(nombre, monto) VALUES('Cooperativa',80000);
+
+INSERT INTO tarjeta_credito(id_cliente, linea, deuda, fecha_vencimiento, nro_tarjeta) VALUES(1, 30000000, 5000000, 1234123412341234);

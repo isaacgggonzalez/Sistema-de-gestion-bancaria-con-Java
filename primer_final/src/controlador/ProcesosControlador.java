@@ -4,6 +4,8 @@
  */
 package controlador;
 
+import primer_final.Deposito;
+import primer_final.PagoDeTarjeta;
 import repository.TransaccionRepositorio;
 import primer_final.Transferencia;
 import repository.TransaccionRepositorio2;
@@ -32,5 +34,19 @@ public class ProcesosControlador {
     public static boolean validarPinTransaccion(long pinTransaccion){
         TransaccionRepositorio2 transaccionRepositorio2 = new TransaccionRepositorio2();
         return transaccionRepositorio2.validarPinTransaccion(pinTransaccion);
+    }
+
+    public static void realizarDeposito(Deposito deposito){
+        TransaccionRepositorio2 transaccionRepositorio2 = new TransaccionRepositorio2();
+        Long idTransaccion = transaccionRepositorio2.insertTransaccion(deposito);
+        transaccionRepositorio2.insertDeposito(idTransaccion, "CAJERO CENTRAL");
+    }
+
+    public static void realizarPagoTarjeta(PagoDeTarjeta pagoDeTarjeta){
+        TransaccionRepositorio2 transaccionRepositorio2 = new TransaccionRepositorio2();
+        Long idTarjetaCredito = transaccionRepositorio2.recuperarIdTarjeta(pagoDeTarjeta.getTarjetaDeCredito().getNro_tarjeta());
+        Long idTransaccion = transaccionRepositorio2.insertTransaccion(pagoDeTarjeta);
+        transaccionRepositorio2.insertPagoTarjeta(idTransaccion,idTarjetaCredito);
+        transaccionRepositorio2.pagarTarjetaCredito(pagoDeTarjeta.getMontoTransaccion(), idTarjetaCredito);
     }
 }
