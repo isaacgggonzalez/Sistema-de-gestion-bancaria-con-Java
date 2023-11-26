@@ -5,25 +5,28 @@
 package primer_final;
 
 import controlador.ProcesosControlador;
+import java.util.Date;
 import pruebadepg.AutenticacionLogin;
+import primer_final.BaseInterfaz;
 
 /**
  *
  * @author AMD
  */
 public class PinTransaccionInterfaz extends javax.swing.JFrame {
+    private long monto;
+    private long cuentaDestino;
+    private long cuentaOrigen;
     
     Cliente cliente;
     Cuenta cuenta;
 
-    boolean validado;
 
     public PinTransaccionInterfaz(Cliente cliente, Cuenta cuenta) {
         initComponents();
         this.setLocationRelativeTo(this); //Ubicar la interfaz en el centro
         this.cliente = cliente;
         this.cuenta = cuenta;
-        this.validado = false;
     }
     
     /**
@@ -67,7 +70,6 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
         texto_pinIncorrecto.setAlignment(java.awt.Label.CENTER);
         texto_pinIncorrecto.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         texto_pinIncorrecto.setForeground(new java.awt.Color(204, 0, 0));
-        texto_pinIncorrecto.setText("Pin Incorrecto");
 
         Pin1.setAlignment(java.awt.Label.CENTER);
         Pin1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
@@ -223,6 +225,7 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private boolean claveVisible = false;
+    private static boolean validarPin= false;
     
     private void ojo_claveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ojo_claveMouseClicked
         // Cambiar la visibilidad de la contraseña
@@ -250,8 +253,8 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_box_pinKeyTyped
 
     private void boton_aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_aceptarActionPerformed
-                                                    
-        BaseInterfaz base = new BaseInterfaz(cliente, cuenta);
+                                                
+        texto_pinIncorrecto.setText("");
         //trim sirve para eliminar espacio en blanco
         int cedula = cliente.getCiCliente();
         long numeroCuenta = cuenta.getNumeroCuenta();
@@ -266,14 +269,37 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
             texto_pinIncorrecto.setText(""); // Limpiar el mensaje de error si no hay error
         }
         if(ProcesosControlador.validarPinTransaccion(clave)){
+            //base.manejarValidacionPin(true);
+            //BaseInterfaz.setValidarPin(true);
             System.out.println("VALIDADO CORREctamente pin");
+            long montoIngresado=montoLong();
+            long cuentadeOrigen=cuenta_origen();
+            long cuentadeDestino=cuenta_Destino();
+            Transferencia transferencia = new Transferencia
+                            (new Date(System.currentTimeMillis()),cuentadeOrigen, cuentadeDestino, montoIngresado);
+                    ProcesosControlador.realizarTransferencia(transferencia);
+                    cuenta.setSaldoCuenta(cuenta.getSaldoCuenta() - montoIngresado);
+                    
+            dispose();
         }
-
-        validado = true;
    
-    
+        
     }//GEN-LAST:event_boton_aceptarActionPerformed
-
+    public void manejarValidacionPin(long montoLong,long cuenta_Destino,long cuenta_origen) {
+        monto=montoLong;
+        cuentaDestino=cuenta_Destino;
+        cuentaOrigen=cuenta_origen;
+    }
+    
+    public long montoLong(){
+        return monto;
+    }
+    public long cuenta_Destino(){
+        return cuentaDestino;
+    }
+    public long cuenta_origen(){
+        return cuentaOrigen;
+    }
     /**
      * @param args the command line arguments
      */

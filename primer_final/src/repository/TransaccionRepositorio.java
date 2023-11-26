@@ -100,7 +100,7 @@ public class TransaccionRepositorio {
         
         public static void realizarTransaccion(Connection conexion, String tipoTransaccion, double monto, long numero_cuenta) throws SQLException {
             // Insertar nueva entrada en la tabla de transaccion
-            String insertarTransaccion = "INSERT INTO transaccion(tipo, fecha, monto, id_cuenta) VALUES (?, ?, ?, ?)";
+            String insertarTransaccion = "INSERT INTO movimiento(tipo, fecha, monto, id_cuenta) VALUES (?, ?, ?, ?)";
             try (PreparedStatement statement = conexion.prepareStatement(insertarTransaccion)) {
                 statement.setString(1, tipoTransaccion);
                 statement.setTimestamp(2, new Timestamp(System.currentTimeMillis())); // Obtener la fecha actual

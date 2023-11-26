@@ -1,5 +1,6 @@
 package pruebadepg;
 
+import config.ConexionBD;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -9,12 +10,8 @@ import java.util.Scanner;
 
 public class PagoTarjeta {
 
-    private final String url = "jdbc:postgresql://localhost:5432/postgres";
-    private final String user = "postgres";
-    private final String password = "1234";
-
     public void realizarPagoTarjeta(long idCliente) {
-        try (Connection conexion = DriverManager.getConnection(url, user, password)) {
+        try (Connection conexion = ConexionBD.conectar()) {
             // Obtener las tarjetas de crédito asociadas al cliente
             String consultaTarjetas = "SELECT id_tarjeta_credito, nro_tarjeta FROM tarjeta_credito WHERE id_cliente = ?";
             try (PreparedStatement statementTarjetas = conexion.prepareStatement(consultaTarjetas)) {

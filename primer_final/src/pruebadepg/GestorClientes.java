@@ -1,5 +1,6 @@
 package pruebadepg;
 
+import config.ConexionBD;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -11,15 +12,10 @@ import java.math.BigDecimal;
 
 public class GestorClientes {
 
-    private static final String base = "postgres";
-    private static final String user = "postgres";
-    private static final String password = "1234";
-    private static final String url = "jdbc:postgresql://localhost:5432/" + base;
-
     public static Cliente obtenerCliente(long cedula) {
     Cliente cliente = null;
 
-    try (Connection conexion = DriverManager.getConnection(url, user, password);
+    try (Connection conexion = ConexionBD.conectar();
          PreparedStatement preparedStatement = conexion.prepareStatement("SELECT * FROM cliente WHERE cedula = ?")) {
 
         preparedStatement.setLong(1, cedula);
@@ -46,7 +42,7 @@ public class GestorClientes {
 
     public static Cuenta obtenerCuenta(long numeroCuenta) {
         Cuenta cuenta = null;
-        try (Connection conexion = DriverManager.getConnection(url, user, password);
+        try (Connection conexion = ConexionBD.conectar();
              PreparedStatement preparedStatement = conexion.prepareStatement("SELECT * FROM cuenta WHERE numero_cuenta = ?")) {
 
             preparedStatement.setLong(1, numeroCuenta);
