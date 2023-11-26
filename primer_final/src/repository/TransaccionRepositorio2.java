@@ -28,7 +28,7 @@ public class TransaccionRepositorio2 {
         public Long insertTransaccion(Transaccion transaccion){
            Connection connection = ConexionBD.conectar();
            try {
-               PreparedStatement preparedStatement = connection.prepareStatement(INSERTAR_TRANSACCION);
+               PreparedStatement preparedStatement = connection.prepareStatement(INSERTAR_TRANSACCION, Statement.RETURN_GENERATED_KEYS);
                preparedStatement.setInt(1, transaccion.getIdTransaccion());
                preparedStatement.setTimestamp(2, new Timestamp(System.currentTimeMillis()));
                preparedStatement.setDouble(3, transaccion.getMontoTransaccion());
@@ -49,7 +49,7 @@ public class TransaccionRepositorio2 {
     public Long insertMovimiento(long idCuenta, long idTransaccion){
         Connection connection = ConexionBD.conectar();
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(INSERTAR_MOVIMIENTO);
+            PreparedStatement preparedStatement = connection.prepareStatement(INSERTAR_MOVIMIENTO, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setLong(1, idTransaccion);
             preparedStatement.setLong(2, idCuenta);
             preparedStatement.executeUpdate();
@@ -69,13 +69,13 @@ public class TransaccionRepositorio2 {
     public Long insertTransferencia(Transferencia transferencia, Long idTransaccion){
         Connection connection = ConexionBD.conectar();
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(INSERTAR_TRANSACCION);
+            PreparedStatement preparedStatement = connection.prepareStatement(INSERTAR_TRANSACCION, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setLong(1, idTransaccion);
             preparedStatement.setLong(2, transferencia.get_destinoTransferencia());
             preparedStatement.setLong(3, transferencia.get_origenTransferencia());
             preparedStatement.executeUpdate();
             ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
-            generatedKeys.next();
+            System.out.println(generatedKeys.next());
             Long idGenerado = generatedKeys.getLong(1);
             System.out.println("Transferencia insertada con id: " + idGenerado);
             ConexionBD.cerrarConexion(connection);
