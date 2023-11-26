@@ -1598,8 +1598,11 @@ public class BaseInterfaz extends javax.swing.JFrame {
            
             
             if (ProcesosControlador.confirmarDatosTransferencia(cuenta_Destino, cedula_destinatario, nombreDestinatario)){
-                PinTransaccionInterfaz ventanaPIN = new PinTransaccionInterfaz(cliente, cuenta);
+                PinTransaccionInterfaz ventanaPIN = new PinTransaccionInterfaz(BaseInterfaz.this);
                 ventanaPIN.setVisible(true);
+                while (ventanaPIN.isVisible()){
+
+                }
                 if(ventanaPIN.validado){
                     Transferencia transferencia = new Transferencia
                             (new Date(System.currentTimeMillis()),cuenta.getNumeroCuenta(), cuenta_Destino, montoLong);
