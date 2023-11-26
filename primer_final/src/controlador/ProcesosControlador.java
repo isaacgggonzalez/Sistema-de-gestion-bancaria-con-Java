@@ -13,15 +13,6 @@ import repository.TransaccionRepositorio2;
  * @author Augusto
  */
 public class ProcesosControlador {
-//    if (TransaccionRepositorio.confirmarDatos(cuenta_Destino, cedula_destinatario, nombreDestinatario)){
-//        TransaccionRepositorio.debitarCuenta(connection, cuenta.getNumeroCuenta(), montoLong);
-//        TransaccionRepositorio.acreditarCuenta(connection, cuenta_Destino, montoLong);
-//        cuenta.setSaldoCuenta(cuenta.getSaldoCuenta() - montoLong);
-//        saldo.setText(Double.toString(cuenta.getSaldoCuenta()));
-//        TransaccionRepositorio.realizarTransaccion(connection, "Transferencia", montoLong, cuenta.getNumeroCuenta());
-//
-//    }
-
     public static boolean confirmarDatosTransferencia(long DestinoTransferencia, long cedula, String nombre_destinatario){
         TransaccionRepositorio2 transaccionRepositorio2 = new TransaccionRepositorio2();
         return transaccionRepositorio2.confirmarDatos(DestinoTransferencia, cedula, nombre_destinatario);
@@ -36,5 +27,10 @@ public class ProcesosControlador {
         transaccionRepositorio2.actualizarSaldoCuenta(idCuentaOrigen, -transferencia.getMontoTransaccion());
         transaccionRepositorio2.insertMovimiento(idCuentaDestino, idTransaccion);
         transaccionRepositorio2.insertMovimiento(idCuentaOrigen, idTransaccion);
+    }
+
+    public static void validarPinTransaccion(long pinTransaccion){
+        TransaccionRepositorio2 transaccionRepositorio2 = new TransaccionRepositorio2();
+        transaccionRepositorio2.validarPinTransaccion(pinTransaccion);
     }
 }

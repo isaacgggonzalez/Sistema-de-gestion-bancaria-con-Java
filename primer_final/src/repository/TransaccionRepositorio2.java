@@ -23,6 +23,8 @@ public class TransaccionRepositorio2 {
         private static final String INSERTAR_TRANSFERENCIA = "INSERT INTO "
                 + "transferencia(id_transaccion, id_cuenta_destino, id_cuenta_origen) VALUES(?, ?, ?)";
 
+        private static final String VALIDAR_PIN_TRANASCCION = "SELECT 1 FROM cuenta WHERE pin_transaccion = ?";
+
         public TransaccionRepositorio2(){}
        
         public Long insertTransaccion(Transaccion transaccion){
@@ -108,6 +110,28 @@ public class TransaccionRepositorio2 {
                throw new RuntimeException("Error al intentar recuperar id_cuenta");
            }
        }
+
+    public Boolean validarPinTransaccion(Long pinTransaccion){
+        Connection connection = ConexionBD.conectar();
+        try {
+            PreparedStatement statement = connection.prepareStatement(VALIDAR_PIN_TRANASCCION);
+            statement.setLong(1, pinTransaccion);
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if(resultSet.next()){
+                    ConexionBD.cerrarConexion(connection);
+                    return true;
+                }else{
+                    ConexionBD.cerrarConexion(connection);
+                    return false;
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(TransaccionRepositorio2.class.getName()).log(Level.SEVERE, null, ex);
+            ConexionBD.cerrarConexion(connection);
+            throw new RuntimeException("Error al intentar recuperar id_cuenta");
+        }
+    }
        
         //que seria de transferencia
         public boolean confirmarDatos(long DestinoTransferencia, long cedula, String nombre_destinatario) {
