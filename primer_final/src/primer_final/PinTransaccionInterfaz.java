@@ -265,7 +265,10 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
             // Aquí puedes agregar más lógica si es necesario
             texto_pinIncorrecto.setText(""); // Limpiar el mensaje de error si no hay error
         }
-        ProcesosControlador.validarPinTransaccion(clave);
+        if(ProcesosControlador.validarPinTransaccion(clave)){
+            System.out.println("VALIDADO CORREctamente pin");
+        }
+
         validado = true;
    
     

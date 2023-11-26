@@ -29,8 +29,8 @@ public class ProcesosControlador {
         transaccionRepositorio2.insertMovimiento(idCuentaOrigen, idTransaccion);
     }
 
-    public static void validarPinTransaccion(long pinTransaccion){
+    public static boolean validarPinTransaccion(long pinTransaccion){
         TransaccionRepositorio2 transaccionRepositorio2 = new TransaccionRepositorio2();
-        transaccionRepositorio2.validarPinTransaccion(pinTransaccion);
+        return transaccionRepositorio2.validarPinTransaccion(pinTransaccion);
     }
 }
