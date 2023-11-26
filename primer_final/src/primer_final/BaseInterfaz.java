@@ -1600,9 +1600,6 @@ public class BaseInterfaz extends javax.swing.JFrame {
             if (ProcesosControlador.confirmarDatosTransferencia(cuenta_Destino, cedula_destinatario, nombreDestinatario)){
                 PinTransaccionInterfaz ventanaPIN = new PinTransaccionInterfaz(cliente, cuenta);
                 ventanaPIN.setVisible(true);
-                while (ventanaPIN.isVisible()){
-                    Thread.sleep(500);
-                }
                 if(ventanaPIN.validado){
                     Transferencia transferencia = new Transferencia
                             (new Date(System.currentTimeMillis()),cuenta.getNumeroCuenta(), cuenta_Destino, montoLong);
