@@ -25,19 +25,6 @@ public class AutenticacionLogin {
         return credencialesCorrectas;
     }
     
-    public boolean verificarTransaccion(long numeroCuenta, int clave) {
-        boolean credencialesCorrectas = false;
-
-        try (Connection conexion = DriverManager.getConnection(url, user, password)) {
-            // Llamada a la función de verificación de credenciales
-            credencialesCorrectas = verificarCredencialesEnBaseDeDatos(conexion, numeroCuenta, clave);
-        } catch (SQLException e) {
-            e.printStackTrace(); // Manejar la excepción de alguna manera apropiada en tu aplicación
-        }
-        return credencialesCorrectas;
-    }
-
-    
 
     // Función separada para realizar la verificación de credenciales en la base de datos
     private boolean verificarCredencialesEnBaseDeDatos(Connection conexion, long cedula, long numeroCuenta, int clave) throws SQLException {

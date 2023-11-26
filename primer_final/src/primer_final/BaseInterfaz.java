@@ -1594,19 +1594,14 @@ public class BaseInterfaz extends javax.swing.JFrame {
             
         if(TransaccionRepositorio.verificarSaldoSuficiente( connection, cuenta.getNumeroCuenta(), montoLong) != false){
             // Confirmar los datos si todas las validaciones pasan
-            
-           
-            
+
             if (ProcesosControlador.confirmarDatosTransferencia(cuenta_Destino, cedula_destinatario, nombreDestinatario)){
-
-
                     Transferencia transferencia = new Transferencia
                             (new Date(System.currentTimeMillis()),cuenta.getNumeroCuenta(), cuenta_Destino, montoLong);
                     ProcesosControlador.realizarTransferencia(transferencia);
                     cuenta.setSaldoCuenta(cuenta.getSaldoCuenta() - montoLong);
                     saldo.setText(Double.toString(cuenta.getSaldoCuenta()));
-
-                
+    
             }
             }else{
                 mostrarMensajeError("Saldo insuficiente.");
