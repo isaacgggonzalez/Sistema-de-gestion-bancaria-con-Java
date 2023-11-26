@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.lang.RuntimeException;
 public class ConexionBD {
-    private static final String BASE = "postgres";
+    private static final String BASE = "lp2_final";
     private static final String USER = "postgres";
     private static final String PASSWORD = "1234";
     private static final String URL = "jdbc:postgresql://localhost:5432/" + BASE;

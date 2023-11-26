@@ -219,7 +219,88 @@ public class TransaccionRepositorio2 {
             return modelo;
         }
     
-     
+        /*
+      private void boton_confirmarTransaccion1ActionPerformed(ActionEvent evt) {                                                            
+        
+        Connection connection = ConexionBD.conectar();
+        try {
+            // Obtener valores de los campos de texto
+            long cuenta_Destino = Long.parseLong(cuentaDestino.getText().trim());
+            String nombreDestinatario = nombre_destinatario.getText().trim();
+            long cedula_destinatario = Long.parseLong(cedula.getText().trim());
+            String montoTexto = monto.getText().trim();
+            // Convertir la cadena a long
+            long montoLong = Long.parseLong(montoTexto);
+            
+            // Validar que la cuenta_Destino sea positiva
+            if (cuenta_Destino <= 0) {
+                mostrarMensajeError("La cuenta de destino debe ser un número positivo.");
+                return; // Salir del método si la validación no pasa
+            }
+
+            // Validar que la cedula_destinatario sea positiva
+            if (cedula_destinatario <= 0) {
+                mostrarMensajeError("La cédula del destinatario debe ser un número positivo.");
+                return; // Salir del método si la validación no pasa
+            }
+
+            // Validar que el nombreDestinatario no esté vacío
+            if (nombreDestinatario.isEmpty()) {
+                mostrarMensajeError("El nombre del destinatario no puede estar vacío.");
+                return; // Salir del método si la validación no pasa
+            }
+            
+            if(cuenta.getNumeroCuenta() == cuenta_Destino){
+                mostrarMensajeError("No se puede transferir a su misma cuenta.");
+                return; // Salir del método si la validación no pasa
+            
+            }
+            
+        if(TransaccionRepositorio.verificarSaldoSuficiente( connection, cuenta.getNumeroCuenta(), montoLong) != false){
+            // Confirmar los datos si todas las validaciones pasan
+
+            if (TransaccionRepositorio.confirmarDatos(cuenta_Destino, cedula_destinatario, nombreDestinatario)){
+                
+                PinTransaccionInterfaz ventanaPIN = new PinTransaccionInterfaz(cliente, cuenta);
+                ventanaPIN.setVisible(true);
+               
+                /*
+                TransaccionRepositorio.debitarCuenta(connection, cuenta.getNumeroCuenta(), montoLong);
+                TransaccionRepositorio.acreditarCuenta(connection, cuenta_Destino, montoLong);
+                cuenta.setSaldoCuenta(cuenta.getSaldoCuenta() - montoLong);
+                saldo.setText(Double.toString(cuenta.getSaldoCuenta()));
+                TransaccionRepositorio.realizarTransaccion(connection, "Transferencia", montoLong, cuenta.getNumeroCuenta());
+                
+                
+            }
+        }else{
+            mostrarMensajeError("Saldo insuficiente.");
+        }
+
+            } catch (NumberFormatException e) {
+                // Manejar la excepción si hay un error al convertir los números
+                mostrarMensajeError("Error al ingresar los datos. Intente de nuevo.");
+            } catch (SQLException ex) {
+                Logger.getLogger(BaseInterfaz.class.getName()).log(Level.SEVERE, null, ex);
+            }
+ 
+        
+        
+        
+    }                                                           
+    
+    
+    public long  mostrarmonto(){
+        String montoTexto = monto.getText().trim();
+        // Convertir la cadena a long
+        long montoLong = Long.parseLong(montoTexto);
+        return montoLong;
+    
+    }
+     */   
+        
+        
+        
         
         
 }

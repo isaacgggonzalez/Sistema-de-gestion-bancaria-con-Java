@@ -4,12 +4,24 @@
  */
 package primer_final;
 
+import pruebadepg.AutenticacionLogin;
+
 /**
  *
  * @author AMD
  */
 public class PinTransaccionInterfaz extends javax.swing.JFrame {
+    
+    Cliente cliente;
+    Cuenta cuenta;
 
+    public PinTransaccionInterfaz(Cliente cliente, Cuenta cuenta) {
+        initComponents();
+        this.setLocationRelativeTo(this); //Ubicar la interfaz en el centro
+        this.cliente = cliente;
+        this.cuenta = cuenta;
+    }
+    
     /**
      * Creates new form PinTransaccionInterfaz
      */
@@ -34,7 +46,7 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
         Pin1 = new java.awt.Label();
         jLayeredPane2 = new javax.swing.JLayeredPane();
         boton_salir = new java.awt.Button();
-        boton_salir1 = new java.awt.Button();
+        boton_aceptar = new java.awt.Button();
         box_pin = new javax.swing.JPasswordField();
         ojo_clave = new javax.swing.JLabel();
 
@@ -59,13 +71,18 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
 
         jLayeredPane2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        boton_salir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        boton_salir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         boton_salir.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         boton_salir.setLabel("Salir");
 
-        boton_salir1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        boton_salir1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        boton_salir1.setLabel("Aceptar");
+        boton_aceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        boton_aceptar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        boton_aceptar.setLabel("Aceptar");
+        boton_aceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_aceptarActionPerformed(evt);
+            }
+        });
 
         box_pin.setBackground(new java.awt.Color(255, 255, 255));
         box_pin.setForeground(new java.awt.Color(0, 0, 0));
@@ -84,7 +101,7 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
         ojo_clave.setForeground(new java.awt.Color(255, 255, 255));
         ojo_clave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono_cerrarOjo.png"))); // NOI18N
         ojo_clave.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        ojo_clave.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ojo_clave.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         ojo_clave.setMaximumSize(new java.awt.Dimension(22, 22));
         ojo_clave.setMinimumSize(new java.awt.Dimension(22, 22));
         ojo_clave.setPreferredSize(new java.awt.Dimension(22, 22));
@@ -119,7 +136,7 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
                                 .addGap(38, 38, 38)
                                 .addComponent(boton_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(52, 52, 52)
-                                .addComponent(boton_salir1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(boton_aceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -150,7 +167,7 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(boton_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(boton_salir1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(boton_aceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(45, Short.MAX_VALUE))
         );
 
@@ -228,6 +245,51 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
         box_pin.setEchoChar(echoChar);
     }//GEN-LAST:event_box_pinKeyTyped
 
+    private void boton_aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_aceptarActionPerformed
+                                                    
+        BaseInterfaz base = new BaseInterfaz(cliente, cuenta);
+        //trim sirve para eliminar espacio en blanco
+        int cedula = cliente.getCiCliente();
+        long numeroCuenta = cuenta.getNumeroCuenta();
+        String claveTexto = box_pin.getText().trim();
+        int clave = Integer.parseInt(claveTexto);
+        
+        // Validar que los campos no estén vacíos
+        if (claveTexto.isEmpty()) {
+            texto_pinIncorrecto.setText("El Pin no puede estar vacío.");
+        } else {
+            // Aquí puedes agregar más lógica si es necesario
+            texto_pinIncorrecto.setText(""); // Limpiar el mensaje de error si no hay error
+        }
+        
+        try {
+            // Realizar la autenticación
+            AutenticacionLogin autenticacion = new AutenticacionLogin();
+
+            if (autenticacion.verificarPinCuenta(cedula, numeroCuenta, clave)) {
+                System.out.println("ahora colocar lo de baseinterfaz y poner todo de debitar ya creditar");
+                base.debitar_acreditarCuenta();
+                dispose();
+                
+                /*
+                 TransaccionRepositorio.debitarCuenta(connection, cuenta.getNumeroCuenta(), montoLong);
+                 TransaccionRepositorio.acreditarCuenta(connection, cuenta_Destino, montoLong);
+                 cuenta.setSaldoCuenta(cuenta.getSaldoCuenta() - montoLong);
+                 saldo.setText(Double.toString(cuenta.getSaldoCuenta()));
+                  TransaccionRepositorio.realizarTransaccion(connection, "Transferencia", montoLong, cuenta.getNumeroCuenta());
+                */
+             
+                   
+            } else {
+                texto_pinIncorrecto.setText("Pin incorrecto");
+            }
+        } catch (NumberFormatException e) {
+            texto_pinIncorrecto.setText("Verificar Pin.");
+        }
+   
+    
+    }//GEN-LAST:event_boton_aceptarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -265,8 +327,8 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Label Pin1;
+    private java.awt.Button boton_aceptar;
     private java.awt.Button boton_salir;
-    private java.awt.Button boton_salir1;
     private javax.swing.JPasswordField box_pin;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel2;
