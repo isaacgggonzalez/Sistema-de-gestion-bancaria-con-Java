@@ -23,7 +23,7 @@ CREATE TABLE transaccion(
     fecha TIMESTAMP NOT NULL,
     monto NUMERIC(18,0) NOT NULL,
     id_cuenta BIGINT NOT NULL,
-    FOREIGN KEY(id_cuenta) REFERENCES cuenta(id_cuenta),
+    FOREIGN KEY(id_cuenta) REFERENCES cuenta(id_cuenta)
 );
 
 CREATE TABLE deposito(
