@@ -34,6 +34,8 @@ import javax.swing.LayoutStyle;
 import javax.swing.ListSelectionModel;
 import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
+
+import controlador.ProcesosControlador;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 
@@ -1594,13 +1596,12 @@ public class BaseInterfaz extends javax.swing.JFrame {
             
            
             
-            if (TransaccionRepositorio.confirmarDatos(cuenta_Destino, cedula_destinatario, nombreDestinatario)){
-                TransaccionRepositorio.debitarCuenta(connection, cuenta.getNumeroCuenta(), montoLong);
-                TransaccionRepositorio.acreditarCuenta(connection, cuenta_Destino, montoLong);
+            if (ProcesosControlador.confirmarDatosTransferencia(cuenta_Destino, cedula_destinatario, nombreDestinatario)){
+                Transferencia transferencia = new Transferencia
+                        (new Date(System.currentTimeMillis()),cuenta.getNumeroCuenta(), cuenta_Destino, montoLong);
+                ProcesosControlador.realizarTransferencia(transferencia);
                 cuenta.setSaldoCuenta(cuenta.getSaldoCuenta() - montoLong);
                 saldo.setText(Double.toString(cuenta.getSaldoCuenta()));
-                TransaccionRepositorio.realizarTransaccion(connection, "Transferencia", montoLong, cuenta.getNumeroCuenta());
-    
             }
             }else{
                 mostrarMensajeError("Saldo insuficiente.");

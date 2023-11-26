@@ -21,9 +21,7 @@ CREATE TABLE transaccion(
     id_transaccion BIGSERIAL PRIMARY KEY,
     tipo VARCHAR(20) NOT NULL,
     fecha TIMESTAMP NOT NULL,
-    monto NUMERIC(18,0) NOT NULL,
-    id_cuenta BIGINT NOT NULL,
-    FOREIGN KEY(id_cuenta) REFERENCES cuenta(id_cuenta)
+    monto NUMERIC(18,0) NOT NULL
 );
 
 CREATE TABLE deposito(
@@ -43,10 +41,19 @@ CREATE TABLE transferencia(
     FOREIGN KEY(id_transaccion) REFERENCES transaccion(id_transaccion)
 );
 
+CREATE TABLE movimiento(
+    id_movimiento BIGSERIAL PRIMARY KEY,
+    id_transaccion BIGINT NOT NULL,
+    id_cuenta BIGINT NOT NULL,
+    FOREIGN KEY(id_transaccion) REFERENCES transaccion(id_transaccion),
+    FOREIGN KEY(id_cuenta) REFERENCES cuenta(id_cuenta)
+);
+
 
 CREATE TABLE servicio(
     id_servicio BIGSERIAL PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL
+    nombre VARCHAR(100) NOT NULL,
+    monto NUMERIC(18, 0)
 );
 
 CREATE TABLE pago_servicio(
