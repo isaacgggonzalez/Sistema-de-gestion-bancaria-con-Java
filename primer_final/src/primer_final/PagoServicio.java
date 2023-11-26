@@ -1,48 +1,35 @@
 
 package primer_final;
 
-public class PagoServicio extends Transaccion {
-    private int Id_pago;
-    private double Monto_pago;
-    private Cuenta cuenta_abonante;
-    private TarjetaDeCredito tarjeta_abonante; // Cambié el nombre de la variable
+import java.sql.Timestamp;
+import java.util.Date;
 
+public class PagoServicio extends Transaccion {
+    private TarjetaDeCredito tarjeta_abonante; 
+    private String Tipo_transaccion = "Pago de Servicio";
+    
     // Constructor
     public PagoServicio(int Id_pago, int Id_transaccion, int Pin_transaccion, 
-            String Tipo_transaccion, String Fecha_transaccion,
-            double Monto_pago, Cuenta cuenta_abonante, TarjetaDeCredito tarjeta_abonante) {
+            Date Fecha_transaccion, String Tipo_transaccion, 
+            Cuenta cuenta_abonante, TarjetaDeCredito tarjeta_abonante, double monto_transaccion) {
         // Llamada al constructor de la clase base (Transaccion)
-        super(Id_transaccion, Pin_transaccion, Tipo_transaccion, Fecha_transaccion);
-
-        this.Id_pago = Id_pago;
-        this.Monto_pago = Monto_pago;
-        this.cuenta_abonante = cuenta_abonante;
+        super(Id_transaccion, Fecha_transaccion, monto_transaccion);
+        
+        this.Tipo_transaccion = Tipo_transaccion;
         this.tarjeta_abonante = tarjeta_abonante;
     }
-
-    // Métodos getter y setter para Id_pago
-    public int get_Idpago() {
-        return Id_pago;
+    
+    // Métodos getter y setter para origen_transferencia
+    public String get_tipo_transaccion() {
+        return Tipo_transaccion;
     }
-
-    public void set_Idpago(int Id_pago) {
-        this.Id_pago = Id_pago;
-    }
-
-    // Métodos getter y setter para Monto_pago
-    public double get_montopago() {
-        return Monto_pago;
-    }
-
-    public void set_montopago(double Monto_pago) {
-        this.Monto_pago = Monto_pago;
-    }
-
+    
+    
     // Métodos getter y setter para tarjeta_abonante
     public TarjetaDeCredito getTarjeta_abonante() {
         return tarjeta_abonante;
     }
-
+    
     public void setTarjeta_abonante(TarjetaDeCredito tarjeta_abonante) {
         this.tarjeta_abonante = tarjeta_abonante;
     }

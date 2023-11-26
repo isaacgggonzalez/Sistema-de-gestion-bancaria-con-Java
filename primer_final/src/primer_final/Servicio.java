@@ -1,7 +1,9 @@
 
 package primer_final;
 
-public class Servicio extends PagoServicio {
+import java.util.Date;
+
+public class Servicio extends Transaccion {
     // Atributos adicionales para la clase Servicio
     private int Id_servicio;
     private String Nombre_servicio;
@@ -9,11 +11,10 @@ public class Servicio extends PagoServicio {
 
     // Constructor
     public Servicio(int Id_servicio, String Nombre_servicio, double Costo_servicio,
-                    int Id_pago, int Id_transaccion, int Pin_transaccion, String Tipo_transaccion, String Fecha_transaccion,
-                    double Monto_pago, Cuenta cuenta_abonante, TarjetaDeCredito Tarjeta_abonante) {
+                    int Id_pago, int Id_transaccion, int Pin_transaccion, String Tipo_transaccion, Date Fecha_transaccion,
+                    double monto_transaccion) {
         // Llamada al constructor de la clase base (PagoServicio)
-        super(Id_pago, Id_transaccion, Pin_transaccion, Tipo_transaccion, Fecha_transaccion,
-                Monto_pago, cuenta_abonante, Tarjeta_abonante);
+       super(Id_transaccion, Fecha_transaccion, monto_transaccion);
 
         this.Id_servicio = Id_servicio;
         this.Nombre_servicio = Nombre_servicio;

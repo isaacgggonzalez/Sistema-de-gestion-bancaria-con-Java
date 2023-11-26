@@ -46,7 +46,6 @@ public class GestorClientes {
 
     public static Cuenta obtenerCuenta(long numeroCuenta) {
         Cuenta cuenta = null;
-
         try (Connection conexion = DriverManager.getConnection(url, user, password);
              PreparedStatement preparedStatement = conexion.prepareStatement("SELECT * FROM cuenta WHERE numero_cuenta = ?")) {
 
@@ -59,9 +58,9 @@ public class GestorClientes {
                     double saldo = resultSet.getDouble("saldo");
                     long idCliente = resultSet.getLong("id_cliente");
                     long numeroCuentaResultado = resultSet.getLong("numero_cuenta");
-                    
+                    int pin_transaccion = resultSet.getInt("pin_transaccion");
 
-                    cuenta = new Cuenta(numeroCuentaResultado, pinCuenta, saldo, idCliente);
+                    cuenta = new Cuenta(idCuenta, numeroCuentaResultado, pinCuenta, saldo, idCliente, pin_transaccion);
                 }
             }
 

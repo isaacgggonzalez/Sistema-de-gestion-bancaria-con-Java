@@ -120,7 +120,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         cuentaDestino4 = new JTextField();
         label7 = new Label();
         jScrollPane1 = new JScrollPane();
-        jTable1 = new JTable();
+        TablaConsulta = new JTable();
         menu_deposito = new Panel();
         boton_cancelarTransaccion2 = new Button();
         boton_confirmarTransaccion2 = new Button();
@@ -567,9 +567,9 @@ public class BaseInterfaz extends javax.swing.JFrame {
         jScrollPane1.setEnabled(false);
         jScrollPane1.setRequestFocusEnabled(false);
 
-        jTable1.setBackground(new Color(255, 255, 255));
-        jTable1.setForeground(new Color(204, 204, 204));
-        jTable1.setModel(new DefaultTableModel(
+        TablaConsulta.setBackground(new Color(255, 255, 255));
+        TablaConsulta.setForeground(new Color(204, 204, 204));
+        TablaConsulta.setModel(new DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -596,16 +596,16 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 "Fecha", "ID", "Tipo de Servicio", "Monto"
             }
         ));
-        jTable1.setEnabled(false);
-        jTable1.setGridColor(new Color(204, 204, 204));
-        jTable1.setRequestFocusEnabled(false);
-        jTable1.setSelectionBackground(new Color(204, 204, 204));
-        jTable1.setSelectionForeground(new Color(204, 204, 204));
-        jTable1.setShowHorizontalLines(true);
-        jTable1.setShowVerticalLines(true);
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(jTable1);
-        jTable1.getColumnModel().getSelectionModel().setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+        TablaConsulta.setEnabled(false);
+        TablaConsulta.setGridColor(new Color(204, 204, 204));
+        TablaConsulta.setRequestFocusEnabled(false);
+        TablaConsulta.setSelectionBackground(new Color(204, 204, 204));
+        TablaConsulta.setSelectionForeground(new Color(204, 204, 204));
+        TablaConsulta.setShowHorizontalLines(true);
+        TablaConsulta.setShowVerticalLines(true);
+        TablaConsulta.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(TablaConsulta);
+        TablaConsulta.getColumnModel().getSelectionModel().setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
         GroupLayout menu_consultarSaldoLayout = new GroupLayout(menu_consultarSaldo);
         menu_consultarSaldo.setLayout(menu_consultarSaldoLayout);
@@ -1399,11 +1399,14 @@ public class BaseInterfaz extends javax.swing.JFrame {
         menu_pagarServicio.setVisible(false);
         menu_pagarTarjeta.setVisible(false);
         menu_acercaSistema.setVisible(false);
+        
+        DefaultTableModel modelo = TransaccionRepositorio.obtenerTransaccionesPorCuenta(cuenta.getNumero_cuenta());
+        TablaConsulta.setModel(modelo);        
     }//GEN-LAST:event_boton_consultarSaldoActionPerformed
     private void boton_transferenciaCuentaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_transferenciaCuentaActionPerformed
         
         
-        numero_origen.setText(cuenta.getId_cuenta() + "");
+        numero_origen.setText(cuenta.getNumero_cuenta()+ "");
         saldo.setText(cuenta.getSaldo_cuenta() + "");      
         
         
@@ -1581,17 +1584,25 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 mostrarMensajeError("El nombre del destinatario no puede estar vacío.");
                 return; // Salir del método si la validación no pasa
             }
-
             
-        if(TransaccionRepositorio.verificarSaldoSuficiente( connection, cuenta.getId_cuenta(), montoLong) != false){   
+            if(cuenta.getNumero_cuenta() == cuenta_Destino){
+                mostrarMensajeError("No se puede transferir a su misma cuenta.");
+                return; // Salir del método si la validación no pasa
+            
+            }
+            
+        if(TransaccionRepositorio.verificarSaldoSuficiente( connection, cuenta.getNumero_cuenta(), montoLong) != false){   
             // Confirmar los datos si todas las validaciones pasan
+            
+           
+            
             if (TransaccionRepositorio.confirmarDatos(cuenta_Destino, cedula_destinatario, nombreDestinatario)){
-                TransaccionRepositorio.debitarCuenta(connection, cuenta.getId_cuenta(), montoLong);
+                TransaccionRepositorio.debitarCuenta(connection, cuenta.getNumero_cuenta(), montoLong);
                 TransaccionRepositorio.acreditarCuenta(connection, cuenta_Destino, montoLong);
                 cuenta.setSaldo_cuenta(cuenta.getSaldo_cuenta() - montoLong);
                 saldo.setText(Double.toString(cuenta.getSaldo_cuenta()));
-                //saldo.repaint();
-                
+                TransaccionRepositorio.realizarTransaccion(connection, "Transferencia", montoLong, cuenta.getNumero_cuenta());
+    
             }
             }else{
                 mostrarMensajeError("Saldo insuficiente.");
@@ -1631,9 +1642,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_saldoActionPerformed
 
     private void numero_origenActionPerformed(ActionEvent evt) {//GEN-FIRST:event_numero_origenActionPerformed
-        numero_origen.setText("afafafa");
-        numero_origen.setEnabled(true);
-        
+    
     }//GEN-LAST:event_numero_origenActionPerformed
     
     
@@ -1767,6 +1776,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private JLayeredPane InterfazPrincipal;
+    private JTable TablaConsulta;
     private Button boton_acercaSistema;
     private Button boton_cancelarTransaccion1;
     private Button boton_cancelarTransaccion2;
@@ -1808,7 +1818,6 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private JPanel jPanel1;
     private JScrollPane jScrollPane1;
     private JTabbedPane jTabbedPane1;
-    private JTable jTable1;
     private Label label1;
     private Label label10;
     private Label label11;

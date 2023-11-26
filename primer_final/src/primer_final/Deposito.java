@@ -1,16 +1,19 @@
 package primer_final;
 
+import java.util.Date;
+
 public class Deposito extends Transaccion {
     private double monto_deposito;
     private Cuenta cuenta_destino;
-
+    private String Tipo_transaccion = "Deposito";
+    
     // Constructor
     public Deposito(int Id_transaccion, int Pin_transaccion, String Tipo_transaccion,
-            String Fecha_transaccion,double monto_deposito, Cuenta cuenta_destino) {
+            Date Fecha_transaccion, Cuenta cuenta_destino, double monto_transaccion) {
         // Llamada al constructor de la clase base (Transaccion)
-        super(Id_transaccion, Pin_transaccion, Tipo_transaccion, Fecha_transaccion);
+        super(Id_transaccion, Fecha_transaccion, monto_transaccion);
         
-        this.monto_deposito = monto_deposito;
+        this.Tipo_transaccion = Tipo_transaccion;
         this.cuenta_destino = cuenta_destino;
     }
 

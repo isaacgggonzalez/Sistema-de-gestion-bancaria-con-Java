@@ -1,6 +1,7 @@
 package repository;
 
 import config.ConexionBD;
+import java.awt.List;
 import primer_final.Transaccion;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -9,20 +10,25 @@ import java.sql.ResultSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.lang.RuntimeException;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import primer_final.Transaccion;
+import java.util.Date;
+import javax.swing.table.DefaultTableModel;
 
 public class TransaccionRepositorio {
-       private static final String INSERTAR_TRANSACCION = "INSERT INTO "
+        private static final String INSERTAR_TRANSACCION = "INSERT INTO "
                + "transaccion(tipo, fecha) VALUES(?,?)";
        
-       public TransaccionRepositorio(){}
+        public TransaccionRepositorio(){}
        
-       public Long insertTransaccion(Transaccion transaccion){
+        public Long insertTransaccion(Transaccion transaccion){
            Connection connection = ConexionBD.conectar();
            try {
            
                PreparedStatement preparedStatement = connection.prepareStatement(INSERTAR_TRANSACCION);
-               preparedStatement.setString(1, transaccion.getTipo_transaccion());
-               preparedStatement.setString(2, transaccion.getFecha_transaccion());
+               preparedStatement.setInt(1, transaccion.getId_transaccion());
+               preparedStatement.setDate(2, (java.sql.Date) transaccion.get_fecha_transaccion());
                preparedStatement.executeUpdate();
                ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
                Long idGenerado = generatedKeys.getLong(1);
@@ -36,7 +42,7 @@ public class TransaccionRepositorio {
            }
        }
        
-       //que seria de transferencia
+        //que seria de transferencia
         public static boolean confirmarDatos(long DestinoTransferencia, long cedula, String nombre_destinatario) {
             Connection connection = ConexionBD.conectar();
             try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM cliente c, cuenta cu WHERE c.cedula = ? AND cu.numero_cuenta = ? AND c.nombre = ?")) {
@@ -78,6 +84,7 @@ public class TransaccionRepositorio {
             }
         }
         
+        
         public static boolean verificarSaldoSuficiente(Connection conexion, long cuentaOrigen, double monto) throws SQLException {
             // Implementa la lógica para verificar si la cuenta de origen tiene saldo suficiente
             String consultaSaldo = "SELECT saldo FROM cuenta WHERE numero_cuenta = ?";
@@ -95,11 +102,50 @@ public class TransaccionRepositorio {
         }
         
         
+        public static void realizarTransaccion(Connection conexion, String tipoTransaccion, double monto, long numero_cuenta) throws SQLException {
+            // Insertar nueva entrada en la tabla de transaccion
+            String insertarTransaccion = "INSERT INTO transaccion(tipo, fecha, monto, numero_cuenta) VALUES (?, ?, ?, ?)";
+            try (PreparedStatement statement = conexion.prepareStatement(insertarTransaccion)) {
+                statement.setString(1, tipoTransaccion);
+                statement.setTimestamp(2, new Timestamp(System.currentTimeMillis())); // Obtener la fecha actual
+                statement.setDouble(3, monto);
+                statement.setLong(4, numero_cuenta);
+                statement.executeUpdate();
+            }
+        }
         
-        
-        
-        
-        
+        public static DefaultTableModel obtenerTransaccionesPorCuenta(long idCuenta) {
+            DefaultTableModel modelo = new DefaultTableModel();
+            modelo.addColumn("ID Transacción");
+            modelo.addColumn("Tipo de Transacción");
+            modelo.addColumn("Fecha de Transacción");
+            modelo.addColumn("Monto");
+
+            try (Connection conexion = ConexionBD.conectar()) {
+                String consulta = "SELECT * FROM transaccion WHERE numero_cuenta = ?";
+                try (PreparedStatement statement = conexion.prepareStatement(consulta)) {
+                    statement.setLong(1, idCuenta);
+
+                    try (ResultSet resultSet = statement.executeQuery()) {
+                        while (resultSet.next()) {
+                            Object[] fila = {
+                                resultSet.getLong("id_transaccion"),
+                                resultSet.getString("tipo"),
+                                resultSet.getDate("fecha"),
+                                resultSet.getDouble("monto")
+                            };
+                            modelo.addRow(fila);
+                        }
+                    }
+                }
+            } catch (SQLException e) {
+                e.printStackTrace(); // Manejar la excepción según sea necesario
+            }
+
+            return modelo;
+        }
+    
+     
         
         
 }
