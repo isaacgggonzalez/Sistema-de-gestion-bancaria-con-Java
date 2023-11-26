@@ -1556,6 +1556,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_boton_cancelarTransaccion1ActionPerformed
 
+
     private void boton_confirmarTransaccion1ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_confirmarTransaccion1ActionPerformed
         Connection connection = ConexionBD.conectar();
         try {
@@ -1599,12 +1600,16 @@ public class BaseInterfaz extends javax.swing.JFrame {
             if (ProcesosControlador.confirmarDatosTransferencia(cuenta_Destino, cedula_destinatario, nombreDestinatario)){
                 PinTransaccionInterfaz ventanaPIN = new PinTransaccionInterfaz(cliente, cuenta);
                 ventanaPIN.setVisible(true);
-                
-                Transferencia transferencia = new Transferencia
-                        (new Date(System.currentTimeMillis()),cuenta.getNumeroCuenta(), cuenta_Destino, montoLong);
-                ProcesosControlador.realizarTransferencia(transferencia);
-                cuenta.setSaldoCuenta(cuenta.getSaldoCuenta() - montoLong);
-                saldo.setText(Double.toString(cuenta.getSaldoCuenta()));
+                if(ventanaPIN.validado){
+                    Transferencia transferencia = new Transferencia
+                            (new Date(System.currentTimeMillis()),cuenta.getNumeroCuenta(), cuenta_Destino, montoLong);
+                    ProcesosControlador.realizarTransferencia(transferencia);
+                    cuenta.setSaldoCuenta(cuenta.getSaldoCuenta() - montoLong);
+                    saldo.setText(Double.toString(cuenta.getSaldoCuenta()));
+                }
+                else{
+                    System.out.println("error con pin transaccion no validado");
+                }
             }
             }else{
                 mostrarMensajeError("Saldo insuficiente.");

@@ -4,6 +4,7 @@
  */
 package primer_final;
 
+import controlador.ProcesosControlador;
 import pruebadepg.AutenticacionLogin;
 
 /**
@@ -15,11 +16,14 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
     Cliente cliente;
     Cuenta cuenta;
 
+    boolean validado;
+
     public PinTransaccionInterfaz(Cliente cliente, Cuenta cuenta) {
         initComponents();
         this.setLocationRelativeTo(this); //Ubicar la interfaz en el centro
         this.cliente = cliente;
         this.cuenta = cuenta;
+        this.validado = false;
     }
     
     /**
@@ -261,31 +265,8 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
             // Aquí puedes agregar más lógica si es necesario
             texto_pinIncorrecto.setText(""); // Limpiar el mensaje de error si no hay error
         }
-        
-        try {
-            // Realizar la autenticación
-            AutenticacionLogin autenticacion = new AutenticacionLogin();
-
-            if (autenticacion.verificarPinCuenta(cedula, numeroCuenta, clave)) {
-                System.out.println("ahora colocar lo de baseinterfaz y poner todo de debitar ya creditar");
-                base.debitar_acreditarCuenta();
-                dispose();
-                
-                /*
-                 TransaccionRepositorio.debitarCuenta(connection, cuenta.getNumeroCuenta(), montoLong);
-                 TransaccionRepositorio.acreditarCuenta(connection, cuenta_Destino, montoLong);
-                 cuenta.setSaldoCuenta(cuenta.getSaldoCuenta() - montoLong);
-                 saldo.setText(Double.toString(cuenta.getSaldoCuenta()));
-                  TransaccionRepositorio.realizarTransaccion(connection, "Transferencia", montoLong, cuenta.getNumeroCuenta());
-                */
-             
-                   
-            } else {
-                texto_pinIncorrecto.setText("Pin incorrecto");
-            }
-        } catch (NumberFormatException e) {
-            texto_pinIncorrecto.setText("Verificar Pin.");
-        }
+        ProcesosControlador.validarPinTransaccion(clave);
+        validado = true;
    
     
     }//GEN-LAST:event_boton_aceptarActionPerformed
