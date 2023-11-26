@@ -74,3 +74,8 @@ CREATE TABLE pago_tarjeta(
     FOREIGN KEY(id_transaccion) REFERENCES transaccion(id_transaccion),
     FOREIGN KEY(id_tarjeta_credito) REFERENCES tarjeta_credito(id_tarjeta_credito)
 );
+
+INSERT INTO cliente(cedula, nombre, apellido, fecha_nac) VALUES (123456789, 'Juan', 'Perez', '1990-01-01');
+INSERT INTO cliente(cedula, nombre, apellido, fecha_nac) VALUES (987654321, 'Maria', 'Gomez', '1985-05-15');
+INSERT INTO cuenta(id_cliente, saldo, numero_cuenta, pin_cuenta, pin_transaccion) VALUES(1, 100000000, 1234567890, 1234, 4321);
+INSERT INTO cuenta(id_cliente, saldo, numero_cuenta, pin_cuenta, pin_transaccion) VALUES(2, 100000000, 9876543210, 5678, 8765);
