@@ -247,6 +247,7 @@ public class ComprobanteInterfaz extends javax.swing.JFrame {
         BaseInterfaz ventanaSecundaria = new BaseInterfaz(cliente,cuenta);
         ventanaSecundaria.setVisible(true);
         ventanaSecundaria.activarMenuTransferencia();
+        this.dispose();
     }//GEN-LAST:event_boton_salirActionPerformed
 
     /**
