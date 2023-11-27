@@ -287,7 +287,7 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
             //BaseInterfaz.setValidarPin(true);
             System.out.println("VALIDADO CORREctamente pin");
             transaccion.realizarTransaccion();
-            ComprobanteInterfaz comprobante = new ComprobanteInterfaz();
+            ComprobanteInterfaz comprobante = new ComprobanteInterfaz(cliente, cuenta, transaccion);
             comprobante.setVisible(true);
             dispose();
         }
