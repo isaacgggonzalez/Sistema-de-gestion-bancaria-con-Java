@@ -9,17 +9,27 @@ public class PagoDeTarjeta extends Transaccion{
     private long idPagoTarjeta;
     private String pagoTarjeta = "Pago de Tarjeta";
 
+    private long numeroCuenta;
+
     private TarjetaDeCredito tarjetaDeCredito;
-    
+
     public PagoDeTarjeta(long idPagoTarjeta, int Id_transaccion, String pagoTarjeta, Date Fecha_transaccion, double monto_transaccion) {
         super(Id_transaccion, Fecha_transaccion, monto_transaccion, TIPO_TRANSACCION);
-        
+
         this.pagoTarjeta = pagoTarjeta;
         this.idPagoTarjeta = idPagoTarjeta;
     }
 
     public String getPagoTarjeta() {
         return pagoTarjeta;
+    }
+
+    public long getNumeroCuenta() {
+        return numeroCuenta;
+    }
+
+    public void setNumeroCuenta(long numeroCuenta) {
+        this.numeroCuenta = numeroCuenta;
     }
 
     public TarjetaDeCredito getTarjetaDeCredito(){
