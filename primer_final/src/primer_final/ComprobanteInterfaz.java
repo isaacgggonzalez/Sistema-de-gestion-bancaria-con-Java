@@ -4,6 +4,7 @@
  */
 package primer_final;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -11,18 +12,20 @@ import java.util.Date;
  * @author AMD
  */
 public class ComprobanteInterfaz extends javax.swing.JFrame {
-    private Date fecha;
-    private String nombre_cliente ;
-    private long tarjeta;
-    private long id_transaccion ;
-    private double monto ;
-    private String servicio ;
-    
+    Cliente cliente;
+    Cuenta cuenta;
+    Transaccion transaccion;
     
     /**
      * Creates new form ComprobanteInterfaz
      */
     public ComprobanteInterfaz() {
+        initComponents();
+    }
+    public ComprobanteInterfaz(Cliente cliente, Cuenta cuenta, Transaccion transaccion) {
+        this.cliente = cliente;
+        this.cuenta = cuenta;
+        this.transaccion = transaccion;
         initComponents();
     }
 
@@ -230,12 +233,20 @@ public class ComprobanteInterfaz extends javax.swing.JFrame {
                 .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
+        cliente_texto.setText(cliente.getNombreCliente()+"\n"+cuenta.getNumeroCuenta());
+        String formato = "dd/MM/yyyy";  // Puedes ajustar el formato según tus necesidades
 
+        // Crear un objeto SimpleDateFormat con el formato
+        SimpleDateFormat sdf = new SimpleDateFormat(formato);
+        fecha_texto.setText(sdf.format(new Date(System.currentTimeMillis())));
+        descripcion_texto.setText(transaccion.mensajeConfirmacion());
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_salirActionPerformed
-        System.exit(0);
+        BaseInterfaz ventanaSecundaria = new BaseInterfaz(cliente,cuenta);
+        ventanaSecundaria.setVisible(true);
+        ventanaSecundaria.activarMenuTransferencia();
     }//GEN-LAST:event_boton_salirActionPerformed
 
     /**
@@ -272,42 +283,8 @@ public class ComprobanteInterfaz extends javax.swing.JFrame {
             }
         });
     }
-    
-    public void manejarcomprobante(Date fecha,String nombre_cliente, double monto) {
-        this.fecha = fecha;
-        this.nombre_cliente = nombre_cliente;
-        //tarjeta=tarjeta;
-        //id_transaccion = id_transaccion;
-        this.monto = monto;
-        System.out.println("MONTO COMPROBANTE= " + monto);
-        //servicio = servicio;
-        
-    }
 
-    public Date getFecha() {
-        return fecha;
-    }
 
-    public String getNombre_cliente() {
-        return nombre_cliente;
-    }
-
-    public long getTarjeta() {
-        return tarjeta;
-    }
-
-    public long getId_transaccion() {
-        return id_transaccion;
-    }
-
-    public double getMonto() {
-        return monto;
-    }
-
-    public String getServicio() {
-        return servicio;
-    }
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button boton_salir;
