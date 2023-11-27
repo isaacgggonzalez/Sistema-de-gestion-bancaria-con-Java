@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.lang.RuntimeException;
+
 public class ConexionBD {
     private static final String BASE = "lp2_final";
     private static final String USER = "postgres";

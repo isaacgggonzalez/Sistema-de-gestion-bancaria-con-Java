@@ -37,7 +37,7 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
         this.setLocationRelativeTo(this); //Ubicar la interfaz en el centro
         this.transaccion = transaccion;
     }
-    
+
     /**
      * Creates new form PinTransaccionInterfaz
      */
@@ -89,6 +89,11 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
         boton_salir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         boton_salir.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         boton_salir.setLabel("Salir");
+        boton_salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_salirActionPerformed(evt);
+            }
+        });
 
         boton_aceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         boton_aceptar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -281,6 +286,8 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
             //base.manejarValidacionPin(true);
             //BaseInterfaz.setValidarPin(true);
             System.out.println("VALIDADO CORREctamente pin");
+            ComprobanteInterfaz comprobante = new ComprobanteInterfaz();
+
             transaccion.realizarTransaccion();
             BaseInterfaz ventanaSecundaria = new BaseInterfaz(cliente,cuenta);
             ventanaSecundaria.setVisible(true);

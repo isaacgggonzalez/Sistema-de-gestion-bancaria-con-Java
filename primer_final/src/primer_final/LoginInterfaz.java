@@ -9,12 +9,6 @@ import pruebadepg.InicializadorDB;
 import pruebadepg.GestorClientes;
 import primer_final.*;
 
-
-
-/**
- *
- * @author alanalcaraz
- */
 public class LoginInterfaz extends javax.swing.JFrame {
 
     /**
