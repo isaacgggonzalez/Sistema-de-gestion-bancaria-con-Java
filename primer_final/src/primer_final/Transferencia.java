@@ -36,6 +36,11 @@ public class Transferencia extends Transaccion {
         ProcesosControlador.realizarTransferencia(this);
     }
 
+    @Override
+    public String mensajeConfirmacion(){
+        return "La transferencia a la cuenta"+ this.destinoTransferencia+" ha sido exitosa";
+    }
+
    
     
     // Métodos getter y setter para origen_transferencia

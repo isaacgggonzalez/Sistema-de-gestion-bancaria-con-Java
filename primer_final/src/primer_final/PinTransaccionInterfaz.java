@@ -284,6 +284,7 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
             transaccion.realizarTransaccion();
             BaseInterfaz ventanaSecundaria = new BaseInterfaz(cliente,cuenta);
             ventanaSecundaria.setVisible(true);
+            ventanaSecundaria.activarMenuTransferencia();
             dispose();
         }
    

@@ -26,6 +26,8 @@ public class Transaccion {
 
 
     public void realizarTransaccion(){}
+
+    public String mensajeConfirmacion(){return "";}
     
     
     public int getIdTransaccion() {
