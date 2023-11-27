@@ -45,8 +45,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import repository.TransaccionRepositorio;
+import primer_final.PinTransaccionInterfaz;
 import javax.swing.Timer;
 public class BaseInterfaz extends javax.swing.JFrame {
+    private static boolean validarPin = false;
 
     /**
      * Creates new form BaseInterfaz
@@ -1594,19 +1596,16 @@ public class BaseInterfaz extends javax.swing.JFrame {
             
         if(TransaccionRepositorio.verificarSaldoSuficiente( connection, cuenta.getNumeroCuenta(), montoLong) != false){
             // Confirmar los datos si todas las validaciones pasan
-            
-           
-            
+
             if (ProcesosControlador.confirmarDatosTransferencia(cuenta_Destino, cedula_destinatario, nombreDestinatario)){
-
-
-                    Transferencia transferencia = new Transferencia
-                            (new Date(System.currentTimeMillis()),cuenta.getNumeroCuenta(), cuenta_Destino, montoLong);
-                    ProcesosControlador.realizarTransferencia(transferencia);
-                    cuenta.setSaldoCuenta(cuenta.getSaldoCuenta() - montoLong);
+                    PinTransaccionInterfaz ventanaPIN = new PinTransaccionInterfaz(cliente, cuenta);
+                    ventanaPIN.setVisible(true);
+                    ventanaPIN.manejarValidacionPin(montoLong,cuenta_Destino,cuenta.getNumeroCuenta());
                     saldo.setText(Double.toString(cuenta.getSaldoCuenta()));
-
-
+                    nombre_destinatario.setText("");
+                    cuentaDestino.setText("");
+                    cedula.setText("");
+                    monto.setText("");
             }
             }else{
                 mostrarMensajeError("Saldo insuficiente.");
@@ -1798,8 +1797,8 @@ public class BaseInterfaz extends javax.swing.JFrame {
     public Button boton_transferenciaCuenta;
     private JLayeredPane botonesMenu;
     private Button button3;
-    private JTextField cedula;
-    private JTextField cuentaDestino;
+    public JTextField cedula;
+    public JTextField cuentaDestino;
     private JTextField cuentaDestino15;
     private JTextField cuentaDestino16;
     private JTextField cuentaDestino33;
@@ -1860,8 +1859,8 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private Panel menu_pagarServicio;
     private Panel menu_pagarTarjeta;
     private Panel menu_transferencia;
-    private JTextField monto;
-    private JTextField nombre_destinatario;
+    public JTextField monto;
+    public JTextField nombre_destinatario;
     private JTextField numero_origen;
     private JTextField saldo;
     private JLayeredPane separador;

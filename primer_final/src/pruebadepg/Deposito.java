@@ -1,6 +1,7 @@
 package pruebadepg;
 
 
+import config.ConexionBD;
 import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,12 +10,8 @@ import java.sql.Timestamp;
 
 public class Deposito {
 
-    private final String url = "jdbc:postgresql://localhost:5432/postgres";
-    private final String user = "postgres";
-    private final String password = "1234";
-
     public void realizarDeposito(long cuentaDestino, double monto) {
-        try (Connection conexion = DriverManager.getConnection(url, user, password)) {
+        try (Connection conexion = ConexionBD.conectar()) {
             // Iniciar transacción
             conexion.setAutoCommit(false);
 

@@ -1,5 +1,6 @@
 package pruebadepg;
 
+import config.ConexionBD;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -8,13 +9,9 @@ import java.sql.ResultSet;
 
 public class TransferenciaEntreCuentas {
 
-    private final String url = "jdbc:postgresql://localhost:5432/postgres";
-    private final String user = "postgres";
-    private final String password = "1234";
-
     public void realizarTransferencia(long cuentaOrigen, long cuentaDestino, String nombreDestinatario,
                                       long cedulaDestinatario, double monto) {
-        try (Connection conexion = DriverManager.getConnection(url, user, password)) {
+        try (Connection conexion = ConexionBD.conectar()) {
             conexion.setAutoCommit(false);
 
             try {

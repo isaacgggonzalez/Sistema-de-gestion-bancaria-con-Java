@@ -1,4 +1,5 @@
 package pruebadepg;
+import config.ConexionBD;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -10,12 +11,8 @@ import java.util.Date;
 
 public class GestionBaseDatos {
 
-    private final String url = "jdbc:postgresql://localhost:5432/postgres";
-    private final String user = "postgres";
-    private final String password = "1234";
-
     public void insertarDatosCliente(String nombre, String apellido, long cedula, String fechaNac, int pinCuenta, long numeroCuenta) {
-        try (Connection conexion = DriverManager.getConnection(url, user, password)) {
+        try (Connection conexion = ConexionBD.conectar()) {
             // Inserción de datos en las tablas cliente y cuenta
             String insertarCliente = "INSERT INTO cliente (cedula, nombre, apellido, fecha_nac) VALUES (?, ?, ?, ?)";
             String insertarCuenta = "INSERT INTO cuenta (id_cliente, pin_cuenta, numero_cuenta) VALUES (?, ?, ?)";
