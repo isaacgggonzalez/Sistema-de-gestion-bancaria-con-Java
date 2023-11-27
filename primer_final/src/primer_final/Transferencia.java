@@ -1,5 +1,7 @@
 package primer_final;
 
+import controlador.ProcesosControlador;
+
 import java.util.Date;
 
 public class Transferencia extends Transaccion {
@@ -27,6 +29,11 @@ public class Transferencia extends Transaccion {
        
         this.origenTransferencia = origenTransferencia;
         this.destinoTransferencia = destinoTransferencia;
+    }
+
+    @Override
+    public void realizarTransaccion(){
+        ProcesosControlador.realizarTransferencia(this);
     }
 
    

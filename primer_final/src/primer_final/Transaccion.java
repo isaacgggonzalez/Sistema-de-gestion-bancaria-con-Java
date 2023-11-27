@@ -25,6 +25,7 @@ public class Transaccion {
     }
 
 
+    public void realizarTransaccion(){}
     
     
     public int getIdTransaccion() {

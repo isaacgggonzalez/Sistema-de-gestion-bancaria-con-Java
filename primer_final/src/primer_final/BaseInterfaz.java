@@ -1598,14 +1598,18 @@ public class BaseInterfaz extends javax.swing.JFrame {
             // Confirmar los datos si todas las validaciones pasan
 
             if (ProcesosControlador.confirmarDatosTransferencia(cuenta_Destino, cedula_destinatario, nombreDestinatario)){
-                    PinTransaccionInterfaz ventanaPIN = new PinTransaccionInterfaz(cliente, cuenta);
-                    ventanaPIN.setVisible(true);
-                    ventanaPIN.manejarValidacionPin(montoLong,cuenta_Destino,cuenta.getNumeroCuenta());
-                    saldo.setText(Double.toString(cuenta.getSaldoCuenta()));
-                    nombre_destinatario.setText("");
-                    cuentaDestino.setText("");
-                    cedula.setText("");
-                    monto.setText("");
+
+                Transferencia transferencia = new Transferencia
+                        (new Date(System.currentTimeMillis()),cuenta.getNumeroCuenta(), cuenta_Destino, montoLong);
+                PinTransaccionInterfaz ventanaPIN = new PinTransaccionInterfaz(transferencia, cliente, cuenta);
+                ventanaPIN.setVisible(true);
+                this.dispose();
+//                cuenta.setSaldoCuenta(cuenta.getSaldoCuenta() - montoLong);
+//                saldo.setText(Double.toString(cuenta.getSaldoCuenta()));
+//                nombre_destinatario.setText("");
+//                cuentaDestino.setText("");
+//                cedula.setText("");
+//                monto.setText("");
             }
             }else{
                 mostrarMensajeError("Saldo insuficiente.");

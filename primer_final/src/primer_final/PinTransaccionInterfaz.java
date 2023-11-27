@@ -21,12 +21,21 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
     Cliente cliente;
     Cuenta cuenta;
 
+    Transaccion transaccion;
 
     public PinTransaccionInterfaz(Cliente cliente, Cuenta cuenta) {
         initComponents();
         this.setLocationRelativeTo(this); //Ubicar la interfaz en el centro
         this.cliente = cliente;
         this.cuenta = cuenta;
+    }
+
+    public PinTransaccionInterfaz(Transaccion transaccion, Cliente cliente, Cuenta cuenta) {
+        initComponents();
+        this.cliente = cliente;
+        this.cuenta = cuenta;
+        this.setLocationRelativeTo(this); //Ubicar la interfaz en el centro
+        this.transaccion = transaccion;
     }
     
     /**
@@ -272,14 +281,9 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
             //base.manejarValidacionPin(true);
             //BaseInterfaz.setValidarPin(true);
             System.out.println("VALIDADO CORREctamente pin");
-            long montoIngresado=montoLong();
-            long cuentadeOrigen=cuenta_origen();
-            long cuentadeDestino=cuenta_Destino();
-            Transferencia transferencia = new Transferencia
-                            (new Date(System.currentTimeMillis()),cuentadeOrigen, cuentadeDestino, montoIngresado);
-                    ProcesosControlador.realizarTransferencia(transferencia);
-                    cuenta.setSaldoCuenta(cuenta.getSaldoCuenta() - montoIngresado);
-                    
+            transaccion.realizarTransaccion();
+            BaseInterfaz ventanaSecundaria = new BaseInterfaz(cliente,cuenta);
+            ventanaSecundaria.setVisible(true);
             dispose();
         }
    
