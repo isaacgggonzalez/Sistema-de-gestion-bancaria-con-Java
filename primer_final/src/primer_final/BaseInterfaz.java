@@ -47,6 +47,7 @@ import javax.swing.JOptionPane;
 import repository.TransaccionRepositorio;
 import primer_final.PinTransaccionInterfaz;
 import javax.swing.Timer;
+import repository.TransaccionRepositorio2;
 public class BaseInterfaz extends javax.swing.JFrame {
     private static boolean validarPin = false;
 
@@ -119,7 +120,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         label13 = new Label();
         menu_consultarSaldo = new Panel();
         label2 = new Label();
-        cuentaDestino4 = new JTextField();
+        saldo1 = new JTextField();
         label7 = new Label();
         jScrollPane1 = new JScrollPane();
         TablaConsulta = new JTable();
@@ -552,12 +553,12 @@ public class BaseInterfaz extends javax.swing.JFrame {
         label2.setForeground(new Color(0, 1, 0));
         label2.setText("Movimiento de la Cuenta");
 
-        cuentaDestino4.setBackground(new Color(196, 196, 196));
-        cuentaDestino4.setForeground(new Color(0, 0, 0));
-        cuentaDestino4.setEnabled(false);
-        cuentaDestino4.addActionListener(new ActionListener() {
+        saldo1.setBackground(new Color(196, 196, 196));
+        saldo1.setForeground(new Color(0, 0, 0));
+        saldo1.setEnabled(false);
+        saldo1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                cuentaDestino4ActionPerformed(evt);
+                saldo1ActionPerformed(evt);
             }
         });
 
@@ -623,7 +624,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                         .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(label7, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cuentaDestino4, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(saldo1, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)))
                 .addGap(23, 23, 23))
         );
         menu_consultarSaldoLayout.setVerticalGroup(menu_consultarSaldoLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -631,7 +632,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 .addGroup(menu_consultarSaldoLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addGroup(menu_consultarSaldoLayout.createSequentialGroup()
                         .addGap(15, 15, 15)
-                        .addComponent(cuentaDestino4, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(saldo1, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(GroupLayout.Alignment.TRAILING, menu_consultarSaldoLayout.createSequentialGroup()
                         .addContainerGap()
@@ -1384,6 +1385,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private Button botonPresionadoActualmente = null;
     
     private void boton_consultarSaldoActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_consultarSaldoActionPerformed
+        saldo1.setText(cuenta.getSaldoCuenta() + "");        
         // Cambiar la apariencia del botón cuando se presiona
         if (botonPresionadoActualmente != null) {
             botonPresionadoActualmente.setBackground(new java.awt.Color(240, 240, 240));  // Color original del fondo
@@ -1402,7 +1404,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         menu_pagarTarjeta.setVisible(false);
         menu_acercaSistema.setVisible(false);
         
-        DefaultTableModel modelo = TransaccionRepositorio.obtenerTransaccionesPorCuenta(cuenta.getNumeroCuenta());
+        DefaultTableModel modelo = TransaccionRepositorio2.obtenerTransaccionesPorCuenta(cuenta.getIdCuenta());
         TablaConsulta.setModel(modelo);        
     }//GEN-LAST:event_boton_consultarSaldoActionPerformed
     private void boton_transferenciaCuentaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_transferenciaCuentaActionPerformed
@@ -1550,9 +1552,9 @@ public class BaseInterfaz extends javax.swing.JFrame {
             texto_fecha.setText(fechaFormateada);
     }
     
-    private void cuentaDestino4ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuentaDestino4ActionPerformed
+    private void saldo1ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_saldo1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cuentaDestino4ActionPerformed
+    }//GEN-LAST:event_saldo1ActionPerformed
 
     private void boton_cancelarTransaccion1ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_cancelarTransaccion1ActionPerformed
         // TODO add your handling code here:
@@ -1807,7 +1809,6 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private JTextField cuentaDestino37;
     private JTextField cuentaDestino38;
     private JTextField cuentaDestino39;
-    private JTextField cuentaDestino4;
     private JTextField cuentaDestino40;
     private JTextField cuentaDestino41;
     private JTextField cuentaDestino42;
@@ -1863,6 +1864,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
     public JTextField nombre_destinatario;
     private JTextField numero_origen;
     private JTextField saldo;
+    private JTextField saldo1;
     private JLayeredPane separador;
     private JLabel texto_fecha;
     private JLabel texto_usuario;

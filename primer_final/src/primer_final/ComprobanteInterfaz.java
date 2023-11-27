@@ -4,12 +4,21 @@
  */
 package primer_final;
 
+import java.util.Date;
+
 /**
  *
  * @author AMD
  */
 public class ComprobanteInterfaz extends javax.swing.JFrame {
-
+    private Date fecha;
+    private String nombre_cliente ;
+    private long tarjeta;
+    private long id_transaccion ;
+    private double monto ;
+    private String servicio ;
+    
+    
     /**
      * Creates new form ComprobanteInterfaz
      */
@@ -247,7 +256,7 @@ public class ComprobanteInterfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_salirActionPerformed
-        // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_boton_salirActionPerformed
 
     /**
@@ -284,6 +293,42 @@ public class ComprobanteInterfaz extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void manejarcomprobante(Date fecha,String nombre_cliente, double monto) {
+        this.fecha = fecha;
+        this.nombre_cliente = nombre_cliente;
+        //tarjeta=tarjeta;
+        //id_transaccion = id_transaccion;
+        this.monto = monto;
+        System.out.println("MONTO COMPROBANTE= " + monto);
+        //servicio = servicio;
+        
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public String getNombre_cliente() {
+        return nombre_cliente;
+    }
+
+    public long getTarjeta() {
+        return tarjeta;
+    }
+
+    public long getId_transaccion() {
+        return id_transaccion;
+    }
+
+    public double getMonto() {
+        return monto;
+    }
+
+    public String getServicio() {
+        return servicio;
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button boton_salir;
@@ -293,17 +338,17 @@ public class ComprobanteInterfaz extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private java.awt.Label label1;
     private java.awt.Label label2;
-    private java.awt.Label texto_fecha;
+    public java.awt.Label texto_fecha;
     private java.awt.Label texto_fecha1;
-    private java.awt.Label texto_fecha10;
-    private java.awt.Label texto_fecha11;
+    public java.awt.Label texto_fecha10;
+    public java.awt.Label texto_fecha11;
     private java.awt.Label texto_fecha2;
     private java.awt.Label texto_fecha3;
     private java.awt.Label texto_fecha4;
     private java.awt.Label texto_fecha5;
     private java.awt.Label texto_fecha6;
-    private java.awt.Label texto_fecha7;
-    private java.awt.Label texto_fecha8;
-    private java.awt.Label texto_fecha9;
+    public java.awt.Label texto_fecha7;
+    public java.awt.Label texto_fecha8;
+    public java.awt.Label texto_fecha9;
     // End of variables declaration//GEN-END:variables
 }

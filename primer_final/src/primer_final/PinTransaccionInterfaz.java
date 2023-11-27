@@ -5,6 +5,7 @@
 package primer_final;
 
 import controlador.ProcesosControlador;
+import java.sql.Timestamp;
 import java.util.Date;
 import pruebadepg.AutenticacionLogin;
 import primer_final.BaseInterfaz;
@@ -80,6 +81,11 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
         boton_salir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         boton_salir.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         boton_salir.setLabel("Salir");
+        boton_salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_salirActionPerformed(evt);
+            }
+        });
 
         boton_aceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         boton_aceptar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -271,7 +277,11 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
         if(ProcesosControlador.validarPinTransaccion(clave)){
             //base.manejarValidacionPin(true);
             //BaseInterfaz.setValidarPin(true);
-            System.out.println("VALIDADO CORREctamente pin");
+            System.out.println("VALIDADO correctamente pin");
+            ComprobanteInterfaz comprobante = new ComprobanteInterfaz();
+            
+            
+            
             long montoIngresado=montoLong();
             long cuentadeOrigen=cuenta_origen();
             long cuentadeDestino=cuenta_Destino();
@@ -279,12 +289,24 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
                             (new Date(System.currentTimeMillis()),cuentadeOrigen, cuentadeDestino, montoIngresado);
                     ProcesosControlador.realizarTransferencia(transferencia);
                     cuenta.setSaldoCuenta(cuenta.getSaldoCuenta() - montoIngresado);
-                    
+            
+            Timestamp fecha = new Timestamp(System.currentTimeMillis());        
+            comprobante.manejarcomprobante(fecha, cliente.getNombreCliente(), monto);       
+            System.out.println(comprobante.getMonto());
+            
             dispose();
+        }else{
+            texto_pinIncorrecto.setText("PIN INCORRECTO!");
+        
         }
    
         
     }//GEN-LAST:event_boton_aceptarActionPerformed
+
+    private void boton_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_salirActionPerformed
+        System.exit(0); 
+    }//GEN-LAST:event_boton_salirActionPerformed
+    
     public void manejarValidacionPin(long montoLong,long cuenta_Destino,long cuenta_origen) {
         monto=montoLong;
         cuentaDestino=cuenta_Destino;

@@ -189,35 +189,41 @@ public class TransaccionRepositorio2 {
         }
         
         public static DefaultTableModel obtenerTransaccionesPorCuenta(long idCuenta) {
-            DefaultTableModel modelo = new DefaultTableModel();
-            modelo.addColumn("ID Transacción");
-            modelo.addColumn("Tipo de Transacción");
-            modelo.addColumn("Fecha de Transacción");
-            modelo.addColumn("Monto");
+    DefaultTableModel modelo = new DefaultTableModel();
+    modelo.addColumn("ID Transacción");
+    modelo.addColumn("Tipo de Transacción");
+    modelo.addColumn("Fecha de Transacción");
+    modelo.addColumn("Monto");
 
-            try (Connection conexion = ConexionBD.conectar()) {
-                String consulta = "SELECT * FROM transaccion WHERE numero_cuenta = ?";
-                try (PreparedStatement statement = conexion.prepareStatement(consulta)) {
-                    statement.setLong(1, idCuenta);
+    try (Connection conexion = ConexionBD.conectar()) {
+        String consulta = "SELECT t.id_transaccion, t.tipo, t.fecha, t.monto " +
+                          "FROM transaccion t " +
+                          "JOIN movimiento m ON t.id_transaccion = m.id_transaccion " +
+                          "WHERE m.id_cuenta = ?";
 
-                    try (ResultSet resultSet = statement.executeQuery()) {
-                        while (resultSet.next()) {
-                            Object[] fila = {
-                                resultSet.getLong("id_transaccion"),
-                                resultSet.getString("tipo"),
-                                resultSet.getDate("fecha"),
-                                resultSet.getDouble("monto")
-                            };
-                            modelo.addRow(fila);
-                        }
-                    }
+        try (PreparedStatement statement = conexion.prepareStatement(consulta)) {
+            statement.setLong(1, idCuenta);
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    Object[] fila = {
+                        resultSet.getLong("id_transaccion"),
+                        resultSet.getString("tipo"),
+                        resultSet.getDate("fecha"),
+                        resultSet.getDouble("monto")
+                    };
+                    modelo.addRow(fila);
                 }
-            } catch (SQLException e) {
-                e.printStackTrace(); // Manejar la excepción según sea necesario
             }
-
-            return modelo;
         }
+    } catch (SQLException e) {
+        e.printStackTrace(); // Manejar la excepción según sea necesario
+    }
+
+    return modelo;
+}
+
+
 
         
 }
