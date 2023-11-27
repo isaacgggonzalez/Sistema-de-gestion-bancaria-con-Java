@@ -291,8 +291,11 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
                     cuenta.setSaldoCuenta(cuenta.getSaldoCuenta() - montoIngresado);
             
             Timestamp fecha = new Timestamp(System.currentTimeMillis());        
-            comprobante.manejarcomprobante(fecha, cliente.getNombreCliente(), monto);       
-            System.out.println(comprobante.getMonto());
+           
+            comprobante.setVisible(true);
+            comprobante.manejarcomprobante(fecha, cliente.getNombreCliente(), monto);     
+            
+           
             
             dispose();
         }else{

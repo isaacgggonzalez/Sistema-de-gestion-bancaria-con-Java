@@ -38,18 +38,18 @@ public class ComprobanteInterfaz extends javax.swing.JFrame {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         jPanel1 = new javax.swing.JPanel();
-        texto_fecha = new java.awt.Label();
+        transaccion_texto = new java.awt.Label();
         texto_fecha5 = new java.awt.Label();
         texto_fecha6 = new java.awt.Label();
-        texto_fecha7 = new java.awt.Label();
+        monto_texto = new java.awt.Label();
         jPanel2 = new javax.swing.JPanel();
         texto_fecha1 = new java.awt.Label();
         texto_fecha2 = new java.awt.Label();
         label2 = new java.awt.Label();
         texto_fecha4 = new java.awt.Label();
-        texto_fecha8 = new java.awt.Label();
-        texto_fecha10 = new java.awt.Label();
-        texto_fecha11 = new java.awt.Label();
+        cliente_texto = new java.awt.Label();
+        fecha_texto = new java.awt.Label();
+        descripcion_texto = new java.awt.Label();
         label1 = new java.awt.Label();
         boton_salir = new java.awt.Button();
 
@@ -59,10 +59,10 @@ public class ComprobanteInterfaz extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
 
-        texto_fecha.setAlignment(java.awt.Label.CENTER);
-        texto_fecha.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        texto_fecha.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        texto_fecha.setText("Pago Internet");
+        transaccion_texto.setAlignment(java.awt.Label.CENTER);
+        transaccion_texto.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        transaccion_texto.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        transaccion_texto.setText("Pago Internet");
 
         texto_fecha5.setAlignment(java.awt.Label.CENTER);
         texto_fecha5.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
@@ -72,18 +72,18 @@ public class ComprobanteInterfaz extends javax.swing.JFrame {
         texto_fecha6.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         texto_fecha6.setText("Servicio");
 
-        texto_fecha7.setAlignment(java.awt.Label.CENTER);
-        texto_fecha7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        texto_fecha7.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        texto_fecha7.setText("xxxxxxx Gs");
+        monto_texto.setAlignment(java.awt.Label.CENTER);
+        monto_texto.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        monto_texto.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        monto_texto.setText("xxxxxxx Gs");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(texto_fecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(transaccion_texto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(texto_fecha5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(texto_fecha7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(monto_texto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(texto_fecha6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -95,11 +95,11 @@ public class ComprobanteInterfaz extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addComponent(texto_fecha6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(texto_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(transaccion_texto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(texto_fecha5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(texto_fecha7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(monto_texto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -120,14 +120,14 @@ public class ComprobanteInterfaz extends javax.swing.JFrame {
         texto_fecha4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         texto_fecha4.setText("Fecha:");
 
-        texto_fecha8.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        texto_fecha8.setText("DD/MM/AAAA");
+        cliente_texto.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        cliente_texto.setText("DD/MM/AAAA");
 
-        texto_fecha10.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        texto_fecha10.setText("DD/MM/AAAA");
+        fecha_texto.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        fecha_texto.setText("DD/MM/AAAA");
 
-        texto_fecha11.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        texto_fecha11.setText("Tarjeta terminada en 0425");
+        descripcion_texto.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        descripcion_texto.setText("Tarjeta terminada en 0425");
 
         label1.setAlignment(java.awt.Label.CENTER);
         label1.setBackground(new java.awt.Color(102, 102, 102));
@@ -144,18 +144,18 @@ public class ComprobanteInterfaz extends javax.swing.JFrame {
                         .addGap(19, 19, 19)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(texto_fecha4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(texto_fecha10, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(fecha_texto, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(214, 214, 214)
                         .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(texto_fecha8, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cliente_texto, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(texto_fecha2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(texto_fecha1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(texto_fecha11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(descripcion_texto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(277, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -169,17 +169,15 @@ public class ComprobanteInterfaz extends javax.swing.JFrame {
                             .addComponent(texto_fecha4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(2, 2, 2)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(texto_fecha10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(texto_fecha8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(fecha_texto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cliente_texto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 5, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(texto_fecha1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
-                .addComponent(texto_fecha11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(descripcion_texto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(77, 77, 77))
         );
 
@@ -313,21 +311,21 @@ public class ComprobanteInterfaz extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button boton_salir;
+    public java.awt.Label cliente_texto;
+    public java.awt.Label descripcion_texto;
+    public java.awt.Label fecha_texto;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private java.awt.Label label1;
     private java.awt.Label label2;
-    public java.awt.Label texto_fecha;
+    public java.awt.Label monto_texto;
     private java.awt.Label texto_fecha1;
-    public java.awt.Label texto_fecha10;
-    public java.awt.Label texto_fecha11;
     private java.awt.Label texto_fecha2;
     private java.awt.Label texto_fecha4;
     private java.awt.Label texto_fecha5;
     private java.awt.Label texto_fecha6;
-    public java.awt.Label texto_fecha7;
-    public java.awt.Label texto_fecha8;
+    public java.awt.Label transaccion_texto;
     // End of variables declaration//GEN-END:variables
 }
