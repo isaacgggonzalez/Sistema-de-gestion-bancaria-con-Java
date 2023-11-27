@@ -233,7 +233,7 @@ public class ComprobanteInterfaz extends javax.swing.JFrame {
                 .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        cliente_texto.setText(cliente.getNombreCliente()+"\n"+cuenta.getNumeroCuenta());
+        cliente_texto.setText("Cuenta: "+cuenta.getNumeroCuenta());
         String formato = "dd/MM/yyyy";  // Puedes ajustar el formato según tus necesidades
 
         // Crear un objeto SimpleDateFormat con el formato
