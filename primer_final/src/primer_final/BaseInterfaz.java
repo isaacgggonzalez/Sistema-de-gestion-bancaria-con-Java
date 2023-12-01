@@ -126,10 +126,10 @@ public class BaseInterfaz extends javax.swing.JFrame {
         TablaConsulta = new JTable();
         menu_deposito = new Panel();
         boton_cancelarTransaccion2 = new Button();
-        boton_confirmarTransaccion2 = new Button();
-        cuentaDestino15 = new JTextField();
+        boton_confirmarDeposito = new Button();
+        montoDeposito = new JTextField();
         label17 = new Label();
-        cuentaDestino16 = new JTextField();
+        saldoDeposito = new JTextField();
         label19 = new Label();
         menu_pagarTarjeta = new Panel();
         boton_cancelarTransaccion6 = new Button();
@@ -663,23 +663,23 @@ public class BaseInterfaz extends javax.swing.JFrame {
             }
         });
 
-        boton_confirmarTransaccion2.setActionCommand("confirmarTransaccion");
-        boton_confirmarTransaccion2.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-        boton_confirmarTransaccion2.setFont(new Font("Arial", 0, 18)); // NOI18N
-        boton_confirmarTransaccion2.setForeground(new Color(51, 51, 51));
-        boton_confirmarTransaccion2.setLabel("Confirmar Transaccion");
-        boton_confirmarTransaccion2.setMinimumSize(new Dimension(190, 30));
-        boton_confirmarTransaccion2.addActionListener(new ActionListener() {
+        boton_confirmarDeposito.setActionCommand("confirmarTransaccion");
+        boton_confirmarDeposito.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        boton_confirmarDeposito.setFont(new Font("Arial", 0, 18)); // NOI18N
+        boton_confirmarDeposito.setForeground(new Color(51, 51, 51));
+        boton_confirmarDeposito.setLabel("Confirmar Transaccion");
+        boton_confirmarDeposito.setMinimumSize(new Dimension(190, 30));
+        boton_confirmarDeposito.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                boton_confirmarTransaccion2ActionPerformed(evt);
+                boton_confirmarDepositoActionPerformed(evt);
             }
         });
 
-        cuentaDestino15.setBackground(new Color(255, 255, 255));
-        cuentaDestino15.setForeground(new Color(0, 0, 0));
-        cuentaDestino15.addActionListener(new ActionListener() {
+        montoDeposito.setBackground(new Color(255, 255, 255));
+        montoDeposito.setForeground(new Color(0, 0, 0));
+        montoDeposito.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                cuentaDestino15ActionPerformed(evt);
+                montoDepositoActionPerformed(evt);
             }
         });
 
@@ -688,12 +688,12 @@ public class BaseInterfaz extends javax.swing.JFrame {
         label17.setForeground(new Color(0, 1, 0));
         label17.setText("Monto");
 
-        cuentaDestino16.setBackground(new Color(196, 196, 196));
-        cuentaDestino16.setForeground(new Color(0, 0, 0));
-        cuentaDestino16.setEnabled(false);
-        cuentaDestino16.addActionListener(new ActionListener() {
+        saldoDeposito.setBackground(new Color(196, 196, 196));
+        saldoDeposito.setForeground(new Color(0, 0, 0));
+        saldoDeposito.setEnabled(false);
+        saldoDeposito.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                cuentaDestino16ActionPerformed(evt);
+                saldoDepositoActionPerformed(evt);
             }
         });
 
@@ -709,18 +709,18 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 .addContainerGap(81, Short.MAX_VALUE)
                 .addComponent(boton_cancelarTransaccion2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
-                .addComponent(boton_confirmarTransaccion2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addComponent(boton_confirmarDeposito, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addGap(101, 101, 101))
             .addGroup(GroupLayout.Alignment.TRAILING, menu_depositoLayout.createSequentialGroup()
                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(label19, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cuentaDestino16, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)
+                .addComponent(saldoDeposito, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
             .addGroup(menu_depositoLayout.createSequentialGroup()
                 .addGap(222, 222, 222)
                 .addGroup(menu_depositoLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                    .addComponent(cuentaDestino15)
+                    .addComponent(montoDeposito)
                     .addComponent(label17, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -729,17 +729,17 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 .addGroup(menu_depositoLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addGroup(menu_depositoLayout.createSequentialGroup()
                         .addGap(15, 15, 15)
-                        .addComponent(cuentaDestino16, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE))
+                        .addComponent(saldoDeposito, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE))
                     .addGroup(menu_depositoLayout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addComponent(label19, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addGap(79, 79, 79)
                         .addComponent(label17, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cuentaDestino15, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(montoDeposito, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 725, Short.MAX_VALUE)
                 .addGroup(menu_depositoLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                    .addComponent(boton_confirmarTransaccion2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(boton_confirmarDeposito, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(boton_cancelarTransaccion2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18))
         );
@@ -1481,7 +1481,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_boton_pagarTarjetaActionPerformed
 
     private void boton_depositoActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_depositoActionPerformed
-        // Cambiar la apariencia del botón cuando se presiona
+         // Cambiar la apariencia del botón cuando se presiona
         if (botonPresionadoActualmente != null) {
             botonPresionadoActualmente.setBackground(new java.awt.Color(240, 240, 240));  // Color original del fondo
         }
@@ -1499,6 +1499,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         menu_pagarTarjeta.setVisible(false);
         menu_pagarServicio.setVisible(false);
         menu_acercaSistema.setVisible(false);
+        saldoDeposito.setText(cuenta.getSaldoCuenta()+ "");
     }//GEN-LAST:event_boton_depositoActionPerformed
 
     private void boton_acercaSistemaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_acercaSistemaActionPerformed
@@ -1656,17 +1657,47 @@ public class BaseInterfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_boton_cancelarTransaccion2ActionPerformed
 
-    private void boton_confirmarTransaccion2ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_confirmarTransaccion2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_boton_confirmarTransaccion2ActionPerformed
+    private void boton_confirmarDepositoActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_confirmarDepositoActionPerformed
+        try {
+        Connection connection = ConexionBD.conectar();
 
-    private void cuentaDestino15ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuentaDestino15ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cuentaDestino15ActionPerformed
+        // Obtener el monto del depósito como String
+        String montoDepositoString = montoDeposito.getText();
 
-    private void cuentaDestino16ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuentaDestino16ActionPerformed
+        // Convertir el String a double
+        double deposito = Double.parseDouble(montoDepositoString);
+        System.out.println(deposito);
+        if(deposito>0){
+            // Sumar el depósito al saldo de la cuenta
+            cuenta.setSaldoCuenta(cuenta.getSaldoCuenta() + deposito);
+
+            // Acreditar cuenta con la conexión establecida
+            TransaccionRepositorio.acreditarCuenta(connection, cuenta.getNumeroCuenta(), deposito);
+
+            // Imprimir el saldo actualizado (opcional)
+            saldoDeposito.setText(Double.toString(cuenta.getSaldoCuenta()));}
+        else
+              JOptionPane.showMessageDialog(null, "Monto invalido", "Error", JOptionPane.ERROR_MESSAGE);
+
+      
+    } catch (NumberFormatException e) {
+        // Manejar la excepción si el formato del montoDeposito no es válido
+         JOptionPane.showMessageDialog(null, "Monto invalido", "Error", JOptionPane.ERROR_MESSAGE);
+    } catch (SQLException e) {
+        // Manejar la excepción de SQL
+        System.err.println("Error de SQL al conectar o realizar la transacción: " + e.getMessage());
+        
+        e.printStackTrace();  // Esto imprimirá la traza completa del error para diagnóstico
+    }
+    }//GEN-LAST:event_boton_confirmarDepositoActionPerformed
+
+    private void montoDepositoActionPerformed(ActionEvent evt) {//GEN-FIRST:event_montoDepositoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cuentaDestino16ActionPerformed
+    }//GEN-LAST:event_montoDepositoActionPerformed
+
+    private void saldoDepositoActionPerformed(ActionEvent evt) {//GEN-FIRST:event_saldoDepositoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_saldoDepositoActionPerformed
 
     private void cuentaDestino39ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuentaDestino39ActionPerformed
         // TODO add your handling code here:
@@ -1788,8 +1819,8 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private Button boton_cancelarTransaccion6;
     private Button boton_cancelarTransaccion7;
     private Button boton_cerrarSesion;
+    private Button boton_confirmarDeposito;
     private Button boton_confirmarTransaccion1;
-    private Button boton_confirmarTransaccion2;
     private Button boton_confirmarTransaccion6;
     private Button boton_confirmarTransaccion7;
     private Button boton_consultarSaldo;
@@ -1801,8 +1832,6 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private Button button3;
     public JTextField cedula;
     public JTextField cuentaDestino;
-    private JTextField cuentaDestino15;
-    private JTextField cuentaDestino16;
     private JTextField cuentaDestino33;
     private JTextField cuentaDestino35;
     private JTextField cuentaDestino36;
@@ -1861,10 +1890,12 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private Panel menu_pagarTarjeta;
     private Panel menu_transferencia;
     public JTextField monto;
+    private JTextField montoDeposito;
     public JTextField nombre_destinatario;
     private JTextField numero_origen;
     private JTextField saldo;
     private JTextField saldo1;
+    private JTextField saldoDeposito;
     private JLayeredPane separador;
     private JLabel texto_fecha;
     private JLabel texto_usuario;
