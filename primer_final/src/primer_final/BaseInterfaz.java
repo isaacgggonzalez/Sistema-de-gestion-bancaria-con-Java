@@ -1781,7 +1781,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         ArrayList<Servicio> servicios = obtenerTodosLosServicios();
         Servicio servicio_elegido = servicios.get(0);
         for(Servicio servicio: servicios){
-            if (servicio.equals(servicio_a_pagar.getSelectedItem()))
+            if (servicio.get_NombreServicio().equals(servicio_a_pagar.getSelectedItem()))
                 servicio_elegido = servicio;
         }
        
@@ -1794,6 +1794,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
             monto_definido.setText("No definido");
             monto_ingresado.setEditable(true);
         }
+        System.out.println(servicio_elegido.get_CostoServicio());
     }//GEN-LAST:event_servicio_a_pagarActionPerformed
 
     private void monto_definidoActionPerformed(ActionEvent evt) {//GEN-FIRST:event_monto_definidoActionPerformed
