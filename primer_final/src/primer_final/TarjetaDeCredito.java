@@ -1,20 +1,27 @@
 package primer_final;
 
+import java.util.Date;
+
 public class TarjetaDeCredito {
+    private long id_cliente;
+    private long id_tarjeta;
+    private double linea_tarjeta;
     private double deuda_tarjeta;
     private double limite_tarjeta;
-    private String vencimiento_tarjeta;
+    private Date vencimiento_tarjeta;
     private Long nro_tarjeta;
     private Cliente cliente_asociado;  
 
     // Constructor
     public TarjetaDeCredito(double deuda_tarjeta, double limite_tarjeta, 
-            String vencimiento_tarjeta, Long nro_tarjeta, Cliente cliente_asociado) {
+            Date vencimiento_tarjeta, Long nro_tarjeta, Cliente cliente_asociado) {
         this.deuda_tarjeta = deuda_tarjeta;
-        this.limite_tarjeta = limite_tarjeta;
+        this.linea_tarjeta = linea_tarjeta;
         this.vencimiento_tarjeta = vencimiento_tarjeta;
         this.nro_tarjeta = nro_tarjeta;
         this.cliente_asociado = cliente_asociado;
+        this.id_cliente = id_cliente;
+        this.id_tarjeta = id_tarjeta;
     }
 
     public double getDeuda_tarjeta() {
@@ -25,19 +32,19 @@ public class TarjetaDeCredito {
         this.deuda_tarjeta = deuda_tarjeta;
     }
 
-    public double getLimite_tarjeta() {
-        return limite_tarjeta;
+    public double getLinea_tarjeta() {
+        return linea_tarjeta;
     }
 
-    public void setLimite_tarjeta(double limite_tarjeta) {
-        this.limite_tarjeta = limite_tarjeta;
+    public void setLinea_tarjeta(double linea_tarjeta) {
+        this.linea_tarjeta = linea_tarjeta;
     }
 
-    public String getVencimiento_tarjeta() {
+    public Date getVencimiento_tarjeta() {
         return vencimiento_tarjeta;
     }
 
-    public void setVencimiento_tarjeta(String vencimiento_tarjeta) {
+    public void setVencimiento_tarjeta(Date vencimiento_tarjeta) {
         this.vencimiento_tarjeta = vencimiento_tarjeta;
     }
 
@@ -47,6 +54,14 @@ public class TarjetaDeCredito {
 
     public void setNro_tarjeta(Long nro_tarjeta) {
         this.nro_tarjeta = nro_tarjeta;
+    }
+
+    public long getId_cliente() {
+        return id_cliente;
+    }
+
+    public void setId_cliente(long id_cliente) {
+        this.id_cliente = id_cliente;
     }
 
     public Cliente getCliente_asociado() {

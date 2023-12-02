@@ -10,7 +10,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.lang.RuntimeException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.table.DefaultTableModel;
+import primer_final.Servicio;
+import primer_final.TarjetaDeCredito;
 
 public class TransaccionRepositorio {
         private static final String INSERTAR_TRANSACCION = "INSERT INTO "
@@ -142,6 +146,92 @@ public class TransaccionRepositorio {
         }
     
      
+    public static ArrayList<Servicio> obtenerTodosLosServicios() {
+            ArrayList<Servicio> servicios = new ArrayList<>();
+
+            try (Connection connection = ConexionBD.conectar();) {
+                String sql = "SELECT id_servicio, nombre, monto FROM servicio";
+
+                try (PreparedStatement statement = connection.prepareStatement(sql)) {
+                    try (ResultSet resultSet = statement.executeQuery()) {
+                        while (resultSet.next()) {
+                            long IdServicio = resultSet.getLong("id_servicio");
+                            String Nombre = resultSet.getString("nombre");
+                            double Monto = resultSet.getDouble("monto");
+                            Servicio servicio = new Servicio(IdServicio, Nombre, Monto);
+                            servicios.add(servicio);
+                        }
+                    }
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return servicios;
+        }
+    
+    public static ArrayList<TarjetaDeCredito> obtenerTarjetas() {
+            ArrayList<TarjetaDeCredito> tarjetas = new ArrayList<>();
+
+            try (Connection connection = ConexionBD.conectar();) {
+                String sql = "SELECT id_tarjeta_credito, id_cliente, linea"
+                        + ", deuda, fecha_vencimiento, nro_tarjeta FROM tarjeta_credito";
+
+                try (PreparedStatement statement = connection.prepareStatement(sql)) {
+                    try (ResultSet resultSet = statement.executeQuery()) {
+                        while (resultSet.next()) {
+                            long id_tarjeta = resultSet.getLong("id_tarjeta_credito");
+                            long id_cliente = resultSet.getLong("id_cliente");
+                            double linea = resultSet.getDouble("linea");
+                            double deuda = resultSet.getDouble("deuda");
+                            Date fecha_vencimiento = resultSet.getDate("fecha_vencimiento");
+                            long nro_tarjeta = resultSet.getLong("nro_tarjeta");
+                            tarjetas.add(new TarjetaDeCredito(id_tarjeta,id_cliente,linea,deuda,fecha_vencimiento,nro_tarjeta));
+                        }
+                    }
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return tarjetas;
+        }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    private long id_cliente;
+    private double linea_tarjeta;
+    private double deuda_tarjeta;
+    private Date vencimiento_tarjeta;
+    private long nro_tarjeta;
+      
+        public static void main(String[] args) {
+
+        ArrayList<Servicio> servicios = obtenerTodosLosServicios();
+
+        if (!servicios.isEmpty()) {
+            System.out.println("Lista de Servicios:");
+            for (Servicio servicio : servicios) {
+                System.out.println("ID: " + servicio.get_IdServicio());
+                System.out.println("Nombre: " + servicio.get_NombreServicio());
+                System.out.println("Monto: " + servicio.get_CostoServicio());
+                System.out.println("--------------------");
+            }
+        } else {
+            System.out.println("No se encontraron servicios.");
+        }
+        ArrayList<TarjetaDeCredito> tarjetas = obtenerTarjetas();
+        System.out.println(tarjetas.get(0).getVencimiento_tarjeta());
+    }
+        
         
         
 }

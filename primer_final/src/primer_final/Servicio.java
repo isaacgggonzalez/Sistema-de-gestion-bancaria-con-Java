@@ -3,14 +3,13 @@ package primer_final;
 
 public class Servicio {
 
-    // Atributos adicionales para la clase Servicio
-    private int idServicio;
+    private long idServicio;
     private String nombreServicio;
     private double costoServicio;
 
-    // Constructor
-    public Servicio(int idServicio, String nombreServicio, double costoServicio) {
-        // Llamada al constructor de la clase base (PagoServicio)
+  
+    public Servicio(long idServicio, String nombreServicio, double costoServicio) {
+        
 
         this.idServicio = idServicio;
         this.nombreServicio = nombreServicio;
@@ -18,11 +17,11 @@ public class Servicio {
     }
 
     // Métodos getter y setter para Id_servicio
-    public int get_IdServicio() {
+    public long get_IdServicio() {
         return idServicio;
     }
 
-    public void set_IdServicio(int Id_servicio) {
+    public void set_IdServicio(long Id_servicio) {
         this.idServicio = Id_servicio;
     }
 
