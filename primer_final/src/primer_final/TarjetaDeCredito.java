@@ -24,6 +24,17 @@ public class TarjetaDeCredito {
         this.id_tarjeta = id_tarjeta;
     }
 
+    public TarjetaDeCredito( long id_tarjeta,long id_cliente, double deuda_tarjeta, double limite_tarjeta,
+                            Date vencimiento_tarjeta, Long nro_tarjeta) {
+        this.deuda_tarjeta = deuda_tarjeta;
+        this.linea_tarjeta = linea_tarjeta;
+        this.vencimiento_tarjeta = vencimiento_tarjeta;
+        this.nro_tarjeta = nro_tarjeta;
+        this.cliente_asociado = cliente_asociado;
+        this.id_cliente = id_cliente;
+        this.id_tarjeta = id_tarjeta;
+    }
+
     public double getDeuda_tarjeta() {
         return deuda_tarjeta;
     }
