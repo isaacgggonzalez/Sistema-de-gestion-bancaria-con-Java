@@ -11,8 +11,10 @@ import java.util.logging.Logger;
 import java.lang.RuntimeException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.table.DefaultTableModel;
 import primer_final.Servicio;
+import primer_final.TarjetaDeCredito;
 
 public class TransaccionRepositorio {
         private static final String INSERTAR_TRANSACCION = "INSERT INTO "
@@ -166,6 +168,51 @@ public class TransaccionRepositorio {
             }
             return servicios;
         }
+    
+    public static ArrayList<TarjetaDeCredito> obtenerTarjetas() {
+            ArrayList<TarjetaDeCredito> tarjetas = new ArrayList<>();
+
+            try (Connection connection = ConexionBD.conectar();) {
+                String sql = "SELECT id_tarjeta_credito, id_cliente, linea"
+                        + ", deuda, fecha_vencimiento, nro_tarjeta FROM tarjeta_credito";
+
+                try (PreparedStatement statement = connection.prepareStatement(sql)) {
+                    try (ResultSet resultSet = statement.executeQuery()) {
+                        while (resultSet.next()) {
+                            long id_tarjeta = resultSet.getLong("id_tarjeta_credito");
+                            long id_cliente = resultSet.getLong("id_cliente");
+                            double linea = resultSet.getDouble("linea");
+                            double deuda = resultSet.getDouble("deuda");
+                            Date fecha_vencimiento = resultSet.getDate("fecha_vencimiento");
+                            long nro_tarjeta = resultSet.getLong("nro_tarjeta");
+                            tarjetas.add(new TarjetaDeCredito(id_tarjeta,id_cliente,linea,deuda,fecha_vencimiento,nro_tarjeta));
+                        }
+                    }
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return tarjetas;
+        }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+     private long id_cliente;
+    private double linea_tarjeta;
+    private double deuda_tarjeta;
+    private Date vencimiento_tarjeta;
+    private long nro_tarjeta;
+      
         public static void main(String[] args) {
 
         ArrayList<Servicio> servicios = obtenerTodosLosServicios();
@@ -181,6 +228,10 @@ public class TransaccionRepositorio {
         } else {
             System.out.println("No se encontraron servicios.");
         }
-    }    
+        ArrayList<TarjetaDeCredito> tarjetas = obtenerTarjetas();
+        System.out.println(tarjetas.get(0).getVencimiento_tarjeta());
+    }
+        
+        
         
 }

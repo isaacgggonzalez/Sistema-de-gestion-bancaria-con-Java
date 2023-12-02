@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class TarjetaDeCredito {
     private long id_cliente;
+    private long id_tarjeta;
     private double linea_tarjeta;
     private double deuda_tarjeta;
     private Date vencimiento_tarjeta;
@@ -11,13 +12,14 @@ public class TarjetaDeCredito {
       
 
     // Constructor
-    public TarjetaDeCredito(double deuda_tarjeta, double linea_tarjeta, 
-            Date vencimiento_tarjeta, long nro_tarjeta, long id_cliente) {
+    public TarjetaDeCredito(long id_tarjeta, long id_cliente, double linea_tarjeta,double deuda_tarjeta,  
+            Date vencimiento_tarjeta, long nro_tarjeta) {
         this.deuda_tarjeta = deuda_tarjeta;
         this.linea_tarjeta = linea_tarjeta;
         this.vencimiento_tarjeta = vencimiento_tarjeta;
         this.nro_tarjeta = nro_tarjeta;
         this.id_cliente = id_cliente;
+        this.id_tarjeta = id_tarjeta;
     }
 
     public double getDeuda_tarjeta() {
@@ -58,6 +60,14 @@ public class TarjetaDeCredito {
 
     public void setLinea_tarjeta(double linea_tarjeta) {
         this.linea_tarjeta = linea_tarjeta;
+    }
+
+    public long getId_tarjeta() {
+        return id_tarjeta;
+    }
+
+    public void setId_tarjeta(long id_tarjeta) {
+        this.id_tarjeta = id_tarjeta;
     }
 
    
