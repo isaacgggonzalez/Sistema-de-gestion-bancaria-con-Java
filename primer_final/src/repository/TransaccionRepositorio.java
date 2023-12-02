@@ -10,7 +10,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.lang.RuntimeException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
+import primer_final.Servicio;
 
 public class TransaccionRepositorio {
         private static final String INSERTAR_TRANSACCION = "INSERT INTO "
@@ -142,6 +144,43 @@ public class TransaccionRepositorio {
         }
     
      
-        
+    public static ArrayList<Servicio> obtenerTodosLosServicios() {
+            ArrayList<Servicio> servicios = new ArrayList<>();
+
+            try (Connection connection = ConexionBD.conectar();) {
+                String sql = "SELECT id_servicio, nombre, monto FROM servicio";
+
+                try (PreparedStatement statement = connection.prepareStatement(sql)) {
+                    try (ResultSet resultSet = statement.executeQuery()) {
+                        while (resultSet.next()) {
+                            long IdServicio = resultSet.getLong("id_servicio");
+                            String Nombre = resultSet.getString("nombre");
+                            double Monto = resultSet.getDouble("monto");
+                            Servicio servicio = new Servicio(IdServicio, Nombre, Monto);
+                            servicios.add(servicio);
+                        }
+                    }
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return servicios;
+        }
+        public static void main(String[] args) {
+
+        ArrayList<Servicio> servicios = obtenerTodosLosServicios();
+
+        if (!servicios.isEmpty()) {
+            System.out.println("Lista de Servicios:");
+            for (Servicio servicio : servicios) {
+                System.out.println("ID: " + servicio.get_IdServicio());
+                System.out.println("Nombre: " + servicio.get_NombreServicio());
+                System.out.println("Monto: " + servicio.get_CostoServicio());
+                System.out.println("--------------------");
+            }
+        } else {
+            System.out.println("No se encontraron servicios.");
+        }
+    }    
         
 }
