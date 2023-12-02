@@ -207,7 +207,7 @@ public class TransaccionRepositorio {
     
     
     
-     private long id_cliente;
+    private long id_cliente;
     private double linea_tarjeta;
     private double deuda_tarjeta;
     private Date vencimiento_tarjeta;

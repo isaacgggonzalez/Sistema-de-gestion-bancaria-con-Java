@@ -1712,44 +1712,44 @@
                                           <EmptySpace max="32767" attributes="0"/>
                                           <Component id="boton_cancelarTransaccion7" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="boton_confirmarTransaccion7" min="-2" max="-2" attributes="0"/>
+                                          <Component id="confirmar_pago_serv" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
                                           <EmptySpace max="32767" attributes="0"/>
                                           <Component id="label45" min="-2" pref="55" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="cuentaDestino41" min="-2" pref="107" max="-2" attributes="0"/>
+                                          <Component id="saldo_pago_serv" min="-2" pref="107" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
                                           <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                               <Component id="label35" pref="170" max="32767" attributes="0"/>
-                                              <Component id="jComboBox2" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="servicio_a_pagar" alignment="0" max="32767" attributes="0"/>
                                               <Component id="cuentaDestino33" alignment="0" max="32767" attributes="0"/>
                                               <Component id="label42" alignment="0" max="32767" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="jComboBox3" max="32767" attributes="0"/>
+                                              <Component id="metodo_de_pago" max="32767" attributes="0"/>
                                               <Component id="label36" pref="170" max="32767" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="cuentaDestino43" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
+                                              <Component id="monto_definido" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
                                               <Component id="label46" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="102" alignment="1" attributes="0">
                                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                          <Component id="cuentaDestino40" alignment="0" max="32767" attributes="0"/>
+                                                          <Component id="monto_ingresado" alignment="0" max="32767" attributes="0"/>
                                                           <Component id="label43" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
                                                       </Group>
                                                       <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" attributes="0">
                                                       <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="cuentaDestino42" min="-2" pref="175" max="-2" attributes="0"/>
+                                                          <Component id="cuenta_origen_pago_serv" min="-2" pref="175" max="-2" attributes="0"/>
                                                           <Component id="label44" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
                                                       </Group>
                                                       <EmptySpace max="-2" attributes="0"/>
@@ -1765,7 +1765,7 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                                                  <Component id="cuentaDestino41" min="-2" pref="38" max="-2" attributes="0"/>
+                                                  <Component id="saldo_pago_serv" min="-2" pref="38" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="1" attributes="0">
@@ -1778,15 +1778,15 @@
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Component id="label44" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="cuentaDestino42" min="-2" pref="38" max="-2" attributes="0"/>
+                                                  <Component id="cuenta_origen_pago_serv" min="-2" pref="38" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="label46" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="cuentaDestino43" min="-2" pref="38" max="-2" attributes="0"/>
+                                                  <Component id="monto_definido" min="-2" pref="38" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                                                   <Component id="label43" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="cuentaDestino40" min="-2" pref="38" max="-2" attributes="0"/>
+                                                  <Component id="monto_ingresado" min="-2" pref="38" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" attributes="0">
                                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -1794,8 +1794,8 @@
                                                           <Component id="label35" min="-2" max="-2" attributes="0"/>
                                                           <EmptySpace max="-2" attributes="0"/>
                                                           <Group type="103" groupAlignment="3" attributes="0">
-                                                              <Component id="jComboBox2" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                                                              <Component id="jComboBox3" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                                                              <Component id="servicio_a_pagar" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                                                              <Component id="metodo_de_pago" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                                                           </Group>
                                                       </Group>
                                                       <Component id="label36" min="-2" max="-2" attributes="0"/>
@@ -1808,7 +1808,7 @@
                                           </Group>
                                           <EmptySpace pref="33" max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="boton_confirmarTransaccion7" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="confirmar_pago_serv" alignment="0" max="32767" attributes="0"/>
                                               <Component id="boton_cancelarTransaccion7" alignment="0" max="32767" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
@@ -1841,7 +1841,7 @@
                                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boton_cancelarTransaccion7ActionPerformed"/>
                                   </Events>
                                 </Component>
-                                <Component class="java.awt.Button" name="boton_confirmarTransaccion7">
+                                <Component class="java.awt.Button" name="confirmar_pago_serv">
                                   <Properties>
                                     <Property name="actionCommand" type="java.lang.String" value="confirmarTransaccion"/>
                                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -1859,7 +1859,7 @@
                                     </Property>
                                   </Properties>
                                   <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boton_confirmarTransaccion7ActionPerformed"/>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="confirmar_pago_servActionPerformed"/>
                                   </Events>
                                 </Component>
                                 <Component class="java.awt.Label" name="label35">
@@ -1899,7 +1899,7 @@
                                     <Property name="text" type="java.lang.String" value="Numero de Servicio"/>
                                   </Properties>
                                 </Component>
-                                <Component class="javax.swing.JTextField" name="cuentaDestino40">
+                                <Component class="javax.swing.JTextField" name="monto_ingresado">
                                   <Properties>
                                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1909,7 +1909,7 @@
                                     </Property>
                                   </Properties>
                                   <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cuentaDestino40ActionPerformed"/>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="monto_ingresadoActionPerformed"/>
                                   </Events>
                                 </Component>
                                 <Component class="java.awt.Label" name="label43">
@@ -1936,7 +1936,7 @@
                                     <Property name="text" type="java.lang.String" value="Cuenta de Origen"/>
                                   </Properties>
                                 </Component>
-                                <Component class="javax.swing.JTextField" name="cuentaDestino41">
+                                <Component class="javax.swing.JTextField" name="saldo_pago_serv">
                                   <Properties>
                                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                       <Color blue="c4" green="c4" red="c4" type="rgb"/>
@@ -1947,10 +1947,10 @@
                                     <Property name="enabled" type="boolean" value="false"/>
                                   </Properties>
                                   <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cuentaDestino41ActionPerformed"/>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saldo_pago_servActionPerformed"/>
                                   </Events>
                                 </Component>
-                                <Component class="javax.swing.JTextField" name="cuentaDestino42">
+                                <Component class="javax.swing.JTextField" name="cuenta_origen_pago_serv">
                                   <Properties>
                                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                       <Color blue="c4" green="c4" red="c4" type="rgb"/>
@@ -1961,7 +1961,7 @@
                                     <Property name="enabled" type="boolean" value="false"/>
                                   </Properties>
                                   <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cuentaDestino42ActionPerformed"/>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cuenta_origen_pago_servActionPerformed"/>
                                   </Events>
                                 </Component>
                                 <Component class="java.awt.Label" name="label45">
@@ -1976,41 +1976,34 @@
                                     <Property name="text" type="java.lang.String" value="Saldo"/>
                                   </Properties>
                                 </Component>
-                                <Component class="javax.swing.JComboBox" name="jComboBox2">
+                                <Component class="javax.swing.JComboBox" name="servicio_a_pagar">
                                   <Properties>
                                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                     </Property>
-                                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                      <StringArray count="6">
-                                        <StringItem index="0" value="Tigo"/>
-                                        <StringItem index="1" value="Ande"/>
-                                        <StringItem index="2" value="Universidad"/>
-                                        <StringItem index="3" value="Seguro de Vehiculo"/>
-                                        <StringItem index="4" value="Internet"/>
-                                        <StringItem index="5" value="Agua"/>
-                                      </StringArray>
-                                    </Property>
                                   </Properties>
                                   <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox2ActionPerformed"/>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="servicio_a_pagarActionPerformed"/>
                                   </Events>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                                   </AuxValues>
                                 </Component>
-                                <Component class="javax.swing.JComboBox" name="jComboBox3">
+                                <Component class="javax.swing.JComboBox" name="metodo_de_pago">
                                   <Properties>
                                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                     </Property>
                                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                      <StringArray count="2">
-                                        <StringItem index="0" value="Tarjeta"/>
-                                        <StringItem index="1" value="Cuenta"/>
+                                      <StringArray count="1">
+                                        <StringItem index="0" value="Saldo de cuenta"/>
                                       </StringArray>
                                     </Property>
+                                    <Property name="toolTipText" type="java.lang.String" value=""/>
                                   </Properties>
+                                  <Events>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="metodo_de_pagoActionPerformed"/>
+                                  </Events>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                                   </AuxValues>
@@ -2027,7 +2020,7 @@
                                     <Property name="text" type="java.lang.String" value="Metodo de Pago"/>
                                   </Properties>
                                 </Component>
-                                <Component class="javax.swing.JTextField" name="cuentaDestino43">
+                                <Component class="javax.swing.JTextField" name="monto_definido">
                                   <Properties>
                                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                       <Color blue="c4" green="c4" red="c4" type="rgb"/>
@@ -2038,7 +2031,7 @@
                                     <Property name="enabled" type="boolean" value="false"/>
                                   </Properties>
                                   <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cuentaDestino43ActionPerformed"/>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="monto_definidoActionPerformed"/>
                                   </Events>
                                 </Component>
                                 <Component class="java.awt.Label" name="label46">
