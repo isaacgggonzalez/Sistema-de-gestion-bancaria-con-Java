@@ -1770,7 +1770,51 @@ public class BaseInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_cuentaDestino33ActionPerformed
 
     private void confirmar_pago_servActionPerformed(ActionEvent evt) {//GEN-FIRST:event_confirmar_pago_servActionPerformed
-        
+        double monto;        
+        long tarjeta_usada;
+        boolean monto_valido = false;
+        try{
+            Connection connection = ConexionBD.conectar();
+            if (monto_ingresado.getText().equals("")){          
+                monto = Double.parseDouble(monto_definido.getText());
+                monto_valido = true; 
+            }
+            else{
+                try{
+                monto = Double.parseDouble(monto_ingresado.getText());
+                if (monto > 0){
+                    monto_valido = true;
+                }
+                }catch(NumberFormatException errorDeMonto){
+                    monto = 0;
+                    monto_valido = false;
+                    JOptionPane.showMessageDialog(null, "Monto invalido", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+            if(monto_valido){
+                if(metodo_de_pago.getSelectedIndex() != 0){
+                    String numberString = (String)metodo_de_pago.getSelectedItem();
+                    numberString = numberString.substring(4);
+                    tarjeta_usada = Long.parseLong(numberString);
+                    if(TransaccionRepositorio.verificarLimite(connection, tarjeta_usada, monto)){
+                        
+                    }
+                }
+                else{
+                    if(TransaccionRepositorio.verificarSaldoSuficiente(connection,cuenta.getNumeroCuenta(), monto)){
+                        TransaccionRepositorio.debitarCuenta(connection, cuenta.getNumeroCuenta(), monto);
+                        cuenta.setSaldoCuenta(cuenta.getSaldoCuenta() - monto);
+                        saldo_pago_serv.setText(cuenta.getSaldoCuenta() + "");
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "Saldo insuficiente, pago no realizado", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+            }else
+                JOptionPane.showMessageDialog(null, "Monto invalido, verifiquelo e intente de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error de conexion, intentelo mas tarde", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_confirmar_pago_servActionPerformed
 
     private void boton_cancelarTransaccion7ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_cancelarTransaccion7ActionPerformed

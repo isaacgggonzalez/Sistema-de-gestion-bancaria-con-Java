@@ -100,6 +100,22 @@ public class TransaccionRepositorio {
             }
             return false;
         }
+        public static boolean verificarLimite(Connection conexion, long numero_tarjeta, double monto) throws SQLException {
+            // Implementa la lógica para verificar si el pago supera el limite de la tarjeta
+            String consultaSaldo = "SELECT linea, deuda FROM tarjeta_credito WHERE nro_tarjeta = ?";
+            try (PreparedStatement statement = conexion.prepareStatement(consultaSaldo)) {
+                statement.setLong(1, numero_tarjeta);
+
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    if (resultSet.next()) {
+                        double linea = resultSet.getDouble("linea");
+                        double deuda = resultSet.getDouble("deuda");
+                        return (linea >= deuda + monto && monto>0);
+                    }
+                }
+            }
+            return false;
+        }
         
         
         public static void realizarTransaccion(Connection conexion, String tipoTransaccion, double monto, long numero_cuenta) throws SQLException {
