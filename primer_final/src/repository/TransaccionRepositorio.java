@@ -74,6 +74,14 @@ public class TransaccionRepositorio {
                 statement.executeUpdate();
             }
         }
+        public static void aumentarDeuda(Connection conexion, long numero_tarjeta, double monto) throws SQLException {
+            String actualizarSaldo = "UPDATE tarjeta_credito SET deuda = deuda + ? WHERE nro_tarjeta = ?";
+            try (PreparedStatement statement = conexion.prepareStatement(actualizarSaldo)) {
+                statement.setDouble(1, monto);
+                statement.setLong(2, numero_tarjeta);
+                statement.executeUpdate();
+            }
+        }
 
         public static void acreditarCuenta(Connection conexion, long cuentaDestino, double monto) throws SQLException {
             String actualizarSaldo = "UPDATE cuenta SET saldo = saldo + ? WHERE numero_cuenta = ?";

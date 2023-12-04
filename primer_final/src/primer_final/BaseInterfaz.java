@@ -1797,7 +1797,10 @@ public class BaseInterfaz extends javax.swing.JFrame {
                     numberString = numberString.substring(4);
                     tarjeta_usada = Long.parseLong(numberString);
                     if(TransaccionRepositorio.verificarLimite(connection, tarjeta_usada, monto)){
-                        
+                        TransaccionRepositorio.aumentarDeuda(connection, tarjeta_usada, monto);
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "Limite de deuda excedido, pague su deuda y vuelva a intentar", "Error", JOptionPane.ERROR_MESSAGE);
                     }
                 }
                 else{
