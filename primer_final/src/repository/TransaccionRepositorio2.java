@@ -2,6 +2,7 @@ package repository;
 
 import config.ConexionBD;
 import modelo.Movimiento;
+import primer_final.TarjetaDeCredito;
 import primer_final.Transaccion;
 
 import java.sql.*;
@@ -31,13 +32,12 @@ public class TransaccionRepositorio2 {
 
         private static final String INSERTAR_DEPOSITO = "INSERT INTO deposito(id_transaccion, cajero) VALUES (?,?)";
 
-        private static final String INSERTAR_PAGO_SERVICIO = "INSERT INTO pago_servicio(id_transaccion, id_servicio) VALUES(?, ?)";
+        private static final String INSERTAR_PAGO_SERVICIO = "INSERT INTO pago_servicio(id_servicio, id_transaccion) VALUES(?, ?)";
 
         private static final String RECUPERAR_ID_SERVICIO = "SELECT id_servicio FROM servicio WHERE nombre = ?";
         private static final String INSERTAR_PAGO_TARJETA = "INSERT INTO pago_tarjeta(id_tarjeta_credito, id_transaccion) VALUES(?, ?)";
-
         private static final String RECUPERAR_ID_TARJETA = "SELECT id_tarjeta_credito FROM tarjeta_credito WHERE nro_tarjeta = ?";
-
+        private static final String RECUPERAR_TARJETA_CREDITO = "SELECT id_tarjeta, linea, deuda, fecha_vencimiento FROM tarjeta_credito WHERE nro_tarjeta = ?";
         private static final String RECUPERAR_LINEA_DEUDA = "SELECT linea, deuda FROM tarjeta_credito WHERE nro_tarjeta = ?";
 
         private static final String RECUPERAR_SALDO_CUENTA = "SELECT saldo FROM cuenta WHERE numero_cuenta = ?";
@@ -229,6 +229,30 @@ public class TransaccionRepositorio2 {
                     throw new RuntimeException("Numero tarjeta no valida");
                 }
             }
+        } catch (SQLException ex) {
+            Logger.getLogger(TransaccionRepositorio2.class.getName()).log(Level.SEVERE, null, ex);
+            ConexionBD.cerrarConexion(connection);
+            throw new RuntimeException("Error al intentar recuperar id_cuenta");
+        }
+    }
+
+    public TarjetaDeCredito recuperarTarjetaCredito(Long numeroTarjetaCredito){
+        Connection connection = ConexionBD.conectar();
+        try {
+            PreparedStatement statement = connection.prepareStatement(RECUPERAR_TARJETA_CREDITO);
+            statement.setLong(1, numeroTarjetaCredito);
+
+            ResultSet resultSet = statement.executeQuery();
+                if(resultSet.next()){
+                    ConexionBD.cerrarConexion(connection);
+                    return new TarjetaDeCredito(resultSet.getLong("id_tarjeta"),
+                            resultSet.getDouble("deuda"), resultSet.getDouble("linea"),
+                            resultSet.getDate("fecha_vencimiento"), numeroTarjetaCredito);
+                }else{
+                    ConexionBD.cerrarConexion(connection);
+                    throw new RuntimeException("Numero tarjeta no valida");
+                }
+
         } catch (SQLException ex) {
             Logger.getLogger(TransaccionRepositorio2.class.getName()).log(Level.SEVERE, null, ex);
             ConexionBD.cerrarConexion(connection);

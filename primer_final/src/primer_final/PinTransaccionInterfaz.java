@@ -283,8 +283,6 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
             texto_pinIncorrecto.setText(""); // Limpiar el mensaje de error si no hay error
         }
         if(ProcesosControlador.validarPinTransaccion(clave)){
-            //base.manejarValidacionPin(true);
-            //BaseInterfaz.setValidarPin(true);
             transaccion.realizarTransaccion();
             ComprobanteInterfaz comprobante = new ComprobanteInterfaz(cliente, cuenta, transaccion);
             comprobante.setVisible(true);

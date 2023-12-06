@@ -1635,15 +1635,15 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
                 Transferencia transferencia = new Transferencia
                         (new Date(System.currentTimeMillis()),cuenta.getNumeroCuenta(), cuenta_Destino, montoLong);
+                cuenta.setSaldoCuenta(cuenta.getSaldoCuenta() - montoLong);
+                saldo.setText(Double.toString(cuenta.getSaldoCuenta()));
+                nombre_destinatario.setText("");
+                cuentaDestino.setText("");
+                cedula.setText("");
+                monto.setText("");
                 PinTransaccionInterfaz ventanaPIN = new PinTransaccionInterfaz(transferencia, cliente, cuenta);
                 ventanaPIN.setVisible(true);
                 this.dispose();
-//                cuenta.setSaldoCuenta(cuenta.getSaldoCuenta() - montoLong);
-//                saldo.setText(Double.toString(cuenta.getSaldoCuenta()));
-//                nombre_destinatario.setText("");
-//                cuentaDestino.setText("");
-//                cedula.setText("");
-//                monto.setText("");
             }
 
 
@@ -1758,10 +1758,10 @@ public class BaseInterfaz extends javax.swing.JFrame {
         }else{
             numeroTarjetaL = Long.parseLong(tarjetaSeleccionada);
         }
-        if(montoAPagar>deudaTotalTarjetaD || montoAPagar < 1 ){
+        TarjetaDeCredito tarjetaDeCredito = ProcesosControlador.obtenerTarjeta(numeroTarjetaL);
+        if(montoAPagar>tarjetaDeCredito.getDeuda_tarjeta() || montoAPagar < 1 ){
             JOptionPane.showMessageDialog(this, "El monto a pagar no es valido", "Error", JOptionPane.ERROR_MESSAGE);
         }else{
-            TarjetaDeCredito tarjetaDeCredito = new TarjetaDeCredito(deudaTotalTarjetaD, deudaLimiteTarjetaD, null, numeroTarjetaL, cliente);
             PagoDeTarjeta pagoDeTarjeta = new PagoDeTarjeta(new Date(System.currentTimeMillis()), tarjetaDeCredito, montoAPagar);
             PinTransaccionInterfaz ventanaPIN = new PinTransaccionInterfaz(pagoDeTarjeta, cliente, cuenta);
             ventanaPIN.setVisible(true);

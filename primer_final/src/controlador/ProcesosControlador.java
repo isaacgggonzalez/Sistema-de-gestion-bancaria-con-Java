@@ -3,10 +3,7 @@ package controlador;
 
 import modelo.Movimiento;
 import modelo.exceptions.SaldoInsuficienteException;
-import primer_final.Deposito;
-import primer_final.PagoDeTarjeta;
-import primer_final.PagoServicio;
-import primer_final.Transferencia;
+import primer_final.*;
 import repository.TransaccionRepositorio2;
 
 import java.util.List;
@@ -60,6 +57,11 @@ public class ProcesosControlador {
         transaccionRepositorio2.insertPagoTarjeta(idTransaccion,idTarjetaCredito);
         transaccionRepositorio2.pagarTarjetaCredito(pagoDeTarjeta.getMontoTransaccion(), idTarjetaCredito);
         transaccionRepositorio2.insertMovimiento(idCuenta, idTransaccion);
+    }
+
+    public static TarjetaDeCredito obtenerTarjeta(Long numeroTarjeta){
+        TransaccionRepositorio2 transaccionRepositorio2 = new TransaccionRepositorio2();
+        return transaccionRepositorio2.recuperarTarjetaCredito(numeroTarjeta);
     }
 
     public static void verificarLimite(Long nroTarjeta, double monto) throws SaldoInsuficienteException{
