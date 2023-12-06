@@ -1833,6 +1833,8 @@ public class BaseInterfaz extends javax.swing.JFrame {
                     pagoServicio.setCuenta(cuenta);
                     ProcesosControlador.verificarSaldoSuficiente(cuenta.getNumeroCuenta(), monto);
                 }
+                cuenta.setSaldoCuenta(cuenta.getSaldoCuenta() - monto);
+                saldo.setText(Double.toString(cuenta.getSaldoCuenta()));
                 PinTransaccionInterfaz ventanaPIN = new PinTransaccionInterfaz(pagoServicio, cliente, cuenta);
                 ventanaPIN.setVisible(true);
                 this.dispose();
