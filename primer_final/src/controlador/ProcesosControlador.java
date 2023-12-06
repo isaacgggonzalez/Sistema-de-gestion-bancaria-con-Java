@@ -45,6 +45,7 @@ public class ProcesosControlador {
         TransaccionRepositorio2 transaccionRepositorio2 = new TransaccionRepositorio2();
         Long idCuenta = transaccionRepositorio2.recuperarIdCuenta(deposito.getCuentaDestino().getNumeroCuenta());
         Long idTransaccion = transaccionRepositorio2.insertTransaccion(deposito);
+        transaccionRepositorio2.actualizarSaldoCuenta(idCuenta, deposito.getMontoTransaccion());
         transaccionRepositorio2.insertDeposito(idTransaccion, "CAJERO CENTRAL");
         transaccionRepositorio2.insertMovimiento(idCuenta, idTransaccion);
     }
