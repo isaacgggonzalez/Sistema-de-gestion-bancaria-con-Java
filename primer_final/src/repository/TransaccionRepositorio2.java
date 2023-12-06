@@ -38,6 +38,8 @@ public class TransaccionRepositorio2 {
         private static final String INSERTAR_PAGO_TARJETA = "INSERT INTO pago_tarjeta(id_tarjeta_credito, id_transaccion) VALUES(?, ?)";
         private static final String RECUPERAR_ID_TARJETA = "SELECT id_tarjeta_credito FROM tarjeta_credito WHERE nro_tarjeta = ?";
         private static final String RECUPERAR_TARJETA_CREDITO = "SELECT id_tarjeta_credito, linea, deuda, fecha_vencimiento FROM tarjeta_credito WHERE nro_tarjeta = ?";
+
+    private static final String RECUPERAR_TARJETAS_CREDITO_CLIENTE = "SELECT id_tarjeta_credito, linea, deuda, fecha_vencimiento FROM tarjeta_credito WHERE id_cliente = ?";
         private static final String RECUPERAR_LINEA_DEUDA = "SELECT linea, deuda FROM tarjeta_credito WHERE nro_tarjeta = ?";
 
         private static final String RECUPERAR_SALDO_CUENTA = "SELECT saldo FROM cuenta WHERE numero_cuenta = ?";
@@ -263,7 +265,7 @@ public class TransaccionRepositorio2 {
     public List<TarjetaDeCredito> recuperarTarjetasCredito(Long idCliente){
         Connection connection = ConexionBD.conectar();
         try {
-            PreparedStatement statement = connection.prepareStatement(RECUPERAR_TARJETA_CREDITO);
+            PreparedStatement statement = connection.prepareStatement(RECUPERAR_TARJETAS_CREDITO_CLIENTE);
             statement.setLong(1, idCliente);
 
             ResultSet resultSet = statement.executeQuery();
