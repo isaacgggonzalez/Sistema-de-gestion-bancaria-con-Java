@@ -132,8 +132,8 @@ public class BaseInterfaz extends javax.swing.JFrame {
         saldoDeposito = new JTextField();
         label19 = new Label();
         menu_pagarTarjeta = new Panel();
-        boton_cancelarPagoTarjeta = new Button();
-        boton_confirmarPagoTarjeta = new Button();
+        boton_cancelarTransaccion6 = new Button();
+        boton_confirmarTransaccion6 = new Button();
         label34 = new Label();
         montoTarjeta = new JTextField();
         label37 = new Label();
@@ -146,7 +146,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         label41 = new Label();
         deudalimiteTarjeta = new JTextField();
         list1 = new List();
-        seleccionarTarjeta = new JComboBox<>();
+        servicioTarjeta = new JComboBox<>();
         menu_acercaSistema = new Panel();
         label48 = new Label();
         label53 = new Label();
@@ -217,7 +217,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         botonesMenu.setEnabled(false);
 
         boton_pagarTarjeta.setActionCommand("pagarTarjeta");
-        boton_pagarTarjeta.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        boton_pagarTarjeta.setCursor(new Cursor(Cursor.HAND_CURSOR));
         boton_pagarTarjeta.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_pagarTarjeta.setLabel("Pagar Tarjeta");
         boton_pagarTarjeta.setMinimumSize(new Dimension(245, 35));
@@ -228,7 +228,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         });
 
         boton_deposito.setActionCommand("deposito");
-        boton_deposito.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        boton_deposito.setCursor(new Cursor(Cursor.HAND_CURSOR));
         boton_deposito.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_deposito.setLabel("Deposito");
         boton_deposito.setMinimumSize(new Dimension(245, 35));
@@ -239,7 +239,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         });
 
         boton_pagarServicio.setActionCommand("pagarServicio");
-        boton_pagarServicio.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        boton_pagarServicio.setCursor(new Cursor(Cursor.HAND_CURSOR));
         boton_pagarServicio.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_pagarServicio.setLabel("Pagar Servicio");
         boton_pagarServicio.setMinimumSize(new Dimension(245, 35));
@@ -250,7 +250,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         });
 
         boton_consultarSaldo.setActionCommand("consultarSaldo");
-        boton_consultarSaldo.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        boton_consultarSaldo.setCursor(new Cursor(Cursor.HAND_CURSOR));
         boton_consultarSaldo.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_consultarSaldo.setLabel("Consultar Saldo");
         boton_consultarSaldo.setMinimumSize(new Dimension(245, 35));
@@ -261,7 +261,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         });
 
         boton_acercaSistema.setActionCommand("acercaSistema");
-        boton_acercaSistema.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        boton_acercaSistema.setCursor(new Cursor(Cursor.HAND_CURSOR));
         boton_acercaSistema.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_acercaSistema.setLabel("Acerca del Sistema");
         boton_acercaSistema.setMinimumSize(new Dimension(245, 35));
@@ -272,7 +272,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         });
 
         boton_transferenciaCuenta.setActionCommand("transferenciaCuentas");
-        boton_transferenciaCuenta.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        boton_transferenciaCuenta.setCursor(new Cursor(Cursor.HAND_CURSOR));
         boton_transferenciaCuenta.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_transferenciaCuenta.setLabel("Transferencia entre Cuentas");
         boton_transferenciaCuenta.setMinimumSize(new Dimension(245, 35));
@@ -283,7 +283,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         });
 
         boton_cerrarSesion.setActionCommand("Cerrar Sesion");
-        boton_cerrarSesion.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        boton_cerrarSesion.setCursor(new Cursor(Cursor.HAND_CURSOR));
         boton_cerrarSesion.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_cerrarSesion.setLabel("Cerrar Sesion");
         boton_cerrarSesion.setMinimumSize(new Dimension(245, 35));
@@ -364,7 +364,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         menu_transferencia.setPreferredSize(new Dimension(643, 367));
 
         boton_cancelarTransaccion1.setActionCommand("cancelarTransaccion");
-        boton_cancelarTransaccion1.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        boton_cancelarTransaccion1.setCursor(new Cursor(Cursor.HAND_CURSOR));
         boton_cancelarTransaccion1.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_cancelarTransaccion1.setForeground(new Color(51, 51, 51));
         boton_cancelarTransaccion1.setLabel("Cancelar Transaccion");
@@ -377,7 +377,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         });
 
         boton_confirmarTransaccion1.setActionCommand("confirmarTransaccion");
-        boton_confirmarTransaccion1.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        boton_confirmarTransaccion1.setCursor(new Cursor(Cursor.HAND_CURSOR));
         boton_confirmarTransaccion1.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_confirmarTransaccion1.setForeground(new Color(51, 51, 51));
         boton_confirmarTransaccion1.setLabel("Confirmar Transaccion");
@@ -651,7 +651,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         menu_deposito.setPreferredSize(new Dimension(643, 367));
 
         boton_cancelarTransaccion2.setActionCommand("cancelarTransaccion");
-        boton_cancelarTransaccion2.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        boton_cancelarTransaccion2.setCursor(new Cursor(Cursor.HAND_CURSOR));
         boton_cancelarTransaccion2.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_cancelarTransaccion2.setForeground(new Color(51, 51, 51));
         boton_cancelarTransaccion2.setLabel("Cancelar Transaccion");
@@ -664,7 +664,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         });
 
         boton_confirmarDeposito.setActionCommand("confirmarTransaccion");
-        boton_confirmarDeposito.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        boton_confirmarDeposito.setCursor(new Cursor(Cursor.HAND_CURSOR));
         boton_confirmarDeposito.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_confirmarDeposito.setForeground(new Color(51, 51, 51));
         boton_confirmarDeposito.setLabel("Confirmar Transaccion");
@@ -748,28 +748,28 @@ public class BaseInterfaz extends javax.swing.JFrame {
         menu_pagarTarjeta.setFont(new Font("Arial", 0, 14)); // NOI18N
         menu_pagarTarjeta.setMinimumSize(new Dimension(643, 367));
 
-        boton_cancelarPagoTarjeta.setActionCommand("cancelarTransaccion");
-        boton_cancelarPagoTarjeta.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-        boton_cancelarPagoTarjeta.setFont(new Font("Arial", 0, 18)); // NOI18N
-        boton_cancelarPagoTarjeta.setForeground(new Color(51, 51, 51));
-        boton_cancelarPagoTarjeta.setLabel("Cancelar Transaccion");
-        boton_cancelarPagoTarjeta.setMaximumSize(new Dimension(190, 30));
-        boton_cancelarPagoTarjeta.setMinimumSize(new Dimension(190, 30));
-        boton_cancelarPagoTarjeta.addActionListener(new ActionListener() {
+        boton_cancelarTransaccion6.setActionCommand("cancelarTransaccion");
+        boton_cancelarTransaccion6.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        boton_cancelarTransaccion6.setFont(new Font("Arial", 0, 18)); // NOI18N
+        boton_cancelarTransaccion6.setForeground(new Color(51, 51, 51));
+        boton_cancelarTransaccion6.setLabel("Cancelar Transaccion");
+        boton_cancelarTransaccion6.setMaximumSize(new Dimension(190, 30));
+        boton_cancelarTransaccion6.setMinimumSize(new Dimension(190, 30));
+        boton_cancelarTransaccion6.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 boton_cancelarTransaccion6ActionPerformed(evt);
             }
         });
 
-        boton_confirmarPagoTarjeta.setActionCommand("confirmarTransaccion");
-        boton_confirmarPagoTarjeta.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-        boton_confirmarPagoTarjeta.setFont(new Font("Arial", 0, 18)); // NOI18N
-        boton_confirmarPagoTarjeta.setForeground(new Color(51, 51, 51));
-        boton_confirmarPagoTarjeta.setLabel("Confirmar Transaccion");
-        boton_confirmarPagoTarjeta.setMinimumSize(new Dimension(190, 30));
-        boton_confirmarPagoTarjeta.addActionListener(new ActionListener() {
+        boton_confirmarTransaccion6.setActionCommand("confirmarTransaccion");
+        boton_confirmarTransaccion6.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        boton_confirmarTransaccion6.setFont(new Font("Arial", 0, 18)); // NOI18N
+        boton_confirmarTransaccion6.setForeground(new Color(51, 51, 51));
+        boton_confirmarTransaccion6.setLabel("Confirmar Transaccion");
+        boton_confirmarTransaccion6.setMinimumSize(new Dimension(190, 30));
+        boton_confirmarTransaccion6.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                boton_confirmarPagoTarjetaActionPerformed(evt);
+                boton_confirmarTransaccion6ActionPerformed(evt);
             }
         });
 
@@ -807,7 +807,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
         numeroTarjeta.setBackground(new Color(255, 255, 255));
         numeroTarjeta.setForeground(new Color(0, 0, 0));
-        numeroTarjeta.setEnabled(true);
+        numeroTarjeta.setEnabled(false);
         numeroTarjeta.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 numeroTarjetaActionPerformed(evt);
@@ -821,6 +821,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
         deudatotalTarjeta.setBackground(new Color(255, 255, 255));
         deudatotalTarjeta.setForeground(new Color(0, 0, 0));
+        deudatotalTarjeta.setEnabled(false);
         deudatotalTarjeta.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 deudatotalTarjetaActionPerformed(evt);
@@ -839,17 +840,18 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
         deudalimiteTarjeta.setBackground(new Color(255, 255, 255));
         deudalimiteTarjeta.setForeground(new Color(0, 0, 0));
+        deudalimiteTarjeta.setEnabled(false);
         deudalimiteTarjeta.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 deudalimiteTarjetaActionPerformed(evt);
             }
         });
 
-        seleccionarTarjeta.setBackground(new Color(255, 255, 255));
-        seleccionarTarjeta.setModel(new DefaultComboBoxModel<>(new String[] { "Tu tarjeta", "Otras Tarjetas" }));
-        seleccionarTarjeta.addActionListener(new ActionListener() {
+        servicioTarjeta.setBackground(new Color(255, 255, 255));
+        servicioTarjeta.setModel(new DefaultComboBoxModel<>(new String[] { "null", "Otras Tarjetas" }));
+        servicioTarjeta.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                seleccionarTarjetaActionPerformed(evt);
+                servicioTarjetaActionPerformed(evt);
             }
         });
 
@@ -858,9 +860,9 @@ public class BaseInterfaz extends javax.swing.JFrame {
         menu_pagarTarjetaLayout.setHorizontalGroup(menu_pagarTarjetaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(GroupLayout.Alignment.TRAILING, menu_pagarTarjetaLayout.createSequentialGroup()
                 .addContainerGap(81, Short.MAX_VALUE)
-                .addComponent(boton_cancelarPagoTarjeta, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addComponent(boton_cancelarTransaccion6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
-                .addComponent(boton_confirmarPagoTarjeta, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addComponent(boton_confirmarTransaccion6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addGap(101, 101, 101))
             .addGroup(GroupLayout.Alignment.TRAILING, menu_pagarTarjetaLayout.createSequentialGroup()
                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -874,7 +876,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                         .addGap(47, 47, 47)
                         .addGroup(menu_pagarTarjetaLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                             .addComponent(label34, GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                            .addComponent(seleccionarTarjeta, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(servicioTarjeta, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(menu_pagarTarjetaLayout.createSequentialGroup()
                         .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -920,7 +922,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                     .addGroup(menu_pagarTarjetaLayout.createSequentialGroup()
                         .addComponent(label34, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(seleccionarTarjeta, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(servicioTarjeta, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(label41, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
@@ -931,8 +933,8 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 .addComponent(montoTarjeta, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(menu_pagarTarjetaLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                    .addComponent(boton_confirmarPagoTarjeta, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(boton_cancelarPagoTarjeta, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(boton_confirmarTransaccion6, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(boton_cancelarTransaccion6, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18))
         );
 
@@ -966,7 +968,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         label56.setForeground(new Color(0, 1, 0));
         label56.setText("Lenguajes de Programación 2");
 
-        button3.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        button3.setCursor(new Cursor(Cursor.HAND_CURSOR));
         button3.setFont(new Font("Arial", 1, 14)); // NOI18N
         button3.setForeground(new Color(0, 1, 0));
         button3.setLabel("Ver Documentación");
@@ -1020,7 +1022,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         menu_pagarServicio.setPreferredSize(new Dimension(643, 367));
 
         boton_cancelarTransaccion7.setActionCommand("cancelarTransaccion");
-        boton_cancelarTransaccion7.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        boton_cancelarTransaccion7.setCursor(new Cursor(Cursor.HAND_CURSOR));
         boton_cancelarTransaccion7.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_cancelarTransaccion7.setForeground(new Color(51, 51, 51));
         boton_cancelarTransaccion7.setLabel("Cancelar Transaccion");
@@ -1033,7 +1035,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         });
 
         confirmar_pago_serv.setActionCommand("confirmarTransaccion");
-        confirmar_pago_serv.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        confirmar_pago_serv.setCursor(new Cursor(Cursor.HAND_CURSOR));
         confirmar_pago_serv.setFont(new Font("Arial", 0, 18)); // NOI18N
         confirmar_pago_serv.setForeground(new Color(51, 51, 51));
         confirmar_pago_serv.setLabel("Confirmar Transaccion");
@@ -1518,6 +1520,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         menu_pagarServicio.setVisible(false);
         menu_acercaSistema.setVisible(false);
         botonTransferencia = true;
+        saldoTarjeta.setText(Double.toString(cuenta.getSaldoCuenta()));
 
     }//GEN-LAST:event_boton_pagarTarjetaActionPerformed
 
@@ -1541,6 +1544,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         menu_pagarServicio.setVisible(false);
         menu_acercaSistema.setVisible(false);
         saldoDeposito.setText(cuenta.getSaldoCuenta()+ "");
+        
     }//GEN-LAST:event_boton_depositoActionPerformed
 
     private void boton_acercaSistemaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_acercaSistemaActionPerformed
@@ -1793,10 +1797,17 @@ public class BaseInterfaz extends javax.swing.JFrame {
             numeroTarjeta.setText(String.valueOf(tarjetaDeCredito.getNro_tarjeta()));
             deudalimiteTarjeta.setText(String.valueOf(tarjetaDeCredito.getLinea_tarjeta())+ " Gs");
             deudatotalTarjeta.setText(String.valueOf(tarjetaDeCredito.getDeuda_tarjeta())+ " Gs");
+            numeroTarjeta.setVisible(false);
         }
 
     }//GEN-LAST:event_servicioTarjetaActionPerformed
-
+    
+    private void servicioTarjetaActionPerformed(ActionEvent evt) {
+    }  
+    
+    private void boton_confirmarTransaccion6ActionPerformed(ActionEvent evt) {
+    }  
+    
     private void cuenta_origen_pago_servActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuenta_origen_pago_servActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cuenta_origen_pago_servActionPerformed
@@ -1951,12 +1962,12 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private Button boton_acercaSistema;
     private Button boton_cancelarTransaccion1;
     private Button boton_cancelarTransaccion2;
-    private Button boton_cancelarPagoTarjeta;
+    private Button boton_cancelarTransaccion6;
     private Button boton_cancelarTransaccion7;
     private Button boton_cerrarSesion;
     private Button boton_confirmarDeposito;
     private Button boton_confirmarTransaccion1;
-    private Button boton_confirmarPagoTarjeta;
+    private Button boton_confirmarTransaccion6;
     private Button boton_consultarSaldo;
     private Button boton_deposito;
     private Button boton_pagarServicio;
@@ -2030,7 +2041,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private JTextField saldoTarjeta;
     private JTextField saldo_pago_serv;
     private JLayeredPane separador;
-    private JComboBox<String> seleccionarTarjeta;
+    private JComboBox<String> servicioTarjeta;
     private JComboBox<String> servicio_a_pagar;
     private JLabel texto_fecha;
     private JLabel texto_usuario;
