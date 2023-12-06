@@ -241,6 +241,8 @@ public class ComprobanteInterfaz extends javax.swing.JFrame {
         transaccion_texto.setText(transaccion.getTipoTransaccion());
         cliente_texto.setText(cliente.getNombreCliente());
         descripcion_texto.setText(transaccion.mensajeConfirmacion());
+        monto_texto.setText(String.valueOf(transaccion.getMontoTransaccion()));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 

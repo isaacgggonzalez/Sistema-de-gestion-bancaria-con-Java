@@ -1,28 +1,30 @@
 
 package primer_final;
 
+import controlador.ProcesosControlador;
+
 import java.util.Date;
 
 
 public class PagoDeTarjeta extends Transaccion{
     private static final String TIPO_TRANSACCION = "Pago de tarjeta";
     private long idPagoTarjeta;
-    private String pagoTarjeta = "Pago de Tarjeta";
 
     private long numeroCuenta;
 
     private TarjetaDeCredito tarjetaDeCredito;
 
-    public PagoDeTarjeta(long idPagoTarjeta, int Id_transaccion, String pagoTarjeta, Date Fecha_transaccion, double monto_transaccion) {
+    public PagoDeTarjeta(long idPagoTarjeta, int Id_transaccion, TarjetaDeCredito tarjetaDeCredito, Date Fecha_transaccion, double monto_transaccion) {
         super(Id_transaccion, Fecha_transaccion, monto_transaccion, TIPO_TRANSACCION);
-
-        this.pagoTarjeta = pagoTarjeta;
+        this.tarjetaDeCredito = tarjetaDeCredito;
         this.idPagoTarjeta = idPagoTarjeta;
     }
 
-    public String getPagoTarjeta() {
-        return pagoTarjeta;
+    public PagoDeTarjeta(Date Fecha_transaccion, TarjetaDeCredito tarjetaDeCredito, double monto_transaccion) {
+        super(Fecha_transaccion, monto_transaccion, TIPO_TRANSACCION);
+        this.tarjetaDeCredito = tarjetaDeCredito;
     }
+
 
     public long getNumeroCuenta() {
         return numeroCuenta;
@@ -39,9 +41,6 @@ public class PagoDeTarjeta extends Transaccion{
         this.tarjetaDeCredito = tarjetaDeCredito;
     }
 
-    public void setPagoTarjeta(String pagoTarjeta) {
-        this.pagoTarjeta = pagoTarjeta;
-    }
 
     public long getIdPagoTarjeta() {
         return idPagoTarjeta;
@@ -50,6 +49,16 @@ public class PagoDeTarjeta extends Transaccion{
     public void setIdPagoTarjeta(long Id_pagoTarjeta) {
         this.idPagoTarjeta = Id_pagoTarjeta;
     }
-    
+
+    @Override
+    public void realizarTransaccion(){
+        ProcesosControlador.realizarPagoTarjeta(this);
+    }
+
+    @Override
+    public String mensajeConfirmacion(){
+        return "Pago de la tarjeta Nro "+tarjetaDeCredito.getNro_tarjeta()+" ha sido exitosa";
+    }
+
     
 }

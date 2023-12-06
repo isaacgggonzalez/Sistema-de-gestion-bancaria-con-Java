@@ -32,7 +32,7 @@ public class Deposito extends Transaccion {
     }
 
     // Métodos getter y setter para monto_deposito
-    
+
 
     // Métodos getter y setter para cuenta_destino
     public Cuenta getCuentaDestino() {
