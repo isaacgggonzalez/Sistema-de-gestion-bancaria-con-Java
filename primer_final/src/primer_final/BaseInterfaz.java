@@ -1760,6 +1760,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "El monto a pagar no es valido", "Error", JOptionPane.ERROR_MESSAGE);
         }else{
             PagoDeTarjeta pagoDeTarjeta = new PagoDeTarjeta(new Date(System.currentTimeMillis()), tarjetaDeCredito, montoAPagar);
+            pagoDeTarjeta.setNumeroCuenta(cuenta.getNumeroCuenta());
             PinTransaccionInterfaz ventanaPIN = new PinTransaccionInterfaz(pagoDeTarjeta, cliente, cuenta);
             ventanaPIN.setVisible(true);
             this.dispose();

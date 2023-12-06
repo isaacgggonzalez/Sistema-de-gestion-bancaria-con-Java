@@ -256,7 +256,7 @@ public class TransaccionRepositorio2 {
         } catch (SQLException ex) {
             Logger.getLogger(TransaccionRepositorio2.class.getName()).log(Level.SEVERE, null, ex);
             ConexionBD.cerrarConexion(connection);
-            throw new RuntimeException("Error al intentar recuperar id_cuenta");
+            throw new RuntimeException("Error al intentar recuperar tarjeta credito");
         }
     }
 
