@@ -237,7 +237,9 @@ public class ComprobanteInterfaz extends javax.swing.JFrame {
 
         // Crear un objeto SimpleDateFormat con el formato
         SimpleDateFormat sdf = new SimpleDateFormat(formato);
-        fecha_texto.setText(sdf.format(new Date(System.currentTimeMillis())));
+        fecha_texto.setText(sdf.format(transaccion.get_fecha_transaccion()));
+        transaccion_texto.setText(transaccion.getTipoTransaccion());
+        cliente_texto.setText(cliente.getNombreCliente());
         descripcion_texto.setText(transaccion.mensajeConfirmacion());
         pack();
     }// </editor-fold>//GEN-END:initComponents
