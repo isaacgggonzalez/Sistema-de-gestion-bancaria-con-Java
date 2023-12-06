@@ -1,12 +1,12 @@
 package repository;
 
 import config.ConexionBD;
-import primer_final.Deposito;
+import modelo.Movimiento;
 import primer_final.Transaccion;
-import primer_final.Transferencia;
 
-import javax.swing.table.DefaultTableModel;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -41,6 +41,11 @@ public class TransaccionRepositorio2 {
         private static final String RECUPERAR_LINEA_DEUDA = "SELECT linea, deuda FROM tarjeta_credito WHERE nro_tarjeta = ?";
 
         private static final String RECUPERAR_SALDO_CUENTA = "SELECT saldo FROM cuenta WHERE numero_cuenta = ?";
+
+        private static final String RECUPERAR_MOVIMIENTOS = "SELECT t.id_transaccion, t.tipo, t.fecha, t.monto " +
+                "FROM transaccion t " +
+                "JOIN movimiento m ON t.id_transaccion = m.id_transaccion " +
+                "WHERE m.id_cuenta = ?";
 
         public TransaccionRepositorio2(){}
        
@@ -365,39 +370,30 @@ public class TransaccionRepositorio2 {
 
 
         
-        public static DefaultTableModel obtenerTransaccionesPorCuenta(long idCuenta) {
-    DefaultTableModel modelo = new DefaultTableModel();
-    modelo.addColumn("ID Transacción");
-    modelo.addColumn("Tipo de Transacción");
-    modelo.addColumn("Fecha de Transacción");
-    modelo.addColumn("Monto");
-
-    try (Connection conexion = ConexionBD.conectar()) {
-        String consulta = "SELECT t.id_transaccion, t.tipo, t.fecha, t.monto " +
-                          "FROM transaccion t " +
-                          "JOIN movimiento m ON t.id_transaccion = m.id_transaccion " +
-                          "WHERE m.id_cuenta = ?";
-
-        try (PreparedStatement statement = conexion.prepareStatement(consulta)) {
+    public List<Movimiento> obtenerMovimientosPorCuenta(long idCuenta) {
+        Connection connection = ConexionBD.conectar();
+        try {
+            List<Movimiento> movimientos = new ArrayList<>();
+            PreparedStatement statement = connection.prepareStatement(RECUPERAR_MOVIMIENTOS);
             statement.setLong(1, idCuenta);
-
-            try (ResultSet resultSet = statement.executeQuery()) {
-                while (resultSet.next()) {
-                    Object[] fila = {
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                   Movimiento movimiento = new Movimiento(
                         resultSet.getLong("id_transaccion"),
-                        resultSet.getString("tipo"),
                         resultSet.getDate("fecha"),
-                        resultSet.getDouble("monto")
-                    };
-                    modelo.addRow(fila);
-                }
+                        resultSet.getDouble("monto"),
+                        resultSet.getString("tipo")
+                   );
+                   movimientos.add(movimiento);
             }
-        }
-    } catch (SQLException e) {
-        e.printStackTrace(); // Manejar la excepción según sea necesario
-    }
+            return movimientos;
 
-    return modelo;
+        }catch (SQLException ex){
+            Logger.getLogger(TransaccionRepositorio2.class.getName()).log(Level.SEVERE, null, ex);
+            ConexionBD.cerrarConexion(connection);
+            throw new RuntimeException("Error al intentar recuperar los movimientos de la cuenta");
+        }
+
 }
 
 

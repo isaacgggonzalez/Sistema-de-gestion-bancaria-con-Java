@@ -1,16 +1,15 @@
 
 package controlador;
 
-import config.ConexionBD;
+import modelo.Movimiento;
 import modelo.exceptions.SaldoInsuficienteException;
 import primer_final.Deposito;
 import primer_final.PagoDeTarjeta;
 import primer_final.PagoServicio;
-import repository.TransaccionRepositorio;
 import primer_final.Transferencia;
 import repository.TransaccionRepositorio2;
 
-import java.sql.SQLException;
+import java.util.List;
 
 /**
  *
@@ -18,6 +17,11 @@ import java.sql.SQLException;
  */
 public class ProcesosControlador {
 
+
+    public static List<Movimiento> obtenerMovimientos(Long idCuenta){
+        TransaccionRepositorio2 transaccionRepositorio2 = new TransaccionRepositorio2();
+        return transaccionRepositorio2.obtenerMovimientosPorCuenta(idCuenta);
+    }
     public static boolean confirmarDatosTransferencia(long DestinoTransferencia, long cedula, String nombre_destinatario){
         TransaccionRepositorio2 transaccionRepositorio2 = new TransaccionRepositorio2();
         return transaccionRepositorio2.confirmarDatos(DestinoTransferencia, cedula, nombre_destinatario);

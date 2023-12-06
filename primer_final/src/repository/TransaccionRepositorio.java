@@ -27,7 +27,7 @@ public class TransaccionRepositorio {
            try {
            
                PreparedStatement preparedStatement = connection.prepareStatement(INSERTAR_TRANSACCION);
-               preparedStatement.setInt(1, transaccion.getIdTransaccion());
+               preparedStatement.setLong(1, transaccion.getIdTransaccion());
                preparedStatement.setDate(2, (java.sql.Date) transaccion.get_fecha_transaccion());
                preparedStatement.executeUpdate();
                ResultSet generatedKeys = preparedStatement.getGeneratedKeys();

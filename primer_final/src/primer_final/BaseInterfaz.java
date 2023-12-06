@@ -36,6 +36,7 @@ import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
 
 import controlador.ProcesosControlador;
+import modelo.Movimiento;
 import modelo.exceptions.SaldoInsuficienteException;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
@@ -1413,9 +1414,22 @@ public class BaseInterfaz extends javax.swing.JFrame {
         menu_pagarServicio.setVisible(false);
         menu_pagarTarjeta.setVisible(false);
         menu_acercaSistema.setVisible(false);
-        
-        DefaultTableModel modelo = TransaccionRepositorio2.obtenerTransaccionesPorCuenta(cuenta.getIdCuenta());
-        TablaConsulta.setModel(modelo);        
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("ID Transacción");
+        modelo.addColumn("Tipo de Transacción");
+        modelo.addColumn("Fecha de Transacción");
+        modelo.addColumn("Monto");
+        java.util.List<Movimiento> movimientos = ProcesosControlador.obtenerMovimientos(cuenta.getIdCuenta());
+        for(Movimiento movimiento : movimientos ){
+            Object[] fila = {
+                    movimiento.getIdTransaccion(),
+                    movimiento.getTipoTransaccion(),
+                    movimiento.get_fecha_transaccion(),
+                    movimiento.getMontoTransaccion()
+            };
+            modelo.addRow(fila);
+        }
+        TablaConsulta.setModel(modelo);
     }//GEN-LAST:event_boton_consultarSaldoActionPerformed
     private void boton_transferenciaCuentaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_transferenciaCuentaActionPerformed
         
@@ -1587,7 +1601,6 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
 
     private void boton_confirmarTransaccion1ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_confirmarTransaccion1ActionPerformed
-        Connection connection = ConexionBD.conectar();
         try {
             // Obtener valores de los campos de texto
             long cuenta_Destino = Long.parseLong(cuentaDestino.getText().trim());
@@ -1621,7 +1634,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
             
             }
             
-        if(TransaccionRepositorio.verificarSaldoSuficiente( connection, cuenta.getNumeroCuenta(), montoLong) != false){
+        ProcesosControlador.verificarSaldoSuficiente(cuenta.getNumeroCuenta(), montoLong);
             // Confirmar los datos si todas las validaciones pasan
 
             if (ProcesosControlador.confirmarDatosTransferencia(cuenta_Destino, cedula_destinatario, nombreDestinatario)){
@@ -1638,16 +1651,14 @@ public class BaseInterfaz extends javax.swing.JFrame {
 //                cedula.setText("");
 //                monto.setText("");
             }
-            }else{
-                mostrarMensajeError("Saldo insuficiente.");
-            }
+
 
             } catch (NumberFormatException e) {
                 // Manejar la excepción si hay un error al convertir los números
                 mostrarMensajeError("Error al ingresar los datos. Intente de nuevo.");
-            } catch (SQLException ex) {
-                Logger.getLogger(BaseInterfaz.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            }catch (SaldoInsuficienteException e) {
+            mostrarMensajeError("Error al ingresar los datos. Intente de nuevo.");
+        }
 
     }//GEN-LAST:event_boton_confirmarTransaccion1ActionPerformed
     
@@ -1744,7 +1755,6 @@ public class BaseInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_cuentaDestino35ActionPerformed
 
     private void boton_confirmarPagoTarjetaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_confirmarTransaccion6ActionPerformed
-        menu_pagarTarjeta
     }//GEN-LAST:event_boton_confirmarTransaccion6ActionPerformed
 
     private void boton_cancelarTransaccion6ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_cancelarTransaccion6ActionPerformed

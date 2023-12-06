@@ -5,7 +5,7 @@ import java.util.Date;
 //abstract
 public class Transaccion {
     // Atributos
-    private int idTransaccion;
+    private long idTransaccion;
     private double montoTransaccion;
     private Date fechaTransaccion;
     private final String tipoTransaccion;
@@ -16,7 +16,7 @@ public class Transaccion {
         this.montoTransaccion = montoTransaccion;
     }
 
-    public Transaccion(int idTransaccion,
+    public Transaccion(long idTransaccion,
                        Date fechaTransaccion, double montoTransaccion, String tipoTransaccion) {
         this.tipoTransaccion = tipoTransaccion;
         this.idTransaccion = idTransaccion;
@@ -30,7 +30,7 @@ public class Transaccion {
     public String mensajeConfirmacion(){return "";}
     
     
-    public int getIdTransaccion() {
+    public long getIdTransaccion() {
         return idTransaccion;
     }
     
