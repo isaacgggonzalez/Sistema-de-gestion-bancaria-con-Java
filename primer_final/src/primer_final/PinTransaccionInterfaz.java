@@ -5,9 +5,7 @@
 package primer_final;
 
 import controlador.ProcesosControlador;
-import java.util.Date;
-import pruebadepg.AutenticacionLogin;
-import primer_final.BaseInterfaz;
+
 
 /**
  *
@@ -259,7 +257,9 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
         char echoChar = claveVisible ? '\u0000' : '*';
         box_pin.setEchoChar(echoChar);
     }//GEN-LAST:event_box_pinActionPerformed
-
+    private void boton_salirActionPerformed(java.awt.event.ActionEvent evt){
+         
+    }
     private void box_pinKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_box_pinKeyTyped
         // Que se visualize la contraseña
         char echoChar = claveVisible ? '\u0000' : '*';
