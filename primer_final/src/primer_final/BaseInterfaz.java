@@ -1701,12 +1701,13 @@ public class BaseInterfaz extends javax.swing.JFrame {
             comprobante.setVisible(true);
             cuenta.setSaldoCuenta(cuenta.getSaldoCuenta() + deposito);
             // Imprimir el saldo actualizado (opcional)
-            saldoDeposito.setText(Double.toString(cuenta.getSaldoCuenta()));}
+            saldoDeposito.setText(Double.toString(cuenta.getSaldoCuenta()));
             dispose();
         // Sumar el depósito al saldo de la cuenta
-        else
+        }
+        else {
               JOptionPane.showMessageDialog(null, "Monto invalido", "Error", JOptionPane.ERROR_MESSAGE);
-
+                }
       
     } catch (NumberFormatException e) {
         // Manejar la excepción si el formato del montoDeposito no es válido

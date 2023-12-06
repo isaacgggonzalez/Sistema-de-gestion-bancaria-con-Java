@@ -1,13 +1,9 @@
 
 package primer_final;
-import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import pruebadepg.AutenticacionLogin;
-import pruebadepg.InicializadorDB;
 import pruebadepg.GestorClientes;
-import primer_final.*;
 
 public class LoginInterfaz extends javax.swing.JFrame {
 
