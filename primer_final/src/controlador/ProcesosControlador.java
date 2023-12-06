@@ -66,6 +66,11 @@ public class ProcesosControlador {
         return transaccionRepositorio2.recuperarTarjetaCredito(numeroTarjeta);
     }
 
+    public static List<TarjetaDeCredito> obtenerTarjetas(Long idCliente){
+        TransaccionRepositorio2 transaccionRepositorio2 = new TransaccionRepositorio2();
+        return transaccionRepositorio2.recuperarTarjetasCredito(idCliente);
+    }
+
     public static void verificarLimite(Long nroTarjeta, double monto) throws SaldoInsuficienteException{
         TransaccionRepositorio2 transaccionRepositorio2 = new TransaccionRepositorio2();
         if(!transaccionRepositorio2.verificarLimite(nroTarjeta, monto)){
@@ -96,4 +101,5 @@ public class ProcesosControlador {
         transaccionRepositorio2.actualizarSaldoCuenta(idCuenta, -pagoServicio.getMontoTransaccion());
         transaccionRepositorio2.insertMovimiento(idCuenta, idTransaccion);
     }
+
 }

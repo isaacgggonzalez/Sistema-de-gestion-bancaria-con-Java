@@ -260,6 +260,27 @@ public class TransaccionRepositorio2 {
         }
     }
 
+    public List<TarjetaDeCredito> recuperarTarjetasCredito(Long idCliente){
+        Connection connection = ConexionBD.conectar();
+        try {
+            PreparedStatement statement = connection.prepareStatement(RECUPERAR_TARJETA_CREDITO);
+            statement.setLong(1, idCliente);
+
+            ResultSet resultSet = statement.executeQuery();
+            List<TarjetaDeCredito> tarjetaDeCreditos = new ArrayList<>();
+            while (resultSet.next()){
+                tarjetaDeCreditos.add(new TarjetaDeCredito(resultSet.getLong("id_tarjeta_credito"), idCliente,
+                        resultSet.getDouble("deuda"), resultSet.getDouble("linea"),
+                        resultSet.getDate("fecha_vencimiento"), resultSet.getLong("nro_tarjeta")));
+            }
+            return tarjetaDeCreditos;
+        } catch (SQLException ex) {
+            Logger.getLogger(TransaccionRepositorio2.class.getName()).log(Level.SEVERE, null, ex);
+            ConexionBD.cerrarConexion(connection);
+            throw new RuntimeException("Error al intentar recuperar tarjeta credito");
+        }
+    }
+
     public Boolean validarPinTransaccion(Long pinTransaccion){
         Connection connection = ConexionBD.conectar();
         try {

@@ -2,7 +2,7 @@ package primer_final;
 
 
 public class Cliente {
-    private int idCliente;
+    private long idCliente;
     private int ciCliente;
     private String nombreCliente;
     private String apellidoCliente;
@@ -19,11 +19,11 @@ public class Cliente {
         this.nacimientoCliente = nacimientoCliente;
     }
 
-    public int getIdCliente() {
+    public long getIdCliente() {
         return idCliente;
     }
 
-    public void setIdCliente(int idCliente) {
+    public void setIdCliente(long idCliente) {
         this.idCliente = idCliente;
     }
 

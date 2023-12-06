@@ -849,7 +849,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         seleccionarTarjeta.setModel(new DefaultComboBoxModel<>(new String[] { "Tu tarjeta", "Otras Tarjetas" }));
         seleccionarTarjeta.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                servicioTarjetaActionPerformed(evt);
+                seleccionarTarjetaActionPerformed(evt);
             }
         });
 
@@ -1480,7 +1480,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         saldo_pago_serv.setText(cuenta.getSaldoCuenta() + "");
         cuenta_origen_pago_serv.setText(cuenta.getNumeroCuenta() + "");
         ArrayList<Servicio> servicios = obtenerTodosLosServicios();
-        ArrayList<TarjetaDeCredito> tarjetas = obtenerTarjetas();
+        java.util.List<TarjetaDeCredito> tarjetas = ProcesosControlador.obtenerTarjetas(cliente.getIdCliente());
         for(Servicio servicio: servicios){
             servicio_a_pagar.addItem(servicio.get_NombreServicio());
         }
@@ -1501,7 +1501,10 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
         // Establecer el color oscuro para el botón actual
         boton_pagarTarjeta.setBackground(new java.awt.Color(102, 102, 102));
-
+        java.util.List<TarjetaDeCredito> tarjetas = ProcesosControlador.obtenerTarjetas(cliente.getIdCliente());
+        for(TarjetaDeCredito tarjeta: tarjetas){
+            seleccionarTarjeta.addItem("TC: " + tarjeta.getNro_tarjeta());
+        }
         // Actualizar la referencia al botón actualmente presionado
         botonPresionadoActualmente = boton_pagarTarjeta;
         menu_transferencia.setVisible(false);
@@ -1510,6 +1513,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         menu_pagarTarjeta.setVisible(true);
         menu_pagarServicio.setVisible(false);
         menu_acercaSistema.setVisible(false);
+
     }//GEN-LAST:event_boton_pagarTarjetaActionPerformed
 
     private void boton_depositoActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_depositoActionPerformed
@@ -1753,9 +1757,13 @@ public class BaseInterfaz extends javax.swing.JFrame {
         if(tarjetaSeleccionada.equals("Otras Tarjetas")){
             numeroTarjetaL = Long.parseLong(numeroTarjeta.getText());
         }else{
+            tarjetaSeleccionada = tarjetaSeleccionada.substring(4);
             numeroTarjetaL = Long.parseLong(tarjetaSeleccionada);
         }
         TarjetaDeCredito tarjetaDeCredito = ProcesosControlador.obtenerTarjeta(numeroTarjetaL);
+        numeroTarjeta.setText(String.valueOf(tarjetaDeCredito.getNro_tarjeta()));
+        deudalimiteTarjeta.setText(String.valueOf(tarjetaDeCredito.getLinea_tarjeta())+ " Gs");
+        deudatotalTarjeta.setText(String.valueOf(tarjetaDeCredito.getDeuda_tarjeta())+ " Gs");
         if(montoAPagar>tarjetaDeCredito.getDeuda_tarjeta() || montoAPagar < 1 ){
             JOptionPane.showMessageDialog(this, "El monto a pagar no es valido", "Error", JOptionPane.ERROR_MESSAGE);
         }else{
@@ -1771,8 +1779,17 @@ public class BaseInterfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_boton_cancelarTransaccion6ActionPerformed
 
-    private void servicioTarjetaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_servicioTarjetaActionPerformed
-        // TODO add your handling code here:
+    private void seleccionarTarjetaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_servicioTarjetaActionPerformed
+        String tarjetaSeleccionada = ((String) seleccionarTarjeta.getSelectedItem());
+        if(!tarjetaSeleccionada.equals("Otras Tarjetas")){
+            tarjetaSeleccionada = tarjetaSeleccionada.substring(4);
+            Long numeroTarjetaL = Long.parseLong(tarjetaSeleccionada);
+            TarjetaDeCredito tarjetaDeCredito = ProcesosControlador.obtenerTarjeta(numeroTarjetaL);
+            numeroTarjeta.setText(String.valueOf(tarjetaDeCredito.getNro_tarjeta()));
+            deudalimiteTarjeta.setText(String.valueOf(tarjetaDeCredito.getLinea_tarjeta())+ " Gs");
+            deudatotalTarjeta.setText(String.valueOf(tarjetaDeCredito.getDeuda_tarjeta())+ " Gs");
+        }
+
     }//GEN-LAST:event_servicioTarjetaActionPerformed
 
     private void cuenta_origen_pago_servActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuenta_origen_pago_servActionPerformed
