@@ -146,7 +146,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         label41 = new Label();
         deudalimiteTarjeta = new JTextField();
         list1 = new List();
-        servicioTarjeta = new JComboBox<>();
+        seleccionarTarjeta = new JComboBox<>();
         menu_acercaSistema = new Panel();
         label48 = new Label();
         label53 = new Label();
@@ -847,11 +847,11 @@ public class BaseInterfaz extends javax.swing.JFrame {
             }
         });
 
-        servicioTarjeta.setBackground(new Color(255, 255, 255));
-        servicioTarjeta.setModel(new DefaultComboBoxModel<>(new String[] { "null", "Otras Tarjetas" }));
-        servicioTarjeta.addActionListener(new ActionListener() {
+        seleccionarTarjeta.setBackground(new Color(255, 255, 255));
+        seleccionarTarjeta.setModel(new DefaultComboBoxModel<>(new String[] { "null", "Otras Tarjetas" }));
+        seleccionarTarjeta.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                servicioTarjetaActionPerformed(evt);
+                seleccionarTarjetaActionPerformed(evt);
             }
         });
 
@@ -876,7 +876,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                         .addGap(47, 47, 47)
                         .addGroup(menu_pagarTarjetaLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                             .addComponent(label34, GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                            .addComponent(servicioTarjeta, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(seleccionarTarjeta, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(menu_pagarTarjetaLayout.createSequentialGroup()
                         .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -922,7 +922,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                     .addGroup(menu_pagarTarjetaLayout.createSequentialGroup()
                         .addComponent(label34, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(servicioTarjeta, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(seleccionarTarjeta, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(label41, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
@@ -2040,8 +2040,8 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private JTextField saldoDeposito;
     private JTextField saldoTarjeta;
     private JTextField saldo_pago_serv;
+    private JComboBox<String> seleccionarTarjeta;
     private JLayeredPane separador;
-    private JComboBox<String> servicioTarjeta;
     private JComboBox<String> servicio_a_pagar;
     private JLabel texto_fecha;
     private JLabel texto_usuario;

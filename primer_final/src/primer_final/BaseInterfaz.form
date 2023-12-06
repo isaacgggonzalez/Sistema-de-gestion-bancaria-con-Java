@@ -1250,7 +1250,7 @@
                                                   <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                                       <Component id="label34" pref="170" max="32767" attributes="0"/>
-                                                      <Component id="servicioTarjeta" max="32767" attributes="0"/>
+                                                      <Component id="seleccionarTarjeta" max="32767" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                               </Group>
@@ -1314,7 +1314,7 @@
                                               <Group type="102" attributes="0">
                                                   <Component id="label34" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="servicioTarjeta" min="-2" pref="38" max="-2" attributes="0"/>
+                                                  <Component id="seleccionarTarjeta" min="-2" pref="38" max="-2" attributes="0"/>
                                                   <EmptySpace max="32767" attributes="0"/>
                                                   <Component id="label41" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
@@ -1524,7 +1524,7 @@
                                 </Component>
                                 <Component class="java.awt.List" name="list1">
                                 </Component>
-                                <Component class="javax.swing.JComboBox" name="servicioTarjeta">
+                                <Component class="javax.swing.JComboBox" name="seleccionarTarjeta">
                                   <Properties>
                                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1537,7 +1537,7 @@
                                     </Property>
                                   </Properties>
                                   <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="servicioTarjetaActionPerformed"/>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="seleccionarTarjetaActionPerformed"/>
                                   </Events>
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
