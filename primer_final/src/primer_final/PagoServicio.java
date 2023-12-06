@@ -61,7 +61,13 @@ public class PagoServicio extends Transaccion {
     public void realizarTransaccion(){
         ProcesosControlador.realizarPagoServicio(this);
     }
-    
+
+    @Override
+    public String mensajeConfirmacion(){
+        return "Pago del servicio "+ this.servicio.get_NombreServicio()+" con monto "+ getMontoTransaccion()+" ha sido exitosa";
+    }
+
+
     public void setTarjetaAbonante(TarjetaDeCredito tarjetaAbonante) {
         this.tarjetaAbonante = tarjetaAbonante;
     }

@@ -1797,6 +1797,8 @@ public class BaseInterfaz extends javax.swing.JFrame {
             }
             if(monto_valido){
                 PagoServicio pagoServicio = new PagoServicio(null, cuenta, null, monto);
+                Servicio servicio = new Servicio(0L, (String) servicio_a_pagar.getSelectedItem(), Double.parseDouble(monto_definido.getText()));
+                pagoServicio.setServicio(servicio);
                 if(metodo_de_pago.getSelectedIndex() != 0){
                     String numberString = (String)metodo_de_pago.getSelectedItem();
                     numberString = numberString.substring(4);
@@ -1809,6 +1811,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 else{
                     pagoServicio.setCuenta(cuenta);
                 }
+
                 PinTransaccionInterfaz ventanaPIN = new PinTransaccionInterfaz(pagoServicio, cliente, cuenta);
                 ventanaPIN.setVisible(true);
                 this.dispose();
