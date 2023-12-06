@@ -1427,7 +1427,6 @@ public class BaseInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_boton_consultarSaldoActionPerformed
     private void boton_transferenciaCuentaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_transferenciaCuentaActionPerformed
         
-        
         numero_origen.setText(cuenta.getNumeroCuenta()+ "");
         saldo.setText(cuenta.getSaldoCuenta() + "");
         
@@ -1456,9 +1455,8 @@ public class BaseInterfaz extends javax.swing.JFrame {
         menu_acercaSistema.setVisible(false);
     }//GEN-LAST:event_boton_transferenciaCuentaActionPerformed
 
+    private boolean codigoEjecutado = false;
     private void boton_pagarServicioActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_pagarServicioActionPerformed
-        
-
         
         // Cambiar la apariencia del botón cuando se presiona        
         if (botonPresionadoActualmente != null) {
@@ -1479,20 +1477,24 @@ public class BaseInterfaz extends javax.swing.JFrame {
         menu_acercaSistema.setVisible(false);
         saldo_pago_serv.setText(cuenta.getSaldoCuenta() + "");
         cuenta_origen_pago_serv.setText(cuenta.getNumeroCuenta() + "");
-        ArrayList<Servicio> servicios = obtenerTodosLosServicios();
-        java.util.List<TarjetaDeCredito> tarjetas = ProcesosControlador.obtenerTarjetas(cliente.getIdCliente());
-        for(Servicio servicio: servicios){
-            servicio_a_pagar.addItem(servicio.get_NombreServicio());
-        }
-        for(TarjetaDeCredito tarjeta: tarjetas){
-            if(tarjeta.getId_cliente() == cliente.getIdCliente())
-                metodo_de_pago.addItem("TC: " + tarjeta.getNro_tarjeta());
-        }
-        monto_definido.setText(servicios.get(0).get_CostoServicio()+"");
-        monto_ingresado.setEditable(false);
+        if (!codigoEjecutado) {
+            ArrayList<Servicio> servicios = obtenerTodosLosServicios();
+            java.util.List<TarjetaDeCredito> tarjetas = ProcesosControlador.obtenerTarjetas(cliente.getIdCliente());
         
+            for(Servicio servicio: servicios){
+                servicio_a_pagar.addItem(servicio.get_NombreServicio());
+            }
+            for(TarjetaDeCredito tarjeta: tarjetas){
+                if(tarjeta.getId_cliente() == cliente.getIdCliente())
+                    metodo_de_pago.addItem("TC: " + tarjeta.getNro_tarjeta());
+            }
+            
+            monto_definido.setText(servicios.get(0).get_CostoServicio()+"");
+        }
+        monto_ingresado.setEditable(false);
+        codigoEjecutado = true;
     }//GEN-LAST:event_boton_pagarServicioActionPerformed
-
+    private boolean botonTransferencia = false;
     private void boton_pagarTarjetaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_pagarTarjetaActionPerformed
         // Cambiar la apariencia del botón cuando se presiona
         if (botonPresionadoActualmente != null) {
@@ -1501,9 +1503,11 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
         // Establecer el color oscuro para el botón actual
         boton_pagarTarjeta.setBackground(new java.awt.Color(102, 102, 102));
-        java.util.List<TarjetaDeCredito> tarjetas = ProcesosControlador.obtenerTarjetas(cliente.getIdCliente());
-        for(TarjetaDeCredito tarjeta: tarjetas){
-            seleccionarTarjeta.addItem("TC: " + tarjeta.getNro_tarjeta());
+        if (!botonTransferencia) {
+            java.util.List<TarjetaDeCredito> tarjetas = ProcesosControlador.obtenerTarjetas(cliente.getIdCliente());
+            for(TarjetaDeCredito tarjeta: tarjetas){
+                seleccionarTarjeta.addItem("TC: " + tarjeta.getNro_tarjeta());
+            }
         }
         // Actualizar la referencia al botón actualmente presionado
         botonPresionadoActualmente = boton_pagarTarjeta;
@@ -1513,6 +1517,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         menu_pagarTarjeta.setVisible(true);
         menu_pagarServicio.setVisible(false);
         menu_acercaSistema.setVisible(false);
+        botonTransferencia = true;
 
     }//GEN-LAST:event_boton_pagarTarjetaActionPerformed
 
@@ -1750,7 +1755,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_montoTarjetaActionPerformed
 
-    private void boton_confirmarPagoTarjetaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_confirmarTransaccion6ActionPerformed
+    private void boton_confirmarPagoTarjetaActionPerformed(ActionEvent evt) {                                                            
         double montoAPagar = Double.parseDouble(montoTarjeta.getText());
         Long numeroTarjetaL;
         String tarjetaSeleccionada = (String) seleccionarTarjeta.getSelectedItem();
