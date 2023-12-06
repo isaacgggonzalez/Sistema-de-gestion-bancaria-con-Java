@@ -1748,9 +1748,6 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
     private void boton_confirmarPagoTarjetaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_confirmarTransaccion6ActionPerformed
         double montoAPagar = Double.parseDouble(montoTarjeta.getText());
-        double saldoTarjetaD = Double.parseDouble(saldoTarjeta.getText());
-        double deudaLimiteTarjetaD = Double.parseDouble(deudalimiteTarjeta.getText());
-        double deudaTotalTarjetaD = Double.parseDouble(deudatotalTarjeta.getText());
         Long numeroTarjetaL;
         String tarjetaSeleccionada = (String) seleccionarTarjeta.getSelectedItem();
         if(tarjetaSeleccionada.equals("Otras Tarjetas")){
