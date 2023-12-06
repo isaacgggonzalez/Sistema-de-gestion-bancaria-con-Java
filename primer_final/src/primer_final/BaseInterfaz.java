@@ -1698,8 +1698,6 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
     private void boton_confirmarDepositoActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_confirmarDepositoActionPerformed
         try {
-        Connection connection = ConexionBD.conectar();
-
         // Obtener el monto del depósito como String
         String montoDepositoString = montoDeposito.getText();
 

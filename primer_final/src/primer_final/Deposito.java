@@ -6,7 +6,6 @@ import java.util.Date;
 
 public class Deposito extends Transaccion {
     private static final String TIPO_TRANSACCION = "Deposito";
-    private double montoDeposito;
     private Cuenta cuentaDestino;
 
     public Deposito(int Pin_transaccion, String tipoTransaccion,
@@ -33,13 +32,7 @@ public class Deposito extends Transaccion {
     }
 
     // Métodos getter y setter para monto_deposito
-    public double getMontoDeposito() {
-        return montoDeposito;
-    }
-
-    public void setMontoDeposito(double montoDeposito) {
-        this.montoDeposito = montoDeposito;
-    }
+    
 
     // Métodos getter y setter para cuenta_destino
     public Cuenta getCuentaDestino() {
@@ -56,6 +49,6 @@ public class Deposito extends Transaccion {
     }
 
     @Override
-    public String mensajeConfirmacion(){return "El deposito a la cuenta con monto " + montoDeposito+
+    public String mensajeConfirmacion(){return "El deposito a la cuenta con monto " + getMontoTransaccion()+
             "Gs "+ cuentaDestino.getNumeroCuenta() + " ha sido exitosa";}
 }
