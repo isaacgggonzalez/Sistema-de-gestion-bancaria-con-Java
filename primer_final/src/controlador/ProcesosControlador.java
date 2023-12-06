@@ -57,6 +57,7 @@ public class ProcesosControlador {
         Long idTransaccion = transaccionRepositorio2.insertTransaccion(pagoDeTarjeta);
         transaccionRepositorio2.insertPagoTarjeta(idTransaccion,idTarjetaCredito);
         transaccionRepositorio2.pagarTarjetaCredito(pagoDeTarjeta.getMontoTransaccion(), idTarjetaCredito);
+        transaccionRepositorio2.actualizarSaldoCuenta(idCuenta, pagoDeTarjeta.getMontoTransaccion());
         transaccionRepositorio2.insertMovimiento(idCuenta, idTransaccion);
     }
 
