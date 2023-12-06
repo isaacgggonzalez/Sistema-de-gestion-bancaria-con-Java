@@ -74,6 +74,14 @@ public class TransaccionRepositorio {
                 statement.executeUpdate();
             }
         }
+        public static void aumentarDeuda(Connection conexion, long numero_tarjeta, double monto) throws SQLException {
+            String actualizarSaldo = "UPDATE tarjeta_credito SET deuda = deuda + ? WHERE nro_tarjeta = ?";
+            try (PreparedStatement statement = conexion.prepareStatement(actualizarSaldo)) {
+                statement.setDouble(1, monto);
+                statement.setLong(2, numero_tarjeta);
+                statement.executeUpdate();
+            }
+        }
 
         public static void acreditarCuenta(Connection conexion, long cuentaDestino, double monto) throws SQLException {
             String actualizarSaldo = "UPDATE cuenta SET saldo = saldo + ? WHERE numero_cuenta = ?";
@@ -95,6 +103,22 @@ public class TransaccionRepositorio {
                     if (resultSet.next()) {
                         double saldo = resultSet.getDouble("saldo");
                         return (saldo >= monto && monto>0);
+                    }
+                }
+            }
+            return false;
+        }
+        public static boolean verificarLimite(Connection conexion, long numero_tarjeta, double monto) throws SQLException {
+            // Implementa la lógica para verificar si el pago supera el limite de la tarjeta
+            String consultaSaldo = "SELECT linea, deuda FROM tarjeta_credito WHERE nro_tarjeta = ?";
+            try (PreparedStatement statement = conexion.prepareStatement(consultaSaldo)) {
+                statement.setLong(1, numero_tarjeta);
+
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    if (resultSet.next()) {
+                        double linea = resultSet.getDouble("linea");
+                        double deuda = resultSet.getDouble("deuda");
+                        return (linea >= deuda + monto && monto>0);
                     }
                 }
             }
