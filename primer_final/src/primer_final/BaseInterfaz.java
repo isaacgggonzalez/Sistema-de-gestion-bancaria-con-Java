@@ -40,6 +40,7 @@ import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
@@ -1693,15 +1694,16 @@ public class BaseInterfaz extends javax.swing.JFrame {
         // Convertir el String a double
         double deposito = Double.parseDouble(montoDepositoString);
         System.out.println(deposito);
+        Deposito depositoObj = new Deposito(Date.from(Instant.now()), cuenta, deposito);
         if(deposito>0){
-            // Sumar el depósito al saldo de la cuenta
+            depositoObj.realizarTransaccion();
+            ComprobanteInterfaz comprobante = new ComprobanteInterfaz(cliente, cuenta, depositoObj);
+            comprobante.setVisible(true);
             cuenta.setSaldoCuenta(cuenta.getSaldoCuenta() + deposito);
-
-            // Acreditar cuenta con la conexión establecida
-            TransaccionRepositorio.acreditarCuenta(connection, cuenta.getNumeroCuenta(), deposito);
-
             // Imprimir el saldo actualizado (opcional)
             saldoDeposito.setText(Double.toString(cuenta.getSaldoCuenta()));}
+            dispose();
+        // Sumar el depósito al saldo de la cuenta
         else
               JOptionPane.showMessageDialog(null, "Monto invalido", "Error", JOptionPane.ERROR_MESSAGE);
 
@@ -1709,11 +1711,6 @@ public class BaseInterfaz extends javax.swing.JFrame {
     } catch (NumberFormatException e) {
         // Manejar la excepción si el formato del montoDeposito no es válido
          JOptionPane.showMessageDialog(null, "Monto invalido", "Error", JOptionPane.ERROR_MESSAGE);
-    } catch (SQLException e) {
-        // Manejar la excepción de SQL
-        System.err.println("Error de SQL al conectar o realizar la transacción: " + e.getMessage());
-        
-        e.printStackTrace();  // Esto imprimirá la traza completa del error para diagnóstico
     }
     }//GEN-LAST:event_boton_confirmarDepositoActionPerformed
 
@@ -1811,7 +1808,6 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 else{
                     pagoServicio.setCuenta(cuenta);
                 }
-
                 PinTransaccionInterfaz ventanaPIN = new PinTransaccionInterfaz(pagoServicio, cliente, cuenta);
                 ventanaPIN.setVisible(true);
                 this.dispose();
@@ -1820,7 +1816,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         }
         catch (Error e){
             JOptionPane.showMessageDialog(null, "Limite de deuda excedido, pague su deuda y vuelva a intentar", "Error", JOptionPane.ERROR_MESSAGE);
-        }//catch (Error e){
+        }//catch (SaldoInsuficienteException e){
 //            JOptionPane.showMessageDialog(null, "Saldo insuficiente, pago no realizado", "Error", JOptionPane.ERROR_MESSAGE);
 //        }catch (Error e){
 //

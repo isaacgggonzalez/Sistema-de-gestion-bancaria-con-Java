@@ -15,7 +15,6 @@ public class ComprobanteInterfaz extends javax.swing.JFrame {
     Cliente cliente;
     Cuenta cuenta;
     Transaccion transaccion;
-    
     /**
      * Creates new form ComprobanteInterfaz
      */

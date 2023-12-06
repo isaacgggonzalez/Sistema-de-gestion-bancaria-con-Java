@@ -1,5 +1,7 @@
 package primer_final;
 
+import controlador.ProcesosControlador;
+
 import java.util.Date;
 
 public class Deposito extends Transaccion {
@@ -24,6 +26,12 @@ public class Deposito extends Transaccion {
         this.cuentaDestino = cuentaDestino;
     }
 
+    public Deposito(Date Fecha_transaccion, Cuenta cuentaDestino, double monto_transaccion) {
+        // Llamada al constructor de la clase base (Transaccion)
+        super(Fecha_transaccion, monto_transaccion, TIPO_TRANSACCION);
+        this.cuentaDestino = cuentaDestino;
+    }
+
     // Métodos getter y setter para monto_deposito
     public double getMontoDeposito() {
         return montoDeposito;
@@ -41,4 +49,13 @@ public class Deposito extends Transaccion {
     public void setCuentaDestino(Cuenta cuentaDestino) {
         this.cuentaDestino = cuentaDestino;
     }
+
+    @Override
+    public void realizarTransaccion(){
+        ProcesosControlador.realizarDeposito(this);
+    }
+
+    @Override
+    public String mensajeConfirmacion(){return "El deposito a la cuenta con monto " + montoDeposito+
+            "Gs "+ cuentaDestino.getNumeroCuenta() + " ha sido exitosa";}
 }

@@ -16,7 +16,7 @@ import java.sql.SQLException;
  * @author Augusto
  */
 public class ProcesosControlador {
-    
+
     public static boolean confirmarDatosTransferencia(long DestinoTransferencia, long cedula, String nombre_destinatario){
         TransaccionRepositorio2 transaccionRepositorio2 = new TransaccionRepositorio2();
         return transaccionRepositorio2.confirmarDatos(DestinoTransferencia, cedula, nombre_destinatario);
