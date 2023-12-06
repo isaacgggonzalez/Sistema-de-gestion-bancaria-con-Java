@@ -2,6 +2,7 @@
 package controlador;
 
 import config.ConexionBD;
+import modelo.exceptions.SaldoInsuficienteException;
 import primer_final.Deposito;
 import primer_final.PagoDeTarjeta;
 import primer_final.PagoServicio;
@@ -57,19 +58,32 @@ public class ProcesosControlador {
         transaccionRepositorio2.insertMovimiento(idCuenta, idTransaccion);
     }
 
-    public static void realizarPagoServicio(PagoServicio pagoServicio)  {
-        try{
-            TransaccionRepositorio2 transaccionRepositorio2 = new TransaccionRepositorio2();
-            if (pagoServicio.getTarjetaAbonante() != null){
-                TransaccionRepositorio.verificarLimite(ConexionBD.conectar(), pagoServicio.getTarjetaAbonante().getNro_tarjeta(), pagoServicio.getMontoTransaccion());
-                TransaccionRepositorio.aumentarDeuda(ConexionBD.conectar(), pagoServicio.getTarjetaAbonante().getNro_tarjeta(), pagoServicio.getMontoTransaccion());
-
-            }else{
-                TransaccionRepositorio.verificarSaldoSuficiente(ConexionBD.conectar(),pagoServicio.getCuenta().getNumeroCuenta(), pagoServicio.getMontoTransaccion());
-                TransaccionRepositorio.debitarCuenta(ConexionBD.conectar(), pagoServicio.getCuenta().getNumeroCuenta(), pagoServicio.getMontoTransaccion());
-            }
-        }catch (SQLException ex){
-
+    public static void verificarLimite(Long nroTarjeta, double monto) throws SaldoInsuficienteException{
+        TransaccionRepositorio2 transaccionRepositorio2 = new TransaccionRepositorio2();
+        if(!transaccionRepositorio2.verificarLimite(nroTarjeta, monto)){
+            throw new SaldoInsuficienteException("El límite de la tarjeta no es suficiente para la transaccion");
         }
+
+    }
+
+    public static void verificarSaldoSuficiente(Long numeroCuenta, double monto) throws SaldoInsuficienteException{
+        TransaccionRepositorio2 transaccionRepositorio2 = new TransaccionRepositorio2();
+        if(!transaccionRepositorio2.verificarSaldoSuficiente(numeroCuenta, monto)){
+            throw new SaldoInsuficienteException("No posee saldo suficiente para esta operación");
+        }
+
+    }
+
+    public static void realizarPagoServicio(PagoServicio pagoServicio) {
+        TransaccionRepositorio2 transaccionRepositorio2 = new TransaccionRepositorio2();
+        Long idTransaccion = transaccionRepositorio2.insertTransaccion(pagoServicio);
+        if (pagoServicio.getTarjetaAbonante() != null) {
+            transaccionRepositorio2.aumentarDeuda(pagoServicio.getTarjetaAbonante().getNro_tarjeta(), pagoServicio.getMontoTransaccion());
+        } else {
+            transaccionRepositorio2.actualizarSaldoCuenta(pagoServicio.getCuenta().getNumeroCuenta(), -pagoServicio.getMontoTransaccion());
+        }
+        Long idServicio = transaccionRepositorio2.recuperarIdServicio(pagoServicio.getServicio().get_NombreServicio());
+        transaccionRepositorio2.insertPagoServicio(idTransaccion, idServicio);
+        transaccionRepositorio2.insertMovimiento(pagoServicio.getCuenta().getNumeroCuenta(), idTransaccion);
     }
 }

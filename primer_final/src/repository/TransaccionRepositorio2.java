@@ -20,6 +20,8 @@ public class TransaccionRepositorio2 {
         private static final String ACTUALIZAR_SALDO = "UPDATE cuenta SET saldo = saldo + ? WHERE id_cuenta = ?";
 
         private static final String PAGAR_TARJETA = "UPDATE tarjeta_credito SET deuda = deuda-?  WHERE id_tarjeta_credito = ?";
+
+        private static final String AUMENTAR_DEUDA_TARJETA = "UPDATE tarjeta_credito SET deuda = deuda-?  WHERE id_tarjeta_credito = ?";
         private static final String RECUPERAR_ID_CUENTA = "SELECT id_cuenta FROM cuenta WHERE numero_cuenta = ?";
 
         private static final String INSERTAR_TRANSFERENCIA = "INSERT INTO "
@@ -29,10 +31,16 @@ public class TransaccionRepositorio2 {
 
         private static final String INSERTAR_DEPOSITO = "INSERT INTO deposito(id_transaccion, cajero) VALUES (?,?)";
 
+        private static final String INSERTAR_PAGO_SERVICIO = "INSERT INTO pago_servicio(id_transaccion, id_servicio) VALUES(?, ?)";
+
+        private static final String RECUPERAR_ID_SERVICIO = "SELECT id_servicio FROM servicio WHERE nombre = ?";
         private static final String INSERTAR_PAGO_TARJETA = "INSERT INTO pago_tarjeta(id_tarjeta_credito, id_transaccion) VALUES(?, ?)";
 
         private static final String RECUPERAR_ID_TARJETA = "SELECT id_tarjeta_credito FROM tarjeta_credito WHERE nro_tarjeta = ?";
 
+        private static final String RECUPERAR_LINEA_DEUDA = "SELECT linea, deuda FROM tarjeta_credito WHERE nro_tarjeta = ?";
+
+        private static final String RECUPERAR_SALDO_CUENTA = "SELECT saldo FROM cuenta WHERE numero_cuenta = ?";
 
         public TransaccionRepositorio2(){}
        
@@ -118,6 +126,26 @@ public class TransaccionRepositorio2 {
         }
     }
 
+    public Long insertPagoServicio(Long idTransaccion, Long idServicio){
+        Connection connection = ConexionBD.conectar();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(INSERTAR_PAGO_SERVICIO, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setLong(1, idServicio);
+            preparedStatement.setLong(2, idTransaccion);
+            preparedStatement.executeUpdate();
+            ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
+            System.out.println(generatedKeys.next());
+            Long idGenerado = generatedKeys.getLong(1);
+            System.out.println("Pago Servicio insertada con id: " + idGenerado);
+            ConexionBD.cerrarConexion(connection);
+            return idGenerado;
+        } catch (SQLException ex) {
+            Logger.getLogger(TransaccionRepositorio2.class.getName()).log(Level.SEVERE, null, ex);
+            ConexionBD.cerrarConexion(connection);
+            throw new RuntimeException("Error al intentar insertar pago servicio");
+        }
+    }
+
     public Long insertPagoTarjeta(Long idTransaccion, Long idTarjetaCredito){
         Connection connection = ConexionBD.conectar();
         try {
@@ -159,6 +187,28 @@ public class TransaccionRepositorio2 {
                throw new RuntimeException("Error al intentar recuperar id_cuenta");
            }
        }
+
+    public Long recuperarIdServicio(String servicio){
+        Connection connection = ConexionBD.conectar();
+        try {
+            PreparedStatement statement = connection.prepareStatement(RECUPERAR_ID_SERVICIO);
+            statement.setString(1, servicio);
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if(resultSet.next()){
+                    ConexionBD.cerrarConexion(connection);
+                    return resultSet.getLong("id_servicio");
+                }else{
+                    ConexionBD.cerrarConexion(connection);
+                    throw new RuntimeException("Servicio no encontrado con ese nombre: "+servicio);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(TransaccionRepositorio2.class.getName()).log(Level.SEVERE, null, ex);
+            ConexionBD.cerrarConexion(connection);
+            throw new RuntimeException("Error al intentar recupeprar servicio con nombre "+ servicio);
+        }
+    }
     public Long recuperarIdTarjeta(Long numeroTarjetaCredito){
         Connection connection = ConexionBD.conectar();
         try {
@@ -242,20 +292,24 @@ public class TransaccionRepositorio2 {
             }
         }
         
-        public static boolean verificarSaldoSuficiente(Connection conexion, long cuentaOrigen, double monto) throws SQLException {
+        public boolean verificarSaldoSuficiente(long cuenta, double monto) {
+            Connection connection = ConexionBD.conectar();
             // Implementa la lógica para verificar si la cuenta de origen tiene saldo suficiente
-            String consultaSaldo = "SELECT saldo FROM cuenta WHERE numero_cuenta = ?";
-            try (PreparedStatement statement = conexion.prepareStatement(consultaSaldo)) {
-                statement.setLong(1, cuentaOrigen);
+           try{
+                PreparedStatement statement = connection.prepareStatement(RECUPERAR_SALDO_CUENTA);
+                statement.setLong(1, cuenta);
 
-                try (ResultSet resultSet = statement.executeQuery()) {
-                    if (resultSet.next()) {
-                        double saldo = resultSet.getDouble("saldo");
-                        return (saldo >= monto && monto>0);
-                    }
+                ResultSet resultSet = statement.executeQuery();
+                if (resultSet.next()) {
+                    double saldo = resultSet.getDouble("saldo");
+                    return (saldo >= monto && monto>0);
                 }
+                return false;
+            }catch (SQLException ex){
+               Logger.getLogger(TransaccionRepositorio2.class.getName()).log(Level.SEVERE, null, ex);
+               ConexionBD.cerrarConexion(connection);
+               throw new RuntimeException("Error al intentar recuperar el saldo de la cuenta "+ cuenta);
             }
-            return false;
         }
 
         public void pagarTarjetaCredito(Double monto, Long idTarjetaCredito){
@@ -272,6 +326,44 @@ public class TransaccionRepositorio2 {
                 throw new RuntimeException("Error al intentar actualizar la tarjeta_credito");
             }
         }
+
+    public void aumentarDeuda(long numero_tarjeta, double monto) {
+        Connection connection = ConexionBD.conectar();
+        try{
+            PreparedStatement statement = connection.prepareStatement(AUMENTAR_DEUDA_TARJETA);
+            statement.setDouble(1, monto);
+            statement.setLong(2, numero_tarjeta);
+            statement.executeUpdate();
+
+        }catch (SQLException ex){
+            Logger.getLogger(TransaccionRepositorio2.class.getName()).log(Level.SEVERE, null, ex);
+            ConexionBD.cerrarConexion(connection);
+            throw new RuntimeException("Error al intentar aumentar la deuda de la tarjeta_credito "+ numero_tarjeta);
+        }
+    }
+
+    public boolean verificarLimite(long numero_tarjeta, double monto){
+        // Implementa la lógica para verificar si el pago supera el limite de la tarjeta
+        Connection connection = ConexionBD.conectar();
+        try {
+            PreparedStatement statement = connection.prepareStatement(RECUPERAR_LINEA_DEUDA);
+            statement.setLong(1, numero_tarjeta);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                double linea = resultSet.getDouble("linea");
+                double deuda = resultSet.getDouble("deuda");
+                return (linea >= deuda + monto && monto>0);
+            }
+            return false;
+        }
+        catch (SQLException ex) {
+            Logger.getLogger(TransaccionRepositorio2.class.getName()).log(Level.SEVERE, null, ex);
+            ConexionBD.cerrarConexion(connection);
+            throw new RuntimeException("Error al intentar recuperar la linea y deduda de la tarjeta de credito");
+        }
+    }
+
+
         
         public static DefaultTableModel obtenerTransaccionesPorCuenta(long idCuenta) {
     DefaultTableModel modelo = new DefaultTableModel();

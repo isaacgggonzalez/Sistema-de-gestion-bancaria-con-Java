@@ -36,6 +36,7 @@ import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
 
 import controlador.ProcesosControlador;
+import modelo.exceptions.SaldoInsuficienteException;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 
@@ -47,7 +48,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import repository.TransaccionRepositorio;
-import primer_final.PinTransaccionInterfaz;
+
 import javax.swing.Timer;
 import static repository.TransaccionRepositorio.obtenerTarjetas;
 import static repository.TransaccionRepositorio.obtenerTodosLosServicios;
@@ -136,8 +137,8 @@ public class BaseInterfaz extends javax.swing.JFrame {
         saldoDeposito = new JTextField();
         label19 = new Label();
         menu_pagarTarjeta = new Panel();
-        boton_cancelarTransaccion6 = new Button();
-        boton_confirmarTransaccion6 = new Button();
+        boton_cancelarPagoTarjeta = new Button();
+        boton_confirmarPagoTarjeta = new Button();
         label34 = new Label();
         cuentaDestino35 = new JTextField();
         label37 = new Label();
@@ -146,8 +147,8 @@ public class BaseInterfaz extends javax.swing.JFrame {
         cuentaDestino37 = new JTextField();
         label39 = new Label();
         cuentaDestino38 = new JTextField();
-        label40 = new Label();
-        label41 = new Label();
+        labelDeudaTotal = new Label();
+        labelDeudaLimite = new Label();
         cuentaDestino39 = new JTextField();
         list1 = new List();
         jComboBox1 = new JComboBox<>();
@@ -752,28 +753,28 @@ public class BaseInterfaz extends javax.swing.JFrame {
         menu_pagarTarjeta.setFont(new Font("Arial", 0, 14)); // NOI18N
         menu_pagarTarjeta.setMinimumSize(new Dimension(643, 367));
 
-        boton_cancelarTransaccion6.setActionCommand("cancelarTransaccion");
-        boton_cancelarTransaccion6.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-        boton_cancelarTransaccion6.setFont(new Font("Arial", 0, 18)); // NOI18N
-        boton_cancelarTransaccion6.setForeground(new Color(51, 51, 51));
-        boton_cancelarTransaccion6.setLabel("Cancelar Transaccion");
-        boton_cancelarTransaccion6.setMaximumSize(new Dimension(190, 30));
-        boton_cancelarTransaccion6.setMinimumSize(new Dimension(190, 30));
-        boton_cancelarTransaccion6.addActionListener(new ActionListener() {
+        boton_cancelarPagoTarjeta.setActionCommand("cancelarTransaccion");
+        boton_cancelarPagoTarjeta.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        boton_cancelarPagoTarjeta.setFont(new Font("Arial", 0, 18)); // NOI18N
+        boton_cancelarPagoTarjeta.setForeground(new Color(51, 51, 51));
+        boton_cancelarPagoTarjeta.setLabel("Cancelar Transaccion");
+        boton_cancelarPagoTarjeta.setMaximumSize(new Dimension(190, 30));
+        boton_cancelarPagoTarjeta.setMinimumSize(new Dimension(190, 30));
+        boton_cancelarPagoTarjeta.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 boton_cancelarTransaccion6ActionPerformed(evt);
             }
         });
 
-        boton_confirmarTransaccion6.setActionCommand("confirmarTransaccion");
-        boton_confirmarTransaccion6.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-        boton_confirmarTransaccion6.setFont(new Font("Arial", 0, 18)); // NOI18N
-        boton_confirmarTransaccion6.setForeground(new Color(51, 51, 51));
-        boton_confirmarTransaccion6.setLabel("Confirmar Transaccion");
-        boton_confirmarTransaccion6.setMinimumSize(new Dimension(190, 30));
-        boton_confirmarTransaccion6.addActionListener(new ActionListener() {
+        boton_confirmarPagoTarjeta.setActionCommand("confirmarTransaccion");
+        boton_confirmarPagoTarjeta.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        boton_confirmarPagoTarjeta.setFont(new Font("Arial", 0, 18)); // NOI18N
+        boton_confirmarPagoTarjeta.setForeground(new Color(51, 51, 51));
+        boton_confirmarPagoTarjeta.setLabel("Confirmar Transaccion");
+        boton_confirmarPagoTarjeta.setMinimumSize(new Dimension(190, 30));
+        boton_confirmarPagoTarjeta.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                boton_confirmarTransaccion6ActionPerformed(evt);
+                boton_confirmarPagoTarjetaActionPerformed(evt);
             }
         });
 
@@ -831,15 +832,15 @@ public class BaseInterfaz extends javax.swing.JFrame {
             }
         });
 
-        label40.setAlignment(Label.CENTER);
-        label40.setFont(new Font("Arial", 1, 14)); // NOI18N
-        label40.setForeground(new Color(0, 1, 0));
-        label40.setText("Deuda Total");
+        labelDeudaTotal.setAlignment(Label.CENTER);
+        labelDeudaTotal.setFont(new Font("Arial", 1, 14)); // NOI18N
+        labelDeudaTotal.setForeground(new Color(0, 1, 0));
+        labelDeudaTotal.setText("Deuda Total");
 
-        label41.setAlignment(Label.CENTER);
-        label41.setFont(new Font("Arial", 1, 14)); // NOI18N
-        label41.setForeground(new Color(0, 1, 0));
-        label41.setText("Deuda Limite");
+        labelDeudaLimite.setAlignment(Label.CENTER);
+        labelDeudaLimite.setFont(new Font("Arial", 1, 14)); // NOI18N
+        labelDeudaLimite.setForeground(new Color(0, 1, 0));
+        labelDeudaLimite.setText("Deuda Limite");
 
         cuentaDestino39.setBackground(new Color(255, 255, 255));
         cuentaDestino39.setForeground(new Color(0, 0, 0));
@@ -862,9 +863,9 @@ public class BaseInterfaz extends javax.swing.JFrame {
         menu_pagarTarjetaLayout.setHorizontalGroup(menu_pagarTarjetaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(GroupLayout.Alignment.TRAILING, menu_pagarTarjetaLayout.createSequentialGroup()
                 .addContainerGap(81, Short.MAX_VALUE)
-                .addComponent(boton_cancelarTransaccion6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addComponent(boton_cancelarPagoTarjeta, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
-                .addComponent(boton_confirmarTransaccion6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addComponent(boton_confirmarPagoTarjeta, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addGap(101, 101, 101))
             .addGroup(GroupLayout.Alignment.TRAILING, menu_pagarTarjetaLayout.createSequentialGroup()
                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -884,12 +885,12 @@ public class BaseInterfaz extends javax.swing.JFrame {
                         .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(menu_pagarTarjetaLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                             .addComponent(cuentaDestino39)
-                            .addComponent(label41, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(labelDeudaLimite, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(menu_pagarTarjetaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addGroup(menu_pagarTarjetaLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                         .addComponent(cuentaDestino38)
-                        .addComponent(label40, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE))
+                        .addComponent(labelDeudaTotal, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE))
                     .addGroup(menu_pagarTarjetaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(GroupLayout.Alignment.TRAILING, menu_pagarTarjetaLayout.createSequentialGroup()
                             .addGroup(menu_pagarTarjetaLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
@@ -918,7 +919,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cuentaDestino37, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(label40, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(labelDeudaTotal, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cuentaDestino38, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE))
                     .addGroup(menu_pagarTarjetaLayout.createSequentialGroup()
@@ -926,7 +927,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jComboBox1, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(label41, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(labelDeudaLimite, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cuentaDestino39, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)))
                 .addGap(6, 6, 6)
@@ -935,8 +936,8 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 .addComponent(cuentaDestino35, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(menu_pagarTarjetaLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                    .addComponent(boton_confirmarTransaccion6, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(boton_cancelarTransaccion6, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(boton_confirmarPagoTarjeta, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(boton_cancelarPagoTarjeta, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18))
         );
 
@@ -1703,7 +1704,6 @@ public class BaseInterfaz extends javax.swing.JFrame {
             // Imprimir el saldo actualizado (opcional)
             saldoDeposito.setText(Double.toString(cuenta.getSaldoCuenta()));
             dispose();
-        // Sumar el depósito al saldo de la cuenta
         }
         else {
               JOptionPane.showMessageDialog(null, "Monto invalido", "Error", JOptionPane.ERROR_MESSAGE);
@@ -1743,8 +1743,8 @@ public class BaseInterfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cuentaDestino35ActionPerformed
 
-    private void boton_confirmarTransaccion6ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_confirmarTransaccion6ActionPerformed
-        // TODO add your handling code here:
+    private void boton_confirmarPagoTarjetaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_confirmarTransaccion6ActionPerformed
+        menu_pagarTarjeta
     }//GEN-LAST:event_boton_confirmarTransaccion6ActionPerformed
 
     private void boton_cancelarTransaccion6ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_cancelarTransaccion6ActionPerformed
@@ -1776,7 +1776,6 @@ public class BaseInterfaz extends javax.swing.JFrame {
         long tarjeta_usada;
         boolean monto_valido = false;
         try{
-            Connection connection = ConexionBD.conectar();
             if (monto_ingresado.getText().equals("")){          
                 monto = Double.parseDouble(monto_definido.getText());
                 monto_valido = true; 
@@ -1805,9 +1804,12 @@ public class BaseInterfaz extends javax.swing.JFrame {
                     tarjetaDeCredito.setCliente_asociado(cliente);
                     tarjetaDeCredito.setNro_tarjeta(tarjeta_usada);
                     pagoServicio.setTarjetaAbonante(tarjetaDeCredito);
+                    ProcesosControlador.verificarLimite(tarjeta_usada, monto);
+
                 }
                 else{
                     pagoServicio.setCuenta(cuenta);
+                    ProcesosControlador.verificarSaldoSuficiente(cuenta.getNumeroCuenta(), monto);
                 }
                 PinTransaccionInterfaz ventanaPIN = new PinTransaccionInterfaz(pagoServicio, cliente, cuenta);
                 ventanaPIN.setVisible(true);
@@ -1815,13 +1817,9 @@ public class BaseInterfaz extends javax.swing.JFrame {
             }else
                 JOptionPane.showMessageDialog(null, "Monto invalido, verifiquelo e intente de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        catch (Error e){
-            JOptionPane.showMessageDialog(null, "Limite de deuda excedido, pague su deuda y vuelva a intentar", "Error", JOptionPane.ERROR_MESSAGE);
-        }//catch (SaldoInsuficienteException e){
-//            JOptionPane.showMessageDialog(null, "Saldo insuficiente, pago no realizado", "Error", JOptionPane.ERROR_MESSAGE);
-//        }catch (Error e){
-//
-//        }
+        catch (SaldoInsuficienteException e){
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_confirmar_pago_servActionPerformed
 
     private void boton_cancelarTransaccion7ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_cancelarTransaccion7ActionPerformed
@@ -1909,12 +1907,12 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private Button boton_acercaSistema;
     private Button boton_cancelarTransaccion1;
     private Button boton_cancelarTransaccion2;
-    private Button boton_cancelarTransaccion6;
+    private Button boton_cancelarPagoTarjeta;
     private Button boton_cancelarTransaccion7;
     private Button boton_cerrarSesion;
     private Button boton_confirmarDeposito;
     private Button boton_confirmarTransaccion1;
-    private Button boton_confirmarTransaccion6;
+    private Button boton_confirmarPagoTarjeta;
     private Button boton_consultarSaldo;
     private Button boton_deposito;
     private Button boton_pagarServicio;
@@ -1953,8 +1951,8 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private Label label37;
     private Label label38;
     private Label label39;
-    private Label label40;
-    private Label label41;
+    private Label labelDeudaTotal;
+    private Label labelDeudaLimite;
     private Label label42;
     private Label label43;
     private Label label44;
