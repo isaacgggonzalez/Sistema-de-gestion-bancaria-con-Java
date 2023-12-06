@@ -216,6 +216,7 @@
                     <Property name="label" type="java.lang.String" value="Salir"/>
                   </Properties>
                   <Events>
+                    <EventHandler event="componentHidden" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="boton_salirComponentHidden"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boton_salirActionPerformed"/>
                   </Events>
                 </Component>
