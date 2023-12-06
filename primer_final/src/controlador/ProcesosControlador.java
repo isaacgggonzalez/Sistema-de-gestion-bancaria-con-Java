@@ -92,7 +92,7 @@ public class ProcesosControlador {
         Long idServicio = transaccionRepositorio2.recuperarIdServicio(pagoServicio.getServicio().get_NombreServicio());
         transaccionRepositorio2.insertPagoServicio(idTransaccion, idServicio);
         Long idCuenta = transaccionRepositorio2.recuperarIdCuenta(pagoServicio.getCuenta().getNumeroCuenta());
-        transaccionRepositorio2.actualizarSaldoCuenta(idCuenta, pagoServicio.getMontoTransaccion());
+        transaccionRepositorio2.actualizarSaldoCuenta(idCuenta, -pagoServicio.getMontoTransaccion());
         transaccionRepositorio2.insertMovimiento(idCuenta, idTransaccion);
     }
 }
