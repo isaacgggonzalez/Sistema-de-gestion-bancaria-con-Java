@@ -58,7 +58,7 @@ CREATE TABLE servicio(
 
 CREATE TABLE pago_servicio(
     id_pago_servicio BIGSERIAL PRIMARY KEY,
-    id_servicio BIGINT UNIQUE NOT NULL,
+    id_servicio BIGINT NOT NULL,
     id_transaccion BIGINT UNIQUE NOT NULL,
     FOREIGN KEY(id_transaccion) REFERENCES transaccion(id_transaccion),
     FOREIGN KEY(id_servicio) REFERENCES servicio(id_servicio)
