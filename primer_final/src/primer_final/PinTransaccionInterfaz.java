@@ -287,6 +287,8 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
             ComprobanteInterfaz comprobante = new ComprobanteInterfaz(cliente, cuenta, transaccion);
             comprobante.setVisible(true);
             dispose();
+        }else{
+            texto_pinIncorrecto.setText("PIN INCORRECTO!");
         }
    
         
