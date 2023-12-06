@@ -38,7 +38,7 @@ public class Transferencia extends Transaccion {
 
     @Override
     public String mensajeConfirmacion(){
-        return "La transferencia a la cuenta"+ this.destinoTransferencia+" ha sido exitosa";
+        return "La transferencia a la cuenta "+ this.destinoTransferencia+" ha sido exitosa";
     }
 
    

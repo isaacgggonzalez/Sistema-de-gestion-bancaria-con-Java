@@ -49,6 +49,6 @@ public class Deposito extends Transaccion {
     }
 
     @Override
-    public String mensajeConfirmacion(){return "El deposito a la cuenta con monto " + getMontoTransaccion()+
-            "Gs "+ cuentaDestino.getNumeroCuenta() + " ha sido exitosa";}
+    public String mensajeConfirmacion(){return "El deposito a la cuenta "+cuentaDestino.getNumeroCuenta()+" con monto "+getMontoTransaccion()+
+            " Gs ha sido exitosa";}
 }
