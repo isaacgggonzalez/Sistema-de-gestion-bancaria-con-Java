@@ -807,7 +807,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
         numeroTarjeta.setBackground(new Color(255, 255, 255));
         numeroTarjeta.setForeground(new Color(0, 0, 0));
-        numeroTarjeta.setEnabled(false);
+        numeroTarjeta.setEnabled(true);
         numeroTarjeta.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 numeroTarjetaActionPerformed(evt);
