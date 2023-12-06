@@ -1796,32 +1796,32 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 }
             }
             if(monto_valido){
+                PagoServicio pagoServicio = new PagoServicio(null, cuenta, null, monto);
                 if(metodo_de_pago.getSelectedIndex() != 0){
                     String numberString = (String)metodo_de_pago.getSelectedItem();
                     numberString = numberString.substring(4);
                     tarjeta_usada = Long.parseLong(numberString);
-                    if(TransaccionRepositorio.verificarLimite(connection, tarjeta_usada, monto)){
-                        TransaccionRepositorio.aumentarDeuda(connection, tarjeta_usada, monto);
-                    }
-                    else{
-                        JOptionPane.showMessageDialog(null, "Limite de deuda excedido, pague su deuda y vuelva a intentar", "Error", JOptionPane.ERROR_MESSAGE);
-                    }
+                    TarjetaDeCredito tarjetaDeCredito = new TarjetaDeCredito();
+                    tarjetaDeCredito.setCliente_asociado(cliente);
+                    tarjetaDeCredito.setNro_tarjeta(tarjeta_usada);
+                    pagoServicio.setTarjetaAbonante(tarjetaDeCredito);
                 }
                 else{
-                    if(TransaccionRepositorio.verificarSaldoSuficiente(connection,cuenta.getNumeroCuenta(), monto)){
-                        TransaccionRepositorio.debitarCuenta(connection, cuenta.getNumeroCuenta(), monto);
-                        cuenta.setSaldoCuenta(cuenta.getSaldoCuenta() - monto);
-                        saldo_pago_serv.setText(cuenta.getSaldoCuenta() + "");
-                    }
-                    else{
-                        JOptionPane.showMessageDialog(null, "Saldo insuficiente, pago no realizado", "Error", JOptionPane.ERROR_MESSAGE);
-                    }
+                    pagoServicio.setCuenta(cuenta);
                 }
+                PinTransaccionInterfaz ventanaPIN = new PinTransaccionInterfaz(pagoServicio, cliente, cuenta);
+                ventanaPIN.setVisible(true);
+                this.dispose();
             }else
                 JOptionPane.showMessageDialog(null, "Monto invalido, verifiquelo e intente de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, "Error de conexion, intentelo mas tarde", "Error", JOptionPane.ERROR_MESSAGE);
         }
+        catch (Error e){
+            JOptionPane.showMessageDialog(null, "Limite de deuda excedido, pague su deuda y vuelva a intentar", "Error", JOptionPane.ERROR_MESSAGE);
+        }//catch (Error e){
+//            JOptionPane.showMessageDialog(null, "Saldo insuficiente, pago no realizado", "Error", JOptionPane.ERROR_MESSAGE);
+//        }catch (Error e){
+//
+//        }
     }//GEN-LAST:event_confirmar_pago_servActionPerformed
 
     private void boton_cancelarTransaccion7ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_cancelarTransaccion7ActionPerformed

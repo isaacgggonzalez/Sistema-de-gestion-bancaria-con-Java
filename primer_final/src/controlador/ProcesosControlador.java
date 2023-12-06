@@ -1,11 +1,15 @@
 
 package controlador;
 
+import config.ConexionBD;
 import primer_final.Deposito;
 import primer_final.PagoDeTarjeta;
+import primer_final.PagoServicio;
 import repository.TransaccionRepositorio;
 import primer_final.Transferencia;
 import repository.TransaccionRepositorio2;
+
+import java.sql.SQLException;
 
 /**
  *
@@ -51,5 +55,21 @@ public class ProcesosControlador {
         transaccionRepositorio2.insertPagoTarjeta(idTransaccion,idTarjetaCredito);
         transaccionRepositorio2.pagarTarjetaCredito(pagoDeTarjeta.getMontoTransaccion(), idTarjetaCredito);
         transaccionRepositorio2.insertMovimiento(idCuenta, idTransaccion);
+    }
+
+    public static void realizarPagoServicio(PagoServicio pagoServicio)  {
+        try{
+            TransaccionRepositorio2 transaccionRepositorio2 = new TransaccionRepositorio2();
+            if (pagoServicio.getTarjetaAbonante() != null){
+                TransaccionRepositorio.verificarLimite(ConexionBD.conectar(), pagoServicio.getTarjetaAbonante().getNro_tarjeta(), pagoServicio.getMontoTransaccion());
+                TransaccionRepositorio.aumentarDeuda(ConexionBD.conectar(), pagoServicio.getTarjetaAbonante().getNro_tarjeta(), pagoServicio.getMontoTransaccion());
+
+            }else{
+                TransaccionRepositorio.verificarSaldoSuficiente(ConexionBD.conectar(),pagoServicio.getCuenta().getNumeroCuenta(), pagoServicio.getMontoTransaccion());
+                TransaccionRepositorio.debitarCuenta(ConexionBD.conectar(), pagoServicio.getCuenta().getNumeroCuenta(), pagoServicio.getMontoTransaccion());
+            }
+        }catch (SQLException ex){
+
+        }
     }
 }
