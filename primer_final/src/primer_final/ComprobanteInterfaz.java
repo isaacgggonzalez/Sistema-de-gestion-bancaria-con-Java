@@ -243,7 +243,7 @@ public class ComprobanteInterfaz extends javax.swing.JFrame {
         SimpleDateFormat sdf = new SimpleDateFormat(formato);
         fecha_texto.setText(sdf.format(transaccion.get_fecha_transaccion()));
         transaccion_texto.setText(transaccion.getTipoTransaccion());
-        cliente_texto.setText(cliente.getNombreCliente()+" "+ cliente.getApellidoCliente()+cuenta.getNumeroCuenta());
+        cliente_texto.setText(cliente.getNombreCliente()+" "+ cliente.getApellidoCliente());
         descripcion_texto.setText(transaccion.mensajeConfirmacion());
         monto_texto.setText(String.valueOf(transaccion.getMontoTransaccion()));
         pack();
