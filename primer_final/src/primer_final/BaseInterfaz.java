@@ -1942,7 +1942,29 @@ public class BaseInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_metodo_de_pagoActionPerformed
 
     private void numeroTarjetaKeyTyped(KeyEvent evt) {//GEN-FIRST:event_numeroTarjetaKeyTyped
-        // TODO add your handling code here:
+        // TODO add your handling code here: 
+        Long numeroTarjetaL;
+        TarjetaDeCredito tarjetaDeCredito;
+        try{
+            numeroTarjetaL = Long.parseLong(numeroTarjeta.getText());
+        }catch(NumberFormatException e){
+            numeroTarjetaL = (long)0;
+        }
+        System.out.println("imprimi: "+numeroTarjetaL);
+        try{
+            tarjetaDeCredito = ProcesosControlador.obtenerTarjeta(numeroTarjetaL);
+        }catch(RuntimeException e){
+           tarjetaDeCredito = null;
+        }
+        
+        if (tarjetaDeCredito!=null){
+            deudalimiteTarjeta.setText(String.valueOf(tarjetaDeCredito.getLinea_tarjeta())+ " Gs");
+            deudatotalTarjeta.setText(String.valueOf(tarjetaDeCredito.getDeuda_tarjeta())+ " Gs");
+        }
+        else{
+            deudalimiteTarjeta.setText("");
+            deudatotalTarjeta.setText("");
+        }
         
     }//GEN-LAST:event_numeroTarjetaKeyTyped
 
