@@ -76,7 +76,7 @@ CREATE TABLE tarjeta_credito(
 
 CREATE TABLE pago_tarjeta(
     id_pago_tarjeta BIGSERIAL PRIMARY KEY,
-    id_tarjeta_credito BIGINT UNIQUE NOT NULL,
+    id_tarjeta_credito BIGINT NOT NULL,
     id_transaccion BIGINT NOT NULL,
     FOREIGN KEY(id_transaccion) REFERENCES transaccion(id_transaccion),
     FOREIGN KEY(id_tarjeta_credito) REFERENCES tarjeta_credito(id_tarjeta_credito)
