@@ -837,7 +837,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         boton_confirmarPagoTarjeta.setMinimumSize(new Dimension(190, 30));
         boton_confirmarPagoTarjeta.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                boton_confirmarTransaccion6ActionPerformed(evt);
+                boton_confirmarPagoTarjetaActionPerformed(evt);
             }
         });
 
@@ -1954,8 +1954,6 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private void servicioTarjetaActionPerformed(ActionEvent evt) {
     }
 
-    private void boton_confirmarTransaccion6ActionPerformed(ActionEvent evt) {
-    }
 
     private void cuenta_origen_pago_servActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuenta_origen_pago_servActionPerformed
         // TODO add your handling code here:
@@ -1998,9 +1996,9 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 PagoServicio pagoServicio = new PagoServicio(new Date(System.currentTimeMillis()), cuenta, null, monto);
                 Servicio servicio = new Servicio(0L, (String) servicio_a_pagar.getSelectedItem(), monto);
                 pagoServicio.setServicio(servicio);
-                if(metodo_de_pago.getSelectedIndex() != 0){
-                    String numberString = (String)metodo_de_pago.getSelectedItem();
-                    numberString = numberString.substring(4);
+                String metodoPago = (String)metodo_de_pago.getSelectedItem();
+                if(metodoPago!=null && metodoPago.contains("TC")){
+                    numberString = metodoPago.substring(4);
                     tarjeta_usada = Long.parseLong(numberString);
                     TarjetaDeCredito tarjetaDeCredito = new TarjetaDeCredito();
                     tarjetaDeCredito.setCliente_asociado(cliente);
