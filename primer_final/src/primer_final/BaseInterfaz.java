@@ -1024,11 +1024,6 @@ public class BaseInterfaz extends javax.swing.JFrame {
         label56.setForeground(new Color(0, 1, 0));
         label56.setText("Lenguajes de Programación 2");
 
-        button3.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        button3.setFont(new Font("Arial", 1, 14)); // NOI18N
-        button3.setForeground(new Color(0, 1, 0));
-        button3.setLabel("Ver Documentación");
-        button3.addActionListener(new ActionListener() {
         botonDocumentacion.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         botonDocumentacion.setFont(new Font("Arial", 1, 14)); // NOI18N
         botonDocumentacion.setForeground(new Color(0, 1, 0));
@@ -1955,20 +1950,20 @@ public class BaseInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_cuentaDestino33ActionPerformed
 
     private void confirmar_pago_servActionPerformed(ActionEvent evt) {//GEN-FIRST:event_confirmar_pago_servActionPerformed
-        double monto;        
+        double monto;
         long tarjeta_usada;
         boolean monto_valido = false;
         try{
-            if (monto_ingresado.getText().equals("")){          
+            if (monto_ingresado.getText().equals("")){
                 monto = Double.parseDouble(monto_definido.getText());
-                monto_valido = true; 
+                monto_valido = true;
             }
             else{
                 try{
-                monto = Double.parseDouble(monto_ingresado.getText());
-                if (monto > 0){
-                    monto_valido = true;
-                }
+                    monto = Double.parseDouble(monto_ingresado.getText());
+                    if (monto > 0){
+                        monto_valido = true;
+                    }
                 }catch(NumberFormatException errorDeMonto){
                     monto = 0;
                     monto_valido = false;
@@ -1983,12 +1978,12 @@ public class BaseInterfaz extends javax.swing.JFrame {
                     String numberString = (String)metodo_de_pago.getSelectedItem();
                     numberString = numberString.substring(4);
                     tarjeta_usada = Long.parseLong(numberString);
-                    if(TransaccionRepositorio.verificarLimite(connection, tarjeta_usada, monto)){
-                        TransaccionRepositorio.aumentarDeuda(connection, tarjeta_usada, monto);
-                    }
-                    else{
-                        JOptionPane.showMessageDialog(null, "Limite de deuda excedido, pague su deuda y vuelva a intentar", "Error", JOptionPane.ERROR_MESSAGE);
-                    }
+                    TarjetaDeCredito tarjetaDeCredito = new TarjetaDeCredito();
+                    tarjetaDeCredito.setCliente_asociado(cliente);
+                    tarjetaDeCredito.setNro_tarjeta(tarjeta_usada);
+                    pagoServicio.setTarjetaAbonante(tarjetaDeCredito);
+                    ProcesosControlador.verificarLimite(tarjeta_usada, monto);
+
                 }
                 else{
                     pagoServicio.setCuenta(cuenta);
