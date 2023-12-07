@@ -26,6 +26,8 @@ public class ComprobanteInterfaz extends javax.swing.JFrame {
         this.cuenta = cuenta;
         this.transaccion = transaccion;
         initComponents();
+        this.setLocationRelativeTo(this); //Ubicar la interfaz en el centro
+
     }
 
     /**
@@ -57,6 +59,7 @@ public class ComprobanteInterfaz extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jDesktopPane1.setBackground(new java.awt.Color(196, 196, 196));
         jDesktopPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
@@ -232,20 +235,21 @@ public class ComprobanteInterfaz extends javax.swing.JFrame {
                 .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        cliente_texto.setText(cliente.getNombreCliente()+"\n"+cuenta.getNumeroCuenta());
-        String formato = "dd/MM/yyyy";  // Puedes ajustar el formato según tus necesidades
-
-        // Crear un objeto SimpleDateFormat con el formato
-        SimpleDateFormat sdf = new SimpleDateFormat(formato);
-        fecha_texto.setText(sdf.format(transaccion.get_fecha_transaccion()));
-        transaccion_texto.setText(transaccion.getTipoTransaccion());
-        cliente_texto.setText(cliente.getNombreCliente());
-        descripcion_texto.setText(transaccion.mensajeConfirmacion());
-        monto_texto.setText(String.valueOf(transaccion.getMontoTransaccion()));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    cliente_texto.setText(cliente.getNombreCliente()+"\n"+cuenta.getNumeroCuenta());
+    String formato = "dd/MM/yyyy";  // Puedes ajustar el formato segÃºn tus necesidades
+
+    // Crear un objeto SimpleDateFormat con el formato
+    SimpleDateFormat sdf = new SimpleDateFormat(formato);
+    fecha_texto.setText(sdf.format(transaccion.get_fecha_transaccion()));
+    transaccion_texto.setText(transaccion.getTipoTransaccion());
+    cliente_texto.setText(cliente.getNombreCliente());
+    descripcion_texto.setText(transaccion.mensajeConfirmacion());
+    monto_texto.setText(String.valueOf(transaccion.getMontoTransaccion()));
+        
     private void boton_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_salirActionPerformed
         BaseInterfaz ventanaSecundaria = new BaseInterfaz(cliente,cuenta);
         ventanaSecundaria.setVisible(true);
