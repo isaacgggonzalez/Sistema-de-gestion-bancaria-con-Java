@@ -1998,7 +1998,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 pagoServicio.setServicio(servicio);
                 String metodoPago = (String)metodo_de_pago.getSelectedItem();
                 if(metodoPago!=null && metodoPago.contains("TC")){
-                    numberString = metodoPago.substring(4);
+                    String numberString = metodoPago.substring(4);
                     tarjeta_usada = Long.parseLong(numberString);
                     TarjetaDeCredito tarjetaDeCredito = new TarjetaDeCredito();
                     tarjetaDeCredito.setCliente_asociado(cliente);
