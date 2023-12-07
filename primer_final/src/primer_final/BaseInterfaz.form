@@ -1232,9 +1232,9 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="1" attributes="0">
                                           <EmptySpace pref="81" max="32767" attributes="0"/>
-                                          <Component id="boton_cancelarTransaccion6" min="-2" max="-2" attributes="0"/>
+                                          <Component id="boton_cancelarPagoTarjeta" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace pref="71" max="32767" attributes="0"/>
-                                          <Component id="boton_confirmarTransaccion6" min="-2" max="-2" attributes="0"/>
+                                          <Component id="boton_confirmarPagoTarjeta" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
@@ -1327,8 +1327,8 @@
                                           <Component id="montoTarjeta" min="-2" pref="38" max="-2" attributes="0"/>
                                           <EmptySpace pref="33" max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="boton_confirmarTransaccion6" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="boton_cancelarTransaccion6" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="boton_confirmarPagoTarjeta" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="boton_cancelarPagoTarjeta" alignment="0" max="32767" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                       </Group>
@@ -1336,7 +1336,7 @@
                                 </DimensionLayout>
                               </Layout>
                               <SubComponents>
-                                <Component class="java.awt.Button" name="boton_cancelarTransaccion6">
+                                <Component class="java.awt.Button" name="boton_cancelarPagoTarjeta">
                                   <Properties>
                                     <Property name="actionCommand" type="java.lang.String" value="cancelarTransaccion"/>
                                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -1357,10 +1357,10 @@
                                     </Property>
                                   </Properties>
                                   <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boton_cancelarTransaccion6ActionPerformed"/>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boton_cancelarPagoTarjetaActionPerformed"/>
                                   </Events>
                                 </Component>
-                                <Component class="java.awt.Button" name="boton_confirmarTransaccion6">
+                                <Component class="java.awt.Button" name="boton_confirmarPagoTarjeta">
                                   <Properties>
                                     <Property name="actionCommand" type="java.lang.String" value="confirmarTransaccion"/>
                                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
