@@ -34,10 +34,12 @@ import javax.swing.table.DefaultTableModel;
 
 import controlador.ProcesosControlador;
 import java.awt.Desktop;
+import java.awt.TextField;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.net.URI;
+import java.text.DecimalFormat;
 import modelo.Movimiento;
 import modelo.exceptions.SaldoInsuficienteException;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
@@ -78,6 +80,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
         // Inicia el Timer
         timer.start();
+        
     }
 
     private void mostrarIntegrantes() {
@@ -273,7 +276,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         botonesMenu.setEnabled(false);
 
         boton_pagarTarjeta.setActionCommand("pagarTarjeta");
-        boton_pagarTarjeta.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        boton_pagarTarjeta.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         boton_pagarTarjeta.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_pagarTarjeta.setLabel("Pagar Tarjeta");
         boton_pagarTarjeta.setMinimumSize(new Dimension(245, 35));
@@ -284,7 +287,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         });
 
         boton_deposito.setActionCommand("deposito");
-        boton_deposito.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        boton_deposito.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         boton_deposito.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_deposito.setLabel("Deposito");
         boton_deposito.setMinimumSize(new Dimension(245, 35));
@@ -295,7 +298,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         });
 
         boton_pagarServicio.setActionCommand("pagarServicio");
-        boton_pagarServicio.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        boton_pagarServicio.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         boton_pagarServicio.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_pagarServicio.setLabel("Pagar Servicio");
         boton_pagarServicio.setMinimumSize(new Dimension(245, 35));
@@ -306,7 +309,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         });
 
         boton_consultarSaldo.setActionCommand("consultarSaldo");
-        boton_consultarSaldo.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        boton_consultarSaldo.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         boton_consultarSaldo.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_consultarSaldo.setLabel("Consultar Saldo");
         boton_consultarSaldo.setMinimumSize(new Dimension(245, 35));
@@ -317,7 +320,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         });
 
         boton_acercaSistema.setActionCommand("acercaSistema");
-        boton_acercaSistema.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        boton_acercaSistema.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         boton_acercaSistema.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_acercaSistema.setLabel("Acerca del Sistema");
         boton_acercaSistema.setMinimumSize(new Dimension(245, 35));
@@ -328,7 +331,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         });
 
         boton_transferenciaCuenta.setActionCommand("transferenciaCuentas");
-        boton_transferenciaCuenta.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        boton_transferenciaCuenta.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         boton_transferenciaCuenta.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_transferenciaCuenta.setLabel("Transferencia entre Cuentas");
         boton_transferenciaCuenta.setMinimumSize(new Dimension(245, 35));
@@ -339,7 +342,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         });
 
         boton_cerrarSesion.setActionCommand("Cerrar Sesion");
-        boton_cerrarSesion.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        boton_cerrarSesion.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         boton_cerrarSesion.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_cerrarSesion.setLabel("Cerrar Sesion");
         boton_cerrarSesion.setMinimumSize(new Dimension(245, 35));
@@ -420,7 +423,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         menu_transferencia.setPreferredSize(new Dimension(643, 367));
 
         boton_cancelarTransaccion1.setActionCommand("cancelarTransaccion");
-        boton_cancelarTransaccion1.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        boton_cancelarTransaccion1.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         boton_cancelarTransaccion1.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_cancelarTransaccion1.setForeground(new Color(51, 51, 51));
         boton_cancelarTransaccion1.setLabel("Cancelar Transaccion");
@@ -433,7 +436,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         });
 
         boton_confirmarTransaccion1.setActionCommand("confirmarTransaccion");
-        boton_confirmarTransaccion1.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        boton_confirmarTransaccion1.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         boton_confirmarTransaccion1.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_confirmarTransaccion1.setForeground(new Color(51, 51, 51));
         boton_confirmarTransaccion1.setLabel("Confirmar Transaccion");
@@ -503,6 +506,8 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
         saldo.setBackground(new Color(196, 196, 196));
         saldo.setForeground(new Color(0, 0, 0));
+        saldo.setHorizontalAlignment(JTextField.CENTER);
+        saldo.setToolTipText("");
         saldo.setEnabled(false);
         saldo.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -542,11 +547,12 @@ public class BaseInterfaz extends javax.swing.JFrame {
                         .addGroup(menu_transferenciaLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                             .addComponent(monto)
                             .addComponent(label11, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE))
-                        .addGap(30, 30, 30))
-                    .addGroup(menu_transferenciaLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                        .addComponent(numero_origen)
-                        .addComponent(label12, GroupLayout.PREFERRED_SIZE, 175, GroupLayout.PREFERRED_SIZE)))
-                .addGap(52, 52, 52))
+                        .addGap(82, 82, 82))
+                    .addGroup(menu_transferenciaLayout.createSequentialGroup()
+                        .addGroup(menu_transferenciaLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(numero_origen, GroupLayout.Alignment.LEADING)
+                            .addComponent(label12, GroupLayout.Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 175, GroupLayout.PREFERRED_SIZE))
+                        .addGap(77, 77, 77))))
             .addGroup(GroupLayout.Alignment.TRAILING, menu_transferenciaLayout.createSequentialGroup()
                 .addContainerGap(81, Short.MAX_VALUE)
                 .addComponent(boton_cancelarTransaccion1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
@@ -557,7 +563,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(label13, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(saldo, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)
+                .addComponent(saldo, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
         );
         menu_transferenciaLayout.setVerticalGroup(menu_transferenciaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -573,27 +579,31 @@ public class BaseInterfaz extends javax.swing.JFrame {
                         .addGap(19, 19, 19)))
                 .addGroup(menu_transferenciaLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                     .addGroup(menu_transferenciaLayout.createSequentialGroup()
-                        .addComponent(label12, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(numero_origen, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(label11, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(monto, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE))
-                    .addGroup(menu_transferenciaLayout.createSequentialGroup()
                         .addComponent(label8, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cuentaDestino, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE))
                     .addGroup(menu_transferenciaLayout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addComponent(label9, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addGroup(menu_transferenciaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                            .addGroup(menu_transferenciaLayout.createSequentialGroup()
+                                .addGap(79, 79, 79)
+                                .addComponent(label9, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                            .addGroup(menu_transferenciaLayout.createSequentialGroup()
+                                .addComponent(label12, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(numero_origen, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)))
                         .addGap(2, 2, 2)
-                        .addComponent(nombre_destinatario, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(label10, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cedula, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(menu_transferenciaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                            .addGroup(GroupLayout.Alignment.TRAILING, menu_transferenciaLayout.createSequentialGroup()
+                                .addComponent(label11, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(monto, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE))
+                            .addGroup(menu_transferenciaLayout.createSequentialGroup()
+                                .addComponent(nombre_destinatario, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(label10, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cedula, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)))))
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(menu_transferenciaLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                     .addComponent(boton_confirmarTransaccion1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(boton_cancelarTransaccion1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -611,6 +621,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
         saldo1.setBackground(new Color(196, 196, 196));
         saldo1.setForeground(new Color(0, 0, 0));
+        saldo1.setHorizontalAlignment(JTextField.CENTER);
         saldo1.setEnabled(false);
         saldo1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -680,7 +691,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                         .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(label7, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(saldo1, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(saldo1, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)))
                 .addGap(23, 23, 23))
         );
         menu_consultarSaldoLayout.setVerticalGroup(menu_consultarSaldoLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -707,7 +718,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         menu_deposito.setPreferredSize(new Dimension(643, 367));
 
         boton_cancelarTransaccion2.setActionCommand("cancelarTransaccion");
-        boton_cancelarTransaccion2.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        boton_cancelarTransaccion2.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         boton_cancelarTransaccion2.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_cancelarTransaccion2.setForeground(new Color(51, 51, 51));
         boton_cancelarTransaccion2.setLabel("Cancelar Transaccion");
@@ -720,7 +731,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         });
 
         boton_confirmarDeposito.setActionCommand("confirmarTransaccion");
-        boton_confirmarDeposito.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        boton_confirmarDeposito.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         boton_confirmarDeposito.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_confirmarDeposito.setForeground(new Color(51, 51, 51));
         boton_confirmarDeposito.setLabel("Confirmar Transaccion");
@@ -746,6 +757,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
         saldoDeposito.setBackground(new Color(196, 196, 196));
         saldoDeposito.setForeground(new Color(0, 0, 0));
+        saldoDeposito.setHorizontalAlignment(JTextField.CENTER);
         saldoDeposito.setEnabled(false);
         saldoDeposito.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -771,7 +783,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(label19, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(saldoDeposito, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)
+                .addComponent(saldoDeposito, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
             .addGroup(menu_depositoLayout.createSequentialGroup()
                 .addGap(222, 222, 222)
@@ -805,7 +817,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         menu_pagarTarjeta.setMinimumSize(new Dimension(643, 367));
 
         boton_cancelarPagoTarjeta.setActionCommand("cancelarTransaccion");
-        boton_cancelarPagoTarjeta.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        boton_cancelarPagoTarjeta.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         boton_cancelarPagoTarjeta.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_cancelarPagoTarjeta.setForeground(new Color(51, 51, 51));
         boton_cancelarPagoTarjeta.setLabel("Cancelar Transaccion");
@@ -818,14 +830,14 @@ public class BaseInterfaz extends javax.swing.JFrame {
         });
 
         boton_confirmarPagoTarjeta.setActionCommand("confirmarTransaccion");
-        boton_confirmarPagoTarjeta.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        boton_confirmarPagoTarjeta.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         boton_confirmarPagoTarjeta.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_confirmarPagoTarjeta.setForeground(new Color(51, 51, 51));
         boton_confirmarPagoTarjeta.setLabel("Confirmar Transaccion");
         boton_confirmarPagoTarjeta.setMinimumSize(new Dimension(190, 30));
         boton_confirmarPagoTarjeta.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                boton_confirmarPagoTarjetaActionPerformed(evt);
+                boton_confirmarTransaccion6ActionPerformed(evt);
             }
         });
 
@@ -854,6 +866,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
         saldoTarjeta.setBackground(new Color(196, 196, 196));
         saldoTarjeta.setForeground(new Color(0, 0, 0));
+        saldoTarjeta.setHorizontalAlignment(JTextField.CENTER);
         saldoTarjeta.setEnabled(false);
         saldoTarjeta.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -928,7 +941,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(label39, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(saldoTarjeta, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)
+                .addComponent(saldoTarjeta, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
             .addGroup(GroupLayout.Alignment.TRAILING, menu_pagarTarjetaLayout.createSequentialGroup()
                 .addGroup(menu_pagarTarjetaLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
@@ -1140,7 +1153,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         menu_pagarServicio.setPreferredSize(new Dimension(643, 367));
 
         boton_cancelarTransaccion7.setActionCommand("cancelarTransaccion");
-        boton_cancelarTransaccion7.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        boton_cancelarTransaccion7.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         boton_cancelarTransaccion7.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_cancelarTransaccion7.setForeground(new Color(51, 51, 51));
         boton_cancelarTransaccion7.setLabel("Cancelar Transaccion");
@@ -1153,7 +1166,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         });
 
         confirmar_pago_serv.setActionCommand("confirmarTransaccion");
-        confirmar_pago_serv.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        confirmar_pago_serv.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         confirmar_pago_serv.setFont(new Font("Arial", 0, 18)); // NOI18N
         confirmar_pago_serv.setForeground(new Color(51, 51, 51));
         confirmar_pago_serv.setLabel("Confirmar Transaccion");
@@ -1202,6 +1215,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
         saldo_pago_serv.setBackground(new Color(196, 196, 196));
         saldo_pago_serv.setForeground(new Color(0, 0, 0));
+        saldo_pago_serv.setHorizontalAlignment(JTextField.CENTER);
         saldo_pago_serv.setEnabled(false);
         saldo_pago_serv.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -1271,7 +1285,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(label45, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(saldo_pago_serv, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)
+                .addComponent(saldo_pago_serv, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
             .addGroup(GroupLayout.Alignment.TRAILING, menu_pagarServicioLayout.createSequentialGroup()
                 .addGap(47, 47, 47)
@@ -1510,7 +1524,9 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private Button botonPresionadoActualmente = null;
     
     private void boton_consultarSaldoActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_consultarSaldoActionPerformed
-        saldo1.setText(cuenta.getSaldoCuenta() + "");        
+        
+        saldo1.setText(String.format("%.0f", cuenta.getSaldoCuenta())); 
+        
         // Cambiar la apariencia del botón cuando se presiona
         if (botonPresionadoActualmente != null) {
             botonPresionadoActualmente.setBackground(new java.awt.Color(240, 240, 240));  // Color original del fondo
@@ -1546,10 +1562,10 @@ public class BaseInterfaz extends javax.swing.JFrame {
         TablaConsulta.setModel(modelo);
     }//GEN-LAST:event_boton_consultarSaldoActionPerformed
     private void boton_transferenciaCuentaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_transferenciaCuentaActionPerformed
-
-        numero_origen.setText(cuenta.getNumeroCuenta()+ "");
-        saldo.setText(cuenta.getSaldoCuenta() + "");
         
+        numero_origen.setText(cuenta.getNumeroCuenta()+ "");
+        saldo.setText(String.format("%.0f", cuenta.getSaldoCuenta())); 
+               
         
         //System.out.println(nombreCliente);
         texto_usuario.setText(cliente.getNombreCliente()+" "+cliente.getApellidoCliente());
@@ -1595,7 +1611,9 @@ public class BaseInterfaz extends javax.swing.JFrame {
         menu_pagarServicio.setVisible(true);
         menu_pagarTarjeta.setVisible(false);
         menu_acercaSistema.setVisible(false);
-        saldo_pago_serv.setText(cuenta.getSaldoCuenta() + "");
+        saldo_pago_serv.setText(String.format("%.0f", cuenta.getSaldoCuenta())); 
+        
+        //saldo_pago_serv.setText(cuenta.getSaldoCuenta() + "");
         cuenta_origen_pago_serv.setText(cuenta.getNumeroCuenta() + "");
         if (!codigoEjecutado) {
             ArrayList<Servicio> servicios = obtenerTodosLosServicios();
@@ -1638,7 +1656,8 @@ public class BaseInterfaz extends javax.swing.JFrame {
         menu_pagarServicio.setVisible(false);
         menu_acercaSistema.setVisible(false);
         botonTransferencia = true;
-        saldoTarjeta.setText(Double.toString(cuenta.getSaldoCuenta()));
+        saldoTarjeta.setText(String.format("%.0f", cuenta.getSaldoCuenta()));        
+        
 
     }//GEN-LAST:event_boton_pagarTarjetaActionPerformed
 
@@ -1661,7 +1680,8 @@ public class BaseInterfaz extends javax.swing.JFrame {
         menu_pagarTarjeta.setVisible(false);
         menu_pagarServicio.setVisible(false);
         menu_acercaSistema.setVisible(false);
-        saldoDeposito.setText(cuenta.getSaldoCuenta()+ "");
+        saldoDeposito.setText(String.format("%.0f", cuenta.getSaldoCuenta()));
+
 
     }//GEN-LAST:event_boton_depositoActionPerformed
 
@@ -1767,7 +1787,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 Transferencia transferencia = new Transferencia
                         (new Date(System.currentTimeMillis()),cuenta.getNumeroCuenta(), cuenta_Destino, montoLong);
                 cuenta.setSaldoCuenta(cuenta.getSaldoCuenta() - montoLong);
-                saldo.setText(Double.toString(cuenta.getSaldoCuenta()));
+                //saldo.setText(Double.toString(cuenta.getSaldoCuenta()));
                 nombre_destinatario.setText("");
                 cuentaDestino.setText("");
                 cedula.setText("");
@@ -1775,6 +1795,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 PinTransaccionInterfaz ventanaPIN = new PinTransaccionInterfaz(transferencia, cliente, cuenta);
                 ventanaPIN.setVisible(true);
                 this.dispose();
+                
             }
 
 
@@ -2115,14 +2136,14 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private JTable TablaConsulta;
     private Button botonDocumentacion;
     private Button boton_acercaSistema;
+    private Button boton_cancelarPagoTarjeta;
     private Button boton_cancelarTransaccion1;
     private Button boton_cancelarTransaccion2;
-    private Button boton_cancelarPagoTarjeta;
     private Button boton_cancelarTransaccion7;
     private Button boton_cerrarSesion;
     private Button boton_confirmarDeposito;
-    private Button boton_confirmarTransaccion1;
     private Button boton_confirmarPagoTarjeta;
+    private Button boton_confirmarTransaccion1;
     private Button boton_consultarSaldo;
     private Button boton_deposito;
     private Button boton_pagarServicio;
@@ -2141,7 +2162,6 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private Label integrante2;
     private Label integrante3;
     private Label integrante4;
-    private JComboBox<String> jComboBox1;
     private JDesktopPane jDesktopPane1;
     private JLayeredPane jLayeredPane1;
     private JPanel jPanel1;
@@ -2191,8 +2211,8 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private JTextField monto_definido;
     private JTextField monto_ingresado;
     public JTextField nombre_destinatario;
-    private JTextField numeroTarjeta;
     private Label numeroGrupo;
+    private JTextField numeroTarjeta;
     private JTextField numero_origen;
     private JTextField saldo;
     private JTextField saldo1;

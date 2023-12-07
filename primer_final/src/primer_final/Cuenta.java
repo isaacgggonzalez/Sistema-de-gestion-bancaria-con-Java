@@ -1,5 +1,7 @@
 package primer_final;
 
+import java.text.DecimalFormat;
+
 
 public class Cuenta{
     private long idCuenta;
@@ -45,7 +47,7 @@ public class Cuenta{
         this.pinCuenta = pinCuenta;
     }
 
-    public double getSaldoCuenta() {
+    public double getSaldoCuenta() {   
         return saldoCuenta;
     }
 
