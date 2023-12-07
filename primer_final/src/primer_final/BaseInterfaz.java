@@ -78,6 +78,53 @@ public class BaseInterfaz extends javax.swing.JFrame {
         timer.start();
     }
 
+    private void mostrarIntegrantes() {
+        integrante1.setVisible(true);
+        integrante2.setVisible(true);
+        integrante3.setVisible(true);
+        integrante4.setVisible(true);
+    }
+
+    public void mostrarGrupo(){
+        numeroGrupo.setText("Grupo N°9");
+    }
+
+    public void runMostrarGrupo(){
+        Thread thread = new Thread(this::mostrarGrupo);
+        thread.start();
+    }
+
+    public void runMostrarIntegrantes(){
+        Thread thread = new Thread(this::mostrarIntegrantes);
+        thread.start();
+    }
+
+    public void runAbrirEnlace(){
+        Thread thread = new Thread(this::abrirEnlace);
+        thread.start();
+    }
+    private void abrirEnlace() {
+        try {
+            Desktop.getDesktop().browse(new URI("https://drive.google.com/drive/folders/1WsGmnDChHnd6paMwzPsLnd5tvdJ_EAut"));
+        } catch (Exception e) {
+            // Manejar la excepción, por ejemplo, mostrar un mensaje de error
+            e.printStackTrace();
+        }
+    }
+    public void run(){
+        try{
+            runMostrarGrupo();
+            runMostrarIntegrantes();
+            runAbrirEnlace();
+            Thread.sleep(0);
+        }
+        catch (InterruptedException er){
+            System.out.println("Excepcion " + er);
+        }
+    }
+
+
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -152,11 +199,15 @@ public class BaseInterfaz extends javax.swing.JFrame {
         seleccionarTarjeta = new JComboBox<>();
         menu_acercaSistema = new Panel();
         label48 = new Label();
-        label53 = new Label();
+        numeroGrupo = new Label();
         label54 = new Label();
         label55 = new Label();
         label56 = new Label();
-        button3 = new Button();
+        botonDocumentacion = new Button();
+        integrante1 = new Label();
+        integrante2 = new Label();
+        integrante3 = new Label();
+        integrante4 = new Label();
         menu_pagarServicio = new Panel();
         boton_cancelarTransaccion7 = new Button();
         confirmar_pago_serv = new Button();
@@ -955,17 +1006,15 @@ public class BaseInterfaz extends javax.swing.JFrame {
         label48.setForeground(new Color(0, 1, 0));
         label48.setText("Facultad Politécnica");
 
-        label53.setAlignment(Label.CENTER);
-        label53.setFont(new Font("Arial", 1, 18)); // NOI18N
-        label53.setForeground(new Color(0, 1, 0));
-        label53.setText("Grupo N° XX");
+        numeroGrupo.setFont(new Font("Arial", 1, 18)); // NOI18N
+        numeroGrupo.setForeground(new Color(0, 1, 0));
+        numeroGrupo.setText("Grupo N° XX");
 
         label54.setAlignment(Label.CENTER);
         label54.setFont(new Font("Arial", 1, 56)); // NOI18N
         label54.setForeground(new Color(204, 0, 0));
         label54.setText("Examen Final - 2023");
 
-        label55.setAlignment(Label.CENTER);
         label55.setFont(new Font("Arial", 1, 18)); // NOI18N
         label55.setForeground(new Color(0, 1, 0));
         label55.setText("Lista de Integrantes");
@@ -980,10 +1029,35 @@ public class BaseInterfaz extends javax.swing.JFrame {
         button3.setForeground(new Color(0, 1, 0));
         button3.setLabel("Ver Documentación");
         button3.addActionListener(new ActionListener() {
+        botonDocumentacion.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        botonDocumentacion.setFont(new Font("Arial", 1, 14)); // NOI18N
+        botonDocumentacion.setForeground(new Color(0, 1, 0));
+        botonDocumentacion.setLabel("Ver Documentación");
+        botonDocumentacion.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                button3ActionPerformed(evt);
+                botonDocumentacionActionPerformed(evt);
             }
         });
+
+        integrante1.setFont(new Font("Arial", 1, 18)); // NOI18N
+        integrante1.setForeground(new Color(0, 1, 0));
+        integrante1.setText("Isaac González");
+        integrante1.setVisible(false);
+
+        integrante2.setFont(new Font("Arial", 1, 18)); // NOI18N
+        integrante2.setForeground(new Color(0, 1, 0));
+        integrante2.setText("Alan Alcaraz");
+        integrante2.setVisible(false);
+
+        integrante3.setFont(new Font("Arial", 1, 18)); // NOI18N
+        integrante3.setForeground(new Color(0, 1, 0));
+        integrante3.setText("Leandro Ferreira");
+        integrante3.setVisible(false);
+
+        integrante4.setFont(new Font("Arial", 1, 18)); // NOI18N
+        integrante4.setForeground(new Color(0, 1, 0));
+        integrante4.setText("Agusto Florentin");
+        integrante4.setVisible(false);
 
         GroupLayout menu_acercaSistemaLayout = new GroupLayout(menu_acercaSistema);
         menu_acercaSistema.setLayout(menu_acercaSistemaLayout);
@@ -997,30 +1071,70 @@ public class BaseInterfaz extends javax.swing.JFrame {
                             .addGroup(menu_acercaSistemaLayout.createSequentialGroup()
                                 .addComponent(label48, GroupLayout.PREFERRED_SIZE, 198, GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 240, Short.MAX_VALUE)
-                                .addComponent(button3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(botonDocumentacion, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(menu_acercaSistemaLayout.createSequentialGroup()
                         .addGap(49, 49, 49)
                         .addGroup(menu_acercaSistemaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                             .addComponent(label54, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                             .addComponent(label55, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label53, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(numeroGrupo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
                 .addGap(34, 34, 34))
+            .addGroup(menu_acercaSistemaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(menu_acercaSistemaLayout.createSequentialGroup()
+                    .addGap(49, 49, 49)
+                    .addComponent(integrante1, GroupLayout.PREFERRED_SIZE, 198, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(417, Short.MAX_VALUE)))
+            .addGroup(menu_acercaSistemaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(menu_acercaSistemaLayout.createSequentialGroup()
+                    .addGap(49, 49, 49)
+                    .addComponent(integrante2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(255, Short.MAX_VALUE)))
+            .addGroup(menu_acercaSistemaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(menu_acercaSistemaLayout.createSequentialGroup()
+                    .addGap(49, 49, 49)
+                    .addComponent(integrante3, GroupLayout.PREFERRED_SIZE, 163, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(431, Short.MAX_VALUE)))
+            .addGroup(menu_acercaSistemaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(menu_acercaSistemaLayout.createSequentialGroup()
+                    .addGap(49, 49, 49)
+                    .addComponent(integrante4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(445, Short.MAX_VALUE)))
         );
         menu_acercaSistemaLayout.setVerticalGroup(menu_acercaSistemaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(menu_acercaSistemaLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(menu_acercaSistemaLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
                     .addComponent(label48, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addComponent(button3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(botonDocumentacion, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(25, 25, 25)
                 .addComponent(label56, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(label54, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
-                .addComponent(label53, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addComponent(numeroGrupo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addGap(2, 2, 2)
                 .addComponent(label55, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addGap(377, 377, 377))
+            .addGroup(menu_acercaSistemaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(menu_acercaSistemaLayout.createSequentialGroup()
+                    .addGap(230, 230, 230)
+                    .addComponent(integrante1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(311, Short.MAX_VALUE)))
+            .addGroup(menu_acercaSistemaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(menu_acercaSistemaLayout.createSequentialGroup()
+                    .addGap(260, 260, 260)
+                    .addComponent(integrante2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(171, Short.MAX_VALUE)))
+            .addGroup(menu_acercaSistemaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(menu_acercaSistemaLayout.createSequentialGroup()
+                    .addGap(290, 290, 290)
+                    .addComponent(integrante3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(51, Short.MAX_VALUE)))
+            .addGroup(menu_acercaSistemaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(menu_acercaSistemaLayout.createSequentialGroup()
+                    .addGap(320, 320, 320)
+                    .addComponent(integrante4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(21, Short.MAX_VALUE)))
         );
 
         menu_pagarServicio.setBackground(new Color(153, 153, 153));
@@ -1435,7 +1549,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         TablaConsulta.setModel(modelo);
     }//GEN-LAST:event_boton_consultarSaldoActionPerformed
     private void boton_transferenciaCuentaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_transferenciaCuentaActionPerformed
-        
+
         numero_origen.setText(cuenta.getNumeroCuenta()+ "");
         saldo.setText(cuenta.getSaldoCuenta() + "");
         
@@ -1466,7 +1580,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
     private boolean codigoEjecutado = false;
     private void boton_pagarServicioActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_pagarServicioActionPerformed
-        
+
         // Cambiar la apariencia del botón cuando se presiona        
         if (botonPresionadoActualmente != null) {
             botonPresionadoActualmente.setBackground(new java.awt.Color(240, 240, 240));  // Color original del fondo
@@ -1489,7 +1603,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         if (!codigoEjecutado) {
             ArrayList<Servicio> servicios = obtenerTodosLosServicios();
             java.util.List<TarjetaDeCredito> tarjetas = ProcesosControlador.obtenerTarjetas(cliente.getIdCliente());
-        
+
             for(Servicio servicio: servicios){
                 servicio_a_pagar.addItem(servicio.get_NombreServicio());
             }
@@ -1497,7 +1611,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 if(tarjeta.getId_cliente() == cliente.getIdCliente())
                     metodo_de_pago.addItem("TC: " + tarjeta.getNro_tarjeta());
             }
-            
+
             monto_definido.setText(servicios.get(0).get_CostoServicio()+"");
         }
         monto_ingresado.setEditable(false);
@@ -1551,7 +1665,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         menu_pagarServicio.setVisible(false);
         menu_acercaSistema.setVisible(false);
         saldoDeposito.setText(cuenta.getSaldoCuenta()+ "");
-        
+
     }//GEN-LAST:event_boton_depositoActionPerformed
 
     private void boton_acercaSistemaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_acercaSistemaActionPerformed
@@ -1755,7 +1869,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_deudatotalTarjetaActionPerformed
 
     private void numeroTarjetaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_numeroTarjetaActionPerformed
-       
+
     }//GEN-LAST:event_numeroTarjetaActionPerformed
 
     private void saldoTarjetaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_saldoTarjetaActionPerformed
@@ -1766,7 +1880,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_montoTarjetaActionPerformed
 
-    private void boton_confirmarPagoTarjetaActionPerformed(ActionEvent evt) {                                                            
+    private void boton_confirmarPagoTarjetaActionPerformed(ActionEvent evt) {
         double montoAPagar = Double.parseDouble(montoTarjeta.getText());
         Long numeroTarjetaL;
         String tarjetaSeleccionada = (String) seleccionarTarjeta.getSelectedItem();
@@ -1812,18 +1926,18 @@ public class BaseInterfaz extends javax.swing.JFrame {
             deudalimiteTarjeta.setText("");
             deudatotalTarjeta.setText("");
         }
-        
-        
-        
+
+
+
 
     }//GEN-LAST:event_servicioTarjetaActionPerformed
-    
+
     private void servicioTarjetaActionPerformed(ActionEvent evt) {
-    }  
-    
+    }
+
     private void boton_confirmarTransaccion6ActionPerformed(ActionEvent evt) {
-    }  
-    
+    }
+
     private void cuenta_origen_pago_servActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuenta_origen_pago_servActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cuenta_origen_pago_servActionPerformed
@@ -1869,12 +1983,12 @@ public class BaseInterfaz extends javax.swing.JFrame {
                     String numberString = (String)metodo_de_pago.getSelectedItem();
                     numberString = numberString.substring(4);
                     tarjeta_usada = Long.parseLong(numberString);
-                    TarjetaDeCredito tarjetaDeCredito = new TarjetaDeCredito();
-                    tarjetaDeCredito.setCliente_asociado(cliente);
-                    tarjetaDeCredito.setNro_tarjeta(tarjeta_usada);
-                    pagoServicio.setTarjetaAbonante(tarjetaDeCredito);
-                    ProcesosControlador.verificarLimite(tarjeta_usada, monto);
-
+                    if(TransaccionRepositorio.verificarLimite(connection, tarjeta_usada, monto)){
+                        TransaccionRepositorio.aumentarDeuda(connection, tarjeta_usada, monto);
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "Limite de deuda excedido, pague su deuda y vuelva a intentar", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
                 }
                 else{
                     pagoServicio.setCuenta(cuenta);
@@ -1921,9 +2035,9 @@ public class BaseInterfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_monto_definidoActionPerformed
 
-    private void button3ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_button3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_button3ActionPerformed
+    private void botonDocumentacionActionPerformed(ActionEvent evt) {//GEN-FIRST:event_botonDocumentacionActionPerformed
+       run();
+    }//GEN-LAST:event_botonDocumentacionActionPerformed
 
     private void metodo_de_pagoActionPerformed(ActionEvent evt) {//GEN-FIRST:event_metodo_de_pagoActionPerformed
         // TODO add your handling code here:
@@ -1945,7 +2059,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         }catch(RuntimeException e){
            tarjetaDeCredito = null;
         }
-        
+
         if (tarjetaDeCredito!=null){
             deudalimiteTarjeta.setText(String.valueOf(tarjetaDeCredito.getLinea_tarjeta())+ " Gs");
             deudatotalTarjeta.setText(String.valueOf(tarjetaDeCredito.getDeuda_tarjeta())+ " Gs");
@@ -2002,6 +2116,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private JLayeredPane InterfazPrincipal;
     private JTable TablaConsulta;
+    private Button botonDocumentacion;
     private Button boton_acercaSistema;
     private Button boton_cancelarTransaccion1;
     private Button boton_cancelarTransaccion2;
@@ -2017,7 +2132,6 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private Button boton_pagarTarjeta;
     public Button boton_transferenciaCuenta;
     private JLayeredPane botonesMenu;
-    private Button button3;
     public JTextField cedula;
     private Button confirmar_pago_serv;
     public JTextField cuentaDestino;
@@ -2026,6 +2140,11 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private JTextField deudalimiteTarjeta;
     private JTextField deudatotalTarjeta;
     private JLabel fondo1;
+    private Label integrante1;
+    private Label integrante2;
+    private Label integrante3;
+    private Label integrante4;
+    private JComboBox<String> jComboBox1;
     private JDesktopPane jDesktopPane1;
     private JLayeredPane jLayeredPane1;
     private JPanel jPanel1;
@@ -2053,7 +2172,6 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private Label label45;
     private Label label46;
     private Label label48;
-    private Label label53;
     private Label label54;
     private Label label55;
     private Label label56;
@@ -2077,6 +2195,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private JTextField monto_ingresado;
     public JTextField nombre_destinatario;
     private JTextField numeroTarjeta;
+    private Label numeroGrupo;
     private JTextField numero_origen;
     private JTextField saldo;
     private JTextField saldo1;
