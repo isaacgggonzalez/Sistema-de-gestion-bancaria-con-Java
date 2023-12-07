@@ -33,6 +33,8 @@ import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
 
 import controlador.ProcesosControlador;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import modelo.Movimiento;
 import modelo.exceptions.SaldoInsuficienteException;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
@@ -807,10 +809,14 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
         numeroTarjeta.setBackground(new Color(255, 255, 255));
         numeroTarjeta.setForeground(new Color(0, 0, 0));
-        numeroTarjeta.setEnabled(false);
         numeroTarjeta.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 numeroTarjetaActionPerformed(evt);
+            }
+        });
+        numeroTarjeta.addKeyListener(new KeyAdapter() {
+            public void keyTyped(KeyEvent evt) {
+                numeroTarjetaKeyTyped(evt);
             }
         });
 
@@ -848,7 +854,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         });
 
         seleccionarTarjeta.setBackground(new Color(255, 255, 255));
-        seleccionarTarjeta.setModel(new DefaultComboBoxModel<>(new String[] { "null", "Otras Tarjetas" }));
+        seleccionarTarjeta.setModel(new DefaultComboBoxModel<>(new String[] { "Otras Tarjetas" }));
         seleccionarTarjeta.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 seleccionarTarjetaActionPerformed(evt);
@@ -1749,6 +1755,19 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
     private void numeroTarjetaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_numeroTarjetaActionPerformed
         // TODO add your handling code here:
+        /*
+        Long numeroTarjetaL = Long.parseLong(numeroTarjeta.getText());
+        System.out.println("imprimi: "+numeroTarjetaL);
+        TarjetaDeCredito tarjetaDeCredito = ProcesosControlador.obtenerTarjeta(numeroTarjetaL);
+        if (tarjetaDeCredito!=null){
+            deudalimiteTarjeta.setText(String.valueOf(tarjetaDeCredito.getLinea_tarjeta())+ " Gs");
+            deudatotalTarjeta.setText(String.valueOf(tarjetaDeCredito.getDeuda_tarjeta())+ " Gs");
+        }
+        else{
+            deudalimiteTarjeta.setText("");
+            deudatotalTarjeta.setText("");
+        }*/
+        System.out.println("holaaaaa");
     }//GEN-LAST:event_numeroTarjetaActionPerformed
 
     private void saldoTarjetaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_saldoTarjetaActionPerformed
@@ -1797,8 +1816,17 @@ public class BaseInterfaz extends javax.swing.JFrame {
             numeroTarjeta.setText(String.valueOf(tarjetaDeCredito.getNro_tarjeta()));
             deudalimiteTarjeta.setText(String.valueOf(tarjetaDeCredito.getLinea_tarjeta())+ " Gs");
             deudatotalTarjeta.setText(String.valueOf(tarjetaDeCredito.getDeuda_tarjeta())+ " Gs");
-            numeroTarjeta.setVisible(false);
+            numeroTarjeta.setEnabled(false);
         }
+        else{
+            numeroTarjeta.setEnabled(true);
+            numeroTarjeta.setText("");
+            deudalimiteTarjeta.setText("");
+            deudatotalTarjeta.setText("");
+        }
+        
+        
+        
 
     }//GEN-LAST:event_servicioTarjetaActionPerformed
     
@@ -1912,6 +1940,11 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private void metodo_de_pagoActionPerformed(ActionEvent evt) {//GEN-FIRST:event_metodo_de_pagoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_metodo_de_pagoActionPerformed
+
+    private void numeroTarjetaKeyTyped(KeyEvent evt) {//GEN-FIRST:event_numeroTarjetaKeyTyped
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_numeroTarjetaKeyTyped
 
     public void activarMenuTransferencia() {
         boton_transferenciaCuentaActionPerformed(null);
