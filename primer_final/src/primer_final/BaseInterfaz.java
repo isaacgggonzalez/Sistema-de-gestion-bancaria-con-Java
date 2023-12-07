@@ -33,6 +33,8 @@ import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
 
 import controlador.ProcesosControlador;
+import java.awt.event.InputMethodEvent;
+import java.awt.event.InputMethodListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import modelo.Movimiento;
@@ -815,8 +817,8 @@ public class BaseInterfaz extends javax.swing.JFrame {
             }
         });
         numeroTarjeta.addKeyListener(new KeyAdapter() {
-            public void keyTyped(KeyEvent evt) {
-                numeroTarjetaKeyTyped(evt);
+            public void keyReleased(KeyEvent evt) {
+                numeroTarjetaKeyReleased(evt);
             }
         });
 
@@ -1754,20 +1756,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_deudatotalTarjetaActionPerformed
 
     private void numeroTarjetaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_numeroTarjetaActionPerformed
-        // TODO add your handling code here:
-        /*
-        Long numeroTarjetaL = Long.parseLong(numeroTarjeta.getText());
-        System.out.println("imprimi: "+numeroTarjetaL);
-        TarjetaDeCredito tarjetaDeCredito = ProcesosControlador.obtenerTarjeta(numeroTarjetaL);
-        if (tarjetaDeCredito!=null){
-            deudalimiteTarjeta.setText(String.valueOf(tarjetaDeCredito.getLinea_tarjeta())+ " Gs");
-            deudatotalTarjeta.setText(String.valueOf(tarjetaDeCredito.getDeuda_tarjeta())+ " Gs");
-        }
-        else{
-            deudalimiteTarjeta.setText("");
-            deudatotalTarjeta.setText("");
-        }*/
-        System.out.println("holaaaaa");
+       
     }//GEN-LAST:event_numeroTarjetaActionPerformed
 
     private void saldoTarjetaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_saldoTarjetaActionPerformed
@@ -1941,16 +1930,17 @@ public class BaseInterfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_metodo_de_pagoActionPerformed
 
-    private void numeroTarjetaKeyTyped(KeyEvent evt) {//GEN-FIRST:event_numeroTarjetaKeyTyped
-        // TODO add your handling code here: 
+    private void numeroTarjetaKeyReleased(KeyEvent evt) {//GEN-FIRST:event_numeroTarjetaKeyReleased
         Long numeroTarjetaL;
         TarjetaDeCredito tarjetaDeCredito;
+        String texto = numeroTarjeta.getText();
+        System.out.println("imprimi: "+ texto);
         try{
-            numeroTarjetaL = Long.parseLong(numeroTarjeta.getText());
+             numeroTarjetaL = Long.valueOf(texto);
         }catch(NumberFormatException e){
             numeroTarjetaL = (long)0;
         }
-        System.out.println("imprimi: "+numeroTarjetaL);
+         System.out.println("imprimi: "+ numeroTarjetaL);
         try{
             tarjetaDeCredito = ProcesosControlador.obtenerTarjeta(numeroTarjetaL);
         }catch(RuntimeException e){
@@ -1965,8 +1955,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
             deudalimiteTarjeta.setText("");
             deudatotalTarjeta.setText("");
         }
-        
-    }//GEN-LAST:event_numeroTarjetaKeyTyped
+    }//GEN-LAST:event_numeroTarjetaKeyReleased
 
     public void activarMenuTransferencia() {
         boton_transferenciaCuentaActionPerformed(null);

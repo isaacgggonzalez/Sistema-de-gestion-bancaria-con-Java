@@ -1455,7 +1455,7 @@
                                   </Properties>
                                   <Events>
                                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="numeroTarjetaActionPerformed"/>
-                                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="numeroTarjetaKeyTyped"/>
+                                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="numeroTarjetaKeyReleased"/>
                                   </Events>
                                 </Component>
                                 <Component class="java.awt.Label" name="label39">
