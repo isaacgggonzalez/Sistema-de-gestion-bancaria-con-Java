@@ -236,20 +236,20 @@ public class ComprobanteInterfaz extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        cliente_texto.setText(cliente.getNombreCliente()+" "+ cliente.getApellidoCliente()+cuenta.getNumeroCuenta());
+        String formato = "dd/MM/yyyy";  // Puedes ajustar el formato segÃºn tus necesidades
+
+        // Crear un objeto SimpleDateFormat con el formato
+        SimpleDateFormat sdf = new SimpleDateFormat(formato);
+        fecha_texto.setText(sdf.format(transaccion.get_fecha_transaccion()));
+        transaccion_texto.setText(transaccion.getTipoTransaccion());
+        cliente_texto.setText(cliente.getNombreCliente());
+        descripcion_texto.setText(transaccion.mensajeConfirmacion());
+        monto_texto.setText(String.valueOf(transaccion.getMontoTransaccion()));
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    cliente_texto.setText(cliente.getNombreCliente()+"\n"+cuenta.getNumeroCuenta());
-    String formato = "dd/MM/yyyy";  // Puedes ajustar el formato segÃºn tus necesidades
 
-    // Crear un objeto SimpleDateFormat con el formato
-    SimpleDateFormat sdf = new SimpleDateFormat(formato);
-    fecha_texto.setText(sdf.format(transaccion.get_fecha_transaccion()));
-    transaccion_texto.setText(transaccion.getTipoTransaccion());
-    cliente_texto.setText(cliente.getNombreCliente());
-    descripcion_texto.setText(transaccion.mensajeConfirmacion());
-    monto_texto.setText(String.valueOf(transaccion.getMontoTransaccion()));
-        
     private void boton_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_salirActionPerformed
         BaseInterfaz ventanaSecundaria = new BaseInterfaz(cliente,cuenta);
         ventanaSecundaria.setVisible(true);
