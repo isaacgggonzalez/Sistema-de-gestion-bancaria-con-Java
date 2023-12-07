@@ -1630,7 +1630,7 @@
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="label54" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                                          <Component id="label53" min="-2" max="-2" attributes="0"/>
+                                          <Component id="numeroGrupo" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                                           <Component id="label55" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="377" max="-2" attributes="0"/>
