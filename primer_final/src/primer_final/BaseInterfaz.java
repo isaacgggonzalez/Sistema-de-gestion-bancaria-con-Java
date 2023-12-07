@@ -1520,7 +1520,8 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    
     private Button botonPresionadoActualmente = null;
     
     private void boton_consultarSaldoActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_consultarSaldoActionPerformed
@@ -1995,7 +1996,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
             }
             if(monto_valido){
                 PagoServicio pagoServicio = new PagoServicio(new Date(System.currentTimeMillis()), cuenta, null, monto);
-                Servicio servicio = new Servicio(0L, (String) servicio_a_pagar.getSelectedItem(), Double.parseDouble(monto_definido.getText()));
+                Servicio servicio = new Servicio(0L, (String) servicio_a_pagar.getSelectedItem(), monto);
                 pagoServicio.setServicio(servicio);
                 if(metodo_de_pago.getSelectedIndex() != 0){
                     String numberString = (String)metodo_de_pago.getSelectedItem();
@@ -2011,9 +2012,9 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 else{
                     pagoServicio.setCuenta(cuenta);
                     ProcesosControlador.verificarSaldoSuficiente(cuenta.getNumeroCuenta(), monto);
+                    cuenta.setSaldoCuenta(cuenta.getSaldoCuenta() - monto);
+                    saldo.setText(Double.toString(cuenta.getSaldoCuenta()));
                 }
-                cuenta.setSaldoCuenta(cuenta.getSaldoCuenta() - monto);
-                saldo.setText(Double.toString(cuenta.getSaldoCuenta()));
                 PinTransaccionInterfaz ventanaPIN = new PinTransaccionInterfaz(pagoServicio, cliente, cuenta);
                 ventanaPIN.setVisible(true);
                 this.dispose();

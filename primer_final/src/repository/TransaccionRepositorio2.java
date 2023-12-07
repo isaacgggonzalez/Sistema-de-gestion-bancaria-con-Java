@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class TransaccionRepositorio2 {
         private static final String INSERTAR_TRANSACCION = "INSERT INTO "
@@ -306,7 +307,7 @@ public class TransaccionRepositorio2 {
     }
        
         //que seria de transferencia
-        public boolean confirmarDatos(long DestinoTransferencia, long cedula, String nombre_destinatario) {
+         public boolean confirmarDatos(long DestinoTransferencia, long cedula, String nombre_destinatario) {
             Connection connection = ConexionBD.conectar();
             try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM cliente c, cuenta cu WHERE c.cedula = ? AND cu.numero_cuenta = ? AND c.nombre = ?")) {
                 preparedStatement.setLong(1, cedula);
@@ -318,6 +319,8 @@ public class TransaccionRepositorio2 {
                         System.out.println("Credenciales encontradas en la base de datos.");
                         ConexionBD.cerrarConexion(connection);
                         return true;
+                    }else{
+                        JOptionPane.showMessageDialog(null, "No se encontró una coincidencia para los datos proporcionados.", "Error", JOptionPane.ERROR_MESSAGE);
                     }
                 }
             } catch (SQLException e) {
