@@ -23,7 +23,7 @@ public class TransaccionRepositorio2 {
 
         private static final String PAGAR_TARJETA = "UPDATE tarjeta_credito SET deuda = deuda-?  WHERE id_tarjeta_credito = ?";
 
-        private static final String AUMENTAR_DEUDA_TARJETA = "UPDATE tarjeta_credito SET deuda = deuda-?  WHERE id_tarjeta_credito = ?";
+        private static final String AUMENTAR_DEUDA_TARJETA = "UPDATE tarjeta_credito SET deuda = deuda+?  WHERE nro_tarjeta = ?";
         private static final String RECUPERAR_ID_CUENTA = "SELECT id_cuenta FROM cuenta WHERE numero_cuenta = ?";
 
         private static final String INSERTAR_TRANSFERENCIA = "INSERT INTO "
@@ -383,6 +383,8 @@ public class TransaccionRepositorio2 {
         }
 
     public void aumentarDeuda(long numero_tarjeta, double monto) {
+        System.out.println("aumentar numero_tarjeta: "+numero_tarjeta);
+        System.out.println("aumentar monto: "+monto);
         Connection connection = ConexionBD.conectar();
         try{
             PreparedStatement statement = connection.prepareStatement(AUMENTAR_DEUDA_TARJETA);
