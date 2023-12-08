@@ -285,6 +285,7 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
         }
         ValidarPinTransaccion validarPinTransaccion = new ValidarPinTransaccion(clave);
         Thread hiloValidarPin = new Thread(validarPinTransaccion);
+        hiloValidarPin.start();
         hiloValidarPin.join();
         if(validarPinTransaccion.esPinValido()){
             Thread hiloTransaccion = new Thread (transaccion);
