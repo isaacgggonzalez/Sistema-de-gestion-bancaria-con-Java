@@ -120,13 +120,7 @@ public class PagoServicio extends Transaccion {
         this.servicio = servicio;
     }
 
-    /**
-     * Realiza la transacción de pago de servicio.
-     */
-    @Override
-    public void realizarTransaccion() {
-        ProcesosControlador.realizarPagoServicio(this);
-    }
+
 
     /**
      * Obtiene un mensaje de confirmación para la transacción de pago de servicio.
@@ -137,5 +131,14 @@ public class PagoServicio extends Transaccion {
     public String mensajeConfirmacion() {
         return "Pago del servicio " + this.servicio.get_NombreServicio() + 
                " con monto " + getMontoTransaccion() + " ha sido exitoso";
+    }
+
+    /**
+     * Realiza la transacción de pago de servicio.
+     */
+
+    @Override
+    public void run() {
+        ProcesosControlador.realizarPagoServicio(this);
     }
 }

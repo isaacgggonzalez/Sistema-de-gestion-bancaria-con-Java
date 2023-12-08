@@ -59,11 +59,6 @@ public class Transferencia extends Transaccion {
     }
 
     @Override
-    public void realizarTransaccion(){
-        ProcesosControlador.realizarTransferencia(this);
-    }
-
-    @Override
     public String mensajeConfirmacion(){
         return "La transferencia a la cuenta "+ this.destinoTransferencia+" ha sido exitosa";
     }
@@ -103,5 +98,14 @@ public class Transferencia extends Transaccion {
      */
     public void set_destinoTransferencia(long destino_transferencia) {
         this.destinoTransferencia = destino_transferencia;
+    }
+
+    /**
+     * Realiza la transferencia.
+     */
+
+    @Override
+    public void run() {
+        ProcesosControlador.realizarTransferencia(this);
     }
 }

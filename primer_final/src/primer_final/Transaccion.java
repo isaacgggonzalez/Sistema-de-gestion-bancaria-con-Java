@@ -6,7 +6,7 @@ import java.util.Date;
 /**
  * Representa una transacción con información como su identificador, monto, fecha y tipo.
  */
-public class Transaccion {
+public abstract class Transaccion implements Runnable {
     /**
      * Identificador único de la transacción.
      */
@@ -53,10 +53,6 @@ public class Transaccion {
         this.montoTransaccion = montoTransaccion;
     }
 
-    /**
-     * Realiza la transacción.
-     */
-    public void realizarTransaccion(){}
     /**
      * Obtiene el mensaje de confirmación de la transacción.
      *

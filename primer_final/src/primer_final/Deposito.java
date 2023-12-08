@@ -81,13 +81,7 @@ public class Deposito extends Transaccion {
         this.cuentaDestino = cuentaDestino;
     }
     
-    /**
-     * Realiza la transacción de depósito.
-     */
-    @Override
-    public void realizarTransaccion(){
-        ProcesosControlador.realizarDeposito(this);
-    }
+
     /**
      * Obtiene un mensaje de confirmación para la transacción de depósito.
      *
@@ -96,4 +90,13 @@ public class Deposito extends Transaccion {
     @Override
     public String mensajeConfirmacion(){return "El deposito a la cuenta "+cuentaDestino.getNumeroCuenta()+" con monto "+getMontoTransaccion()+
             " Gs ha sido exitosa";}
+
+
+    /**
+     * Realiza la transacción de depósito.
+     */
+    @Override
+    public void run() {
+        ProcesosControlador.realizarDeposito(this);
+    }
 }

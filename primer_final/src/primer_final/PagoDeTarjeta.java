@@ -103,14 +103,7 @@ public class PagoDeTarjeta extends Transaccion{
     public void setIdPagoTarjeta(long Id_pagoTarjeta) {
         this.idPagoTarjeta = Id_pagoTarjeta;
     }
-    
-    /**
-     * Realiza la transacción de pago de tarjeta.
-     */
-    @Override
-    public void realizarTransaccion(){
-        ProcesosControlador.realizarPagoTarjeta(this);
-    }
+
     
     /**
      * Obtiene un mensaje de confirmación para la transacción de pago de tarjeta.
@@ -122,5 +115,12 @@ public class PagoDeTarjeta extends Transaccion{
         return "Pago de la tarjeta Nro "+tarjetaDeCredito.getNro_tarjeta()+" ha sido exitosa";
     }
 
-    
+
+    /**
+     * Realiza la transacción de pago de tarjeta.
+     */
+    @Override
+    public void run() {
+        ProcesosControlador.realizarPagoTarjeta(this);
+    }
 }

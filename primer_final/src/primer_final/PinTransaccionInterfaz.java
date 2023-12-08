@@ -267,7 +267,9 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_box_pinKeyTyped
 
     private void boton_aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_aceptarActionPerformed
-                                                
+        try{
+
+
         texto_pinIncorrecto.setText("");
         //trim sirve para eliminar espacio en blanco
         int cedula = cliente.getCiCliente();
@@ -279,16 +281,23 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
         if (claveTexto.isEmpty()) {
             texto_pinIncorrecto.setText("El Pin no puede estar vacío.");
         } else {
-            // Aquí puedes agregar más lógica si es necesario
-            texto_pinIncorrecto.setText(""); // Limpiar el mensaje de error si no hay error
+            texto_pinIncorrecto.setText(""); // No debe mostrar el mensaje de error si no hay error
         }
-        if(ProcesosControlador.validarPinTransaccion(clave)){
-            transaccion.realizarTransaccion();
+        ValidarPinTransaccion validarPinTransaccion = new ValidarPinTransaccion(clave);
+        Thread hiloValidarPin = new Thread(validarPinTransaccion);
+        hiloValidarPin.join();
+        if(validarPinTransaccion.esPinValido()){
+            Thread hiloTransaccion = new Thread (transaccion);
+            hiloTransaccion.start();
+            hiloTransaccion.join();
+
             ComprobanteInterfaz comprobante = new ComprobanteInterfaz(cliente, cuenta, transaccion);
             comprobante.setVisible(true);
             dispose();
         }else{
             texto_pinIncorrecto.setText("PIN INCORRECTO!");
+        }}catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
    
         
