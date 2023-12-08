@@ -188,7 +188,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         label19 = new Label();
         menu_pagarTarjeta = new Panel();
         boton_cancelarPagoTarjeta = new Button();
-        boton_confirmarPagoTarjeta = new Button();
+        boton_confirmarTransaccion6 = new Button();
         label34 = new Label();
         montoTarjeta = new JTextField();
         label37 = new Label();
@@ -831,13 +831,13 @@ public class BaseInterfaz extends javax.swing.JFrame {
             }
         });
 
-        boton_confirmarPagoTarjeta.setActionCommand("confirmarTransaccion");
-        boton_confirmarPagoTarjeta.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-        boton_confirmarPagoTarjeta.setFont(new Font("Arial", 0, 18)); // NOI18N
-        boton_confirmarPagoTarjeta.setForeground(new Color(51, 51, 51));
-        boton_confirmarPagoTarjeta.setLabel("Confirmar Transaccion");
-        boton_confirmarPagoTarjeta.setMinimumSize(new Dimension(190, 30));
-        boton_confirmarPagoTarjeta.addActionListener(new ActionListener() {
+        boton_confirmarTransaccion6.setActionCommand("confirmarTransaccion");
+        boton_confirmarTransaccion6.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        boton_confirmarTransaccion6.setFont(new Font("Arial", 0, 18)); // NOI18N
+        boton_confirmarTransaccion6.setForeground(new Color(51, 51, 51));
+        boton_confirmarTransaccion6.setLabel("Confirmar Transaccion");
+        boton_confirmarTransaccion6.setMinimumSize(new Dimension(190, 30));
+        boton_confirmarTransaccion6.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 boton_confirmarTransaccion6ActionPerformed(evt);
             }
@@ -937,7 +937,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 .addContainerGap(81, Short.MAX_VALUE)
                 .addComponent(boton_cancelarPagoTarjeta, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
-                .addComponent(boton_confirmarPagoTarjeta, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addComponent(boton_confirmarTransaccion6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addGap(101, 101, 101))
             .addGroup(GroupLayout.Alignment.TRAILING, menu_pagarTarjetaLayout.createSequentialGroup()
                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1008,7 +1008,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 .addComponent(montoTarjeta, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(menu_pagarTarjetaLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                    .addComponent(boton_confirmarPagoTarjeta, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(boton_confirmarTransaccion6, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(boton_cancelarPagoTarjeta, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18))
         );
@@ -1931,7 +1931,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_montoTarjetaActionPerformed
 
-    private void boton_confirmarPagoTarjetaActionPerformed(ActionEvent evt) {
+    private void boton_confirmarTransaccion6ActionPerformed(ActionEvent evt) {
         double montoAPagar = Double.parseDouble(montoTarjeta.getText());
         Long numeroTarjetaL;
         String tarjetaSeleccionada = (String) seleccionarTarjeta.getSelectedItem();
@@ -2037,7 +2037,6 @@ public class BaseInterfaz extends javax.swing.JFrame {
                     tarjetaDeCredito.setNro_tarjeta(tarjeta_usada);
                     pagoServicio.setTarjetaAbonante(tarjetaDeCredito);
                     ProcesosControlador.verificarLimite(tarjeta_usada, monto);
-                    //pagoServicio.realizarTransaccion();
                 }
                 else{
                     pagoServicio.setCuenta(cuenta);
@@ -2192,8 +2191,8 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private Button boton_cancelarTransaccion7;
     private Button boton_cerrarSesion;
     private Button boton_confirmarDeposito;
-    private Button boton_confirmarPagoTarjeta;
     private Button boton_confirmarTransaccion1;
+    private Button boton_confirmarTransaccion6;
     private Button boton_consultarSaldo;
     private Button boton_deposito;
     private Button boton_pagarServicio;
