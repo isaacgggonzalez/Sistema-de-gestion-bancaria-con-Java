@@ -1,5 +1,6 @@
 package modelo;
 
+import controlador.ProcesosControlador;
 import primer_final.Cuenta;
 import primer_final.Transaccion;
 import java.util.Date;
@@ -14,6 +15,11 @@ public class Movimiento extends Transaccion {
      */
     private Cuenta cuenta;
 
+
+    public Movimiento(Cuenta cuenta){
+        this.cuenta = cuenta;
+    }
+
     /**
      * Constructor de la clase Movimiento.
      *
@@ -21,6 +27,7 @@ public class Movimiento extends Transaccion {
      * @param montoTransaccion Monto de la transacción.
      * @param tipoTransaccion  Tipo de la transacción.
      */
+
     public Movimiento(Date fechaTransaccion, double montoTransaccion, String tipoTransaccion) {
         super(fechaTransaccion, montoTransaccion, tipoTransaccion);
     }
@@ -56,6 +63,6 @@ public class Movimiento extends Transaccion {
 
     @Override
     public void run() {
-
+        ProcesosControlador.obtenerMovimientos(cuenta.getIdCuenta());
     }
 }

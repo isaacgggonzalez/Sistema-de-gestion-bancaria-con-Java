@@ -41,6 +41,7 @@ import java.awt.event.KeyEvent;
 import java.net.URI;
 import java.text.DecimalFormat;
 import modelo.Movimiento;
+import modelo.Movimientos;
 import modelo.exceptions.SaldoInsuficienteException;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
@@ -1581,8 +1582,15 @@ public class BaseInterfaz extends javax.swing.JFrame {
         modelo.addColumn("Tipo de Transacción");
         modelo.addColumn("Fecha de Transacción");
         modelo.addColumn("Monto");
-        java.util.List<Movimiento> movimientos = ProcesosControlador.obtenerMovimientos(cuenta.getIdCuenta());
-        for(Movimiento movimiento : movimientos ){
+        Movimientos movimientos = new Movimientos(cuenta.getIdCuenta());
+        Thread hiloMovimientos = new Thread(movimientos);
+        hiloMovimientos.start();
+        try {
+            hiloMovimientos.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        for(Movimiento movimiento : movimientos.getMovimientos() ){
             Object[] fila = {
                     movimiento.getIdTransaccion(),
                     movimiento.getTipoTransaccion(),
@@ -1885,7 +1893,9 @@ public class BaseInterfaz extends javax.swing.JFrame {
         System.out.println(deposito);
         Deposito depositoObj = new Deposito(Date.from(Instant.now()), cuenta, deposito);
         if(deposito>0){
-            depositoObj.realizarTransaccion();
+            Thread hiloDeposito = new Thread(depositoObj);
+            hiloDeposito.start();
+            hiloDeposito.join();
             cuenta.setSaldoCuenta(cuenta.getSaldoCuenta() + deposito);
             saldoDeposito.setText(Double.toString(cuenta.getSaldoCuenta()));
             ComprobanteInterfaz comprobante = new ComprobanteInterfaz(cliente, cuenta, depositoObj);
@@ -1900,7 +1910,9 @@ public class BaseInterfaz extends javax.swing.JFrame {
     } catch (NumberFormatException e) {
         // Manejar la excepción si el formato del montoDeposito no es válido
          JOptionPane.showMessageDialog(null, "Monto invalido", "Error", JOptionPane.ERROR_MESSAGE);
-    }
+    } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }//GEN-LAST:event_boton_confirmarDepositoActionPerformed
 
     private void montoDepositoActionPerformed(ActionEvent evt) {//GEN-FIRST:event_montoDepositoActionPerformed

@@ -23,7 +23,10 @@ public abstract class Transaccion implements Runnable {
      * Tipo de la transacción.
      */
     private final String tipoTransaccion;
-    
+
+    public Transaccion(){
+        tipoTransaccion = "";
+    }
 
     /**
      * Constructor de la clase Transaccion.
