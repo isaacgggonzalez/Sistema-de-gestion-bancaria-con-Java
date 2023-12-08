@@ -3,12 +3,21 @@ package pruebadepg;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+
+/**
+ * Clase que gestiona la conexión a la base de datos PostgreSQL.
+ */
 public class Conexion {
     private final String base = "lp2_final";
     private final String user = "postgres";
     private final String password = "1234";
     private final String url = "jdbc:postgresql://localhost:5432/" + base;
-
+    /**
+     * Obtiene y retorna una conexión a la base de datos PostgreSQL.
+     *
+     * @return La conexión a la base de datos.
+     * @throws SQLException Si ocurre un error al conectar a la base de datos.
+     */
     public Connection getConexion() throws SQLException {
         Connection conexion = null;
         try {
@@ -23,7 +32,11 @@ public class Conexion {
         }
         return conexion;
     }
-
+    /**
+     * Método principal utilizado para pruebas y ejecución de la clase Conexion.
+     *
+     * @param args Los argumentos de la línea de comandos (no se utilizan en este caso).
+     */
     public static void main(String[] args) {
         try {
             Conexion miConexion = new Conexion();

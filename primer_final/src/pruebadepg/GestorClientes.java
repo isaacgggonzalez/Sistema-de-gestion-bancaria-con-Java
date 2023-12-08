@@ -10,8 +10,16 @@ import java.sql.Statement;
 import primer_final.*;
 import java.math.BigDecimal;
 
+/**
+ * Clase que gestiona la obtención de información relacionada con clientes y cuentas en la base de datos.
+ */
 public class GestorClientes {
-
+    /**
+     * Obtiene un objeto Cliente a partir de la base de datos según la cédula proporcionada.
+     *
+     * @param cedula La cédula del cliente a buscar.
+     * @return El objeto Cliente correspondiente a la cédula dada, o null si no se encuentra.
+     */
     public static Cliente obtenerCliente(long cedula) {
     Cliente cliente = null;
 
@@ -39,7 +47,12 @@ public class GestorClientes {
 
     return cliente;
 }
-
+    /**
+     * Obtiene un objeto Cuenta a partir del número de cuenta proporcionado.
+     *
+     * @param numeroCuenta El número de cuenta de la cuenta a buscar.
+     * @return El objeto Cuenta correspondiente al número de cuenta dado, o null si no se encuentra.
+     */
     public static Cuenta obtenerCuenta(long numeroCuenta) {
         Cuenta cuenta = null;
         try (Connection conexion = ConexionBD.conectar();
@@ -69,7 +82,11 @@ public class GestorClientes {
 
     }
 
-
+    /**
+     * Método principal utilizado para pruebas y ejecución de la clase GestorClientes.
+     *
+     * @param args Los argumentos de la línea de comandos (no se utilizan en este caso).
+     */
     public static void main(String[] args) {
         
         // Puedes realizar pruebas aquí si lo deseas

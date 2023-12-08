@@ -6,10 +6,19 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+/**
+ * Clase que gestiona la autenticación de usuarios mediante la verificación de credenciales.
+ */
 public class AutenticacionLogin {
    
-    
+    /**
+     * Verifica la autenticación de un usuario mediante la comparación de las credenciales con la base de datos.
+     *
+     * @param cedula       El número de cédula del usuario.
+     * @param numeroCuenta El número de cuenta del usuario.
+     * @param clave        La clave o PIN del usuario.
+     * @return true si las credenciales son correctas, false si no lo son.
+     */
     public boolean verificarPinCuenta(long cedula, long numeroCuenta, int clave) {
         boolean credencialesCorrectas = false;
 
@@ -23,7 +32,16 @@ public class AutenticacionLogin {
     }
     
 
-    // Función separada para realizar la verificación de credenciales en la base de datos
+    /**
+     * Verifica las credenciales del usuario en la base de datos.
+     *
+     * @param conexion     La conexión a la base de datos.
+     * @param cedula       El número de cédula del usuario.
+     * @param numeroCuenta El número de cuenta del usuario.
+     * @param clave        La clave o PIN del usuario.
+     * @return true si las credenciales son correctas, false si no lo son.
+     * @throws SQLException Si ocurre un error al ejecutar la consulta SQL.
+     */
     private boolean verificarCredencialesEnBaseDeDatos(Connection conexion, long cedula, long numeroCuenta, int clave) throws SQLException {
         boolean credencialesCorrectas = false;
 
@@ -57,7 +75,11 @@ public class AutenticacionLogin {
     
     
     
-
+    /**
+     * Método principal utilizado para pruebas y ejecución de la clase AutenticacionLogin.
+     *
+     * @param args Los argumentos de la línea de comandos (no se utilizan en este caso).
+     */
     public static void main(String[] args) {
         AutenticacionLogin autenticacion = new AutenticacionLogin();
         LoginInterfaz loginInterfaz = new LoginInterfaz();

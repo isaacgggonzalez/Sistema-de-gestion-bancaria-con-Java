@@ -8,9 +8,20 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+/**
+ * Clase que gestiona la inserción de datos en las tablas cliente y cuenta de la base de datos.
+ */
 public class GestionBaseDatos {
-
+    /**
+     * Inserta datos de cliente y cuenta en las respectivas tablas de la base de datos.
+     *
+     * @param nombre      El nombre del cliente.
+     * @param apellido    El apellido del cliente.
+     * @param cedula      La cédula del cliente.
+     * @param fechaNac    La fecha de nacimiento del cliente en formato "yyyy-MM-dd".
+     * @param pinCuenta   El PIN de la cuenta del cliente.
+     * @param numeroCuenta El número de cuenta del cliente.
+     */
     public void insertarDatosCliente(String nombre, String apellido, long cedula, String fechaNac, int pinCuenta, long numeroCuenta) {
         try (Connection conexion = ConexionBD.conectar()) {
             // Inserción de datos en las tablas cliente y cuenta
@@ -50,7 +61,11 @@ public class GestionBaseDatos {
             e.printStackTrace(); // Manejar la excepción de alguna manera apropiada en tu aplicación
         }
     }
-
+    /**
+     * Método principal utilizado para pruebas y ejecución de la clase GestionBaseDatos.
+     *
+     * @param args Los argumentos de la línea de comandos (no se utilizan en este caso).
+     */
     public static void main(String[] args) {
         GestionBaseDatos gestionBD = new GestionBaseDatos();
 

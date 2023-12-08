@@ -8,8 +8,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+/**
+ * Clase que representa el proceso de realizar pagos de tarjetas de crédito asociadas a un cliente.
+ */
 public class PagoTarjeta {
-
+    /**
+     * Realiza el proceso de pago de una tarjeta de crédito asociada a un cliente.
+     *
+     * @param idCliente El identificador del cliente.
+     */
     public void realizarPagoTarjeta(long idCliente) {
         try (Connection conexion = ConexionBD.conectar()) {
             // Obtener las tarjetas de crédito asociadas al cliente
@@ -40,13 +47,23 @@ public class PagoTarjeta {
             e.printStackTrace();
         }
     }
-
+    /**
+     * Realiza el pago de la tarjeta de crédito seleccionada.
+     *
+     * @param conexion   La conexión a la base de datos.
+     * @param idTarjeta  El identificador de la tarjeta de crédito a pagar.
+     * @throws SQLException Si ocurre un error al intentar realizar el pago.
+     */
     private void pagarTarjeta(Connection conexion, long idTarjeta) throws SQLException {
         // Implementa la lógica para realizar el pago de la tarjeta
         // Puedes actualizar el saldo y otros detalles en la base de datos
         // (Deberías ajustar esta lógica según la estructura de tu base de datos y tus necesidades específicas.)
     }
-
+    /**
+     * Método principal utilizado para probar la funcionalidad de realizarPagoTarjeta.
+     *
+     * @param args Los argumentos de la línea de comandos (no se utilizan en este caso).
+     */
     public static void main(String[] args) {
         PagoTarjeta pagoTarjeta = new PagoTarjeta();
 

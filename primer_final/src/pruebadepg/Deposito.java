@@ -8,8 +8,16 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 
+/**
+ * Clase que representa la realización de un depósito en una cuenta y su registro en la base de datos.
+ */
 public class Deposito {
-
+    /**
+     * Realiza un depósito en la cuenta de destino y registra la transacción en la base de datos.
+     *
+     * @param cuentaDestino El número de cuenta de destino donde se realizará el depósito.
+     * @param monto         El monto a depositar en la cuenta.
+     */
     public void realizarDeposito(long cuentaDestino, double monto) {
         try (Connection conexion = ConexionBD.conectar()) {
             // Iniciar transacción
@@ -35,7 +43,14 @@ public class Deposito {
             e.printStackTrace();
         }
     }
-
+    /**
+     * Acredita el monto en la cuenta de destino.
+     *
+     * @param conexion      La conexión a la base de datos.
+     * @param cuentaDestino El número de cuenta de destino donde se acreditará el monto.
+     * @param monto         El monto a acreditar en la cuenta.
+     * @throws SQLException Si ocurre un error de SQL durante la operación.
+     */
     private void acreditarCuenta(Connection conexion, long cuentaDestino, double monto) throws SQLException {
         // Implementa la lógica para acreditar el monto en la cuenta de destino
         String actualizarSaldo = "UPDATE cuenta SET saldo = saldo + ? WHERE id_cuenta = ?";
@@ -46,7 +61,14 @@ public class Deposito {
             statement.executeUpdate();
         }
     }
-
+    /**
+     * Registra el depósito en la base de datos.
+     *
+     * @param conexion      La conexión a la base de datos.
+     * @param cuentaDestino El número de cuenta de destino donde se realizó el depósito.
+     * @param monto         El monto depositado.
+     * @throws SQLException Si ocurre un error de SQL durante la operación.
+     */
     private void registrarDeposito(Connection conexion, long cuentaDestino, double monto) throws SQLException {
         // Implementa la lógica para registrar el depósito en la base de datos
         String insertarDeposito = "INSERT INTO deposito (id_cuenta, monto, fecha) VALUES (?, ?, ?)";
@@ -59,7 +81,11 @@ public class Deposito {
         }
     }
     
-    
+    /**
+     * Método principal utilizado para pruebas y ejecución de la clase Deposito.
+     *
+     * @param args Los argumentos de la línea de comandos (no se utilizan en este caso).
+     */
     public static void main(String[] args) {
         Deposito deposito = new Deposito();
 
