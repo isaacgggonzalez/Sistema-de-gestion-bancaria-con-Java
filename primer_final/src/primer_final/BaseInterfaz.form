@@ -1842,17 +1842,28 @@
                                           <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="label35" pref="170" max="32767" attributes="0"/>
-                                              <Component id="servicio_a_pagar" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="cuentaDestino33" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="label42" alignment="0" max="32767" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="metodo_de_pago" max="32767" attributes="0"/>
-                                              <Component id="label36" pref="170" max="32767" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                      <Component id="label35" pref="170" max="32767" attributes="0"/>
+                                                      <Component id="servicio_a_pagar" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="cuentaDestino33" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="label42" alignment="0" max="32767" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="metodo_de_pago" max="32767" attributes="0"/>
+                                                      <Component id="label36" pref="170" max="32767" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="saldoTarjetaServicio" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
+                                                      <Component id="textSaldoTarjeta" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
@@ -1919,10 +1930,20 @@
                                                       </Group>
                                                       <Component id="label36" min="-2" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
-                                                  <Component id="label42" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="cuentaDestino33" min="-2" pref="38" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" attributes="0">
+                                                          <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
+                                                          <Component id="label42" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="cuentaDestino33" min="-2" pref="38" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                                          <Component id="textSaldoTarjeta" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="saldoTarjetaServicio" min="-2" pref="38" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
                                               </Group>
                                           </Group>
                                           <EmptySpace pref="33" max="32767" attributes="0"/>
@@ -2164,6 +2185,33 @@
                                       <Color blue="0" green="1" red="0" type="rgb"/>
                                     </Property>
                                     <Property name="text" type="java.lang.String" value="Monto del Servicio"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JTextField" name="saldoTarjetaServicio">
+                                  <Properties>
+                                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="c4" green="c4" red="c4" type="rgb"/>
+                                    </Property>
+                                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="0" green="0" red="0" type="rgb"/>
+                                    </Property>
+                                    <Property name="enabled" type="boolean" value="false"/>
+                                  </Properties>
+                                  <Events>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saldoTarjetaServicioActionPerformed"/>
+                                  </Events>
+                                </Component>
+                                <Component class="java.awt.Label" name="textSaldoTarjeta">
+                                  <Properties>
+                                    <Property name="alignment" type="int" value="1"/>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Arial" size="14" style="1"/>
+                                    </Property>
+                                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="0" green="1" red="0" type="rgb"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Saldo de la Tarjeta"/>
+                                    <Property name="visible" type="boolean" value="false"/>
                                   </Properties>
                                 </Component>
                               </SubComponents>

@@ -90,6 +90,7 @@ public class ProcesosControlador {
     public static void realizarPagoServicio(PagoServicio pagoServicio) {
         TransaccionRepositorio2 transaccionRepositorio2 = new TransaccionRepositorio2();
         Long idTransaccion = transaccionRepositorio2.insertTransaccion(pagoServicio);
+        
         if (pagoServicio.getTarjetaAbonante() != null) {
             transaccionRepositorio2.aumentarDeuda(pagoServicio.getTarjetaAbonante().getNro_tarjeta(), pagoServicio.getMontoTransaccion());
         } else {

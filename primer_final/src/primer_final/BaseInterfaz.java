@@ -230,6 +230,8 @@ public class BaseInterfaz extends javax.swing.JFrame {
         label36 = new Label();
         monto_definido = new JTextField();
         label46 = new Label();
+        saldoTarjetaServicio = new JTextField();
+        textSaldoTarjeta = new Label();
         fondo1 = new JLabel();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -837,7 +839,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         boton_confirmarPagoTarjeta.setMinimumSize(new Dimension(190, 30));
         boton_confirmarPagoTarjeta.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                boton_confirmarPagoTarjetaActionPerformed(evt);
+                boton_confirmarTransaccion6ActionPerformed(evt);
             }
         });
 
@@ -1272,6 +1274,21 @@ public class BaseInterfaz extends javax.swing.JFrame {
         label46.setForeground(new Color(0, 1, 0));
         label46.setText("Monto del Servicio");
 
+        saldoTarjetaServicio.setBackground(new Color(196, 196, 196));
+        saldoTarjetaServicio.setForeground(new Color(0, 0, 0));
+        saldoTarjetaServicio.setEnabled(false);
+        saldoTarjetaServicio.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                saldoTarjetaServicioActionPerformed(evt);
+            }
+        });
+
+        textSaldoTarjeta.setAlignment(Label.CENTER);
+        textSaldoTarjeta.setFont(new Font("Arial", 1, 14)); // NOI18N
+        textSaldoTarjeta.setForeground(new Color(0, 1, 0));
+        textSaldoTarjeta.setText("Saldo de la Tarjeta");
+        textSaldoTarjeta.setVisible(false);
+
         GroupLayout menu_pagarServicioLayout = new GroupLayout(menu_pagarServicio);
         menu_pagarServicio.setLayout(menu_pagarServicioLayout);
         menu_pagarServicioLayout.setHorizontalGroup(menu_pagarServicioLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -1288,16 +1305,23 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 .addComponent(saldo_pago_serv, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
             .addGroup(GroupLayout.Alignment.TRAILING, menu_pagarServicioLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addGroup(menu_pagarServicioLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(label35, GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                    .addComponent(servicio_a_pagar, GroupLayout.Alignment.LEADING, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cuentaDestino33, GroupLayout.Alignment.LEADING)
-                    .addComponent(label42, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(menu_pagarServicioLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                    .addComponent(metodo_de_pago, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(label36, GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))
+                .addGroup(menu_pagarServicioLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addGroup(menu_pagarServicioLayout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addGroup(menu_pagarServicioLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(label35, GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                            .addComponent(servicio_a_pagar, GroupLayout.Alignment.LEADING, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cuentaDestino33, GroupLayout.Alignment.LEADING)
+                            .addComponent(label42, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(menu_pagarServicioLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                            .addComponent(metodo_de_pago, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(label36, GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)))
+                    .addGroup(GroupLayout.Alignment.TRAILING, menu_pagarServicioLayout.createSequentialGroup()
+                        .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(menu_pagarServicioLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                            .addComponent(saldoTarjetaServicio, GroupLayout.PREFERRED_SIZE, 175, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textSaldoTarjeta, GroupLayout.PREFERRED_SIZE, 175, GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(menu_pagarServicioLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addComponent(monto_definido, GroupLayout.PREFERRED_SIZE, 175, GroupLayout.PREFERRED_SIZE)
@@ -1347,10 +1371,17 @@ public class BaseInterfaz extends javax.swing.JFrame {
                                     .addComponent(servicio_a_pagar, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
                                     .addComponent(metodo_de_pago, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)))
                             .addComponent(label36, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                        .addGap(81, 81, 81)
-                        .addComponent(label42, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cuentaDestino33, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(menu_pagarServicioLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                            .addGroup(menu_pagarServicioLayout.createSequentialGroup()
+                                .addGap(81, 81, 81)
+                                .addComponent(label42, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cuentaDestino33, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE))
+                            .addGroup(menu_pagarServicioLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(textSaldoTarjeta, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(saldoTarjetaServicio, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)))))
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(menu_pagarServicioLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                     .addComponent(confirmar_pago_serv, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1612,6 +1643,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         menu_pagarServicio.setVisible(true);
         menu_pagarTarjeta.setVisible(false);
         menu_acercaSistema.setVisible(false);
+        saldoTarjetaServicio.setVisible(false);
         saldo_pago_serv.setText(String.format("%.0f", cuenta.getSaldoCuenta())); 
         
         //saldo_pago_serv.setText(cuenta.getSaldoCuenta() + "");
@@ -2005,7 +2037,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                     tarjetaDeCredito.setNro_tarjeta(tarjeta_usada);
                     pagoServicio.setTarjetaAbonante(tarjetaDeCredito);
                     ProcesosControlador.verificarLimite(tarjeta_usada, monto);
-
+                    //pagoServicio.realizarTransaccion();
                 }
                 else{
                     pagoServicio.setCuenta(cuenta);
@@ -2029,6 +2061,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_boton_cancelarTransaccion7ActionPerformed
 
     private void servicio_a_pagarActionPerformed(ActionEvent evt) {//GEN-FIRST:event_servicio_a_pagarActionPerformed
+        
         ArrayList<Servicio> servicios = obtenerTodosLosServicios();
         Servicio servicio_elegido = servicios.get(0);
         for(Servicio servicio: servicios){
@@ -2058,6 +2091,20 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
     private void metodo_de_pagoActionPerformed(ActionEvent evt) {//GEN-FIRST:event_metodo_de_pagoActionPerformed
         // TODO add your handling code here:
+        String metodo_pago = (String) metodo_de_pago.getSelectedItem();
+        if (!"Saldo de cuenta".equals(metodo_pago)){
+            saldoTarjetaServicio.setVisible(true);
+            textSaldoTarjeta.setVisible(true);
+            metodo_pago = metodo_pago.substring(4);
+            Long numeroTarjetaL = Long.parseLong(metodo_pago);
+            TarjetaDeCredito tarjetaDeCredito = ProcesosControlador.obtenerTarjeta(numeroTarjetaL);
+            saldoTarjetaServicio.setText(String.valueOf(tarjetaDeCredito.getLinea_tarjeta()-tarjetaDeCredito.getDeuda_tarjeta()));
+        }
+        else{
+            saldoTarjetaServicio.setVisible(false);
+            textSaldoTarjeta.setVisible(false);
+        }
+
     }//GEN-LAST:event_metodo_de_pagoActionPerformed
 
     private void numeroTarjetaKeyReleased(KeyEvent evt) {//GEN-FIRST:event_numeroTarjetaKeyReleased
@@ -2086,6 +2133,10 @@ public class BaseInterfaz extends javax.swing.JFrame {
             deudatotalTarjeta.setText("");
         }
     }//GEN-LAST:event_numeroTarjetaKeyReleased
+
+    private void saldoTarjetaServicioActionPerformed(ActionEvent evt) {//GEN-FIRST:event_saldoTarjetaServicioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_saldoTarjetaServicioActionPerformed
 
     public void activarMenuTransferencia() {
         boton_transferenciaCuentaActionPerformed(null);
@@ -2217,10 +2268,12 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private JTextField saldo1;
     private JTextField saldoDeposito;
     private JTextField saldoTarjeta;
+    private JTextField saldoTarjetaServicio;
     private JTextField saldo_pago_serv;
     private JComboBox<String> seleccionarTarjeta;
     private JLayeredPane separador;
     private JComboBox<String> servicio_a_pagar;
+    private Label textSaldoTarjeta;
     private JLabel texto_fecha;
     private JLabel texto_usuario;
     // End of variables declaration//GEN-END:variables
