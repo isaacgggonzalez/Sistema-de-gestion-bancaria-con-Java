@@ -1934,7 +1934,9 @@ public class BaseInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_numero_origenActionPerformed
     
     
-    
+    /**
+    * Borra los datos insertados en el menu de deposito al apretar el boton de cancelar
+    */
     private void boton_cancelarDepositoActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_cancelarDepositoActionPerformed
         montoDeposito.setText("");
     }//GEN-LAST:event_boton_cancelarDepositoActionPerformed
@@ -2036,7 +2038,9 @@ public class BaseInterfaz extends javax.swing.JFrame {
             }
         }
     }
-
+    /**
+    * Borra los datos insertados en el menu de pago de tarjeta al apretar el boton de cancelar
+    */
     private void boton_cancelarPagoTarjetaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_cancelarTransaccion6ActionPerformed
         seleccionarTarjeta.setSelectedIndex(0);
         montoTarjeta.setText("");
@@ -2160,7 +2164,9 @@ public class BaseInterfaz extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_confirmar_pago_servActionPerformed
-
+    /**
+    * Borra los datos insertados en el menu de pago de servicios al apretar el boton de cancelar
+    */
     private void boton_cancelarTransaccion7ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_cancelarTransaccion7ActionPerformed
         servicio_a_pagar.setSelectedIndex(0);
         metodo_de_pago.setSelectedIndex(0);
