@@ -102,13 +102,17 @@ public class BaseInterfaz extends javax.swing.JFrame {
         }
     }
     public void run(){
-            Thread hiloMostrarIntegrantes = new Thread(this::mostrarIntegrantes);
-            Thread hiloMostrarGrupo = new Thread(this::mostrarGrupo);
-            Thread hiloAbrirEnlace = new Thread(this::abrirEnlace);
-            hiloMostrarIntegrantes.start();
-            hiloMostrarGrupo.start();
-            hiloAbrirEnlace.start();
-
+        try {
+        Thread hiloMostrarIntegrantes = new Thread(this::mostrarIntegrantes);
+        Thread hiloMostrarGrupo = new Thread(this::mostrarGrupo);
+        Thread hiloAbrirEnlace = new Thread(this::abrirEnlace);
+        hiloMostrarIntegrantes.start();
+        hiloMostrarIntegrantes.join();
+        hiloMostrarGrupo.start();
+        hiloAbrirEnlace.start();
+        }catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
