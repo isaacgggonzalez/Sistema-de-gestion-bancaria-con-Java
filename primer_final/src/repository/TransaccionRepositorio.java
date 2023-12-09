@@ -111,7 +111,7 @@ public class TransaccionRepositorio {
                 "FROM transaccion t " +
                 "JOIN movimiento m ON t.id_transaccion = m.id_transaccion " +
                 "LEFT JOIN transferencia tr ON t.id_transaccion = tr.id_transaccion " +
-                "WHERE m.id_cuenta = ?";
+                "WHERE m.id_cuenta = ? ORDER BY t.id_transaccion DESC";
 
         private static final String RECUPERAR_SERVICIOS = "SELECT id_servicio, nombre, monto FROM servicio";
 
