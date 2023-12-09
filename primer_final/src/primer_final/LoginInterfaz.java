@@ -3,6 +3,7 @@ package primer_final;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
+import controlador.ProcesosControlador;
 import modelo.Cliente;
 import modelo.Cuenta;
 import pruebadepg.AutenticacionLogin;
@@ -307,11 +308,10 @@ public class LoginInterfaz extends javax.swing.JFrame {
             int clave = Integer.parseInt(claveTexto);
 
             // Realizar la autenticación
-            AutenticacionLogin autenticacion = new AutenticacionLogin();
 
-            if (autenticacion.verificarPinCuenta(cedula, numeroCuenta, clave)) {
-                Cliente cliente=GestorClientes.obtenerCliente(cedula);
-                Cuenta cuenta=GestorClientes.obtenerCuenta(numeroCuenta);
+            if (ProcesosControlador.verificarPinCuenta(cedula, numeroCuenta, clave)) {
+                Cliente cliente=ProcesosControlador.obtenerCliente(cedula);
+                Cuenta cuenta=ProcesosControlador.obtenerCuenta(numeroCuenta);
                 
                 // Autenticación exitosa, abrir la segunda ventana
                 BaseInterfaz ventanaSecundaria = new BaseInterfaz(cliente,cuenta);

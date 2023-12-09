@@ -52,8 +52,6 @@ import javax.swing.JOptionPane;
 
 import javax.swing.Timer;
 
-import static repository.TransaccionRepositorio.obtenerTodosLosServicios;
-
 public class BaseInterfaz extends javax.swing.JFrame {
     private static boolean validarPin = false;
 

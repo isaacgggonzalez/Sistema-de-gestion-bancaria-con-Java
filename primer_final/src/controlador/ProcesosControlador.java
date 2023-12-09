@@ -3,13 +3,29 @@ package controlador;
 
 import modelo.*;
 import modelo.exceptions.SaldoInsuficienteException;
-import repository.TransaccionRepositorio2;
+import repository.TransaccionRepositorio;
 import java.util.List;
 
 /**
  * Clase que controla los procesos relacionados con las transacciones financieras.
  */
 public class ProcesosControlador {
+
+
+    public static Cliente obtenerCliente(long cedula){
+        TransaccionRepositorio transaccionRepositorio = new TransaccionRepositorio();
+        return transaccionRepositorio.obtenerCliente(cedula);
+    }
+
+    public static Cuenta obtenerCuenta(long numeroCuenta){
+        TransaccionRepositorio transaccionRepositorio = new TransaccionRepositorio();
+        return transaccionRepositorio.obtenerCuenta(numeroCuenta);
+    }
+
+    public static boolean verificarPinCuenta(long cedula, long numeroCuenta, int clave){
+        TransaccionRepositorio transaccionRepositorio = new TransaccionRepositorio();
+        return transaccionRepositorio.verificarPinCuenta(cedula, numeroCuenta, clave);
+    }
 
     /**
      * Obtiene una lista de movimientos asociados a una cuenta.
@@ -18,8 +34,8 @@ public class ProcesosControlador {
      * @return Lista de movimientos asociados a la cuenta.
      */
     public static List<Movimiento> obtenerMovimientos(Long idCuenta){
-        TransaccionRepositorio2 transaccionRepositorio2 = new TransaccionRepositorio2();
-        return transaccionRepositorio2.obtenerMovimientosPorCuenta(idCuenta);
+        TransaccionRepositorio transaccionRepositorio = new TransaccionRepositorio();
+        return transaccionRepositorio.obtenerMovimientosPorCuenta(idCuenta);
     }
     /**
      * Confirma los datos de una transferencia.
@@ -30,8 +46,8 @@ public class ProcesosControlador {
      * @return True si los datos son confirmados, false en caso contrario.
      */
     public static boolean confirmarDatosTransferencia(long DestinoTransferencia, long cedula, String nombre_destinatario){
-        TransaccionRepositorio2 transaccionRepositorio2 = new TransaccionRepositorio2();
-        return transaccionRepositorio2.confirmarDatos(DestinoTransferencia, cedula, nombre_destinatario);
+        TransaccionRepositorio transaccionRepositorio = new TransaccionRepositorio();
+        return transaccionRepositorio.confirmarDatos(DestinoTransferencia, cedula, nombre_destinatario);
     }
     /**
      * Realiza una transferencia entre cuentas.
@@ -39,15 +55,15 @@ public class ProcesosControlador {
      * @param transferencia Objeto Transferencia que contiene la información de la transferencia.
      */
     public static void realizarTransferencia(Transferencia transferencia){
-        TransaccionRepositorio2 transaccionRepositorio2 = new TransaccionRepositorio2();
-        Long idCuentaDestino = transaccionRepositorio2.recuperarIdCuenta(transferencia.get_destinoTransferencia());
-        Long idCuentaOrigen = transaccionRepositorio2.recuperarIdCuenta(transferencia.get_origenTransferencia());
-        Long idTransaccion = transaccionRepositorio2.insertTransaccion(transferencia);
-        transaccionRepositorio2.insertTransferencia(idTransaccion, idCuentaOrigen, idCuentaDestino);
-        transaccionRepositorio2.actualizarSaldoCuenta(idCuentaDestino, +transferencia.getMontoTransaccion());
-        transaccionRepositorio2.actualizarSaldoCuenta(idCuentaOrigen, -transferencia.getMontoTransaccion());
-        transaccionRepositorio2.insertMovimiento(idCuentaDestino, idTransaccion);
-        transaccionRepositorio2.insertMovimiento(idCuentaOrigen, idTransaccion);
+        TransaccionRepositorio transaccionRepositorio = new TransaccionRepositorio();
+        Long idCuentaDestino = transaccionRepositorio.recuperarIdCuenta(transferencia.get_destinoTransferencia());
+        Long idCuentaOrigen = transaccionRepositorio.recuperarIdCuenta(transferencia.get_origenTransferencia());
+        Long idTransaccion = transaccionRepositorio.insertTransaccion(transferencia);
+        transaccionRepositorio.insertTransferencia(idTransaccion, idCuentaOrigen, idCuentaDestino);
+        transaccionRepositorio.actualizarSaldoCuenta(idCuentaDestino, +transferencia.getMontoTransaccion());
+        transaccionRepositorio.actualizarSaldoCuenta(idCuentaOrigen, -transferencia.getMontoTransaccion());
+        transaccionRepositorio.insertMovimiento(idCuentaDestino, idTransaccion);
+        transaccionRepositorio.insertMovimiento(idCuentaOrigen, idTransaccion);
     }
 
     /**
@@ -57,8 +73,8 @@ public class ProcesosControlador {
      * @return True si el PIN es válido, false en caso contrario.
      */
     public static boolean validarPinTransaccion(long pinTransaccion){
-        TransaccionRepositorio2 transaccionRepositorio2 = new TransaccionRepositorio2();
-        return transaccionRepositorio2.validarPinTransaccion(pinTransaccion);
+        TransaccionRepositorio transaccionRepositorio = new TransaccionRepositorio();
+        return transaccionRepositorio.validarPinTransaccion(pinTransaccion);
     }
     /**
      * Realiza un depósito en una cuenta.
@@ -66,12 +82,12 @@ public class ProcesosControlador {
      * @param deposito Objeto Deposito que contiene la información del depósito.
      */
     public static void realizarDeposito(Deposito deposito){
-        TransaccionRepositorio2 transaccionRepositorio2 = new TransaccionRepositorio2();
-        Long idCuenta = transaccionRepositorio2.recuperarIdCuenta(deposito.getCuentaDestino().getNumeroCuenta());
-        Long idTransaccion = transaccionRepositorio2.insertTransaccion(deposito);
-        transaccionRepositorio2.actualizarSaldoCuenta(idCuenta, deposito.getMontoTransaccion());
-        transaccionRepositorio2.insertDeposito(idTransaccion, "CAJERO CENTRAL");
-        transaccionRepositorio2.insertMovimiento(idCuenta, idTransaccion);
+        TransaccionRepositorio transaccionRepositorio = new TransaccionRepositorio();
+        Long idCuenta = transaccionRepositorio.recuperarIdCuenta(deposito.getCuentaDestino().getNumeroCuenta());
+        Long idTransaccion = transaccionRepositorio.insertTransaccion(deposito);
+        transaccionRepositorio.actualizarSaldoCuenta(idCuenta, deposito.getMontoTransaccion());
+        transaccionRepositorio.insertDeposito(idTransaccion, "CAJERO CENTRAL");
+        transaccionRepositorio.insertMovimiento(idCuenta, idTransaccion);
     }
     /**
      * Realiza un pago de tarjeta de crédito.
@@ -79,14 +95,14 @@ public class ProcesosControlador {
      * @param pagoDeTarjeta Objeto PagoDeTarjeta que contiene la información del pago.
      */
     public static void realizarPagoTarjeta(PagoDeTarjeta pagoDeTarjeta){
-        TransaccionRepositorio2 transaccionRepositorio2 = new TransaccionRepositorio2();
-        Long idCuenta = transaccionRepositorio2.recuperarIdCuenta(pagoDeTarjeta.getNumeroCuenta());
-        Long idTarjetaCredito = transaccionRepositorio2.recuperarIdTarjeta(pagoDeTarjeta.getTarjetaDeCredito().getNro_tarjeta());
-        Long idTransaccion = transaccionRepositorio2.insertTransaccion(pagoDeTarjeta);
-        transaccionRepositorio2.insertPagoTarjeta(idTransaccion,idTarjetaCredito);
-        transaccionRepositorio2.pagarTarjetaCredito(pagoDeTarjeta.getMontoTransaccion(), idTarjetaCredito);
-        transaccionRepositorio2.actualizarSaldoCuenta(idCuenta, pagoDeTarjeta.getMontoTransaccion());
-        transaccionRepositorio2.insertMovimiento(idCuenta, idTransaccion);
+        TransaccionRepositorio transaccionRepositorio = new TransaccionRepositorio();
+        Long idCuenta = transaccionRepositorio.recuperarIdCuenta(pagoDeTarjeta.getNumeroCuenta());
+        Long idTarjetaCredito = transaccionRepositorio.recuperarIdTarjeta(pagoDeTarjeta.getTarjetaDeCredito().getNro_tarjeta());
+        Long idTransaccion = transaccionRepositorio.insertTransaccion(pagoDeTarjeta);
+        transaccionRepositorio.insertPagoTarjeta(idTransaccion,idTarjetaCredito);
+        transaccionRepositorio.pagarTarjetaCredito(pagoDeTarjeta.getMontoTransaccion(), idTarjetaCredito);
+        transaccionRepositorio.actualizarSaldoCuenta(idCuenta, pagoDeTarjeta.getMontoTransaccion());
+        transaccionRepositorio.insertMovimiento(idCuenta, idTransaccion);
     }
     /**
      * Obtiene una tarjeta de crédito por su número.
@@ -95,8 +111,8 @@ public class ProcesosControlador {
      * @return La tarjeta de crédito correspondiente al número proporcionado.
      */
     public static TarjetaDeCredito obtenerTarjeta(Long numeroTarjeta){
-        TransaccionRepositorio2 transaccionRepositorio2 = new TransaccionRepositorio2();
-        return transaccionRepositorio2.recuperarTarjetaCredito(numeroTarjeta);
+        TransaccionRepositorio transaccionRepositorio = new TransaccionRepositorio();
+        return transaccionRepositorio.recuperarTarjetaCredito(numeroTarjeta);
     }
     /**
      * Obtiene una lista de tarjetas de crédito asociadas a un cliente.
@@ -105,8 +121,8 @@ public class ProcesosControlador {
      * @return Lista de tarjetas de crédito asociadas al cliente.
      */
     public static List<TarjetaDeCredito> obtenerTarjetas(Long idCliente){
-        TransaccionRepositorio2 transaccionRepositorio2 = new TransaccionRepositorio2();
-        return transaccionRepositorio2.recuperarTarjetasCredito(idCliente);
+        TransaccionRepositorio transaccionRepositorio = new TransaccionRepositorio();
+        return transaccionRepositorio.recuperarTarjetasCredito(idCliente);
     }
     /**
      * Verifica si el límite de una tarjeta de crédito es suficiente para una transacción.
@@ -116,8 +132,8 @@ public class ProcesosControlador {
      * @throws SaldoInsuficienteException Si el límite no es suficiente para la transacción.
      */
     public static void verificarLimite(Long nroTarjeta, double monto) throws SaldoInsuficienteException{
-        TransaccionRepositorio2 transaccionRepositorio2 = new TransaccionRepositorio2();
-        if(!transaccionRepositorio2.verificarLimite(nroTarjeta, monto)){
+        TransaccionRepositorio transaccionRepositorio = new TransaccionRepositorio();
+        if(!transaccionRepositorio.verificarLimite(nroTarjeta, monto)){
             throw new SaldoInsuficienteException("El límite de la tarjeta no es suficiente para la transaccion");
         }
 
@@ -130,8 +146,8 @@ public class ProcesosControlador {
      * @throws SaldoInsuficienteException Si el saldo no es suficiente para la transacción.
      */
     public static void verificarSaldoSuficiente(Long numeroCuenta, double monto) throws SaldoInsuficienteException{
-        TransaccionRepositorio2 transaccionRepositorio2 = new TransaccionRepositorio2();
-        if(!transaccionRepositorio2.verificarSaldoSuficiente(numeroCuenta, monto)){
+        TransaccionRepositorio transaccionRepositorio = new TransaccionRepositorio();
+        if(!transaccionRepositorio.verificarSaldoSuficiente(numeroCuenta, monto)){
             throw new SaldoInsuficienteException("No posee saldo suficiente para esta operación");
         }
 
@@ -142,18 +158,18 @@ public class ProcesosControlador {
      * @param pagoServicio Objeto PagoServicio que contiene la información del pago de servicio.
      */
     public static void realizarPagoServicio(PagoServicio pagoServicio) {
-        TransaccionRepositorio2 transaccionRepositorio2 = new TransaccionRepositorio2();
-        Long idTransaccion = transaccionRepositorio2.insertTransaccion(pagoServicio);
+        TransaccionRepositorio transaccionRepositorio = new TransaccionRepositorio();
+        Long idTransaccion = transaccionRepositorio.insertTransaccion(pagoServicio);
         
         if (pagoServicio.getTarjetaAbonante() != null) {
-            transaccionRepositorio2.aumentarDeuda(pagoServicio.getTarjetaAbonante().getNro_tarjeta(), pagoServicio.getMontoTransaccion());
+            transaccionRepositorio.aumentarDeuda(pagoServicio.getTarjetaAbonante().getNro_tarjeta(), pagoServicio.getMontoTransaccion());
         } else {
-            transaccionRepositorio2.actualizarSaldoCuenta(pagoServicio.getCuenta().getNumeroCuenta(), -pagoServicio.getMontoTransaccion());
+            transaccionRepositorio.actualizarSaldoCuenta(pagoServicio.getCuenta().getNumeroCuenta(), -pagoServicio.getMontoTransaccion());
         }
-        Long idServicio = transaccionRepositorio2.recuperarIdServicio(pagoServicio.getServicio().get_NombreServicio());
-        transaccionRepositorio2.insertPagoServicio(idTransaccion, idServicio);
-        Long idCuenta = transaccionRepositorio2.recuperarIdCuenta(pagoServicio.getCuenta().getNumeroCuenta());
-        transaccionRepositorio2.insertMovimiento(idCuenta, idTransaccion);
+        Long idServicio = transaccionRepositorio.recuperarIdServicio(pagoServicio.getServicio().get_NombreServicio());
+        transaccionRepositorio.insertPagoServicio(idTransaccion, idServicio);
+        Long idCuenta = transaccionRepositorio.recuperarIdCuenta(pagoServicio.getCuenta().getNumeroCuenta());
+        transaccionRepositorio.insertMovimiento(idCuenta, idTransaccion);
     }
 
 }
