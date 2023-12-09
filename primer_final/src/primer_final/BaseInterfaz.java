@@ -237,6 +237,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new Dimension(1020, 660));
+        setPreferredSize(new Dimension(1020, 660));
         setResizable(false);
 
         jDesktopPane1.setMaximumSize(new Dimension(1020, 660));
@@ -1500,7 +1501,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 .addGroup(jLayeredPane1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addComponent(texto_usuario, GroupLayout.PREFERRED_SIZE, 480, GroupLayout.PREFERRED_SIZE)
                     .addComponent(texto_fecha, GroupLayout.PREFERRED_SIZE, 480, GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 216, Short.MAX_VALUE)
                 .addComponent(logo, GroupLayout.PREFERRED_SIZE, 307, GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
             .addComponent(jTabbedPane1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
@@ -1523,10 +1524,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         GroupLayout InterfazPrincipalLayout = new GroupLayout(InterfazPrincipal);
         InterfazPrincipal.setLayout(InterfazPrincipalLayout);
         InterfazPrincipalLayout.setHorizontalGroup(InterfazPrincipalLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGroup(InterfazPrincipalLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLayeredPane1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jLayeredPane1, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 1032, Short.MAX_VALUE)
         );
         InterfazPrincipalLayout.setVerticalGroup(InterfazPrincipalLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(GroupLayout.Alignment.TRAILING, InterfazPrincipalLayout.createSequentialGroup()

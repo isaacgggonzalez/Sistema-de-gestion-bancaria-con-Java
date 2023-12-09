@@ -90,7 +90,7 @@ public class LoginInterfaz extends javax.swing.JFrame {
         box_cedula.setForeground(new java.awt.Color(0, 0, 0));
         jScrollPane3.setViewportView(box_cedula);
 
-        boton_iniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        boton_iniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         boton_iniciarSesion.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         boton_iniciarSesion.setLabel("Iniciar Sesion");
         boton_iniciarSesion.addActionListener(new java.awt.event.ActionListener() {
@@ -114,7 +114,7 @@ public class LoginInterfaz extends javax.swing.JFrame {
         ojo_clave.setForeground(new java.awt.Color(255, 255, 255));
         ojo_clave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono_cerrarOjo.png"))); // NOI18N
         ojo_clave.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        ojo_clave.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ojo_clave.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         ojo_clave.setMaximumSize(new java.awt.Dimension(22, 22));
         ojo_clave.setMinimumSize(new java.awt.Dimension(22, 22));
         ojo_clave.setPreferredSize(new java.awt.Dimension(22, 22));
@@ -226,7 +226,7 @@ public class LoginInterfaz extends javax.swing.JFrame {
         fondo1.setMinimumSize(new java.awt.Dimension(1020, 640));
         fondo1.setOpaque(true);
         fondo1.setPreferredSize(new java.awt.Dimension(1020, 640));
-        jDesktopPane1.add(fondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, 310, 520));
+        jDesktopPane1.add(fondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, 320, 520));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
