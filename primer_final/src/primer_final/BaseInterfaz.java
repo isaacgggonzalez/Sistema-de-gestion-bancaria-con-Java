@@ -1040,7 +1040,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
         integrante1.setFont(new Font("Arial", 1, 18)); // NOI18N
         integrante1.setForeground(new Color(0, 1, 0));
-        integrante1.setText("Isaac Gonzálezdbuquwighuiqwgeiuqwiudgasihqwiuegiuqwgeiuwq");
+        integrante1.setText("Isaac González");
         integrante1.setVisible(false);
 
         integrante2.setFont(new Font("Arial", 1, 18)); // NOI18N
@@ -1082,22 +1082,22 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 .addGroup(menu_acercaSistemaLayout.createSequentialGroup()
                     .addGap(49, 49, 49)
                     .addComponent(integrante1, GroupLayout.PREFERRED_SIZE, 198, GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(417, Short.MAX_VALUE)))
+                    .addContainerGap(594, Short.MAX_VALUE)))
             .addGroup(menu_acercaSistemaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(menu_acercaSistemaLayout.createSequentialGroup()
                     .addGap(49, 49, 49)
                     .addComponent(integrante2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(255, Short.MAX_VALUE)))
+                    .addContainerGap(594, Short.MAX_VALUE)))
             .addGroup(menu_acercaSistemaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(menu_acercaSistemaLayout.createSequentialGroup()
                     .addGap(49, 49, 49)
                     .addComponent(integrante3, GroupLayout.PREFERRED_SIZE, 163, GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(431, Short.MAX_VALUE)))
+                    .addContainerGap(594, Short.MAX_VALUE)))
             .addGroup(menu_acercaSistemaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(menu_acercaSistemaLayout.createSequentialGroup()
                     .addGap(49, 49, 49)
                     .addComponent(integrante4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(445, Short.MAX_VALUE)))
+                    .addContainerGap(594, Short.MAX_VALUE)))
         );
         menu_acercaSistemaLayout.setVerticalGroup(menu_acercaSistemaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(menu_acercaSistemaLayout.createSequentialGroup()
@@ -1116,24 +1116,24 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 .addGap(377, 377, 377))
             .addGroup(menu_acercaSistemaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(menu_acercaSistemaLayout.createSequentialGroup()
-                    .addGap(230, 230, 230)
+                    .addGap(245, 245, 245)
                     .addComponent(integrante1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(311, Short.MAX_VALUE)))
+                    .addContainerGap(122, Short.MAX_VALUE)))
             .addGroup(menu_acercaSistemaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(menu_acercaSistemaLayout.createSequentialGroup()
-                    .addGap(260, 260, 260)
+                    .addGap(270, 270, 270)
                     .addComponent(integrante2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(171, Short.MAX_VALUE)))
+                    .addContainerGap(97, Short.MAX_VALUE)))
             .addGroup(menu_acercaSistemaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(menu_acercaSistemaLayout.createSequentialGroup()
-                    .addGap(290, 290, 290)
+                    .addGap(300, 300, 300)
                     .addComponent(integrante3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(51, Short.MAX_VALUE)))
+                    .addContainerGap(67, Short.MAX_VALUE)))
             .addGroup(menu_acercaSistemaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(menu_acercaSistemaLayout.createSequentialGroup()
-                    .addGap(320, 320, 320)
+                    .addGap(330, 330, 330)
                     .addComponent(integrante4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(21, Short.MAX_VALUE)))
+                    .addContainerGap(37, Short.MAX_VALUE)))
         );
 
         menu_pagarServicio.setBackground(new Color(153, 153, 153));
