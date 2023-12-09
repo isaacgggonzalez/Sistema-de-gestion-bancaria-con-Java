@@ -303,17 +303,15 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
         try{
         texto_pinIncorrecto.setText("");
         //trim sirve para eliminar espacio en blanco
-        int cedula = cliente.getCiCliente();
-        long numeroCuenta = cuenta.getNumeroCuenta();
         String claveTexto = box_pin.getText().trim();
+
+            // Validar que los campos no estén vacíos
+            if (claveTexto.isEmpty()) {
+                texto_pinIncorrecto.setText("El Pin no puede estar vacío.");
+            } else {
+                texto_pinIncorrecto.setText(""); // No debe mostrar el mensaje de error si no hay error
+            }
         int clave = Integer.parseInt(claveTexto);
-        
-        // Validar que los campos no estén vacíos
-        if (claveTexto.isEmpty()) {
-            texto_pinIncorrecto.setText("El Pin no puede estar vacío.");
-        } else {
-            texto_pinIncorrecto.setText(""); // No debe mostrar el mensaje de error si no hay error
-        }
         ValidarPinTransaccion validarPinTransaccion = new ValidarPinTransaccion(clave);
         Thread hiloValidarPin = new Thread(validarPinTransaccion);
         hiloValidarPin.start();
