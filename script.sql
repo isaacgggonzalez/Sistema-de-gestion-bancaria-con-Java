@@ -96,4 +96,4 @@ INSERT INTO servicio(nombre, monto) VALUES('UNA', 50000);
 INSERT INTO servicio(nombre, monto) VALUES('CCPA', 100000);
 INSERT INTO servicio(nombre, monto) VALUES('Cooperativa',80000);
 
-INSERT INTO tarjeta_credito(id_cliente, linea, deuda, fecha_vencimiento, nro_tarjeta) VALUES(1, 30000000, 5000000, 1234123412341234);
+INSERT INTO tarjeta_credito(id_cliente, linea, deuda, fecha_vencimiento, nro_tarjeta) VALUES(1, 30000000, 5000000, '2028-04-03', 1234123412341234);
