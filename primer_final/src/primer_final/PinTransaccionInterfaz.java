@@ -305,28 +305,29 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
         //trim sirve para eliminar espacio en blanco
         String claveTexto = box_pin.getText().trim();
 
-            // Validar que los campos no estén vacíos
-            if (claveTexto.isEmpty()) {
-                texto_pinIncorrecto.setText("El Pin no puede estar vacío.");
-            } else {
-                texto_pinIncorrecto.setText(""); // No debe mostrar el mensaje de error si no hay error
-            }
-        int clave = Integer.parseInt(claveTexto);
-        ValidarPinTransaccion validarPinTransaccion = new ValidarPinTransaccion(clave);
-        Thread hiloValidarPin = new Thread(validarPinTransaccion);
-        hiloValidarPin.start();
-        hiloValidarPin.join();
-        if(validarPinTransaccion.esPinValido()){
-            Thread hiloTransaccion = new Thread (transaccion);
-            hiloTransaccion.start();
-            hiloTransaccion.join();
+        // Validar que los campos no estén vacíos
+        if (claveTexto.isEmpty()) {
+            texto_pinIncorrecto.setText("El Pin no puede estar vacío.");
+        } else {
+            texto_pinIncorrecto.setText(""); // No debe mostrar el mensaje de error si no hay error
+            int clave = Integer.parseInt(claveTexto);
+            ValidarPinTransaccion validarPinTransaccion = new ValidarPinTransaccion(clave);
+            Thread hiloValidarPin = new Thread(validarPinTransaccion);
+            hiloValidarPin.start();
+            hiloValidarPin.join();
+            if(validarPinTransaccion.esPinValido()){
+                Thread hiloTransaccion = new Thread (transaccion);
+                hiloTransaccion.start();
+                hiloTransaccion.join();
 
-            ComprobanteInterfaz comprobante = new ComprobanteInterfaz(cliente, cuenta, transaccion);
-            comprobante.setVisible(true);
-            dispose();
+                ComprobanteInterfaz comprobante = new ComprobanteInterfaz(cliente, cuenta, transaccion);
+                comprobante.setVisible(true);
+                dispose();
         }else{
-            texto_pinIncorrecto.setText("PIN INCORRECTO!");
-        }}catch (InterruptedException e) {
+                texto_pinIncorrecto.setText("PIN INCORRECTO!");
+
+
+        }}}catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
    
