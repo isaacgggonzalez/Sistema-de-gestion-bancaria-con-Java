@@ -27,6 +27,11 @@ public class ProcesosControlador {
         return transaccionRepositorio.verificarPinCuenta(cedula, numeroCuenta, clave);
     }
 
+    public static List<Servicio> obtenerServicios(){
+        TransaccionRepositorio transaccionRepositorio = new TransaccionRepositorio();
+        return transaccionRepositorio.obtenerTodosLosServicios();
+    }
+
     /**
      * Obtiene una lista de movimientos asociados a una cuenta.
      *

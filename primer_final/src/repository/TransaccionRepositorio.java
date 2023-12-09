@@ -111,6 +111,8 @@ public class TransaccionRepositorio {
                 "JOIN movimiento m ON t.id_transaccion = m.id_transaccion " +
                 "WHERE m.id_cuenta = ?";
 
+        private static final String RECUPERAR_SERVICIOS = "SELECT id_servicio, nombre, monto FROM servicio";
+
         private static final String OBTENER_CLIENTE = "SELECT * FROM cliente WHERE cedula = ?";
 
         private static final String OBTENER_CUENTA = "SELECT * FROM cuenta WHERE numero_cuenta = ?";
@@ -769,6 +771,29 @@ public class TransaccionRepositorio {
         }
 
 }
+
+    public ArrayList<Servicio> obtenerTodosLosServicios() {
+        ArrayList<Servicio> servicios = new ArrayList<>();
+
+        try (Connection connection = ConexionBD.conectar();) {
+
+            try (PreparedStatement statement = connection.prepareStatement(RECUPERAR_SERVICIOS)) {
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    while (resultSet.next()) {
+                        long IdServicio = resultSet.getLong("id_servicio");
+                        String Nombre = resultSet.getString("nombre");
+                        double Monto = resultSet.getDouble("monto");
+                        Servicio servicio = new Servicio(IdServicio, Nombre, Monto);
+                        servicios.add(servicio);
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return servicios;
+    }
+
 
 
 

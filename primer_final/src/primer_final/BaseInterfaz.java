@@ -1641,7 +1641,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         //saldo_pago_serv.setText(cuenta.getSaldoCuenta() + "");
         cuenta_origen_pago_serv.setText(cuenta.getNumeroCuenta() + "");
         if (!codigoEjecutado) {
-            ArrayList<Servicio> servicios = obtenerTodosLosServicios();
+            java.util.List<Servicio> servicios = ProcesosControlador.obtenerServicios();
             java.util.List<TarjetaDeCredito> tarjetas = ProcesosControlador.obtenerTarjetas(cliente.getIdCliente());
 
             for(Servicio servicio: servicios){
@@ -2057,7 +2057,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
     private void servicio_a_pagarActionPerformed(ActionEvent evt) {//GEN-FIRST:event_servicio_a_pagarActionPerformed
         
-        ArrayList<Servicio> servicios = obtenerTodosLosServicios();
+        java.util.List<Servicio> servicios = ProcesosControlador.obtenerServicios();
         Servicio servicio_elegido = servicios.get(0);
         for(Servicio servicio: servicios){
             if (servicio.get_NombreServicio().equals(servicio_a_pagar.getSelectedItem()))
