@@ -299,7 +299,10 @@ public class BaseInterfaz extends javax.swing.JFrame {
         boton_deposito.setMinimumSize(new Dimension(245, 35));
         boton_deposito.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                boton_depositoActionPerformed(evt);
+                Thread thread = new Thread(()->{
+                    boton_depositoActionPerformed(evt);
+                });
+                thread.start();
             }
         });
 
@@ -310,7 +313,10 @@ public class BaseInterfaz extends javax.swing.JFrame {
         boton_pagarServicio.setMinimumSize(new Dimension(245, 35));
         boton_pagarServicio.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                boton_pagarServicioActionPerformed(evt);
+                Thread thread = new Thread(()->{
+                    boton_pagarServicioActionPerformed(evt);
+                });
+                thread.start();
             }
         });
 
@@ -321,7 +327,10 @@ public class BaseInterfaz extends javax.swing.JFrame {
         boton_consultarSaldo.setMinimumSize(new Dimension(245, 35));
         boton_consultarSaldo.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                boton_consultarSaldoActionPerformed(evt);
+                Thread thread = new Thread(()->{
+                    boton_consultarSaldoActionPerformed(evt);
+                });
+                thread.start();
             }
         });
 
@@ -343,7 +352,10 @@ public class BaseInterfaz extends javax.swing.JFrame {
         boton_transferenciaCuenta.setMinimumSize(new Dimension(245, 35));
         boton_transferenciaCuenta.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                boton_transferenciaCuentaActionPerformed(evt);
+                Thread thread = new Thread(()->{
+                    boton_transferenciaCuentaActionPerformed(evt);
+                });
+                thread.start();
             }
         });
 
