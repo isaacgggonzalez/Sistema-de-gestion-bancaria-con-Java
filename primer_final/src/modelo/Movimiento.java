@@ -14,7 +14,7 @@ public class Movimiento extends Transaccion {
      */
     private Cuenta cuenta;
 
-    private String signo = " ";
+    private String signo = "-";
 
     public Movimiento(Cuenta cuenta){
         this.cuenta = cuenta;
