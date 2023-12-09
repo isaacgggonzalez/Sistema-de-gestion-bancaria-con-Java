@@ -104,18 +104,13 @@ public class BaseInterfaz extends javax.swing.JFrame {
         }
     }
     public void run(){
-        try{
             Thread hiloMostrarIntegrantes = new Thread(this::mostrarIntegrantes);
             Thread hiloMostrarGrupo = new Thread(this::mostrarGrupo);
             Thread hiloAbrirEnlace = new Thread(this::abrirEnlace);
             hiloMostrarIntegrantes.start();
             hiloMostrarGrupo.start();
             hiloAbrirEnlace.start();
-            Thread.sleep(0);
-        }
-        catch (InterruptedException er){
-            System.out.println("Excepcion " + er);
-        }
+
     }
 
 
@@ -1058,7 +1053,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
         integrante4.setFont(new Font("Arial", 1, 18)); // NOI18N
         integrante4.setForeground(new Color(0, 1, 0));
-        integrante4.setText("Agusto Florentin");
+        integrante4.setText("Augusto Florentin");
         integrante4.setVisible(false);
 
         GroupLayout menu_acercaSistemaLayout = new GroupLayout(menu_acercaSistema);
