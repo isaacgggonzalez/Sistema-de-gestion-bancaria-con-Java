@@ -5,21 +5,30 @@ import javax.swing.ImageIcon;
 import pruebadepg.AutenticacionLogin;
 import pruebadepg.GestorClientes;
 
+/**
+ * La clase LoginInterfaz representa la interfaz gráfica para la autenticación del usuario.
+ * Permite al usuario ingresar su cédula, número de cuenta y clave para iniciar sesión.
+ */
 public class LoginInterfaz extends javax.swing.JFrame {
 
-    /**
-     * Creates new form LoginInterfaz
-     */
+    
     private ImageIcon imagen;
     private Icon icono;
     
+    /**
+     * Constructor que inicializa la interfaz de inicio de sesión.
+     */
     public LoginInterfaz() {
         initComponents();
         this.setLocationRelativeTo(this); //Ubicar la interfaz en el centro
         //this.tamano_imagen(this.usuario, "/imagenes/usuario.png");
         
     }
-    
+    /**
+     * Obtiene el contenido del campo de texto para la cédula.
+     *
+     * @return La cédula ingresada por el usuario.
+     */
     public String getBox_cedula() {
         return box_cedula.getText();
     }
@@ -232,20 +241,32 @@ public class LoginInterfaz extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     private boolean claveVisible = false;
-
+    /**
+     * Acción que se ejecuta cuando se realiza una acción sobre el campo de contraseña.
+     *
+     * @param evt Evento de acción.
+     */
     private void box_claveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_box_claveActionPerformed
         // Que se visualize la contraseña
         char echoChar = claveVisible ? '\u0000' : '*';
         box_clave.setEchoChar(echoChar);
         
     }//GEN-LAST:event_box_claveActionPerformed
-
+    /**
+     * Acción que se ejecuta cuando se presiona una tecla sobre el campo de contraseña.
+     *
+     * @param evt Evento de tecla.
+     */
     private void box_claveKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_box_claveKeyTyped
         // Que se visualize la contraseña
         char echoChar = claveVisible ? '\u0000' : '*';
         box_clave.setEchoChar(echoChar);
     }//GEN-LAST:event_box_claveKeyTyped
-
+    /**
+     * Acción que se ejecuta cuando se hace clic en el icono de ojo para cambiar la visibilidad de la contraseña.
+     *
+     * @param evt Evento de clic del mouse.
+     */
     private void ojo_claveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ojo_claveMouseClicked
         // Cambiar la visibilidad de la contraseña
         if (claveVisible) {
@@ -258,7 +279,11 @@ public class LoginInterfaz extends javax.swing.JFrame {
 
         claveVisible = !claveVisible; // Invertir el estado
     }//GEN-LAST:event_ojo_claveMouseClicked
-
+    /**
+     * Acción que se ejecuta cuando se hace clic en el botón de iniciar sesión.
+     *
+     * @param evt Evento de acción.
+     */
     private void boton_iniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_iniciarSesionActionPerformed
         // Obtener las credenciales desde la interfaz (por ejemplo, cedula, numeroCuenta, clave)
         

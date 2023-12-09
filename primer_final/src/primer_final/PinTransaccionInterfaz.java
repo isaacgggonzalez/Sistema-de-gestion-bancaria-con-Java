@@ -1,15 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package primer_final;
 
 import controlador.ProcesosControlador;
 
 
 /**
- *
- * @author AMD
+ * La clase PinTransaccionInterfaz representa la interfaz gráfica para validar un PIN de transacción.
+ * Puede utilizarse para realizar transacciones financieras.
  */
 public class PinTransaccionInterfaz extends javax.swing.JFrame {
     private long monto;
@@ -20,14 +17,26 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
     Cuenta cuenta;
 
     Transaccion transaccion;
-
+    /**
+     * Constructor que inicializa la interfaz con el cliente y la cuenta asociados.
+     *
+     * @param cliente El cliente asociado a la transacción.
+     * @param cuenta  La cuenta asociada a la transacción.
+     */
     public PinTransaccionInterfaz(Cliente cliente, Cuenta cuenta) {
         initComponents();
         this.setLocationRelativeTo(this); //Ubicar la interfaz en el centro
         this.cliente = cliente;
         this.cuenta = cuenta;
     }
-
+    
+    /**
+     * Constructor que inicializa la interfaz con la transacción, cliente y cuenta asociados.
+     *
+     * @param transaccion La transacción asociada.
+     * @param cliente     El cliente asociado a la transacción.
+     * @param cuenta      La cuenta asociada a la transacción.
+     */
     public PinTransaccionInterfaz(Transaccion transaccion, Cliente cliente, Cuenta cuenta) {
         initComponents();
         this.cliente = cliente;
@@ -37,7 +46,7 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
     }
 
     /**
-     * Creates new form PinTransaccionInterfaz
+     * Constructor por defecto que inicializa la interfaz sin parámetros.
      */
     public PinTransaccionInterfaz() {
         initComponents();
@@ -238,7 +247,11 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
 
     private boolean claveVisible = false;
     private static boolean validarPin= false;
-    
+    /**
+     * Cambia la visibilidad de la contraseña al hacer clic en el ojo.
+     *
+     * @param evt Evento de clic del mouse.
+     */
     private void ojo_claveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ojo_claveMouseClicked
         // Cambiar la visibilidad de la contraseña
         if (claveVisible) {
@@ -251,25 +264,41 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
 
         claveVisible = !claveVisible; // Invertir el estado
     }//GEN-LAST:event_ojo_claveMouseClicked
-
+    /**
+     * Maneja la acción cuando se selecciona una opción en el cuadro de texto de PIN.
+     *
+     * @param evt Evento de acción.
+     */
     private void box_pinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_box_pinActionPerformed
         // Que se visualize la contraseña
         char echoChar = claveVisible ? '\u0000' : '*';
         box_pin.setEchoChar(echoChar);
     }//GEN-LAST:event_box_pinActionPerformed
+    /**
+     * Maneja la acción de salir.
+     *
+     * @param evt Evento de acción.
+     */
     private void boton_salirActionPerformed(java.awt.event.ActionEvent evt){
          
     }
+    /**
+     * Maneja la acción de tecla escrita en el cuadro de texto de PIN.
+     *
+     * @param evt Evento de tecla.
+     */
     private void box_pinKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_box_pinKeyTyped
         // Que se visualize la contraseña
         char echoChar = claveVisible ? '\u0000' : '*';
         box_pin.setEchoChar(echoChar);
     }//GEN-LAST:event_box_pinKeyTyped
-
+    /**
+     * Maneja la acción cuando se hace clic en el botón de aceptar.
+     *
+     * @param evt Evento de acción.
+     */
     private void boton_aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_aceptarActionPerformed
         try{
-
-
         texto_pinIncorrecto.setText("");
         //trim sirve para eliminar espacio en blanco
         int cedula = cliente.getCiCliente();
@@ -303,18 +332,39 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
    
         
     }//GEN-LAST:event_boton_aceptarActionPerformed
+    /**
+     * Maneja la validación del PIN, estableciendo los valores del monto y las cuentas.
+     *
+     * @param montoLong       El monto de la transacción.
+     * @param cuenta_Destino  La cuenta de destino.
+     * @param cuenta_origen   La cuenta de origen.
+     */
     public void manejarValidacionPin(long montoLong,long cuenta_Destino,long cuenta_origen) {
         monto=montoLong;
         cuentaDestino=cuenta_Destino;
         cuentaOrigen=cuenta_origen;
     }
-    
+    /**
+     * Obtiene el monto de la transacción.
+     *
+     * @return El monto de la transacción.
+     */
     public long montoLong(){
         return monto;
     }
+    /**
+     * Obtiene la cuenta de destino.
+     *
+     * @return La cuenta de destino.
+     */
     public long cuenta_Destino(){
         return cuentaDestino;
     }
+    /**
+     * Obtiene la cuenta de origen.
+     *
+     * @return La cuenta de origen.
+     */
     public long cuenta_origen(){
         return cuentaOrigen;
     }
