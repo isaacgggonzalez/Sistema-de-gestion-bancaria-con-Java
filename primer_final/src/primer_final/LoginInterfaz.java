@@ -6,8 +6,7 @@ import javax.swing.ImageIcon;
 import controlador.ProcesosControlador;
 import modelo.Cliente;
 import modelo.Cuenta;
-import pruebadepg.AutenticacionLogin;
-import pruebadepg.GestorClientes;
+
 
 /**
  * La clase LoginInterfaz representa la interfaz gráfica para la autenticación del usuario.

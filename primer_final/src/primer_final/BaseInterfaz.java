@@ -60,6 +60,13 @@ public class BaseInterfaz extends javax.swing.JFrame {
      */
     Cliente cliente;
     Cuenta cuenta;
+     /**
+     * Constructor de la clase BaseInterfaz que inicializa la interfaz y configura
+     * la ubicación en el centro. También inicia un temporizador para actualizar la hora.
+     *
+     * @param cliente Objeto Cliente asociado a la interfaz.
+     * @param cuenta Objeto Cuenta asociado a la interfaz.
+     */
     public BaseInterfaz(Cliente cliente,Cuenta cuenta) {
         initComponents();
         this.setLocationRelativeTo(this); //Ubicar la interfaz en el centro
@@ -79,18 +86,24 @@ public class BaseInterfaz extends javax.swing.JFrame {
         timer.start();
         
     }
-
+    /**
+     * Muestra los integrantes en la interfaz.
+     */
     private void mostrarIntegrantes() {
         integrante1.setVisible(true);
         integrante2.setVisible(true);
         integrante3.setVisible(true);
         integrante4.setVisible(true);
     }
-
+    /**
+     * Muestra el número del grupo en la interfaz.
+     */
     public void mostrarGrupo(){
         numeroGrupo.setText("Grupo N°9");
     }
-
+    /**
+     * Abre un enlace externo a través del navegador web predeterminado.
+     */
     private void abrirEnlace() {
         try {
             Desktop.getDesktop().browse(new URI("https://drive.google.com/drive/folders/1WsGmnDChHnd6paMwzPsLnd5tvdJ_EAut"));
@@ -99,6 +112,9 @@ public class BaseInterfaz extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }
+    /**
+     * Ejecuta hilos para realizar operaciones específicas en subprocesos separados.
+     */
     public void run(){
         try {
         Thread hiloMostrarIntegrantes = new Thread(this::mostrarIntegrantes);
@@ -1539,7 +1555,13 @@ public class BaseInterfaz extends javax.swing.JFrame {
     
     
     private Button botonPresionadoActualmente = null;
-    
+    /**
+    * Maneja el evento de acción cuando se presiona el botón para consultar el saldo.
+    * Actualiza la interfaz con el saldo actual de la cuenta, cambia la apariencia del
+    * botón presionado y muestra los detalles de las transacciones en una tabla.
+    *
+    * @param evt Objeto ActionEvent que representa el evento de acción.
+    */
     private void boton_consultarSaldoActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_consultarSaldoActionPerformed
         
         saldo1.setText(String.format("%.0f", cuenta.getSaldoCuenta())); 
@@ -1615,7 +1637,16 @@ public class BaseInterfaz extends javax.swing.JFrame {
         menu_acercaSistema.setVisible(false);
     }//GEN-LAST:event_boton_transferenciaCuentaActionPerformed
 
-    private boolean codigoEjecutado = false;
+    private boolean codigoEjecutado = false;  
+    /**
+    * Maneja el evento de acción cuando se presiona el botón para realizar un pago de servicio.
+    * Cambia la apariencia del botón presionado, muestra o oculta los componentes de menú correspondientes
+    * y configura la interfaz para realizar un pago de servicio. Además, inicializa y presenta opciones
+    * de servicios y métodos de pago, y establece el monto del primer servicio como valor predeterminado.
+    *
+    * @param evt Objeto ActionEvent que representa el evento de acción.
+    */
+    
     private void boton_pagarServicioActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_pagarServicioActionPerformed
 
         // Cambiar la apariencia del botón cuando se presiona        
@@ -1658,6 +1689,14 @@ public class BaseInterfaz extends javax.swing.JFrame {
         codigoEjecutado = true;
     }//GEN-LAST:event_boton_pagarServicioActionPerformed
     private boolean botonTransferencia = false;
+    /**
+    * Maneja el evento de acción cuando se presiona el botón para realizar un pago con tarjeta de crédito.
+    * Cambia la apariencia del botón presionado, muestra o oculta los componentes de menú correspondientes,
+    * y configura la interfaz para realizar un pago con tarjeta de crédito. Además, inicializa y presenta
+    * opciones de tarjetas de crédito disponibles para el cliente.
+    *
+    * @param evt Objeto ActionEvent que representa el evento de acción.
+    */
     private void boton_pagarTarjetaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_pagarTarjetaActionPerformed
         // Cambiar la apariencia del botón cuando se presiona
         if (botonPresionadoActualmente != null) {
@@ -1685,7 +1724,14 @@ public class BaseInterfaz extends javax.swing.JFrame {
         
 
     }//GEN-LAST:event_boton_pagarTarjetaActionPerformed
-
+    /**
+    * Maneja el evento de acción cuando se presiona el botón para realizar un depósito.
+    * Cambia la apariencia del botón presionado, muestra o oculta los componentes de menú correspondientes,
+    * y configura la interfaz para realizar un depósito. Además, actualiza la interfaz con el saldo actual
+    * de la cuenta.
+    *
+    * @param evt Objeto ActionEvent que representa el evento de acción.
+    */
     private void boton_depositoActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_depositoActionPerformed
          // Cambiar la apariencia del botón cuando se presiona
         if (botonPresionadoActualmente != null) {
@@ -1709,7 +1755,13 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_boton_depositoActionPerformed
-
+    /**
+    * Maneja el evento de acción cuando se presiona el botón para ver información acerca del sistema.
+    * Cambia la apariencia del botón presionado, muestra o oculta los componentes de menú correspondientes,
+    * y configura la interfaz para mostrar información acerca del sistema.
+    *
+    * @param evt Objeto ActionEvent que representa el evento de acción.
+    */
     private void boton_acercaSistemaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_acercaSistemaActionPerformed
         // Cambiar la apariencia del botón cuando se presiona
         if (botonPresionadoActualmente != null) {
@@ -1730,7 +1782,14 @@ public class BaseInterfaz extends javax.swing.JFrame {
         menu_pagarServicio.setVisible(false);
         menu_acercaSistema.setVisible(true);
     }//GEN-LAST:event_boton_acercaSistemaActionPerformed
-
+    /**
+     * Maneja el evento de acción cuando se presiona el botón para cerrar la sesión del usuario.
+     * Cambia la apariencia del botón presionado, actualiza la referencia al botón actualmente presionado,
+     * y realiza la acción de cerrar la sesión, abriendo la interfaz de inicio de sesión y cerrando la
+     * interfaz actual.
+     *
+     * @param evt Objeto ActionEvent que representa el evento de acción.
+     */
     private void boton_cerrarSesionActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_cerrarSesionActionPerformed
         // Cambiar la apariencia del botón cuando se presiona
         if (botonPresionadoActualmente != null) {
@@ -1748,7 +1807,9 @@ public class BaseInterfaz extends javax.swing.JFrame {
         ventanaLogin.setVisible(true);
         this.dispose();//Cierra esta ventana
     }//GEN-LAST:event_boton_cerrarSesionActionPerformed
-    
+    /**
+    * Actualiza el texto de un componente de interfaz con la fecha y hora actuales en el formato "dd/MM/yyyy HH:mm:ss".
+    */
     private void actualizarHora() {
             // Obtén la fecha y hora actual
             Date fechaActual = new Date();
@@ -1866,7 +1927,13 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private void boton_cancelarTransaccion2ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_cancelarTransaccion2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_boton_cancelarTransaccion2ActionPerformed
-
+    /**
+     * Maneja el evento de acción cuando se presiona el botón para confirmar un depósito.
+     * Obtiene el monto del depósito del campo de texto, realiza la operación de depósito,
+     * actualiza el saldo de la cuenta, muestra un comprobante y cierra la interfaz actual.
+     *
+     * @param evt Objeto ActionEvent que representa el evento de acción.
+     */
     private void boton_confirmarDepositoActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_confirmarDepositoActionPerformed
         try {
         // Obtener el monto del depósito como String
@@ -1926,7 +1993,13 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private void montoTarjetaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_montoTarjetaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_montoTarjetaActionPerformed
-
+    /**
+     * Maneja el evento de acción cuando se presiona el botón para confirmar una transacción de pago de tarjeta de crédito.
+     * Obtiene el monto a pagar y el número de tarjeta de crédito seleccionada, realiza las validaciones necesarias,
+     * y muestra una interfaz para ingresar el PIN antes de realizar la transacción de pago de tarjeta de crédito.
+     *
+     * @param evt Objeto ActionEvent que representa el evento de acción.
+     */
     private void boton_confirmarTransaccion6ActionPerformed(ActionEvent evt) {
         double montoAPagar = Double.parseDouble(montoTarjeta.getText());
         Long numeroTarjetaL;
@@ -1955,7 +2028,13 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private void boton_cancelarPagoTarjetaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_cancelarTransaccion6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_boton_cancelarTransaccion6ActionPerformed
-
+    /**
+     * Maneja el evento de acción cuando se selecciona una opción en el ComboBox de tarjetas.
+     * Actualiza la información de la interfaz según la tarjeta seleccionada y habilita o deshabilita
+     * la edición del campo de texto para ingresar el número de tarjeta dependiendo de la selección.
+     *
+     * @param evt Objeto ActionEvent que representa el evento de acción.
+     */
     private void seleccionarTarjetaActionPerformed(ActionEvent evt) {//GEN-FIRST:event_servicioTarjetaActionPerformed
         String tarjetaSeleccionada = ((String) seleccionarTarjeta.getSelectedItem());
         if(!tarjetaSeleccionada.equals("Otras Tarjetas")){
@@ -1998,7 +2077,14 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private void cuentaDestino33ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_cuentaDestino33ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cuentaDestino33ActionPerformed
-
+    /**
+     * Maneja el evento de acción cuando se presiona el botón para confirmar un pago de servicio.
+     * Obtiene el monto del pago y realiza validaciones. Luego, crea un objeto PagoServicio,
+     * configura la información del servicio y el método de pago, verifica el límite o saldo
+     * según el método de pago, muestra la interfaz para ingresar el PIN y realiza el pago de servicio.
+     *
+     * @param evt Objeto ActionEvent que representa el evento de acción.
+     */
     private void confirmar_pago_servActionPerformed(ActionEvent evt) {//GEN-FIRST:event_confirmar_pago_servActionPerformed
         double monto;
         long tarjeta_usada;
@@ -2054,7 +2140,13 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private void boton_cancelarTransaccion7ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_cancelarTransaccion7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_boton_cancelarTransaccion7ActionPerformed
-
+    /**
+     * Maneja el evento de acción cuando se selecciona un servicio en el ComboBox de servicios a pagar.
+     * Actualiza la información del monto definido y la capacidad de edición del campo de texto
+     * según la selección del servicio.
+     *
+     * @param evt Objeto ActionEvent que representa el evento de acción.
+     */ 
     private void servicio_a_pagarActionPerformed(ActionEvent evt) {//GEN-FIRST:event_servicio_a_pagarActionPerformed
         
         java.util.List<Servicio> servicios = ProcesosControlador.obtenerServicios();
@@ -2083,7 +2175,12 @@ public class BaseInterfaz extends javax.swing.JFrame {
     private void botonDocumentacionActionPerformed(ActionEvent evt) {//GEN-FIRST:event_botonDocumentacionActionPerformed
        run();
     }//GEN-LAST:event_botonDocumentacionActionPerformed
-
+    /**
+    * Maneja el evento de acción cuando se selecciona un método de pago en el ComboBox de métodos de pago.
+    * Actualiza la visibilidad de la información de saldo de tarjeta según la selección del método de pago.
+    *
+    * @param evt Objeto ActionEvent que representa el evento de acción.
+    */
     private void metodo_de_pagoActionPerformed(ActionEvent evt) {//GEN-FIRST:event_metodo_de_pagoActionPerformed
         // TODO add your handling code here:
         String metodo_pago = (String) metodo_de_pago.getSelectedItem();
@@ -2101,7 +2198,13 @@ public class BaseInterfaz extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_metodo_de_pagoActionPerformed
-
+    /**
+     * Maneja el evento de liberación de tecla cuando se ingresa un número de tarjeta.
+     * Obtiene el número de tarjeta ingresado, intenta obtener la información de la tarjeta
+     * de crédito asociada y actualiza la interfaz con el límite y deuda de la tarjeta, si existe.
+     *
+     * @param evt Objeto KeyEvent que representa el evento de liberación de tecla.
+     */
     private void numeroTarjetaKeyReleased(KeyEvent evt) {//GEN-FIRST:event_numeroTarjetaKeyReleased
         Long numeroTarjetaL;
         TarjetaDeCredito tarjetaDeCredito;
