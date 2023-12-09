@@ -1830,7 +1830,13 @@ public class BaseInterfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_boton_cancelarTransaccion1ActionPerformed
 
-
+    /**
+     * Maneja el evento de acción cuando se confirma una transacción de transferencia.
+     * Obtiene y valida los datos ingresados, realiza las verificaciones necesarias,
+     * y procede a confirmar la transferencia si todas las validaciones son exitosas.
+     *
+     * @param evt Objeto ActionEvent que representa el evento de acción.
+     */
     private void boton_confirmarTransaccion1ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_boton_confirmarTransaccion1ActionPerformed
         try {
             // Obtener valores de los campos de texto
