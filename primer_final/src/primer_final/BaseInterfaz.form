@@ -70,12 +70,16 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLayeredPane1" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLayeredPane1" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <Component id="jLayeredPane1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
@@ -166,7 +170,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                      <Color id="Default Cursor"/>
+                      <Color id="Cursor Por defecto"/>
                     </Property>
                     <Property name="debugGraphicsOptions" type="int" value="-1"/>
                     <Property name="focusable" type="boolean" value="false"/>
@@ -181,7 +185,7 @@
                     <Container class="javax.swing.JPanel" name="jPanel1">
                       <Properties>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Default Cursor"/>
+                          <Color id="Cursor Por defecto"/>
                         </Property>
                         <Property name="doubleBuffered" type="boolean" value="false"/>
                         <Property name="enabled" type="boolean" value="false"/>
@@ -279,7 +283,7 @@
                               <Properties>
                                 <Property name="actionCommand" type="java.lang.String" value="pagarTarjeta"/>
                                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                  <Color id="Default Cursor"/>
+                                  <Color id="Cursor Por defecto"/>
                                 </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Arial" size="18" style="0"/>
@@ -297,7 +301,7 @@
                               <Properties>
                                 <Property name="actionCommand" type="java.lang.String" value="deposito"/>
                                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                  <Color id="Default Cursor"/>
+                                  <Color id="Cursor Por defecto"/>
                                 </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Arial" size="18" style="0"/>
@@ -315,7 +319,7 @@
                               <Properties>
                                 <Property name="actionCommand" type="java.lang.String" value="pagarServicio"/>
                                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                  <Color id="Default Cursor"/>
+                                  <Color id="Cursor Por defecto"/>
                                 </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Arial" size="18" style="0"/>
@@ -333,7 +337,7 @@
                               <Properties>
                                 <Property name="actionCommand" type="java.lang.String" value="consultarSaldo"/>
                                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                  <Color id="Default Cursor"/>
+                                  <Color id="Cursor Por defecto"/>
                                 </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Arial" size="18" style="0"/>
@@ -351,7 +355,7 @@
                               <Properties>
                                 <Property name="actionCommand" type="java.lang.String" value="acercaSistema"/>
                                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                  <Color id="Default Cursor"/>
+                                  <Color id="Cursor Por defecto"/>
                                 </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Arial" size="18" style="0"/>
@@ -369,7 +373,7 @@
                               <Properties>
                                 <Property name="actionCommand" type="java.lang.String" value="transferenciaCuentas"/>
                                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                  <Color id="Default Cursor"/>
+                                  <Color id="Cursor Por defecto"/>
                                 </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Arial" size="18" style="0"/>
@@ -391,7 +395,7 @@
                               <Properties>
                                 <Property name="actionCommand" type="java.lang.String" value="Cerrar Sesion"/>
                                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                  <Color id="Default Cursor"/>
+                                  <Color id="Cursor Por defecto"/>
                                 </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Arial" size="18" style="0"/>
@@ -594,7 +598,7 @@
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
                                           <EmptySpace pref="81" max="32767" attributes="0"/>
-                                          <Component id="boton_cancelarTransaccion1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="boton_cancelarTransferencia" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace pref="71" max="32767" attributes="0"/>
                                           <Component id="boton_confirmarTransaccion1" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
@@ -661,7 +665,7 @@
                                           <EmptySpace pref="37" max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Component id="boton_confirmarTransaccion1" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="boton_cancelarTransaccion1" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="boton_cancelarTransferencia" alignment="0" max="32767" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                       </Group>
@@ -669,11 +673,11 @@
                                 </DimensionLayout>
                               </Layout>
                               <SubComponents>
-                                <Component class="java.awt.Button" name="boton_cancelarTransaccion1">
+                                <Component class="java.awt.Button" name="boton_cancelarTransferencia">
                                   <Properties>
                                     <Property name="actionCommand" type="java.lang.String" value="cancelarTransaccion"/>
                                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                      <Color id="Default Cursor"/>
+                                      <Color id="Cursor Por defecto"/>
                                     </Property>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                       <Font name="Arial" size="18" style="0"/>
@@ -690,14 +694,14 @@
                                     </Property>
                                   </Properties>
                                   <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boton_cancelarTransaccion1ActionPerformed"/>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boton_cancelarTransferenciaActionPerformed"/>
                                   </Events>
                                 </Component>
                                 <Component class="java.awt.Button" name="boton_confirmarTransaccion1">
                                   <Properties>
                                     <Property name="actionCommand" type="java.lang.String" value="confirmarTransaccion"/>
                                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                      <Color id="Default Cursor"/>
+                                      <Color id="Cursor Por defecto"/>
                                     </Property>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                       <Font name="Arial" size="18" style="0"/>
@@ -1080,7 +1084,7 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="1" attributes="0">
                                           <EmptySpace pref="81" max="32767" attributes="0"/>
-                                          <Component id="boton_cancelarTransaccion2" min="-2" max="-2" attributes="0"/>
+                                          <Component id="boton_cancelarDeposito" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace pref="71" max="32767" attributes="0"/>
                                           <Component id="boton_confirmarDeposito" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
@@ -1122,7 +1126,7 @@
                                           <EmptySpace pref="725" max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Component id="boton_confirmarDeposito" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="boton_cancelarTransaccion2" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="boton_cancelarDeposito" alignment="0" max="32767" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                       </Group>
@@ -1130,11 +1134,11 @@
                                 </DimensionLayout>
                               </Layout>
                               <SubComponents>
-                                <Component class="java.awt.Button" name="boton_cancelarTransaccion2">
+                                <Component class="java.awt.Button" name="boton_cancelarDeposito">
                                   <Properties>
                                     <Property name="actionCommand" type="java.lang.String" value="cancelarTransaccion"/>
                                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                      <Color id="Default Cursor"/>
+                                      <Color id="Cursor Por defecto"/>
                                     </Property>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                       <Font name="Arial" size="18" style="0"/>
@@ -1151,14 +1155,14 @@
                                     </Property>
                                   </Properties>
                                   <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boton_cancelarTransaccion2ActionPerformed"/>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boton_cancelarDepositoActionPerformed"/>
                                   </Events>
                                 </Component>
                                 <Component class="java.awt.Button" name="boton_confirmarDeposito">
                                   <Properties>
                                     <Property name="actionCommand" type="java.lang.String" value="confirmarTransaccion"/>
                                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                      <Color id="Default Cursor"/>
+                                      <Color id="Cursor Por defecto"/>
                                     </Property>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                       <Font name="Arial" size="18" style="0"/>
@@ -1355,7 +1359,7 @@
                                   <Properties>
                                     <Property name="actionCommand" type="java.lang.String" value="cancelarTransaccion"/>
                                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                      <Color id="Default Cursor"/>
+                                      <Color id="Cursor Por defecto"/>
                                     </Property>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                       <Font name="Arial" size="18" style="0"/>
@@ -1379,7 +1383,7 @@
                                   <Properties>
                                     <Property name="actionCommand" type="java.lang.String" value="confirmarTransaccion"/>
                                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                      <Color id="Default Cursor"/>
+                                      <Color id="Cursor Por defecto"/>
                                     </Property>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                       <Font name="Arial" size="18" style="0"/>
@@ -1744,7 +1748,7 @@
                                 <Component class="java.awt.Button" name="botonDocumentacion">
                                   <Properties>
                                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                      <Color id="Default Cursor"/>
+                                      <Color id="Cursor Por defecto"/>
                                     </Property>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                       <Font name="Arial" size="14" style="1"/>
@@ -1848,7 +1852,7 @@
                                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                                       <Component id="label35" pref="170" max="32767" attributes="0"/>
                                                       <Component id="servicio_a_pagar" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="cuentaDestino33" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="nro_servicio" alignment="0" max="32767" attributes="0"/>
                                                       <Component id="label42" alignment="0" max="32767" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace max="32767" attributes="0"/>
@@ -1935,7 +1939,7 @@
                                                           <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                                                           <Component id="label42" min="-2" max="-2" attributes="0"/>
                                                           <EmptySpace max="-2" attributes="0"/>
-                                                          <Component id="cuentaDestino33" min="-2" pref="38" max="-2" attributes="0"/>
+                                                          <Component id="nro_servicio" min="-2" pref="38" max="-2" attributes="0"/>
                                                       </Group>
                                                       <Group type="102" alignment="0" attributes="0">
                                                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
@@ -1948,8 +1952,8 @@
                                           </Group>
                                           <EmptySpace pref="33" max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="confirmar_pago_serv" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="boton_cancelarTransaccion7" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="boton_cancelarTransaccion7" max="32767" attributes="0"/>
+                                              <Component id="confirmar_pago_serv" max="32767" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                       </Group>
@@ -1961,7 +1965,7 @@
                                   <Properties>
                                     <Property name="actionCommand" type="java.lang.String" value="cancelarTransaccion"/>
                                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                      <Color id="Default Cursor"/>
+                                      <Color id="Cursor Por defecto"/>
                                     </Property>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                       <Font name="Arial" size="18" style="0"/>
@@ -1985,7 +1989,7 @@
                                   <Properties>
                                     <Property name="actionCommand" type="java.lang.String" value="confirmarTransaccion"/>
                                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                      <Color id="Default Cursor"/>
+                                      <Color id="Cursor Por defecto"/>
                                     </Property>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                       <Font name="Arial" size="18" style="0"/>
@@ -2014,7 +2018,7 @@
                                     <Property name="text" type="java.lang.String" value="Seleccionar Servicios"/>
                                   </Properties>
                                 </Component>
-                                <Component class="javax.swing.JTextField" name="cuentaDestino33">
+                                <Component class="javax.swing.JTextField" name="nro_servicio">
                                   <Properties>
                                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2024,7 +2028,7 @@
                                     </Property>
                                   </Properties>
                                   <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cuentaDestino33ActionPerformed"/>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nro_servicioActionPerformed"/>
                                   </Events>
                                 </Component>
                                 <Component class="java.awt.Label" name="label42">
