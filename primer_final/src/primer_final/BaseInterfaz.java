@@ -1602,7 +1602,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                     movimiento.getIdTransaccion(),
                     movimiento.getTipoTransaccion(),
                     movimiento.get_fecha_transaccion(),
-                    movimiento.getSigno()+movimiento.getMontoTransaccion()
+                    movimiento.getSigno()+" "+movimiento.getMontoTransaccion()
             };
             modelo.addRow(fila);
         }
