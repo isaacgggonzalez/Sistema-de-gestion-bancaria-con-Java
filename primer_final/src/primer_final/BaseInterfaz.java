@@ -2022,27 +2022,29 @@ public class BaseInterfaz extends javax.swing.JFrame {
      * @param evt Objeto ActionEvent que representa el evento de acción.
      */
     private void boton_confirmarTransaccion6ActionPerformed(ActionEvent evt) {
-        double montoAPagar = Double.parseDouble(montoTarjeta.getText());
-        Long numeroTarjetaL;
-        String tarjetaSeleccionada = (String) seleccionarTarjeta.getSelectedItem();
-        if(tarjetaSeleccionada.equals("Otras Tarjetas")){
-            numeroTarjetaL = Long.parseLong(numeroTarjeta.getText());
-        }else{
-            tarjetaSeleccionada = tarjetaSeleccionada.substring(4);
-            numeroTarjetaL = Long.parseLong(tarjetaSeleccionada);
-        }
-        TarjetaDeCredito tarjetaDeCredito = ProcesosControlador.obtenerTarjeta(numeroTarjetaL);
-        numeroTarjeta.setText(String.valueOf(tarjetaDeCredito.getNro_tarjeta()));
-        deudalimiteTarjeta.setText(String.valueOf(tarjetaDeCredito.getLinea_tarjeta())+ " Gs");
-        deudatotalTarjeta.setText(String.valueOf(tarjetaDeCredito.getDeuda_tarjeta())+ " Gs");
-        if(montoAPagar>tarjetaDeCredito.getDeuda_tarjeta() || montoAPagar < 1 ){
-            JOptionPane.showMessageDialog(this, "El monto a pagar no es valido", "Error", JOptionPane.ERROR_MESSAGE);
-        }else{
-            PagoDeTarjeta pagoDeTarjeta = new PagoDeTarjeta(new Date(System.currentTimeMillis()), tarjetaDeCredito, montoAPagar);
-            pagoDeTarjeta.setNumeroCuenta(cuenta.getNumeroCuenta());
-            PinTransaccionInterfaz ventanaPIN = new PinTransaccionInterfaz(pagoDeTarjeta, cliente, cuenta);
-            ventanaPIN.setVisible(true);
-            this.dispose();
+        if(!(montoTarjeta.getText() == null || montoTarjeta.getText().isEmpty())){
+            double montoAPagar = Double.parseDouble(montoTarjeta.getText());
+            Long numeroTarjetaL;
+            String tarjetaSeleccionada = (String) seleccionarTarjeta.getSelectedItem();
+            if(tarjetaSeleccionada.equals("Otras Tarjetas")){
+                numeroTarjetaL = Long.parseLong(numeroTarjeta.getText());
+            }else{
+                tarjetaSeleccionada = tarjetaSeleccionada.substring(4);
+                numeroTarjetaL = Long.parseLong(tarjetaSeleccionada);
+            }
+            TarjetaDeCredito tarjetaDeCredito = ProcesosControlador.obtenerTarjeta(numeroTarjetaL);
+            numeroTarjeta.setText(String.valueOf(tarjetaDeCredito.getNro_tarjeta()));
+            deudalimiteTarjeta.setText(String.valueOf(tarjetaDeCredito.getLinea_tarjeta())+ " Gs");
+            deudatotalTarjeta.setText(String.valueOf(tarjetaDeCredito.getDeuda_tarjeta())+ " Gs");
+            if(montoAPagar>tarjetaDeCredito.getDeuda_tarjeta() || montoAPagar < 1 ){
+                JOptionPane.showMessageDialog(this, "El monto a pagar no es valido", "Error", JOptionPane.ERROR_MESSAGE);
+            }else{
+                PagoDeTarjeta pagoDeTarjeta = new PagoDeTarjeta(new Date(System.currentTimeMillis()), tarjetaDeCredito, montoAPagar);
+                pagoDeTarjeta.setNumeroCuenta(cuenta.getNumeroCuenta());
+                PinTransaccionInterfaz ventanaPIN = new PinTransaccionInterfaz(pagoDeTarjeta, cliente, cuenta);
+                ventanaPIN.setVisible(true);
+                this.dispose();
+            }
         }
     }
 
