@@ -1,7 +1,9 @@
 
 package primer_final;
 
-import controlador.ProcesosControlador;
+import modelo.Cliente;
+import modelo.Cuenta;
+import modelo.Transaccion;
 
 
 /**

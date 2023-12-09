@@ -1,4 +1,4 @@
-package primer_final;
+package modelo;
 
 /**
  * Representa un servicio con información como su identificador, nombre y costo.

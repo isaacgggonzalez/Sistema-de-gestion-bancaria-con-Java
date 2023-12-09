@@ -1,4 +1,4 @@
-package primer_final;
+package modelo;
 
 import java.sql.Timestamp;
 import java.util.Date;

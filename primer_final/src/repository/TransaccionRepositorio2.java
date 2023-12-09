@@ -2,8 +2,8 @@ package repository;
 
 import config.ConexionBD;
 import modelo.Movimiento;
-import primer_final.TarjetaDeCredito;
-import primer_final.Transaccion;
+import modelo.TarjetaDeCredito;
+import modelo.Transaccion;
 
 import java.sql.*;
 import java.util.ArrayList;

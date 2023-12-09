@@ -1,7 +1,7 @@
 package repository;
 
 import config.ConexionBD;
-import primer_final.Transaccion;
+import modelo.Transaccion;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
@@ -13,8 +13,8 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.table.DefaultTableModel;
-import primer_final.Servicio;
-import primer_final.TarjetaDeCredito;
+import modelo.Servicio;
+import modelo.TarjetaDeCredito;
 
 public class TransaccionRepositorio {
         private static final String INSERTAR_TRANSACCION = "INSERT INTO "

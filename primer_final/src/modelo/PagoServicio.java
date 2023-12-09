@@ -1,6 +1,7 @@
-package primer_final;
+package modelo;
 
 import controlador.ProcesosControlador;
+
 import java.util.Date;
 
 /**

@@ -1,8 +1,7 @@
 package modelo;
 
 import controlador.ProcesosControlador;
-import primer_final.Cuenta;
-import primer_final.Transaccion;
+
 import java.util.Date;
 
 /**

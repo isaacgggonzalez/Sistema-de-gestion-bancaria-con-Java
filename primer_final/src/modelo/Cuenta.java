@@ -1,4 +1,4 @@
-package primer_final;
+package modelo;
 
 /**
  * Representa una cuenta con información esencial.

@@ -4,8 +4,11 @@
  */
 package primer_final;
 
+import modelo.Cliente;
+import modelo.Cuenta;
+import modelo.Transaccion;
+
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  *

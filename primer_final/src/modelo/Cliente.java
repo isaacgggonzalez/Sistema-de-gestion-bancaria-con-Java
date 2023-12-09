@@ -1,4 +1,4 @@
-package primer_final;
+package modelo;
 
 /**
  * Representa un cliente con información esencial.

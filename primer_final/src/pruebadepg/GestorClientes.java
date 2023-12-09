@@ -2,13 +2,12 @@ package pruebadepg;
 
 import config.ConexionBD;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import primer_final.*;
-import java.math.BigDecimal;
+
+import modelo.Cliente;
+import modelo.Cuenta;
 
 /**
  * Clase que gestiona la obtención de información relacionada con clientes y cuentas en la base de datos.

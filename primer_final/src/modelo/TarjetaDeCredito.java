@@ -1,4 +1,5 @@
-package primer_final;
+package modelo;
+
 import java.util.Date;
 
 /**
@@ -32,7 +33,7 @@ public class TarjetaDeCredito {
     /**
      * Cliente asociado a la tarjeta.
      */
-    private Cliente cliente_asociado;  
+    private Cliente cliente_asociado;
     
 
     // Constructor

@@ -1,9 +1,8 @@
 
 package controlador;
 
-import modelo.Movimiento;
+import modelo.*;
 import modelo.exceptions.SaldoInsuficienteException;
-import primer_final.*;
 import repository.TransaccionRepositorio2;
 import java.util.List;
 

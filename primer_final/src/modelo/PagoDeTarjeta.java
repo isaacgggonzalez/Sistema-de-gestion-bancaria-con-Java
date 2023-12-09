@@ -1,5 +1,5 @@
 
-package primer_final;
+package modelo;
 
 import controlador.ProcesosControlador;
 
@@ -9,7 +9,7 @@ import java.util.Date;
  * Representa una transacción de pago de tarjeta.
  * Extiende la clase base Transaccion e incluye información específica de pago de tarjeta.
  */
-public class PagoDeTarjeta extends Transaccion{
+public class PagoDeTarjeta extends Transaccion {
     /**
      * Tipo de transacción para pago de tarjeta.
      */

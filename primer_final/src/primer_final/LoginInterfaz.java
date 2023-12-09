@@ -2,6 +2,9 @@
 package primer_final;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+
+import modelo.Cliente;
+import modelo.Cuenta;
 import pruebadepg.AutenticacionLogin;
 import pruebadepg.GestorClientes;
 
