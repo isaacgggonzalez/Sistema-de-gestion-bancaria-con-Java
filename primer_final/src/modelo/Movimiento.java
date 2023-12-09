@@ -14,6 +14,7 @@ public class Movimiento extends Transaccion {
      */
     private Cuenta cuenta;
 
+    private String signo = "";
 
     public Movimiento(Cuenta cuenta){
         this.cuenta = cuenta;
@@ -60,8 +61,15 @@ public class Movimiento extends Transaccion {
         this.cuenta = cuenta;
     }
 
+    public String getSigno() {
+        return signo;
+    }
+
+    public void setSigno(String signo) {
+        this.signo = signo;
+    }
     @Override
     public void run() {
-        ProcesosControlador.obtenerMovimientos(cuenta.getIdCuenta());
+
     }
 }

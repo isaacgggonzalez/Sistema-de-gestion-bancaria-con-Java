@@ -106,9 +106,11 @@ public class TransaccionRepositorio {
          * Consulta SQL para recuperar movimientos de una cuenta basado en el ID de la cuenta.
          * Se espera que el parámetro sea el ID de la cuenta.
          */
-        private static final String RECUPERAR_MOVIMIENTOS = "SELECT t.id_transaccion, t.tipo, t.fecha, t.monto " +
+        private static final String RECUPERAR_MOVIMIENTOS = "SELECT t.id_transaccion, t.tipo, t.fecha, t.monto, " +
+                "tr.id_cuenta_origen, tr.id_cuenta_destino  " +
                 "FROM transaccion t " +
                 "JOIN movimiento m ON t.id_transaccion = m.id_transaccion " +
+                "LEFT JOIN transferencia tr ON t.id_transaccion = tr.id_transaccion " +
                 "WHERE m.id_cuenta = ?";
 
         private static final String RECUPERAR_SERVICIOS = "SELECT id_servicio, nombre, monto FROM servicio";
@@ -754,13 +756,25 @@ public class TransaccionRepositorio {
             statement.setLong(1, idCuenta);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
-                   Movimiento movimiento = new Movimiento(
+                String tipoTransaccion = resultSet.getString("tipo");
+                Movimiento movimiento = new Movimiento(
                         resultSet.getLong("id_transaccion"),
                         resultSet.getDate("fecha"),
                         resultSet.getDouble("monto"),
-                        resultSet.getString("tipo")
-                   );
-                   movimientos.add(movimiento);
+                        tipoTransaccion
+                );
+                if(tipoTransaccion.equals("Deposito")){
+                    movimiento.setSigno("+");
+                } else if (tipoTransaccion.equals("Transferencia")) {
+                    long idCuentaOrigen = resultSet.getLong("id_cuenta_origen");
+                    long idCuentaDestino = resultSet.getLong("id_cuenta_destino");
+                    if(idCuentaDestino != 0 && idCuentaOrigen != 0){
+                        if(idCuentaDestino==idCuenta){
+                            movimiento.setSigno("+");
+                        }
+                    }
+                }
+                movimientos.add(movimiento);
             }
             return movimientos;
 
