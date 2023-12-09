@@ -1040,7 +1040,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
         integrante1.setFont(new Font("Arial", 1, 18)); // NOI18N
         integrante1.setForeground(new Color(0, 1, 0));
-        integrante1.setText("Isaac González");
+        integrante1.setText("Isaac Gonzálezdbuquwighuiqwgeiuqwiudgasihqwiuegiuqwgeiuwq");
         integrante1.setVisible(false);
 
         integrante2.setFont(new Font("Arial", 1, 18)); // NOI18N
