@@ -94,7 +94,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
     public void mostrarGrupo(){
         numeroGrupo.setText("Grupo N°9");
     }
-    
+
     private void abrirEnlace() {
         try {
             Desktop.getDesktop().browse(new URI("https://drive.google.com/drive/folders/1WsGmnDChHnd6paMwzPsLnd5tvdJ_EAut"));
@@ -105,11 +105,11 @@ public class BaseInterfaz extends javax.swing.JFrame {
     }
     public void run(){
         try{
-            Thread hiloMostrarGrupo = new Thread(this::mostrarGrupo);
             Thread hiloMostrarIntegrantes = new Thread(this::mostrarIntegrantes);
+            Thread hiloMostrarGrupo = new Thread(this::mostrarGrupo);
             Thread hiloAbrirEnlace = new Thread(this::abrirEnlace);
-            hiloMostrarGrupo.start();
             hiloMostrarIntegrantes.start();
+            hiloMostrarGrupo.start();
             hiloAbrirEnlace.start();
             Thread.sleep(0);
         }
