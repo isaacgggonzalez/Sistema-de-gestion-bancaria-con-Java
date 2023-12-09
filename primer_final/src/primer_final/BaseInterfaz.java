@@ -269,7 +269,10 @@ public class BaseInterfaz extends javax.swing.JFrame {
         boton_pagarTarjeta.setMinimumSize(new Dimension(245, 35));
         boton_pagarTarjeta.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                boton_pagarTarjetaActionPerformed(evt);
+                Thread thread = new Thread(()->{
+                    boton_pagarTarjetaActionPerformed(evt);
+                });
+                thread.start();
             }
         });
 
