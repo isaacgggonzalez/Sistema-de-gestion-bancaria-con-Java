@@ -284,12 +284,15 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
         box_pin.setEchoChar(echoChar);
     }//GEN-LAST:event_box_pinActionPerformed
     /**
-     * Maneja la acción de salir.
+     * Maneja la acción de salir cuando se presiona en la interfaz.
      *
      * @param evt Evento de acción.
      */
     private void boton_salirActionPerformed(java.awt.event.ActionEvent evt){
-         
+        BaseInterfaz ventanaSecundaria = new BaseInterfaz(cliente,cuenta);
+        ventanaSecundaria.setVisible(true);
+        ventanaSecundaria.activarMenuTransferencia();
+        this.dispose();
     }
     /**
      * Maneja la acción de tecla escrita en el cuadro de texto de PIN.
@@ -340,6 +343,7 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
    
         
     }//GEN-LAST:event_boton_aceptarActionPerformed
+   
     /**
      * Maneja la validación del PIN, estableciendo los valores del monto y las cuentas.
      *
