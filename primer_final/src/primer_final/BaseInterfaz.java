@@ -34,6 +34,7 @@ import java.awt.Desktop;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.io.File;
 import java.net.URI;
 
 import modelo.*;
@@ -61,6 +62,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
      */
     Cliente cliente;
     Cuenta cuenta;
+    
      /**
      * Constructor de la clase BaseInterfaz que inicializa la interfaz y configura
      * la ubicación en el centro. También inicia un temporizador para actualizar la hora.
@@ -87,6 +89,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         timer.start();
         
     }
+    
     /**
      * Muestra los integrantes en la interfaz.
      */
@@ -102,17 +105,36 @@ public class BaseInterfaz extends javax.swing.JFrame {
     public void mostrarGrupo(){
         numeroGrupo.setText("Grupo N°11");
     }
+    
     /**
      * Abre un enlace externo a través del navegador web predeterminado.
      */
     private void abrirEnlace() {
         try {
-            Desktop.getDesktop().browse(new URI("https://drive.google.com/drive/folders/1WsGmnDChHnd6paMwzPsLnd5tvdJ_EAut"));
+            // Ruta relativa al archivo HTML local
+            String rutaArchivoHTML = "dist\\javadoc\\index.html";
+
+            // Crear un objeto File con la ruta del archivo
+            File archivoHTML = new File(rutaArchivoHTML);
+
+            // Verificar si el archivo existe antes de intentar abrirlo
+            if (archivoHTML.exists()) {
+                // Convertir la ruta a un URI utilizando el esquema "file"
+                URI uri = archivoHTML.toURI();
+
+                // Utilizar Desktop para abrir el archivo en el navegador predeterminado
+                Desktop.getDesktop().browse(uri);
+            } else {
+                System.out.println("El archivo no existe: " + rutaArchivoHTML);
+            }
         } catch (Exception e) {
             // Manejar la excepción, por ejemplo, mostrar un mensaje de error
             e.printStackTrace();
         }
     }
+    
+    
+    
     /**
      * Ejecuta hilos para realizar operaciones específicas en subprocesos separados.
      */

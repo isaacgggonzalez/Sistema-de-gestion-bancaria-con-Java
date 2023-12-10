@@ -330,24 +330,7 @@ public class LoginInterfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
         //textoIncorrecto.setVisible(false);
     }//GEN-LAST:event_textoIncorrectoPropertyChange
-    
-    
-    
-    /*
-    ajustar tamaño de una imagen
-        private void tamano_imagen(JLabel lbl, String ruta) {
-        java.net.URL url = getClass().getResource(ruta);
 
-        if (url != null) {
-            this.imagen = new ImageIcon(url);
-            this.icono = new ImageIcon(this.imagen.getImage().getScaledInstance(lbl.getWidth(), lbl.getHeight(), Image.SCALE_DEFAULT));
-            lbl.setIcon(this.icono);
-            this.repaint();
-        } else {
-            System.err.println("No se pudo encontrar la imagen: " + ruta);
-        }
-    }
-    /*
 
     
     /**
