@@ -10,26 +10,32 @@ public class TarjetaDeCredito {
      * Identificador del cliente asociado a la tarjeta.
      */
     private long id_cliente;
+    
     /**
      * Identificador único de la tarjeta.
      */
     private long id_tarjeta;
+    
     /**
      * Línea de crédito asociada a la tarjeta.
      */
     private double linea_tarjeta;
+    
     /**
      * Deuda acumulada en la tarjeta.
      */
     private double deuda_tarjeta;
+    
     /**
      * Fecha de vencimiento de la tarjeta.
      */
     private Date vencimiento_tarjeta;
+    
     /**
      * Número de la tarjeta de crédito.
      */
     private Long nro_tarjeta;
+    
     /**
      * Cliente asociado a la tarjeta.
      */
@@ -56,12 +62,14 @@ public class TarjetaDeCredito {
         this.id_cliente = id_cliente;
         this.id_tarjeta = id_tarjeta;
     }
+    
     /**
      * Constructor de la clase TarjetaDeCredito sin parámetros.
      */
     public TarjetaDeCredito( ) {
 
     }
+    
     /**
      * Constructor de la clase TarjetaDeCredito con identificadores adicionales.
      *
@@ -100,6 +108,7 @@ public class TarjetaDeCredito {
         this.nro_tarjeta = nro_tarjeta;
         this.id_tarjeta = id_tarjeta;
     }
+    
     /**
      * Obtiene la deuda acumulada en la tarjeta.
      *
@@ -108,6 +117,7 @@ public class TarjetaDeCredito {
     public double getDeuda_tarjeta() {
         return deuda_tarjeta;
     }
+    
     /**
      * Establece la deuda acumulada en la tarjeta.
      *
@@ -116,6 +126,7 @@ public class TarjetaDeCredito {
     public void setDeuda_tarjeta(double deuda_tarjeta) {
         this.deuda_tarjeta = deuda_tarjeta;
     }
+    
     /**
      * Obtiene la línea de crédito asociada a la tarjeta.
      *
@@ -124,6 +135,7 @@ public class TarjetaDeCredito {
     public double getLinea_tarjeta() {
         return linea_tarjeta;
     }
+    
     /**
      * Establece la línea de crédito asociada a la tarjeta.
      *
@@ -132,6 +144,7 @@ public class TarjetaDeCredito {
     public void setLinea_tarjeta(double linea_tarjeta) {
         this.linea_tarjeta = linea_tarjeta;
     }
+    
     /**
      * Obtiene la fecha de vencimiento de la tarjeta.
      *
@@ -140,6 +153,7 @@ public class TarjetaDeCredito {
     public Date getVencimiento_tarjeta() {
         return vencimiento_tarjeta;
     }
+    
     /**
      * Establece la fecha de vencimiento de la tarjeta.
      *
@@ -156,6 +170,7 @@ public class TarjetaDeCredito {
     public Long getNro_tarjeta() {
         return nro_tarjeta;
     }
+    
     /**
      * Establece el número de la tarjeta de crédito.
      *
@@ -164,6 +179,7 @@ public class TarjetaDeCredito {
     public void setNro_tarjeta(Long nro_tarjeta) {
         this.nro_tarjeta = nro_tarjeta;
     }
+    
     /**
      * Obtiene el identificador del cliente asociado a la tarjeta.
      *
@@ -172,6 +188,7 @@ public class TarjetaDeCredito {
     public long getId_cliente() {
         return id_cliente;
     }
+    
     /**
      * Establece el identificador del cliente asociado a la tarjeta.
      *
@@ -180,6 +197,7 @@ public class TarjetaDeCredito {
     public void setId_cliente(long id_cliente) {
         this.id_cliente = id_cliente;
     }
+    
     /**
      * Obtiene el cliente asociado a la tarjeta.
      *
@@ -188,6 +206,7 @@ public class TarjetaDeCredito {
     public Cliente getCliente_asociado() {
         return cliente_asociado;
     }
+    
     /**
      * Establece el cliente asociado a la tarjeta.
      *

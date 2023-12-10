@@ -1,9 +1,6 @@
 package primer_final;
 
-/**
- *
- * @author alanalcaraz
- */
+
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.Cursor;
@@ -51,7 +48,11 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 
 import javax.swing.Timer;
-
+/**
+ * Clase que representa la interfaz principal de la aplicación.
+ * Esta clase extiende javax.swing.JFrame y proporciona la interfaz gráfica para la interacción del usuario.
+ * La interfaz incluye diversos elementos como botones, campos de texto y paneles para realizar operaciones bancarias.
+ **/
 public class BaseInterfaz extends javax.swing.JFrame {
     private static boolean validarPin = false;
 
@@ -2269,8 +2270,11 @@ public class BaseInterfaz extends javax.swing.JFrame {
     }
 
     /**
-     * @param args the command line arguments
-     */
+    * Método principal para iniciar la aplicación.
+    * Configura el aspecto visual de la interfaz y lanza la aplicación.
+    *
+    * @param args Los argumentos de la línea de comandos (no utilizados en este caso).
+    */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

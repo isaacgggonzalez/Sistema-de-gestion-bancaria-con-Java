@@ -8,10 +8,12 @@ public class Servicio {
      * Identificador único del servicio.
      */
     private long idServicio;
+    
     /**
      * Nombre del servicio.
      */
     private String nombreServicio;
+    
     /**
      * Costo del servicio.
      */
@@ -38,6 +40,7 @@ public class Servicio {
     public long get_IdServicio() {
         return idServicio;
     }
+    
     /**
      * Establece el identificador único del servicio.
      *
@@ -55,6 +58,7 @@ public class Servicio {
     public String get_NombreServicio() {
         return nombreServicio;
     }
+    
     /**
      * Establece el nombre del servicio.
      *
@@ -72,6 +76,7 @@ public class Servicio {
     public double get_CostoServicio() {
         return costoServicio;
     }
+    
     /**
      * Establece el costo del servicio.
      *

@@ -11,22 +11,46 @@ import java.util.List;
  */
 public class ProcesosControlador {
 
-
+    /**
+     * Obtiene un objeto Cliente a partir de su número de cédula.
+     *
+     * @param cedula Número de cédula del cliente.
+     * @return Objeto Cliente correspondiente al número de cédula proporcionado.
+     */
     public static Cliente obtenerCliente(long cedula){
         TransaccionRepositorio transaccionRepositorio = new TransaccionRepositorio();
         return transaccionRepositorio.obtenerCliente(cedula);
     }
-
+    
+    /**
+     * Obtiene un objeto Cuenta a partir de su número de cuenta.
+     *
+     * @param numeroCuenta Número de cuenta.
+     * @return Objeto Cuenta correspondiente al número de cuenta proporcionado.
+     */
     public static Cuenta obtenerCuenta(long numeroCuenta){
         TransaccionRepositorio transaccionRepositorio = new TransaccionRepositorio();
         return transaccionRepositorio.obtenerCuenta(numeroCuenta);
     }
 
+    /**
+     * Verifica la validez del PIN asociado a una cuenta.
+     *
+     * @param cedula       Número de cédula del cliente.
+     * @param numeroCuenta Número de cuenta.
+     * @param clave        PIN a verificar.
+     * @return true si el PIN es válido, false en caso contrario.
+     */
     public static boolean verificarPinCuenta(long cedula, long numeroCuenta, int clave){
         TransaccionRepositorio transaccionRepositorio = new TransaccionRepositorio();
         return transaccionRepositorio.verificarPinCuenta(cedula, numeroCuenta, clave);
     }
 
+    /**
+     * Obtiene una lista de todos los servicios disponibles.
+     *
+     * @return Lista de objetos Servicio.
+     */
     public static List<Servicio> obtenerServicios(){
         TransaccionRepositorio transaccionRepositorio = new TransaccionRepositorio();
         return transaccionRepositorio.obtenerTodosLosServicios();

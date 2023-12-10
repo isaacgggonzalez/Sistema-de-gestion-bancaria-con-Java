@@ -9,13 +9,23 @@ import java.util.Date;
  * Extiende la clase base Transaccion e incluye información específica de un movimiento.
  */
 public class Movimiento extends Transaccion {
+    
     /**
      * Cuenta asociada al movimiento.
      */
     private Cuenta cuenta;
-
+    
+    /**
+     * Indica el signo del movimiento. Por defecto, es "-" para representar egresos.
+     */
     private String signo = "-";
-
+    
+    /**
+     * Constructor de la clase Movimiento.
+     * Crea una instancia de Movimiento asociada a una cuenta específica.
+     *
+     * @param cuenta La cuenta asociada al movimiento.
+     */
     public Movimiento(Cuenta cuenta){
         this.cuenta = cuenta;
     }
@@ -27,7 +37,6 @@ public class Movimiento extends Transaccion {
      * @param montoTransaccion Monto de la transacción.
      * @param tipoTransaccion  Tipo de la transacción.
      */
-
     public Movimiento(Date fechaTransaccion, double montoTransaccion, String tipoTransaccion) {
         super(fechaTransaccion, montoTransaccion, tipoTransaccion);
     }
@@ -52,6 +61,7 @@ public class Movimiento extends Transaccion {
     public Cuenta getCuenta() {
         return cuenta;
     }
+    
     /**
      * Establece la cuenta asociada al movimiento.
      *
@@ -60,14 +70,25 @@ public class Movimiento extends Transaccion {
     public void setCuenta(Cuenta cuenta) {
         this.cuenta = cuenta;
     }
-
+    
+    /**
+     * Obtiene el signo del movimiento. Por defecto, es "-" para representar egresos.
+     *
+     * @return El signo del movimiento.
+     */
     public String getSigno() {
         return signo;
     }
-
+    
+    /**
+     * Establece el signo del movimiento.
+     *
+     * @param signo El nuevo signo del movimiento.
+     */
     public void setSigno(String signo) {
         this.signo = signo;
     }
+    
     @Override
     public void run() {
 

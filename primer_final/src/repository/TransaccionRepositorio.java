@@ -125,7 +125,13 @@ public class TransaccionRepositorio {
         public TransaccionRepositorio(){}
 
 
-
+    /**
+     * Obtiene un objeto Cliente desde la base de datos basado en el número de cédula proporcionado.
+     *
+     * @param cedula Número de cédula del cliente a buscar.
+     * @return Objeto Cliente con la información correspondiente o null si no se encuentra en la base de datos.
+     * @throws SQLException Si ocurre un error al interactuar con la base de datos.
+     */
     public Cliente obtenerCliente(long cedula) {
         Cliente cliente = null;
 
@@ -785,7 +791,13 @@ public class TransaccionRepositorio {
         }
 
 }
-
+    
+    /**
+     * Recupera todos los servicios almacenados en la base de datos.
+     *
+     * @return Una lista de objetos Servicio que representan todos los servicios disponibles.
+     *         La lista estará vacía si no se encuentran servicios o si ocurre un error en la base de datos.
+     */
     public ArrayList<Servicio> obtenerTodosLosServicios() {
         ArrayList<Servicio> servicios = new ArrayList<>();
 

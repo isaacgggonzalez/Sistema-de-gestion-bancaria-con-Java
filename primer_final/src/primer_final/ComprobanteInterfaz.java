@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package primer_final;
 
 import modelo.Cliente;
@@ -11,19 +7,37 @@ import modelo.Transaccion;
 import java.text.SimpleDateFormat;
 
 /**
- *
- * @author AMD
+ * Interfaz para mostrar un comprobante de transacción.
+ * Esta interfaz se utiliza para mostrar información detallada sobre una transacción, incluyendo detalles del cliente,
+ * información de la cuenta y detalles específicos de la transacción.
  */
 public class ComprobanteInterfaz extends javax.swing.JFrame {
+    /**
+     * Cliente asociado a la transacción.
+     */
     Cliente cliente;
+    /**
+     * Cuenta asociada a la transacción.
+     */
     Cuenta cuenta;
+    /**
+     * Transacción para la cual se genera el comprobante.
+     */
     Transaccion transaccion;
     /**
-     * Creates new form ComprobanteInterfaz
+     * Crea una nueva instancia de la interfaz ComprobanteInterfaz sin parámetros.
+     * Esta instancia se utiliza cuando no hay información específica para mostrar en el comprobante.
      */
     public ComprobanteInterfaz() {
         initComponents();
     }
+    /**
+     * Crea una nueva instancia de la interfaz ComprobanteInterfaz con información específica.
+     *
+     * @param cliente     Cliente asociado a la transacción.
+     * @param cuenta      Cuenta asociada a la transacción.
+     * @param transaccion Transacción para la cual se genera el comprobante.
+     */
     public ComprobanteInterfaz(Cliente cliente, Cuenta cuenta, Transaccion transaccion) {
         this.cliente = cliente;
         this.cuenta = cuenta;
@@ -252,7 +266,12 @@ public class ComprobanteInterfaz extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
+    /**
+     * Cierra la interfaz actual y abre la interfaz principal de la aplicación.
+     * La interfaz principal es la BaseInterfaz, y se activa el menú de transferencia en esa interfaz.
+     *
+     * @param evt Evento de acción que desencadena el método.
+     */
     private void boton_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_salirActionPerformed
         BaseInterfaz ventanaSecundaria = new BaseInterfaz(cliente,cuenta);
         ventanaSecundaria.setVisible(true);
@@ -261,8 +280,10 @@ public class ComprobanteInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_boton_salirActionPerformed
 
     /**
-     * @param args the command line arguments
-     */
+    * Método principal que inicia la aplicación y muestra la interfaz de comprobante.
+    *
+    * @param args Los argumentos de la línea de comandos, no se utilizan en este caso.
+    */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

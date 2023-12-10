@@ -14,18 +14,22 @@ public class PagoDeTarjeta extends Transaccion {
      * Tipo de transacción para pago de tarjeta.
      */
     private static final String TIPO_TRANSACCION = "Pago de tarjeta";
+    
     /**
      * Identificador único del pago de tarjeta.
      */
     private long idPagoTarjeta;
+    
     /**
     * Número de cuenta asociado al pago.
     */
     private long numeroCuenta;
+    
     /**
     * Tarjeta de crédito asociada a la transacción de pago.
     */
     private TarjetaDeCredito tarjetaDeCredito;
+    
     /**
     * Constructor de la clase PagoDeTarjeta.
     *
@@ -40,6 +44,7 @@ public class PagoDeTarjeta extends Transaccion {
         this.tarjetaDeCredito = tarjetaDeCredito;
         this.idPagoTarjeta = idPagoTarjeta;
     }
+    
     /**
      * Constructor de la clase PagoDeTarjeta sin identificador adicional.
      *
@@ -68,6 +73,7 @@ public class PagoDeTarjeta extends Transaccion {
     public void setNumeroCuenta(long numeroCuenta) {
         this.numeroCuenta = numeroCuenta;
     }
+    
     /**
      * Obtiene la tarjeta de crédito asociada al pago.
      *
@@ -104,7 +110,6 @@ public class PagoDeTarjeta extends Transaccion {
         this.idPagoTarjeta = Id_pagoTarjeta;
     }
 
-    
     /**
      * Obtiene un mensaje de confirmación para la transacción de pago de tarjeta.
      *
@@ -114,7 +119,6 @@ public class PagoDeTarjeta extends Transaccion {
     public String mensajeConfirmacion(){
         return "Pago de la tarjeta Nro "+tarjetaDeCredito.getNro_tarjeta()+" ha sido exitosa";
     }
-
 
     /**
      * Realiza la transacción de pago de tarjeta.

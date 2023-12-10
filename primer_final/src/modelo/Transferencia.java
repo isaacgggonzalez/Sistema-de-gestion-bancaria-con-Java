@@ -12,10 +12,12 @@ public class Transferencia extends Transaccion {
      * Tipo de transacción para transferencia.
      */
     private static final String TIPO_TRANSACCION = "Transferencia";
+    
     /**
      * Cuenta de origen de la transferencia.
      */
     private long origenTransferencia;
+    
     /**
      * Cuenta de destino de la transferencia.
      */
@@ -63,8 +65,6 @@ public class Transferencia extends Transaccion {
         return "La transferencia a la cuenta "+ this.destinoTransferencia+" ha sido exitosa";
     }
 
-   
-    
     /**
      * Obtiene la cuenta de origen de la transferencia.
      *

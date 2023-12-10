@@ -17,6 +17,7 @@ public class Deposito extends Transaccion {
      * Cuenta de destino del depósito.
      */
     private Cuenta cuentaDestino;
+    
     /**
      * Constructor de la clase Deposito.
      *
@@ -51,6 +52,7 @@ public class Deposito extends Transaccion {
 
         this.cuentaDestino = cuentaDestino;
     }
+    
     /**
      * Constructor de la clase Deposito sin identificador adicional.
      *
@@ -72,6 +74,7 @@ public class Deposito extends Transaccion {
     public Cuenta getCuentaDestino() {
         return cuentaDestino;
     }
+    
     /**
      * Establece la cuenta de destino del depósito.
      *
@@ -81,7 +84,6 @@ public class Deposito extends Transaccion {
         this.cuentaDestino = cuentaDestino;
     }
     
-
     /**
      * Obtiene un mensaje de confirmación para la transacción de depósito.
      *
@@ -90,7 +92,6 @@ public class Deposito extends Transaccion {
     @Override
     public String mensajeConfirmacion(){return "El deposito a la cuenta "+cuentaDestino.getNumeroCuenta()+" con monto "+getMontoTransaccion()+
             " Gs ha sido exitosa";}
-
 
     /**
      * Realiza la transacción de depósito.

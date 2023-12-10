@@ -11,18 +11,22 @@ public abstract class Transaccion implements Runnable {
      * Identificador único de la transacción.
      */
     private long idTransaccion;
+    
     /**
      * Monto de la transacción.
      */
     private double montoTransaccion;
+    
     /**
      * Fecha de la transacción.
      */
     private Date fechaTransaccion;
+    
     /**
      * Tipo de la transacción.
      */
     private final String tipoTransaccion;
+    
 
     public Transaccion(){
         tipoTransaccion = "";
@@ -40,6 +44,7 @@ public abstract class Transaccion implements Runnable {
         this.fechaTransaccion = fechaTransaccion;
         this.montoTransaccion = montoTransaccion;
     }
+    
     /**
      * Constructor de la clase Transaccion con identificador adicional.
      *
@@ -71,6 +76,7 @@ public abstract class Transaccion implements Runnable {
     public long getIdTransaccion() {
         return idTransaccion;
     }
+    
     /**
      * Obtiene el tipo de la transacción.
      *
@@ -79,6 +85,7 @@ public abstract class Transaccion implements Runnable {
     public String getTipoTransaccion() {
         return tipoTransaccion;
     }
+    
     /**
      * Establece el identificador único de la transacción.
      *
@@ -87,12 +94,14 @@ public abstract class Transaccion implements Runnable {
     public void setIdTransaccion(int Id_transaccion) {
         this.idTransaccion = Id_transaccion;
     }
+    
     /**
      * Establece la fecha de la transacción como la fecha actual.
      */
     public void set_fecha_transaccion(Date fecha) {
         this.fechaTransaccion =  new Timestamp(System.currentTimeMillis());
     }
+    
     /**
      * Obtiene la fecha de la transacción.
      *
@@ -101,6 +110,7 @@ public abstract class Transaccion implements Runnable {
     public Date get_fecha_transaccion() {
         return fechaTransaccion;
     }
+    
     /**
      * Obtiene el monto de la transacción.
      *
@@ -109,6 +119,7 @@ public abstract class Transaccion implements Runnable {
     public double getMontoTransaccion() {
         return montoTransaccion;
     }
+    
     /**
      * Establece el monto de la transacción.
      *
