@@ -97,6 +97,8 @@ public abstract class Transaccion implements Runnable {
     
     /**
      * Establece la fecha de la transacción como la fecha actual.
+     * 
+     * @param fecha Indica la fecha en que se realiza la transaccion
      */
     public void set_fecha_transaccion(Date fecha) {
         this.fechaTransaccion =  new Timestamp(System.currentTimeMillis());

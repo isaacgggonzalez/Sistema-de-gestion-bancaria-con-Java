@@ -146,8 +146,8 @@ public class Cuenta{
      *
      * @param pinTransaccion Nuevo PIN de transacción asociado a la cuenta.
      */
-    public void setPinTransaccion(int Pin_transaccion) {
-        this.pinTransaccion = Pin_transaccion;
+    public void setPinTransaccion(int pinTransaccion) {
+        this.pinTransaccion = pinTransaccion;
     }
     
 

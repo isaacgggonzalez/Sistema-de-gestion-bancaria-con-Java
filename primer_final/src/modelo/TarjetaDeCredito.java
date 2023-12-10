@@ -47,27 +47,24 @@ public class TarjetaDeCredito {
      * Constructor de la clase TarjetaDeCredito.
      *
      * @param deuda_tarjeta         Deuda acumulada en la tarjeta.
-     * @param limite_tarjeta        Línea de crédito asociada a la tarjeta.
+     * @param linea_tarjeta        Línea de crédito asociada a la tarjeta.
      * @param vencimiento_tarjeta   Fecha de vencimiento de la tarjeta.
      * @param nro_tarjeta           Número de la tarjeta de crédito.
      * @param cliente_asociado      Cliente asociado a la tarjeta.
      */
-    public TarjetaDeCredito(double deuda_tarjeta, double limite_tarjeta, 
+    public TarjetaDeCredito(double deuda_tarjeta, double linea_tarjeta, 
             Date vencimiento_tarjeta, Long nro_tarjeta, Cliente cliente_asociado) {
         this.deuda_tarjeta = deuda_tarjeta;
-        this.linea_tarjeta = linea_tarjeta;
         this.vencimiento_tarjeta = vencimiento_tarjeta;
         this.nro_tarjeta = nro_tarjeta;
         this.cliente_asociado = cliente_asociado;
-        this.id_cliente = id_cliente;
-        this.id_tarjeta = id_tarjeta;
     }
     
     /**
      * Constructor de la clase TarjetaDeCredito sin parámetros.
      */
     public TarjetaDeCredito( ) {
-
+        
     }
     
     /**
@@ -76,7 +73,7 @@ public class TarjetaDeCredito {
      * @param id_tarjeta            Identificador único de la tarjeta.
      * @param id_cliente            Identificador del cliente asociado a la tarjeta.
      * @param deuda_tarjeta         Deuda acumulada en la tarjeta.
-     * @param limite_tarjeta        Línea de crédito asociada a la tarjeta.
+     * @param linea_tarjeta        Línea de crédito asociada a la tarjeta.
      * @param vencimiento_tarjeta   Fecha de vencimiento de la tarjeta.
      * @param nro_tarjeta           Número de la tarjeta de crédito.
      */
@@ -86,7 +83,6 @@ public class TarjetaDeCredito {
         this.linea_tarjeta = linea_tarjeta;
         this.vencimiento_tarjeta = vencimiento_tarjeta;
         this.nro_tarjeta = nro_tarjeta;
-        this.cliente_asociado = cliente_asociado;
         this.id_cliente = id_cliente;
         this.id_tarjeta = id_tarjeta;
     }
@@ -96,7 +92,7 @@ public class TarjetaDeCredito {
      *
      * @param id_tarjeta            Identificador único de la tarjeta.
      * @param deuda_tarjeta         Deuda acumulada en la tarjeta.
-     * @param limite_tarjeta        Línea de crédito asociada a la tarjeta.
+     * @param linea_tarjeta        Línea de crédito asociada a la tarjeta.
      * @param vencimiento_tarjeta   Fecha de vencimiento de la tarjeta.
      * @param nro_tarjeta           Número de la tarjeta de crédito.
      */

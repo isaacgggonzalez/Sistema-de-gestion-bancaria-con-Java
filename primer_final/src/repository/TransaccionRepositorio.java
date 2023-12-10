@@ -130,7 +130,6 @@ public class TransaccionRepositorio {
      *
      * @param cedula Número de cédula del cliente a buscar.
      * @return Objeto Cliente con la información correspondiente o null si no se encuentra en la base de datos.
-     * @throws SQLException Si ocurre un error al interactuar con la base de datos.
      */
     public Cliente obtenerCliente(long cedula) {
         Cliente cliente = null;
@@ -154,7 +153,6 @@ public class TransaccionRepositorio {
 
         } catch (SQLException e) {
             e.printStackTrace();
-            // Manejo de excepciones, puedes lanzar una excepción personalizada o devolver un valor predeterminado según sea necesario
         }
 
         return cliente;
@@ -250,7 +248,6 @@ public class TransaccionRepositorio {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Error al ejecutar la consulta SQL.");
         }
 
         return credencialesCorrectas;
