@@ -260,7 +260,6 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new Dimension(1020, 660));
-        setPreferredSize(new Dimension(1020, 660));
         setResizable(false);
 
         jDesktopPane1.setMaximumSize(new Dimension(1020, 660));
@@ -303,7 +302,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         botonesMenu.setEnabled(false);
 
         boton_pagarTarjeta.setActionCommand("pagarTarjeta");
-        boton_pagarTarjeta.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        boton_pagarTarjeta.setCursor(new Cursor(Cursor.HAND_CURSOR));
         boton_pagarTarjeta.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_pagarTarjeta.setLabel("Pagar Tarjeta");
         boton_pagarTarjeta.setMinimumSize(new Dimension(245, 35));
@@ -314,7 +313,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         });
 
         boton_deposito.setActionCommand("deposito");
-        boton_deposito.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        boton_deposito.setCursor(new Cursor(Cursor.HAND_CURSOR));
         boton_deposito.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_deposito.setLabel("Deposito");
         boton_deposito.setMinimumSize(new Dimension(245, 35));
@@ -325,7 +324,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         });
 
         boton_pagarServicio.setActionCommand("pagarServicio");
-        boton_pagarServicio.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        boton_pagarServicio.setCursor(new Cursor(Cursor.HAND_CURSOR));
         boton_pagarServicio.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_pagarServicio.setLabel("Pagar Servicio");
         boton_pagarServicio.setMinimumSize(new Dimension(245, 35));
@@ -336,7 +335,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         });
 
         boton_consultarSaldo.setActionCommand("consultarSaldo");
-        boton_consultarSaldo.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        boton_consultarSaldo.setCursor(new Cursor(Cursor.HAND_CURSOR));
         boton_consultarSaldo.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_consultarSaldo.setLabel("Consultar Saldo");
         boton_consultarSaldo.setMinimumSize(new Dimension(245, 35));
@@ -347,7 +346,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         });
 
         boton_acercaSistema.setActionCommand("acercaSistema");
-        boton_acercaSistema.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        boton_acercaSistema.setCursor(new Cursor(Cursor.HAND_CURSOR));
         boton_acercaSistema.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_acercaSistema.setLabel("Acerca del Sistema");
         boton_acercaSistema.setMinimumSize(new Dimension(245, 35));
@@ -358,7 +357,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         });
 
         boton_transferenciaCuenta.setActionCommand("transferenciaCuentas");
-        boton_transferenciaCuenta.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        boton_transferenciaCuenta.setCursor(new Cursor(Cursor.HAND_CURSOR));
         boton_transferenciaCuenta.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_transferenciaCuenta.setLabel("Transferencia entre Cuentas");
         boton_transferenciaCuenta.setMinimumSize(new Dimension(245, 35));
@@ -369,7 +368,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         });
 
         boton_cerrarSesion.setActionCommand("Cerrar Sesion");
-        boton_cerrarSesion.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        boton_cerrarSesion.setCursor(new Cursor(Cursor.HAND_CURSOR));
         boton_cerrarSesion.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_cerrarSesion.setLabel("Cerrar Sesion");
         boton_cerrarSesion.setMinimumSize(new Dimension(245, 35));
@@ -450,7 +449,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         menu_transferencia.setPreferredSize(new Dimension(643, 367));
 
         boton_cancelarTransferencia.setActionCommand("cancelarTransaccion");
-        boton_cancelarTransferencia.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        boton_cancelarTransferencia.setCursor(new Cursor(Cursor.HAND_CURSOR));
         boton_cancelarTransferencia.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_cancelarTransferencia.setForeground(new Color(51, 51, 51));
         boton_cancelarTransferencia.setLabel("Cancelar Transaccion");
@@ -463,7 +462,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         });
 
         boton_confirmarTransaccion1.setActionCommand("confirmarTransaccion");
-        boton_confirmarTransaccion1.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        boton_confirmarTransaccion1.setCursor(new Cursor(Cursor.HAND_CURSOR));
         boton_confirmarTransaccion1.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_confirmarTransaccion1.setForeground(new Color(51, 51, 51));
         boton_confirmarTransaccion1.setLabel("Confirmar Transaccion");
@@ -745,7 +744,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         menu_deposito.setPreferredSize(new Dimension(643, 367));
 
         boton_cancelarDeposito.setActionCommand("cancelarTransaccion");
-        boton_cancelarDeposito.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        boton_cancelarDeposito.setCursor(new Cursor(Cursor.HAND_CURSOR));
         boton_cancelarDeposito.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_cancelarDeposito.setForeground(new Color(51, 51, 51));
         boton_cancelarDeposito.setLabel("Cancelar Transaccion");
@@ -758,7 +757,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         });
 
         boton_confirmarDeposito.setActionCommand("confirmarTransaccion");
-        boton_confirmarDeposito.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        boton_confirmarDeposito.setCursor(new Cursor(Cursor.HAND_CURSOR));
         boton_confirmarDeposito.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_confirmarDeposito.setForeground(new Color(51, 51, 51));
         boton_confirmarDeposito.setLabel("Confirmar Transaccion");
@@ -844,7 +843,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         menu_pagarTarjeta.setMinimumSize(new Dimension(643, 367));
 
         boton_cancelarPagoTarjeta.setActionCommand("cancelarTransaccion");
-        boton_cancelarPagoTarjeta.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        boton_cancelarPagoTarjeta.setCursor(new Cursor(Cursor.HAND_CURSOR));
         boton_cancelarPagoTarjeta.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_cancelarPagoTarjeta.setForeground(new Color(51, 51, 51));
         boton_cancelarPagoTarjeta.setLabel("Cancelar Transaccion");
@@ -857,7 +856,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         });
 
         boton_confirmarTransaccion6.setActionCommand("confirmarTransaccion");
-        boton_confirmarTransaccion6.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        boton_confirmarTransaccion6.setCursor(new Cursor(Cursor.HAND_CURSOR));
         boton_confirmarTransaccion6.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_confirmarTransaccion6.setForeground(new Color(51, 51, 51));
         boton_confirmarTransaccion6.setLabel("Confirmar Transaccion");
@@ -1066,7 +1065,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         label56.setForeground(new Color(0, 1, 0));
         label56.setText("Lenguajes de Programación 2");
 
-        botonDocumentacion.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        botonDocumentacion.setCursor(new Cursor(Cursor.HAND_CURSOR));
         botonDocumentacion.setFont(new Font("Arial", 1, 14)); // NOI18N
         botonDocumentacion.setForeground(new Color(0, 1, 0));
         botonDocumentacion.setLabel("Ver Documentación");
@@ -1180,7 +1179,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         menu_pagarServicio.setPreferredSize(new Dimension(643, 367));
 
         boton_cancelarTransaccion7.setActionCommand("cancelarTransaccion");
-        boton_cancelarTransaccion7.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        boton_cancelarTransaccion7.setCursor(new Cursor(Cursor.HAND_CURSOR));
         boton_cancelarTransaccion7.setFont(new Font("Arial", 0, 18)); // NOI18N
         boton_cancelarTransaccion7.setForeground(new Color(51, 51, 51));
         boton_cancelarTransaccion7.setLabel("Cancelar Transaccion");
@@ -1193,7 +1192,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         });
 
         confirmar_pago_serv.setActionCommand("confirmarTransaccion");
-        confirmar_pago_serv.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        confirmar_pago_serv.setCursor(new Cursor(Cursor.HAND_CURSOR));
         confirmar_pago_serv.setFont(new Font("Arial", 0, 18)); // NOI18N
         confirmar_pago_serv.setForeground(new Color(51, 51, 51));
         confirmar_pago_serv.setLabel("Confirmar Transaccion");
@@ -1547,7 +1546,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         GroupLayout InterfazPrincipalLayout = new GroupLayout(InterfazPrincipal);
         InterfazPrincipal.setLayout(InterfazPrincipalLayout);
         InterfazPrincipalLayout.setHorizontalGroup(InterfazPrincipalLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 1032, Short.MAX_VALUE)
+            .addComponent(jLayeredPane1, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         InterfazPrincipalLayout.setVerticalGroup(InterfazPrincipalLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(GroupLayout.Alignment.TRAILING, InterfazPrincipalLayout.createSequentialGroup()

@@ -90,7 +90,7 @@ public class LoginInterfaz extends javax.swing.JFrame {
         box_cedula.setForeground(new java.awt.Color(0, 0, 0));
         jScrollPane3.setViewportView(box_cedula);
 
-        boton_iniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        boton_iniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         boton_iniciarSesion.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         boton_iniciarSesion.setLabel("Iniciar Sesion");
         boton_iniciarSesion.addActionListener(new java.awt.event.ActionListener() {

@@ -95,16 +95,21 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
 
         jLayeredPane2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        boton_salir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        boton_salir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         boton_salir.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         boton_salir.setLabel("Salir");
+        boton_salir.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                boton_salirComponentHidden(evt);
+            }
+        });
         boton_salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_salirActionPerformed(evt);
             }
         });
 
-        boton_aceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        boton_aceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         boton_aceptar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         boton_aceptar.setLabel("Aceptar");
         boton_aceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -246,6 +251,8 @@ public class PinTransaccionInterfaz extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    public void boton_salirComponentHidden(java.awt.event.ComponentEvent evt) {
+    }
 
     private boolean claveVisible = false;
     private static boolean validarPin= false;
