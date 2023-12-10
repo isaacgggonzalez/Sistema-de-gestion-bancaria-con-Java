@@ -100,7 +100,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
      * Muestra el número del grupo en la interfaz.
      */
     public void mostrarGrupo(){
-        numeroGrupo.setText("Grupo N°9");
+        numeroGrupo.setText("Grupo N°11");
     }
     /**
      * Abre un enlace externo a través del navegador web predeterminado.
