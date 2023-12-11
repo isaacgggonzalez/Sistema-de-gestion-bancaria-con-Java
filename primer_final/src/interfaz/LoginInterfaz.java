@@ -1,5 +1,5 @@
 
-package primer_final;
+package interfaz;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 

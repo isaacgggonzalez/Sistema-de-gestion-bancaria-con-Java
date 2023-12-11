@@ -1,9 +1,10 @@
 
-package primer_final;
+package interfaz;
 
 import modelo.Cliente;
 import modelo.Cuenta;
 import modelo.Transaccion;
+import modelo.ValidarPinTransaccion;
 
 
 /**

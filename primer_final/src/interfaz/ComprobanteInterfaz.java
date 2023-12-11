@@ -1,4 +1,4 @@
-package primer_final;
+package interfaz;
 
 import modelo.Cliente;
 import modelo.Cuenta;

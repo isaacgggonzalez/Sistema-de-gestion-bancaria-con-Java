@@ -1,4 +1,4 @@
-package primer_final;
+package interfaz;
 
 
 import java.awt.Button;
@@ -44,7 +44,6 @@ import org.netbeans.lib.awtextra.AbsoluteLayout;
 
 import java.text.SimpleDateFormat;
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
 
