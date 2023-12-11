@@ -264,6 +264,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
 
         jDesktopPane1.setMaximumSize(new Dimension(1020, 660));
         jDesktopPane1.setMinimumSize(new Dimension(1020, 660));
+        jDesktopPane1.setPreferredSize(new Dimension(1020, 660));
         jDesktopPane1.setLayout(new AbsoluteLayout());
 
         InterfazPrincipal.setEnabled(false);
@@ -1426,7 +1427,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
             .addGroup(menu_interaccionLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(menu_consultarSaldo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
             .addGroup(menu_interaccionLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(menu_interaccionLayout.createSequentialGroup()
                     .addContainerGap()
@@ -1526,7 +1527,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 216, Short.MAX_VALUE)
                 .addComponent(logo, GroupLayout.PREFERRED_SIZE, 307, GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
-            .addComponent(jTabbedPane1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+            .addComponent(jTabbedPane1)
         );
         jLayeredPane1Layout.setVerticalGroup(jLayeredPane1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
@@ -1562,7 +1563,7 @@ public class BaseInterfaz extends javax.swing.JFrame {
         fondo1.setMinimumSize(new Dimension(1020, 640));
         fondo1.setOpaque(true);
         fondo1.setPreferredSize(new Dimension(1020, 640));
-        jDesktopPane1.add(fondo1, new AbsoluteConstraints(0, 0, -1, -1));
+        jDesktopPane1.add(fondo1, new AbsoluteConstraints(0, 0, 1020, -1));
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
